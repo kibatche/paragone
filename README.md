@@ -141,10 +141,6 @@ paragone --serve --public chemin/vers/paragone-front/public
 
 Cela servira les données factices enregistrées dans cette base de données de test.
 
-Exemple avec le front de `paragone-front` :
-
-![[Pasted image 20261001173258.png]]
-
 Au contraire d'une vraie BDD, cette dernière contient un chemin **factice**. L'affichage du code n'est donc pas possible.
 
 ## Qu'est-ce que c'est ?
@@ -304,7 +300,7 @@ paragone --serve --public srcs/api/public --cors http://localhost:5173
 
 Le troisième exemple sert la page factice du dépôt ; remplacer `srcs/api/public` par le dossier du front.
 
-Aucun front n'est fourni : vous pouvez demander à votre assistant digital ou le faire vous-même.
+Aucun front n'est fourni dans ce repo. Vous pouvez trouver un front d'exemple là : https://github.com/kibatche/paragone-front
 
 Pourquoi ? Car cela dépasse le cadre de ce projet et que l'imposition d'un front ne semble pas souhaitable.
 
