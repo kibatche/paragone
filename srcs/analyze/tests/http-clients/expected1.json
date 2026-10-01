@@ -1,0 +1,4583 @@
+[
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "api.delete(\n  \"/api/users/123\",\n  { headers: { Authorization: \"Bearer token\" } },\n  { timeout: 5000 }\n)",
+    "start": {
+      "line": 52,
+      "column": 0,
+      "index": 1740
+    },
+    "end": {
+      "line": 56,
+      "column": 1,
+      "index": 1843
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/123",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "api.delete(\"/api/users/123\", {\n  headers: {\n    Authorization: \"Bearer token\"\n  }\n}, {\n  timeout: 5000\n})",
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 0,
+                "index": 1740
+              },
+              "end": {
+                "line": 56,
+                "column": 1,
+                "index": 1843
+              }
+            },
+            "pattern": "/api/users/123",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "DELETE",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "api.delete(\"/api/users/\" + userId)",
+    "start": {
+      "line": 13,
+      "column": 0,
+      "index": 403
+    },
+    "end": {
+      "line": 13,
+      "column": 34,
+      "index": 437
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "e7a729f13c1fc6a3ab03e7af19571ad9adab2628207566e3055d789a79563908",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "api.delete(\"/api/users/\" + userId);",
+              "nodeType": "Identifier",
+              "text": "userId",
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 27,
+                  "index": 430
+                },
+                "end": {
+                  "line": 13,
+                  "column": 33,
+                  "index": 436
+                }
+              },
+              "endReason": "Le noeud 'userId' est terminal.",
+              "path": [
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 3,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "api.delete(\"/api/users/\" + userId)",
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0,
+                "index": 403
+              },
+              "end": {
+                "line": 13,
+                "column": 34,
+                "index": 437
+              }
+            },
+            "pattern": "/api/users/EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "DELETE",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "api.delete(\"/api/users/123\", { headers: { Authorization: \"Bearer token\" } })",
+    "start": {
+      "line": 21,
+      "column": 0,
+      "index": 669
+    },
+    "end": {
+      "line": 21,
+      "column": 76,
+      "index": 745
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/123",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "api.delete(\"/api/users/123\", {\n  headers: {\n    Authorization: \"Bearer token\"\n  }\n})",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 0,
+                "index": 669
+              },
+              "end": {
+                "line": 21,
+                "column": 76,
+                "index": 745
+              }
+            },
+            "pattern": "/api/users/123",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "DELETE",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "api.delete(\"/api/users/123\")",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 96
+    },
+    "end": {
+      "line": 4,
+      "column": 28,
+      "index": 124
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/123",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "api.delete(\"/api/users/123\")",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0,
+                "index": 96
+              },
+              "end": {
+                "line": 4,
+                "column": 28,
+                "index": 124
+              }
+            },
+            "pattern": "/api/users/123",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "DELETE",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "api.get(\"/users\")",
+    "start": {
+      "line": 34,
+      "column": 0,
+      "index": 1141
+    },
+    "end": {
+      "line": 34,
+      "column": 17,
+      "index": 1158
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "api.get(\"/users\")",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 0,
+                "index": 1141
+              },
+              "end": {
+                "line": 34,
+                "column": 17,
+                "index": 1158
+              }
+            },
+            "pattern": "/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "api.post(\"/users\", userData)",
+    "start": {
+      "line": 35,
+      "column": 0,
+      "index": 1160
+    },
+    "end": {
+      "line": 35,
+      "column": 28,
+      "index": 1188
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "api.post(\"/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 0,
+                "index": 1160
+              },
+              "end": {
+                "line": 35,
+                "column": 28,
+                "index": 1188
+              }
+            },
+            "pattern": "/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "apiClient?.get(\"/api/users\")",
+    "start": {
+      "line": 124,
+      "column": 0,
+      "index": 3593
+    },
+    "end": {
+      "line": 124,
+      "column": 28,
+      "index": 3621
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "apiClient?.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 124,
+                "column": 0,
+                "index": 3593
+              },
+              "end": {
+                "line": 124,
+                "column": 28,
+                "index": 3621
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "apiClient?.post(\"/api/users\", userData)",
+    "start": {
+      "line": 125,
+      "column": 0,
+      "index": 3623
+    },
+    "end": {
+      "line": 125,
+      "column": 39,
+      "index": 3662
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "apiClient?.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 125,
+                "column": 0,
+                "index": 3623
+              },
+              "end": {
+                "line": 125,
+                "column": 39,
+                "index": 3662
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios\n  .get(\"/api/users\")",
+    "start": {
+      "line": 185,
+      "column": 0,
+      "index": 5305
+    },
+    "end": {
+      "line": 186,
+      "column": 20,
+      "index": 5331
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 185,
+                "column": 0,
+                "index": 5305
+              },
+              "end": {
+                "line": 186,
+                "column": 20,
+                "index": 5331
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios\n  .get(\"/api/users\")",
+    "start": {
+      "line": 192,
+      "column": 0,
+      "index": 5520
+    },
+    "end": {
+      "line": 193,
+      "column": 20,
+      "index": 5546
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 192,
+                "column": 0,
+                "index": 5520
+              },
+              "end": {
+                "line": 193,
+                "column": 20,
+                "index": 5546
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users?page=1&limit=10\")",
+    "start": {
+      "line": 17,
+      "column": 0,
+      "index": 546
+    },
+    "end": {
+      "line": 17,
+      "column": 39,
+      "index": 585
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users?page=1&limit=10",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users?page=1&limit=10\")",
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 0,
+                "index": 546
+              },
+              "end": {
+                "line": 17,
+                "column": 39,
+                "index": 585
+              }
+            },
+            "pattern": "/api/users?page=1&limit=10",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", {\n  cache: \"force-cache\",\n})",
+    "start": {
+      "line": 239,
+      "column": 0,
+      "index": 6730
+    },
+    "end": {
+      "line": 241,
+      "column": 2,
+      "index": 6782
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  cache: \"force-cache\"\n})",
+            "loc": {
+              "start": {
+                "line": 239,
+                "column": 0,
+                "index": 6730
+              },
+              "end": {
+                "line": 241,
+                "column": 2,
+                "index": 6782
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "cache (arguments[1])": "\"force-cache\""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", {\n  onDownloadProgress: (progressEvent) => {\n    console.log(progressEvent.loaded);\n  },\n})",
+    "start": {
+      "line": 225,
+      "column": 0,
+      "index": 6393
+    },
+    "end": {
+      "line": 229,
+      "column": 2,
+      "index": 6508
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  onDownloadProgress: progressEvent => {\n    console.log(progressEvent.loaded);\n  }\n})",
+            "loc": {
+              "start": {
+                "line": 225,
+                "column": 0,
+                "index": 6393
+              },
+              "end": {
+                "line": 229,
+                "column": 2,
+                "index": 6508
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "onDownloadProgress (arguments[1])": "progressEvent => {\n  console.log(progressEvent.loaded);\n}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", {\n  transformResponse: [(data) => JSON.parse(data)],\n})",
+    "start": {
+      "line": 220,
+      "column": 0,
+      "index": 6268
+    },
+    "end": {
+      "line": 222,
+      "column": 2,
+      "index": 6347
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  transformResponse: [data => JSON.parse(data)]\n})",
+            "loc": {
+              "start": {
+                "line": 220,
+                "column": 0,
+                "index": 6268
+              },
+              "end": {
+                "line": 222,
+                "column": 2,
+                "index": 6347
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "transformResponse (arguments[1])": "[data => JSON.parse(data)]"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", {\n  validateStatus: (status) => status >= 200 && status < 300,\n})",
+    "start": {
+      "line": 215,
+      "column": 0,
+      "index": 6127
+    },
+    "end": {
+      "line": 217,
+      "column": 2,
+      "index": 6216
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  validateStatus: status => status >= 200 && status < 300\n})",
+            "loc": {
+              "start": {
+                "line": 215,
+                "column": 0,
+                "index": 6127
+              },
+              "end": {
+                "line": 217,
+                "column": 2,
+                "index": 6216
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "validateStatus (arguments[1])": "status => status >= 200 && status < 300"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", {\n  withCredentials: true,\n})",
+    "start": {
+      "line": 244,
+      "column": 0,
+      "index": 6831
+    },
+    "end": {
+      "line": 246,
+      "column": 2,
+      "index": 6884
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  withCredentials: true\n})",
+            "loc": {
+              "start": {
+                "line": 244,
+                "column": 0,
+                "index": 6831
+              },
+              "end": {
+                "line": 246,
+                "column": 2,
+                "index": 6884
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "withCredentials (arguments[1])": "true"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", { ...options })",
+    "start": {
+      "line": 109,
+      "column": 0,
+      "index": 3177
+    },
+    "end": {
+      "line": 109,
+      "column": 39,
+      "index": 3216
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  ...options\n})",
+            "loc": {
+              "start": {
+                "line": 109,
+                "column": 0,
+                "index": 3177
+              },
+              "end": {
+                "line": 109,
+                "column": 39,
+                "index": 3216
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", { params: { page: 1, limit: 10 } })",
+    "start": {
+      "line": 27,
+      "column": 0,
+      "index": 886
+    },
+    "end": {
+      "line": 27,
+      "column": 59,
+      "index": 945
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  params: {\n    page: 1,\n    limit: 10\n  }\n})",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 0,
+                "index": 886
+              },
+              "end": {
+                "line": 27,
+                "column": 59,
+                "index": 945
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "params (arguments[1])": "{\n  page: 1,\n  limit: 10\n}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", { retry: 3 })",
+    "start": {
+      "line": 212,
+      "column": 0,
+      "index": 6042
+    },
+    "end": {
+      "line": 212,
+      "column": 37,
+      "index": 6079
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  retry: 3\n})",
+            "loc": {
+              "start": {
+                "line": 212,
+                "column": 0,
+                "index": 6042
+              },
+              "end": {
+                "line": 212,
+                "column": 37,
+                "index": 6079
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "retry (arguments[1])": "3"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", { signal: controller.signal })",
+    "start": {
+      "line": 205,
+      "column": 0,
+      "index": 5838
+    },
+    "end": {
+      "line": 205,
+      "column": 54,
+      "index": 5892
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  signal: controller.signal\n})",
+            "loc": {
+              "start": {
+                "line": 205,
+                "column": 0,
+                "index": 5838
+              },
+              "end": {
+                "line": 205,
+                "column": 54,
+                "index": 5892
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "signal (arguments[1])": "controller.signal"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\", { timeout: 5000 })",
+    "start": {
+      "line": 209,
+      "column": 0,
+      "index": 5957
+    },
+    "end": {
+      "line": 209,
+      "column": 42,
+      "index": 5999
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\", {\n  timeout: 5000\n})",
+            "loc": {
+              "start": {
+                "line": 209,
+                "column": 0,
+                "index": 5957
+              },
+              "end": {
+                "line": 209,
+                "column": 42,
+                "index": 5999
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {
+            "timeout (arguments[1])": "5000"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 27
+    },
+    "end": {
+      "line": 2,
+      "column": 23,
+      "index": 50
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 27
+              },
+              "end": {
+                "line": 2,
+                "column": 23,
+                "index": 50
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 38,
+      "column": 0,
+      "index": 1226
+    },
+    "end": {
+      "line": 38,
+      "column": 23,
+      "index": 1249
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 0,
+                "index": 1226
+              },
+              "end": {
+                "line": 38,
+                "column": 23,
+                "index": 1249
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 48,
+      "column": 0,
+      "index": 1555
+    },
+    "end": {
+      "line": 48,
+      "column": 23,
+      "index": 1578
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 48,
+                "column": 0,
+                "index": 1555
+              },
+              "end": {
+                "line": 48,
+                "column": 23,
+                "index": 1578
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 94,
+      "column": 23,
+      "index": 2722
+    },
+    "end": {
+      "line": 94,
+      "column": 46,
+      "index": 2745
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 94,
+                "column": 23,
+                "index": 2722
+              },
+              "end": {
+                "line": 94,
+                "column": 46,
+                "index": 2745
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 158,
+      "column": 8,
+      "index": 4596
+    },
+    "end": {
+      "line": 158,
+      "column": 31,
+      "index": 4619
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 158,
+                "column": 8,
+                "index": 4596
+              },
+              "end": {
+                "line": 158,
+                "column": 31,
+                "index": 4619
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 163,
+      "column": 13,
+      "index": 4719
+    },
+    "end": {
+      "line": 163,
+      "column": 36,
+      "index": 4742
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 163,
+                "column": 13,
+                "index": 4719
+              },
+              "end": {
+                "line": 163,
+                "column": 36,
+                "index": 4742
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 166,
+      "column": 14,
+      "index": 4836
+    },
+    "end": {
+      "line": 166,
+      "column": 37,
+      "index": 4859
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 166,
+                "column": 14,
+                "index": 4836
+              },
+              "end": {
+                "line": 166,
+                "column": 37,
+                "index": 4859
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 170,
+      "column": 2,
+      "index": 4968
+    },
+    "end": {
+      "line": 170,
+      "column": 25,
+      "index": 4991
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 170,
+                "column": 2,
+                "index": 4968
+              },
+              "end": {
+                "line": 170,
+                "column": 25,
+                "index": 4991
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 175,
+      "column": 13,
+      "index": 5087
+    },
+    "end": {
+      "line": 175,
+      "column": 36,
+      "index": 5110
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 175,
+                "column": 13,
+                "index": 5087
+              },
+              "end": {
+                "line": 175,
+                "column": 36,
+                "index": 5110
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users\")",
+    "start": {
+      "line": 179,
+      "column": 8,
+      "index": 5201
+    },
+    "end": {
+      "line": 179,
+      "column": 31,
+      "index": 5224
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 179,
+                "column": 8,
+                "index": 5201
+              },
+              "end": {
+                "line": 179,
+                "column": 31,
+                "index": 5224
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(\"/api/users/123\")",
+    "start": {
+      "line": 43,
+      "column": 25,
+      "index": 1458
+    },
+    "end": {
+      "line": 43,
+      "column": 52,
+      "index": 1485
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/123",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(\"/api/users/123\")",
+            "loc": {
+              "start": {
+                "line": 43,
+                "column": 25,
+                "index": 1458
+              },
+              "end": {
+                "line": 43,
+                "column": 52,
+                "index": 1485
+              }
+            },
+            "pattern": "/api/users/123",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.get(`/api/users/${userId}`)",
+    "start": {
+      "line": 9,
+      "column": 0,
+      "index": 268
+    },
+    "end": {
+      "line": 9,
+      "column": 33,
+      "index": 301
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "d18a39ad08e69e41d7b9de1adba81760bb0fe23a8896b9f6d1a3f1cda35d0a64",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "axios.get(`/api/users/${userId}`);",
+              "nodeType": "Identifier",
+              "text": "userId",
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 24,
+                  "index": 292
+                },
+                "end": {
+                  "line": 9,
+                  "column": 30,
+                  "index": 298
+                }
+              },
+              "endReason": "Le noeud 'userId' est terminal.",
+              "path": [
+                {
+                  "role": "expressions[0]",
+                  "nodeType": "TemplateLiteral"
+                }
+              ],
+              "id": 0,
+              "holes": [
+                {
+                  "name": "EXPR#0"
+                }
+              ]
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.get(`/api/users/${userId}`)",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0,
+                "index": 268
+              },
+              "end": {
+                "line": 9,
+                "column": 33,
+                "index": 301
+              }
+            },
+            "pattern": "/api/users/EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": true
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.post(\"/api/users\", data)",
+    "start": {
+      "line": 95,
+      "column": 29,
+      "index": 2776
+    },
+    "end": {
+      "line": 95,
+      "column": 59,
+      "index": 2806
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.post(\"/api/users\", data)",
+            "loc": {
+              "start": {
+                "line": 95,
+                "column": 29,
+                "index": 2776
+              },
+              "end": {
+                "line": 95,
+                "column": 59,
+                "index": 2806
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.post(\"/api/users\", userData, {\n  onUploadProgress: (progressEvent) => {\n    console.log(progressEvent.loaded);\n  },\n})",
+    "start": {
+      "line": 232,
+      "column": 0,
+      "index": 6561
+    },
+    "end": {
+      "line": 236,
+      "column": 2,
+      "index": 6685
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.post(\"/api/users\", userData, {\n  onUploadProgress: progressEvent => {\n    console.log(progressEvent.loaded);\n  }\n})",
+            "loc": {
+              "start": {
+                "line": 232,
+                "column": 0,
+                "index": 6561
+              },
+              "end": {
+                "line": 236,
+                "column": 2,
+                "index": 6685
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {
+            "onUploadProgress (arguments[2])": "progressEvent => {\n  console.log(progressEvent.loaded);\n}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.post(\"/api/users\", userData)",
+    "start": {
+      "line": 159,
+      "column": 8,
+      "index": 4629
+    },
+    "end": {
+      "line": 159,
+      "column": 42,
+      "index": 4663
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 159,
+                "column": 8,
+                "index": 4629
+              },
+              "end": {
+                "line": 159,
+                "column": 42,
+                "index": 4663
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.post(\"/api/users\", userData)",
+    "start": {
+      "line": 163,
+      "column": 38,
+      "index": 4744
+    },
+    "end": {
+      "line": 163,
+      "column": 72,
+      "index": 4778
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 163,
+                "column": 38,
+                "index": 4744
+              },
+              "end": {
+                "line": 163,
+                "column": 72,
+                "index": 4778
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.post(\"/api/users\", userData)",
+    "start": {
+      "line": 166,
+      "column": 39,
+      "index": 4861
+    },
+    "end": {
+      "line": 166,
+      "column": 73,
+      "index": 4895
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 166,
+                "column": 39,
+                "index": 4861
+              },
+              "end": {
+                "line": 166,
+                "column": 73,
+                "index": 4895
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.post(\"/api/users\", userData)",
+    "start": {
+      "line": 171,
+      "column": 2,
+      "index": 4995
+    },
+    "end": {
+      "line": 171,
+      "column": 36,
+      "index": 5029
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 171,
+                "column": 2,
+                "index": 4995
+              },
+              "end": {
+                "line": 171,
+                "column": 36,
+                "index": 5029
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "axios",
+    "value": "axios.post(\"/api/users\", userData)",
+    "start": {
+      "line": 175,
+      "column": 38,
+      "index": 5112
+    },
+    "end": {
+      "line": 175,
+      "column": 72,
+      "index": 5146
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "axios",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "axios.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 175,
+                "column": 38,
+                "index": 5112
+              },
+              "end": {
+                "line": 175,
+                "column": 72,
+                "index": 5146
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "client.get(\"/api/users\")",
+    "start": {
+      "line": 90,
+      "column": 0,
+      "index": 2593
+    },
+    "end": {
+      "line": 90,
+      "column": 24,
+      "index": 2617
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "client.get(\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 90,
+                "column": 0,
+                "index": 2593
+              },
+              "end": {
+                "line": 90,
+                "column": 24,
+                "index": 2617
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "client.post(\"/api/users\", userData)",
+    "start": {
+      "line": 91,
+      "column": 0,
+      "index": 2619
+    },
+    "end": {
+      "line": 91,
+      "column": 35,
+      "index": 2654
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "client.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 91,
+                "column": 0,
+                "index": 2619
+              },
+              "end": {
+                "line": 91,
+                "column": 35,
+                "index": 2654
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  integrity: \"sha256-1234567890\",\n})",
+    "start": {
+      "line": 269,
+      "column": 0,
+      "index": 7356
+    },
+    "end": {
+      "line": 271,
+      "column": 2,
+      "index": 7418
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  integrity: \"sha256-1234567890\"\n})",
+            "loc": {
+              "start": {
+                "line": 269,
+                "column": 0,
+                "index": 7356
+              },
+              "end": {
+                "line": 271,
+                "column": 2,
+                "index": 7418
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  keepalive: true,\n})",
+    "start": {
+      "line": 274,
+      "column": 0,
+      "index": 7465
+    },
+    "end": {
+      "line": 276,
+      "column": 2,
+      "index": 7512
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  keepalive: true\n})",
+            "loc": {
+              "start": {
+                "line": 274,
+                "column": 0,
+                "index": 7465
+              },
+              "end": {
+                "line": 276,
+                "column": 2,
+                "index": 7512
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  mode: \"cors\",\n})",
+    "start": {
+      "line": 249,
+      "column": 0,
+      "index": 6926
+    },
+    "end": {
+      "line": 251,
+      "column": 2,
+      "index": 6970
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  mode: \"cors\"\n})",
+            "loc": {
+              "start": {
+                "line": 249,
+                "column": 0,
+                "index": 6926
+              },
+              "end": {
+                "line": 251,
+                "column": 2,
+                "index": 6970
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  priority: \"high\",\n})",
+    "start": {
+      "line": 285,
+      "column": 0,
+      "index": 7674
+    },
+    "end": {
+      "line": 287,
+      "column": 2,
+      "index": 7722
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  priority: \"high\"\n})",
+            "loc": {
+              "start": {
+                "line": 285,
+                "column": 0,
+                "index": 7674
+              },
+              "end": {
+                "line": 287,
+                "column": 2,
+                "index": 7722
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  redirect: \"follow\",\n})",
+    "start": {
+      "line": 254,
+      "column": 0,
+      "index": 7016
+    },
+    "end": {
+      "line": 256,
+      "column": 2,
+      "index": 7066
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  redirect: \"follow\"\n})",
+            "loc": {
+              "start": {
+                "line": 254,
+                "column": 0,
+                "index": 7016
+              },
+              "end": {
+                "line": 256,
+                "column": 2,
+                "index": 7066
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  referrer: \"https://example.com\",\n})",
+    "start": {
+      "line": 259,
+      "column": 0,
+      "index": 7112
+    },
+    "end": {
+      "line": 261,
+      "column": 2,
+      "index": 7175
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  referrer: \"https://example.com\"\n})",
+            "loc": {
+              "start": {
+                "line": 259,
+                "column": 0,
+                "index": 7112
+              },
+              "end": {
+                "line": 261,
+                "column": 2,
+                "index": 7175
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  referrerPolicy: \"strict-origin-when-cross-origin\",\n})",
+    "start": {
+      "line": 264,
+      "column": 0,
+      "index": 7228
+    },
+    "end": {
+      "line": 266,
+      "column": 2,
+      "index": 7309
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  referrerPolicy: \"strict-origin-when-cross-origin\"\n})",
+            "loc": {
+              "start": {
+                "line": 264,
+                "column": 0,
+                "index": 7228
+              },
+              "end": {
+                "line": 266,
+                "column": 2,
+                "index": 7309
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  signal,\n})",
+    "start": {
+      "line": 280,
+      "column": 0,
+      "index": 7590
+    },
+    "end": {
+      "line": 282,
+      "column": 2,
+      "index": 7628
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  signal\n})",
+            "loc": {
+              "start": {
+                "line": 280,
+                "column": 0,
+                "index": 7590
+              },
+              "end": {
+                "line": 282,
+                "column": 2,
+                "index": 7628
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  window: null,\n})",
+    "start": {
+      "line": 290,
+      "column": 0,
+      "index": 7766
+    },
+    "end": {
+      "line": 292,
+      "column": 2,
+      "index": 7810
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  window: null\n})",
+            "loc": {
+              "start": {
+                "line": 290,
+                "column": 0,
+                "index": 7766
+              },
+              "end": {
+                "line": 292,
+                "column": 2,
+                "index": 7810
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  window: window,\n  headers: {\n    Authorization: \"Bearer token\",\n    \"Content-Type\": \"application/json\",\n  },\n})",
+    "start": {
+      "line": 307,
+      "column": 0,
+      "index": 8130
+    },
+    "end": {
+      "line": 313,
+      "column": 2,
+      "index": 8269
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  window: window,\n  headers: {\n    Authorization: \"Bearer token\",\n    \"Content-Type\": \"application/json\"\n  }\n})",
+            "loc": {
+              "start": {
+                "line": 307,
+                "column": 0,
+                "index": 8130
+              },
+              "end": {
+                "line": 313,
+                "column": 2,
+                "index": 8269
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  window: window,\n  mode: \"cors\",\n  credentials: \"include\",\n})",
+    "start": {
+      "line": 300,
+      "column": 0,
+      "index": 7976
+    },
+    "end": {
+      "line": 304,
+      "column": 2,
+      "index": 8064
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  window: window,\n  mode: \"cors\",\n  credentials: \"include\"\n})",
+            "loc": {
+              "start": {
+                "line": 300,
+                "column": 0,
+                "index": 7976
+              },
+              "end": {
+                "line": 304,
+                "column": 2,
+                "index": 8064
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.get(\"/api/users\", {\n  window: window,\n})",
+    "start": {
+      "line": 295,
+      "column": 0,
+      "index": 7864
+    },
+    "end": {
+      "line": 297,
+      "column": 2,
+      "index": 7910
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.get(\"/api/users\", {\n  window: window\n})",
+            "loc": {
+              "start": {
+                "line": 295,
+                "column": 0,
+                "index": 7864
+              },
+              "end": {
+                "line": 297,
+                "column": 2,
+                "index": 7910
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.post(\"/api/users?admin=true\", userData)",
+    "start": {
+      "line": 18,
+      "column": 0,
+      "index": 587
+    },
+    "end": {
+      "line": 18,
+      "column": 45,
+      "index": 632
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users?admin=true",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.post(\"/api/users?admin=true\", userData)",
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 0,
+                "index": 587
+              },
+              "end": {
+                "line": 18,
+                "column": 45,
+                "index": 632
+              }
+            },
+            "pattern": "/api/users?admin=true",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.post(\"/api/users\", {\n  window: window,\n  body: JSON.stringify(userData),\n})",
+    "start": {
+      "line": 316,
+      "column": 0,
+      "index": 8332
+    },
+    "end": {
+      "line": 319,
+      "column": 2,
+      "index": 8413
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.post(\"/api/users\", {\n  window: window,\n  body: JSON.stringify(userData)\n})",
+            "loc": {
+              "start": {
+                "line": 316,
+                "column": 0,
+                "index": 8332
+              },
+              "end": {
+                "line": 319,
+                "column": 2,
+                "index": 8413
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.post(\"/api/users\", { name: \"John\" })",
+    "start": {
+      "line": 3,
+      "column": 0,
+      "index": 52
+    },
+    "end": {
+      "line": 3,
+      "column": 42,
+      "index": 94
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.post(\"/api/users\", {\n  name: \"John\"\n})",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0,
+                "index": 52
+              },
+              "end": {
+                "line": 3,
+                "column": 42,
+                "index": 94
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.post(\"/api/users\", userData, {\n  headers: { \"Content-Type\": \"application/json\" },\n})",
+    "start": {
+      "line": 28,
+      "column": 0,
+      "index": 947
+    },
+    "end": {
+      "line": 30,
+      "column": 2,
+      "index": 1037
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.post(\"/api/users\", userData, {\n  headers: {\n    \"Content-Type\": \"application/json\"\n  }\n})",
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 0,
+                "index": 947
+              },
+              "end": {
+                "line": 30,
+                "column": 2,
+                "index": 1037
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.post(\"/api/users\", userData)",
+    "start": {
+      "line": 39,
+      "column": 0,
+      "index": 1293
+    },
+    "end": {
+      "line": 39,
+      "column": 34,
+      "index": 1327
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 0,
+                "index": 1293
+              },
+              "end": {
+                "line": 39,
+                "column": 34,
+                "index": 1327
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.post(\"/api/users\", userData)",
+    "start": {
+      "line": 49,
+      "column": 0,
+      "index": 1619
+    },
+    "end": {
+      "line": 49,
+      "column": 34,
+      "index": 1653
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.post(\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 49,
+                "column": 0,
+                "index": 1619
+              },
+              "end": {
+                "line": 49,
+                "column": 34,
+                "index": 1653
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.post(`/api/users/${userId}/posts`, postData)",
+    "start": {
+      "line": 10,
+      "column": 0,
+      "index": 303
+    },
+    "end": {
+      "line": 10,
+      "column": 50,
+      "index": 353
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "d18a39ad08e69e41d7b9de1adba81760bb0fe23a8896b9f6d1a3f1cda35d0a64",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/EXPR/posts",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "fetch.post(`/api/users/${userId}/posts`, postData);",
+              "nodeType": "Identifier",
+              "text": "userId",
+              "loc": {
+                "start": {
+                  "line": 10,
+                  "column": 25,
+                  "index": 328
+                },
+                "end": {
+                  "line": 10,
+                  "column": 31,
+                  "index": 334
+                }
+              },
+              "endReason": "Le noeud 'userId' est terminal.",
+              "path": [
+                {
+                  "role": "expressions[0]",
+                  "nodeType": "TemplateLiteral"
+                }
+              ],
+              "id": 0,
+              "holes": [
+                {
+                  "name": "EXPR#0"
+                }
+              ]
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.post(`/api/users/${userId}/posts`, postData)",
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 0,
+                "index": 303
+              },
+              "end": {
+                "line": 10,
+                "column": 50,
+                "index": 353
+              }
+            },
+            "pattern": "/api/users/EXPR#0/posts",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": true
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "fetch.request(\"/api/users\", {\n  window: window,\n  method: \"GET\",\n})",
+    "start": {
+      "line": 322,
+      "column": 0,
+      "index": 8478
+    },
+    "end": {
+      "line": 325,
+      "column": 2,
+      "index": 8545
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch.request(\"/api/users\", {\n  window: window,\n  method: \"GET\"\n})",
+            "loc": {
+              "start": {
+                "line": 322,
+                "column": 0,
+                "index": 8478
+              },
+              "end": {
+                "line": 325,
+                "column": 2,
+                "index": 8545
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "REQUEST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "http.patch(\"/api/users/123\", { name: \"John\" })",
+    "start": {
+      "line": 6,
+      "column": 0,
+      "index": 175
+    },
+    "end": {
+      "line": 6,
+      "column": 46,
+      "index": 221
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/123",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "http.patch(\"/api/users/123\", {\n  name: \"John\"\n})",
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0,
+                "index": 175
+              },
+              "end": {
+                "line": 6,
+                "column": 46,
+                "index": 221
+              }
+            },
+            "pattern": "/api/users/123",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "PATCH",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "methods[\"get\"](\"/api/users\")",
+    "start": {
+      "line": 116,
+      "column": 0,
+      "index": 3376
+    },
+    "end": {
+      "line": 116,
+      "column": 28,
+      "index": 3404
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "methods[\"get\"](\"/api/users\")",
+            "loc": {
+              "start": {
+                "line": 116,
+                "column": 0,
+                "index": 3376
+              },
+              "end": {
+                "line": 116,
+                "column": 28,
+                "index": 3404
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "http-clients",
+    "value": "methods[\"post\"](\"/api/users\", userData)",
+    "start": {
+      "line": 117,
+      "column": 0,
+      "index": 3406
+    },
+    "end": {
+      "line": 117,
+      "column": 39,
+      "index": 3445
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "http-clients",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "methods[\"post\"](\"/api/users\", userData)",
+            "loc": {
+              "start": {
+                "line": 117,
+                "column": 0,
+                "index": 3406
+              },
+              "end": {
+                "line": 117,
+                "column": 39,
+                "index": 3445
+              }
+            },
+            "pattern": "/api/users",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "request",
+    "value": "request.put(\n  \"/api/users/123\",\n  userData,\n  { headers: { \"Content-Type\": \"application/json\" } },\n  { timeout: 5000 }\n)",
+    "start": {
+      "line": 57,
+      "column": 0,
+      "index": 1845
+    },
+    "end": {
+      "line": 62,
+      "column": 1,
+      "index": 1966
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "request",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/123",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "request.put(\"/api/users/123\", userData, {\n  headers: {\n    \"Content-Type\": \"application/json\"\n  }\n}, {\n  timeout: 5000\n})",
+            "loc": {
+              "start": {
+                "line": 57,
+                "column": 0,
+                "index": 1845
+              },
+              "end": {
+                "line": 62,
+                "column": 1,
+                "index": 1966
+              }
+            },
+            "pattern": "/api/users/123",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "PUT",
+          "options": {
+            "headers (arguments[2])": "{\n  \"Content-Type\": \"application/json\"\n}",
+            "timeout (arguments[3])": "5000"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "request",
+    "value": "request.put(\"/api/users/\" + userId + \"/profile\", profileData)",
+    "start": {
+      "line": 14,
+      "column": 0,
+      "index": 439
+    },
+    "end": {
+      "line": 14,
+      "column": 61,
+      "index": 500
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "e7a729f13c1fc6a3ab03e7af19571ad9adab2628207566e3055d789a79563908",
+        "analyzerName": "request",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/EXPR/profile",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "request.put(\"/api/users/\" + userId + \"/profile\", profileData);",
+              "nodeType": "Identifier",
+              "text": "userId",
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 28,
+                  "index": 467
+                },
+                "end": {
+                  "line": 14,
+                  "column": 34,
+                  "index": 473
+                }
+              },
+              "endReason": "Le noeud 'userId' est terminal.",
+              "path": [
+                {
+                  "role": "left",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 2
+          },
+          "nodeCount": 5,
+          "kept": 1,
+          "traversed": 2,
+          "shared": 0,
+          "sink": {
+            "carrierText": "request.put(\"/api/users/\" + userId + \"/profile\", profileData)",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 0,
+                "index": 439
+              },
+              "end": {
+                "line": 14,
+                "column": 61,
+                "index": 500
+              }
+            },
+            "pattern": "/api/users/EXPR#0/profile",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "PUT",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "request",
+    "value": "request.put(\"/api/users/123\", { name: \"John\" })",
+    "start": {
+      "line": 5,
+      "column": 0,
+      "index": 126
+    },
+    "end": {
+      "line": 5,
+      "column": 47,
+      "index": 173
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "request",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/123",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "request.put(\"/api/users/123\", {\n  name: \"John\"\n})",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0,
+                "index": 126
+              },
+              "end": {
+                "line": 5,
+                "column": 47,
+                "index": 173
+              }
+            },
+            "pattern": "/api/users/123",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "PUT",
+          "options": {
+            "name (arguments[1])": "\"John\""
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "http-clients/files/1.js",
+    "analyzerName": "request",
+    "value": "request.put(\"/api/users/123\", userData, {\n  headers: { \"Content-Type\": \"application/json\" },\n})",
+    "start": {
+      "line": 22,
+      "column": 0,
+      "index": 747
+    },
+    "end": {
+      "line": 24,
+      "column": 2,
+      "index": 842
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "request",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/api/users/123",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "request.put(\"/api/users/123\", userData, {\n  headers: {\n    \"Content-Type\": \"application/json\"\n  }\n})",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 0,
+                "index": 747
+              },
+              "end": {
+                "line": 24,
+                "column": 2,
+                "index": 842
+              }
+            },
+            "pattern": "/api/users/123",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "PUT",
+          "options": {
+            "headers (arguments[2])": "{\n  \"Content-Type\": \"application/json\"\n}"
+          }
+        }
+      }
+    ]
+  }
+]

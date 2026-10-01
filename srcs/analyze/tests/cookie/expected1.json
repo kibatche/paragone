@@ -1,0 +1,184 @@
+[
+  {
+    "filePath": "cookie/files/1.js",
+    "analyzerName": "cookie-read",
+    "value": "document.cookie",
+    "start": {
+      "line": 7,
+      "column": 20,
+      "index": 202
+    },
+    "end": {
+      "line": 7,
+      "column": 35,
+      "index": 217
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "COOKIE_INVENTORY"
+        ],
+        "hash": "16137b5c3a70e638493deb59803145cc6d12011095da23b10f666bb23350e493",
+        "analyzerName": "cookie-read",
+        "reconstructed": "document.cookie"
+      }
+    ]
+  },
+  {
+    "filePath": "cookie/files/1.js",
+    "analyzerName": "cookie-read",
+    "value": "document.cookie",
+    "start": {
+      "line": 8,
+      "column": 18,
+      "index": 237
+    },
+    "end": {
+      "line": 8,
+      "column": 33,
+      "index": 252
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "COOKIE_INVENTORY"
+        ],
+        "hash": "16137b5c3a70e638493deb59803145cc6d12011095da23b10f666bb23350e493",
+        "analyzerName": "cookie-read",
+        "reconstructed": "document.cookie"
+      }
+    ]
+  },
+  {
+    "filePath": "cookie/files/1.js",
+    "analyzerName": "cookie-read",
+    "value": "document.cookie",
+    "start": {
+      "line": 16,
+      "column": 9,
+      "index": 425
+    },
+    "end": {
+      "line": 16,
+      "column": 24,
+      "index": 440
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "COOKIE_INVENTORY"
+        ],
+        "hash": "16137b5c3a70e638493deb59803145cc6d12011095da23b10f666bb23350e493",
+        "analyzerName": "cookie-read",
+        "reconstructed": "document.cookie"
+      }
+    ]
+  },
+  {
+    "filePath": "cookie/files/1.js",
+    "analyzerName": "cookie-assignment",
+    "value": "document.cookie = \"name=value; expires=Fri, 31 Dec 2023 23:59:59 GMT\"",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 94
+    },
+    "end": {
+      "line": 4,
+      "column": 69,
+      "index": 163
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "COOKIE_INVENTORY"
+        ],
+        "hash": "e17157978ef7b3db5f324845b48c54c1471b36d7caaec9f62dd3a5f00f287e24",
+        "analyzerName": "cookie-assignment",
+        "reconstructed": "document.cookie = \"name=value; expires=Fri, 31 Dec 2023 23:59:59 GMT\""
+      }
+    ]
+  },
+  {
+    "filePath": "cookie/files/1.js",
+    "analyzerName": "cookie-assignment",
+    "value": "document.cookie = \"name=value; path=/\"",
+    "start": {
+      "line": 3,
+      "column": 0,
+      "index": 54
+    },
+    "end": {
+      "line": 3,
+      "column": 38,
+      "index": 92
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "COOKIE_INVENTORY"
+        ],
+        "hash": "719272b4d2611662fc41da09a489b422af48c068e93ca03130414a27d3871bee",
+        "analyzerName": "cookie-assignment",
+        "reconstructed": "document.cookie = \"name=value; path=/\""
+      }
+    ]
+  },
+  {
+    "filePath": "cookie/files/1.js",
+    "analyzerName": "cookie-assignment",
+    "value": "document.cookie = \"name=value\"",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 22
+    },
+    "end": {
+      "line": 2,
+      "column": 30,
+      "index": 52
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "COOKIE_INVENTORY"
+        ],
+        "hash": "989a7bf19f2ce8628a75a0ec13db37e3c5f7595d6f8fb08e56ded27dabe196b2",
+        "analyzerName": "cookie-assignment",
+        "reconstructed": "document.cookie = \"name=value\""
+      }
+    ]
+  },
+  {
+    "filePath": "cookie/files/1.js",
+    "analyzerName": "cookie-assignment",
+    "value": "document.cookie = `${name}=${value}`",
+    "start": {
+      "line": 12,
+      "column": 2,
+      "index": 348
+    },
+    "end": {
+      "line": 12,
+      "column": 38,
+      "index": 384
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "COOKIE_INVENTORY"
+        ],
+        "hash": "44e7d4df3b2ca0bb35728d6d77c20aa61aeb4c64a82967e52e6600c7549e1f1a",
+        "analyzerName": "cookie-assignment",
+        "reconstructed": "document.cookie = `${name}=${value}`"
+      }
+    ]
+  }
+]

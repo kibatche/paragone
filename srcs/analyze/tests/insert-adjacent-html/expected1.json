@@ -1,0 +1,140 @@
+[
+  {
+    "filePath": "insert-adjacent-html/files/1.js",
+    "analyzerName": "insert-adjacent-html",
+    "value": "el.insertAdjacentHTML(\"beforeend\", \"<li>\" + decodeURIComponent(location.hash) + \"</li>\")",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 46
+    },
+    "end": {
+      "line": 2,
+      "column": 88,
+      "index": 134
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "28f58344cae15436f368769cc6b8ebd2756191a83c7afce1138cbe00f593859c",
+        "analyzerName": "insert-adjacent-html",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "<li>EXPR</li>",
+        "taint": {
+          "verdict": "SOURCE_REACHED",
+          "sources": [
+            "location Read"
+          ],
+          "findings": [
+            {
+              "kind": "INTERNAL",
+              "knownSource": "location Read",
+              "sourceString": "el.insertAdjacentHTML(\"beforeend\", \"<li>\" + decodeURIComponent(location.hash) + \"</li>\");",
+              "nodeType": "MemberExpression",
+              "text": "location.hash",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 63,
+                  "index": 109
+                },
+                "end": {
+                  "line": 2,
+                  "column": 76,
+                  "index": 122
+                }
+              },
+              "endReason": "",
+              "path": [
+                {
+                  "role": "left",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "argument[0]",
+                  "nodeType": "CallExpression"
+                }
+              ],
+              "id": 1
+            },
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "el.insertAdjacentHTML(\"beforeend\", \"<li>\" + decodeURIComponent(location.hash) + \"</li>\");",
+              "nodeType": "Identifier",
+              "text": "decodeURIComponent",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 44,
+                  "index": 90
+                },
+                "end": {
+                  "line": 2,
+                  "column": 62,
+                  "index": 108
+                }
+              },
+              "endReason": "Le noeud 'decodeURIComponent' est terminal.",
+              "path": [
+                {
+                  "role": "left",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "callee",
+                  "nodeType": "CallExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 2,
+            "UNBOUND (base de la source)": 1
+          },
+          "nodeCount": 8,
+          "kept": 2,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "el.insertAdjacentHTML(\"beforeend\", \"<li>\" + decodeURIComponent(location.hash) + \"</li>\")",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 46
+              },
+              "end": {
+                "line": 2,
+                "column": 88,
+                "index": 134
+              }
+            },
+            "pattern": "<li>EXPR#0</li>",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

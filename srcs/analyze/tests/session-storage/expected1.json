@@ -1,0 +1,106 @@
+[
+  {
+    "filePath": "session-storage/files/1.js",
+    "analyzerName": "session-storage",
+    "value": "sessionStorage.getItem('key')",
+    "start": {
+      "line": 3,
+      "column": 14,
+      "index": 85
+    },
+    "end": {
+      "line": 3,
+      "column": 43,
+      "index": 114
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "SESSION_STORAGE_INVENTORY"
+        ],
+        "hash": "2627696a602bf0f4e7858717ebe718ee5118bdd10e32f91cb1411b98daca2af4",
+        "analyzerName": "session-storage",
+        "reconstructed": "sessionStorage.getItem('key')"
+      }
+    ]
+  },
+  {
+    "filePath": "session-storage/files/1.js",
+    "analyzerName": "session-storage",
+    "value": "sessionStorage.setItem('key', 'value')",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 31
+    },
+    "end": {
+      "line": 2,
+      "column": 38,
+      "index": 69
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "SESSION_STORAGE_INVENTORY"
+        ],
+        "hash": "387c992f5f551a4d899ae142a1ab117ddad4fc446cfc593476c8321b6d3c3fde",
+        "analyzerName": "session-storage",
+        "reconstructed": "sessionStorage.setItem('key', 'value')"
+      }
+    ]
+  },
+  {
+    "filePath": "session-storage/files/1.js",
+    "analyzerName": "session-storage",
+    "value": "window.sessionStorage.getItem('key2')",
+    "start": {
+      "line": 7,
+      "column": 15,
+      "index": 212
+    },
+    "end": {
+      "line": 7,
+      "column": 52,
+      "index": 249
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "SESSION_STORAGE_INVENTORY"
+        ],
+        "hash": "29e631c59f30d849aab7686db5c86266d2e211297ea41e73346409a392d64c23",
+        "analyzerName": "session-storage",
+        "reconstructed": "window.sessionStorage.getItem('key2')"
+      }
+    ]
+  },
+  {
+    "filePath": "session-storage/files/1.js",
+    "analyzerName": "session-storage",
+    "value": "window.sessionStorage.setItem('key2', 'value2')",
+    "start": {
+      "line": 6,
+      "column": 0,
+      "index": 148
+    },
+    "end": {
+      "line": 6,
+      "column": 47,
+      "index": 195
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "SESSION_STORAGE_INVENTORY"
+        ],
+        "hash": "f2bf2aa44e9fd2ab86db4b52defe27becc9e88a6e05fde4761eae0c139e6874a",
+        "analyzerName": "session-storage",
+        "reconstructed": "window.sessionStorage.setItem('key2', 'value2')"
+      }
+    ]
+  }
+]

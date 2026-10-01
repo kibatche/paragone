@@ -1,0 +1,101 @@
+[
+  {
+    "filePath": "create-contextual-fragment/files/1.js",
+    "analyzerName": "create-contextual-fragment",
+    "value": "document.createRange().createContextualFragment(location.hash.substring(1))",
+    "start": {
+      "line": 2,
+      "column": 11,
+      "index": 22
+    },
+    "end": {
+      "line": 2,
+      "column": 86,
+      "index": 97
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "analyzerName": "create-contextual-fragment",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "SOURCE_REACHED",
+          "sources": [
+            "location Read"
+          ],
+          "findings": [
+            {
+              "kind": "INTERNAL",
+              "knownSource": "location Read",
+              "sourceString": "var frag = document.createRange().createContextualFragment(location.hash.substring(1));",
+              "nodeType": "MemberExpression",
+              "text": "location.hash",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 59,
+                  "index": 70
+                },
+                "end": {
+                  "line": 2,
+                  "column": 72,
+                  "index": 83
+                }
+              },
+              "endReason": "",
+              "path": [
+                {
+                  "role": "callee",
+                  "nodeType": "CallExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "UNBOUND (base de la source)": 1,
+            "LITERAL": 1
+          },
+          "nodeCount": 5,
+          "kept": 1,
+          "traversed": 2,
+          "shared": 0,
+          "sink": {
+            "carrierText": "document.createRange().createContextualFragment(location.hash.substring(1))",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 11,
+                "index": 22
+              },
+              "end": {
+                "line": 2,
+                "column": 86,
+                "index": 97
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

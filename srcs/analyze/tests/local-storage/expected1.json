@@ -1,0 +1,418 @@
+[
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "localStorage.clear()",
+    "start": {
+      "line": 10,
+      "column": 0,
+      "index": 278
+    },
+    "end": {
+      "line": 10,
+      "column": 20,
+      "index": 298
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "128bfa12addc3d4b8abf45a8d1b00586799609215a0f996f2430a32656d15b5b",
+        "analyzerName": "local-storage",
+        "reconstructed": "localStorage.clear()"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "localStorage.getItem('key')",
+    "start": {
+      "line": 8,
+      "column": 0,
+      "index": 217
+    },
+    "end": {
+      "line": 8,
+      "column": 27,
+      "index": 244
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "ff33f695adf40f6e4bd0b619e3044ff1f4d5f3ea902add58d51caf9c2804a578",
+        "analyzerName": "local-storage",
+        "reconstructed": "localStorage.getItem('key')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "localStorage.removeItem('key')",
+    "start": {
+      "line": 9,
+      "column": 0,
+      "index": 246
+    },
+    "end": {
+      "line": 9,
+      "column": 30,
+      "index": 276
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "29fe9d87005aaba61f80d80621e5ced5162e421780b5a6ccf4de5771cd8dc747",
+        "analyzerName": "local-storage",
+        "reconstructed": "localStorage.removeItem('key')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "localStorage.setItem('key', 'value')",
+    "start": {
+      "line": 7,
+      "column": 0,
+      "index": 179
+    },
+    "end": {
+      "line": 7,
+      "column": 36,
+      "index": 215
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "d7f21c05b192bbfe97f67dfc77669acd1477597bc1263c546c3595c1c5974340",
+        "analyzerName": "local-storage",
+        "reconstructed": "localStorage.setItem('key', 'value')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.clear()",
+    "start": {
+      "line": 5,
+      "column": 0,
+      "index": 149
+    },
+    "end": {
+      "line": 5,
+      "column": 27,
+      "index": 176
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "cf44e4591a62b7afcd1020a594a3fcecfcc4812c8e7c51acd406ca72bff6ef0e",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.clear()"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.getItem('data')",
+    "start": {
+      "line": 29,
+      "column": 13,
+      "index": 814
+    },
+    "end": {
+      "line": 29,
+      "column": 48,
+      "index": 849
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "7d94826fcefea6eabdaed019d32b4c18c6cb10e3922d22f4a7f720ad760f870b",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.getItem('data')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.getItem('key')",
+    "start": {
+      "line": 3,
+      "column": 0,
+      "index": 74
+    },
+    "end": {
+      "line": 3,
+      "column": 34,
+      "index": 108
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "5587a859e37e630eb84c4397a0184bdbf1c0a0429621016925e8a16d47e9e317",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.getItem('key')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.getItem('user')",
+    "start": {
+      "line": 26,
+      "column": 0,
+      "index": 737
+    },
+    "end": {
+      "line": 26,
+      "column": 35,
+      "index": 772
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "9154938c3bdc2b0caac6cbb0a820782711a6c3c72928918d5c53a6117ed24d0b",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.getItem('user')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.getItem(`${prefix}name`)",
+    "start": {
+      "line": 21,
+      "column": 0,
+      "index": 559
+    },
+    "end": {
+      "line": 21,
+      "column": 44,
+      "index": 603
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "60537786aa309a75166c9b9cda62f4d2b392d0f4efaa3fbab1b039d3c8fc0773",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.getItem(`${prefix}name`)"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.getItem(key)",
+    "start": {
+      "line": 16,
+      "column": 0,
+      "index": 415
+    },
+    "end": {
+      "line": 16,
+      "column": 32,
+      "index": 447
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "12e235fbac22072841bab75230c0255bbad03a73e66ecd3c8b88104d9ec89e13",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.getItem(key)"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.removeItem('key')",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 110
+    },
+    "end": {
+      "line": 4,
+      "column": 37,
+      "index": 147
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "35ab6f3643a27b25aecf919ca588516fdfd6fa3c57c64abc4c2c17a0e58050dc",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.removeItem('key')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.setItem('backup', data)",
+    "start": {
+      "line": 31,
+      "column": 2,
+      "index": 865
+    },
+    "end": {
+      "line": 31,
+      "column": 45,
+      "index": 908
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "70930656eddd103aee196799fd18674951db2871cf05b20a9f5656197e1439b7",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.setItem('backup', data)"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.setItem('key', 'value')",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 29
+    },
+    "end": {
+      "line": 2,
+      "column": 43,
+      "index": 72
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "a67168add9ab9175191882b6ac723fb21473e1385bd949301e002a008d21df06",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.setItem('key', 'value')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.setItem('user', JSON.stringify(user))",
+    "start": {
+      "line": 25,
+      "column": 0,
+      "index": 678
+    },
+    "end": {
+      "line": 25,
+      "column": 57,
+      "index": 735
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "f8bbb08a473a4b84662799e547dad5fe2ff8633d82ecad1fa20e09b2794ceb65",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.setItem('user', JSON.stringify(user))"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.setItem(`${prefix}name`, 'John')",
+    "start": {
+      "line": 20,
+      "column": 0,
+      "index": 505
+    },
+    "end": {
+      "line": 20,
+      "column": 52,
+      "index": 557
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "b5d2382b491a34232a6f5cf17c56f5a8d4450e0b69fc8b942b497020673eea8a",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.setItem(`${prefix}name`, 'John')"
+      }
+    ]
+  },
+  {
+    "filePath": "local-storage/files/1.js",
+    "analyzerName": "local-storage",
+    "value": "window.localStorage.setItem(key, value)",
+    "start": {
+      "line": 15,
+      "column": 0,
+      "index": 374
+    },
+    "end": {
+      "line": 15,
+      "column": 39,
+      "index": 413
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "LOCAL_STORAGE_INVENTORY"
+        ],
+        "hash": "c6aa1da29cd08dedbc01c5a62902322adc27528c12c619701695ddc3dac0dafd",
+        "analyzerName": "local-storage",
+        "reconstructed": "window.localStorage.setItem(key, value)"
+      }
+    ]
+  }
+]

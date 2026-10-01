@@ -1,0 +1,233 @@
+[
+  {
+    "filePath": "function-constructor/files/1.js",
+    "analyzerName": "function-constructor",
+    "value": "Function(body)",
+    "start": {
+      "line": 4,
+      "column": 8,
+      "index": 115
+    },
+    "end": {
+      "line": 4,
+      "column": 22,
+      "index": 129
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "b38c11eba5321fac06f3a9067bf65c4697a91093f3d49c9b62d539185fa924c6",
+        "analyzerName": "function-constructor",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "var g = Function(body);",
+              "nodeType": "Identifier",
+              "text": "body",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 17,
+                  "index": 124
+                },
+                "end": {
+                  "line": 4,
+                  "column": 21,
+                  "index": 128
+                }
+              },
+              "endReason": "Le noeud 'body' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "Function(body)",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 8,
+                "index": 115
+              },
+              "end": {
+                "line": 4,
+                "column": 22,
+                "index": 129
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "function-constructor/files/1.js",
+    "analyzerName": "function-constructor",
+    "value": "new Function(\"a\", \"return a + \" + location.hash.slice(1))",
+    "start": {
+      "line": 2,
+      "column": 9,
+      "index": 20
+    },
+    "end": {
+      "line": 2,
+      "column": 66,
+      "index": 77
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "function-constructor",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "a",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "new Function(\"a\", \"return a + \" + location.hash.slice(1))",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 9,
+                "index": 20
+              },
+              "end": {
+                "line": 2,
+                "column": 66,
+                "index": 77
+              }
+            },
+            "pattern": "a",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "analyzerName": "function-constructor",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "return a + EXPR",
+        "taint": {
+          "verdict": "SOURCE_REACHED",
+          "sources": [
+            "location Read"
+          ],
+          "findings": [
+            {
+              "kind": "INTERNAL",
+              "knownSource": "location Read",
+              "sourceString": "var fn = new Function(\"a\", \"return a + \" + location.hash.slice(1));",
+              "nodeType": "MemberExpression",
+              "text": "location.hash",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 43,
+                  "index": 54
+                },
+                "end": {
+                  "line": 2,
+                  "column": 56,
+                  "index": 67
+                }
+              },
+              "endReason": "",
+              "path": [
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "callee",
+                  "nodeType": "CallExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 2,
+            "UNBOUND (base de la source)": 1
+          },
+          "nodeCount": 7,
+          "kept": 1,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "new Function(\"a\", \"return a + \" + location.hash.slice(1))",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 9,
+                "index": 20
+              },
+              "end": {
+                "line": 2,
+                "column": 66,
+                "index": 77
+              }
+            },
+            "pattern": "return a + EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

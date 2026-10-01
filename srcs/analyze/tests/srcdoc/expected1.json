@@ -1,0 +1,192 @@
+[
+  {
+    "filePath": "srcdoc/files/1.js",
+    "analyzerName": "srcdoc",
+    "value": "{ srcDoc: t.preview, sandbox: \"\" }",
+    "start": {
+      "line": 4,
+      "column": 26,
+      "index": 128
+    },
+    "end": {
+      "line": 4,
+      "column": 60,
+      "index": 162
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "18d7ee3fcd984e6f7faeef8578de9820b248c72fc23060c83d2766d0c9dba925",
+        "analyzerName": "srcdoc",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "srcDoc"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "r.createElement(\"iframe\", { srcDoc: t.preview, sandbox: \"\" });",
+              "nodeType": "Identifier",
+              "text": "t",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 36,
+                  "index": 138
+                },
+                "end": {
+                  "line": 4,
+                  "column": 37,
+                  "index": 139
+                }
+              },
+              "endReason": "Le noeud 't' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "srcDoc: t.preview",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 28,
+                "index": 130
+              },
+              "end": {
+                "line": 4,
+                "column": 45,
+                "index": 147
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "srcdoc/files/1.js",
+    "analyzerName": "srcdoc",
+    "value": "frame.srcdoc = \"<p>\" + msg.data + \"</p>\"",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 25
+    },
+    "end": {
+      "line": 2,
+      "column": 40,
+      "index": 65
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "7f09384c5218c5cb7822d8bf8653394636297c6c45e2dac5bcb71a01dce17449",
+        "analyzerName": "srcdoc",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<p>EXPR</p>",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "frame.srcdoc = \"<p>\" + msg.data + \"</p>\";",
+              "nodeType": "Identifier",
+              "text": "msg",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 23,
+                  "index": 48
+                },
+                "end": {
+                  "line": 2,
+                  "column": 26,
+                  "index": 51
+                }
+              },
+              "endReason": "Le noeud 'msg' est terminal.",
+              "path": [
+                {
+                  "role": "left",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 2
+          },
+          "nodeCount": 6,
+          "kept": 1,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "frame.srcdoc = \"<p>\" + msg.data + \"</p>\"",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 25
+              },
+              "end": {
+                "line": 2,
+                "column": 40,
+                "index": 65
+              }
+            },
+            "pattern": "<p>EXPR#0</p>",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

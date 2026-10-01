@@ -1,0 +1,460 @@
+[
+  {
+    "filePath": "spa-navigation/files/1.js",
+    "analyzerName": "spa-navigation",
+    "value": "history.pushState({}, \"\", \"/search?q=\" + q)",
+    "start": {
+      "line": 8,
+      "column": 0,
+      "index": 248
+    },
+    "end": {
+      "line": 8,
+      "column": 43,
+      "index": 291
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT",
+          "OPEN_REDIRECT"
+        ],
+        "hash": "134c631cc1b478d44d29073733d9cbb314eba4b9f54be8f47a00654aa044936d",
+        "analyzerName": "spa-navigation",
+        "slot": {
+          "kind": "call-argument",
+          "index": 2
+        },
+        "reconstructed": "/search?q=EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "history.pushState({}, \"\", \"/search?q=\" + q);",
+              "nodeType": "Identifier",
+              "text": "q",
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 41,
+                  "index": 289
+                },
+                "end": {
+                  "line": 8,
+                  "column": 42,
+                  "index": 290
+                }
+              },
+              "endReason": "Le noeud 'q' est terminal.",
+              "path": [
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 3,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "history.pushState({}, \"\", \"/search?q=\" + q)",
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 0,
+                "index": 248
+              },
+              "end": {
+                "line": 8,
+                "column": 43,
+                "index": 291
+              }
+            },
+            "pattern": "/search?q=EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0",
+                "inQuery": true
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "spa-navigation/files/1.js",
+    "analyzerName": "spa-navigation",
+    "value": "navigate(`/account/${tab}`)",
+    "start": {
+      "line": 6,
+      "column": 0,
+      "index": 171
+    },
+    "end": {
+      "line": 6,
+      "column": 27,
+      "index": 198
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT",
+          "OPEN_REDIRECT"
+        ],
+        "hash": "21ef4d215738ac8bb0d0ac6f907692b7695094ac58e2994bd3916322543447de",
+        "analyzerName": "spa-navigation",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/account/EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "navigate(`/account/${tab}`);",
+              "nodeType": "Identifier",
+              "text": "tab",
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 21,
+                  "index": 192
+                },
+                "end": {
+                  "line": 6,
+                  "column": 24,
+                  "index": 195
+                }
+              },
+              "endReason": "Le noeud 'tab' est terminal.",
+              "path": [
+                {
+                  "role": "expressions[0]",
+                  "nodeType": "TemplateLiteral"
+                }
+              ],
+              "id": 0,
+              "holes": [
+                {
+                  "name": "EXPR#0"
+                }
+              ]
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "navigate(`/account/${tab}`)",
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0,
+                "index": 171
+              },
+              "end": {
+                "line": 6,
+                "column": 27,
+                "index": 198
+              }
+            },
+            "pattern": "/account/EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "spa-navigation/files/1.js",
+    "analyzerName": "spa-navigation",
+    "value": "this.$router.push(\"/orders/\" + params.get(\"id\"))",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 24
+    },
+    "end": {
+      "line": 2,
+      "column": 48,
+      "index": 72
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT",
+          "OPEN_REDIRECT"
+        ],
+        "hash": "8fbc83e960a965de5b5b82a3bcefaea02c28d835e168965f2c7fd48ea6542811",
+        "analyzerName": "spa-navigation",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/orders/EXPR",
+        "taint": {
+          "verdict": "SOURCE_REACHED",
+          "sources": [
+            "X.get|post|patch|delete() Call"
+          ],
+          "findings": [
+            {
+              "kind": "INTERNAL",
+              "knownSource": "X.get|post|patch|delete() Call",
+              "sourceString": "this.$router.push(\"/orders/\" + params.get(\"id\"));",
+              "nodeType": "CallExpression",
+              "text": "params.get(\"id\")",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 31,
+                  "index": 55
+                },
+                "end": {
+                  "line": 2,
+                  "column": 47,
+                  "index": 71
+                }
+              },
+              "endReason": "",
+              "path": [
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 2,
+            "UNBOUND (base de la source)": 1
+          },
+          "nodeCount": 6,
+          "kept": 1,
+          "traversed": 2,
+          "shared": 0,
+          "sink": {
+            "carrierText": "this.$router.push(\"/orders/\" + params.get(\"id\"))",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 24
+              },
+              "end": {
+                "line": 2,
+                "column": 48,
+                "index": 72
+              }
+            },
+            "pattern": "/orders/EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "spa-navigation/files/1.js",
+    "analyzerName": "spa-navigation",
+    "value": "this.router.navigateByUrl(returnUrl)",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 95
+    },
+    "end": {
+      "line": 4,
+      "column": 36,
+      "index": 131
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT",
+          "OPEN_REDIRECT"
+        ],
+        "hash": "c10cebe15ba3c02f9ea7811aca847a01dbb8abd58f49071da35e0a49643f1cbd",
+        "analyzerName": "spa-navigation",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "this.router.navigateByUrl(returnUrl);",
+              "nodeType": "Identifier",
+              "text": "returnUrl",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 26,
+                  "index": 121
+                },
+                "end": {
+                  "line": 4,
+                  "column": 35,
+                  "index": 130
+                }
+              },
+              "endReason": "Le noeud 'returnUrl' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "this.router.navigateByUrl(returnUrl)",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0,
+                "index": 95
+              },
+              "end": {
+                "line": 4,
+                "column": 36,
+                "index": 131
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "spa-navigation/files/1.js",
+    "analyzerName": "spa-navigation",
+    "value": "window.history.replaceState(null, \"\", url)",
+    "start": {
+      "line": 9,
+      "column": 0,
+      "index": 293
+    },
+    "end": {
+      "line": 9,
+      "column": 42,
+      "index": 335
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT",
+          "OPEN_REDIRECT"
+        ],
+        "hash": "adfae48d79c9fb3ede9bb086d79908222e81643ec1a02653a98e62d7de5ff952",
+        "analyzerName": "spa-navigation",
+        "slot": {
+          "kind": "call-argument",
+          "index": 2
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "window.history.replaceState(null, \"\", url);",
+              "nodeType": "Identifier",
+              "text": "url",
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 38,
+                  "index": 331
+                },
+                "end": {
+                  "line": 9,
+                  "column": 41,
+                  "index": 334
+                }
+              },
+              "endReason": "Le noeud 'url' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.history.replaceState(null, \"\", url)",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0,
+                "index": 293
+              },
+              "end": {
+                "line": 9,
+                "column": 42,
+                "index": 335
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

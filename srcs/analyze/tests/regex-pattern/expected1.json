@@ -1,0 +1,184 @@
+[
+  {
+    "filePath": "regex-pattern/files/1.js",
+    "analyzerName": "regex-pattern",
+    "value": "/([a-zA-Z0-9]+|\\s)+$/",
+    "start": {
+      "line": 13,
+      "column": 11,
+      "index": 315
+    },
+    "end": {
+      "line": 13,
+      "column": 32,
+      "index": 336
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_PATTERN_INVENTORY"
+        ],
+        "hash": "3491bf17ebf7d47443bef0c3db7762b0ea812e90786bc0c5ed7085897d5d9b15",
+        "analyzerName": "regex-pattern",
+        "reconstructed": "/([a-zA-Z0-9]+|\\s)+$/"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-pattern/files/1.js",
+    "analyzerName": "regex-pattern",
+    "value": "/[a-z]+/g",
+    "start": {
+      "line": 3,
+      "column": 15,
+      "index": 56
+    },
+    "end": {
+      "line": 3,
+      "column": 24,
+      "index": 65
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_PATTERN_INVENTORY"
+        ],
+        "hash": "84998755561b915b104c8c07f0cd6d5421fdc5bfac61cdc8f4d62f2962087c50",
+        "analyzerName": "regex-pattern",
+        "reconstructed": "/[a-z]+/g"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-pattern/files/1.js",
+    "analyzerName": "regex-pattern",
+    "value": "/^\\d{3}-\\d{2}-\\d{4}$/",
+    "start": {
+      "line": 4,
+      "column": 15,
+      "index": 82
+    },
+    "end": {
+      "line": 4,
+      "column": 36,
+      "index": 103
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_PATTERN_INVENTORY"
+        ],
+        "hash": "d86b1a4f780b9e1ab5def557b4cf4a8a8e5c3fa4e32fb3e2d6af10faee780700",
+        "analyzerName": "regex-pattern",
+        "reconstructed": "/^\\d{3}-\\d{2}-\\d{4}$/"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-pattern/files/1.js",
+    "analyzerName": "regex-pattern",
+    "value": "/test/",
+    "start": {
+      "line": 2,
+      "column": 15,
+      "index": 33
+    },
+    "end": {
+      "line": 2,
+      "column": 21,
+      "index": 39
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_PATTERN_INVENTORY"
+        ],
+        "hash": "993b890b4d3e33c4356bbad8315b48e676f2b2fcff7c4a22d9837e8496a32cac",
+        "analyzerName": "regex-pattern",
+        "reconstructed": "/test/"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-pattern/files/1.js",
+    "analyzerName": "regex-pattern",
+    "value": "new RegExp('[a-z]+', 'g')",
+    "start": {
+      "line": 8,
+      "column": 15,
+      "index": 178
+    },
+    "end": {
+      "line": 8,
+      "column": 40,
+      "index": 203
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_PATTERN_INVENTORY"
+        ],
+        "hash": "24b2acd685649451b28f9b6b372e217818c7b77fb0c35b8d45adb9a4795777ec",
+        "analyzerName": "regex-pattern",
+        "reconstructed": "new RegExp('[a-z]+', 'g')"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-pattern/files/1.js",
+    "analyzerName": "regex-pattern",
+    "value": "new RegExp('^\\\\d{3}-\\\\d{2}-\\\\d{4}$')",
+    "start": {
+      "line": 9,
+      "column": 15,
+      "index": 220
+    },
+    "end": {
+      "line": 9,
+      "column": 51,
+      "index": 256
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_PATTERN_INVENTORY"
+        ],
+        "hash": "9b41b730473e48005a5f582d5a9edfa8086f1a7a1f3282a0fb8f35786911d91b",
+        "analyzerName": "regex-pattern",
+        "reconstructed": "new RegExp('^\\\\d{3}-\\\\d{2}-\\\\d{4}$')"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-pattern/files/1.js",
+    "analyzerName": "regex-pattern",
+    "value": "new RegExp('test')",
+    "start": {
+      "line": 7,
+      "column": 15,
+      "index": 143
+    },
+    "end": {
+      "line": 7,
+      "column": 33,
+      "index": 161
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_PATTERN_INVENTORY"
+        ],
+        "hash": "075c193204767aae12cfebdb350ef470c871b436d3834048ca92ca8cfc8380e8",
+        "analyzerName": "regex-pattern",
+        "reconstructed": "new RegExp('test')"
+      }
+    ]
+  }
+]

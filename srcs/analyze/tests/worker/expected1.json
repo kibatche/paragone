@@ -1,0 +1,177 @@
+[
+  {
+    "filePath": "worker/files/1.js",
+    "analyzerName": "worker",
+    "value": "new window.SharedWorker(url)",
+    "start": {
+      "line": 4,
+      "column": 9,
+      "index": 73
+    },
+    "end": {
+      "line": 4,
+      "column": 37,
+      "index": 101
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "adfae48d79c9fb3ede9bb086d79908222e81643ec1a02653a98e62d7de5ff952",
+        "analyzerName": "worker",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "var sw = new window.SharedWorker(url);",
+              "nodeType": "Identifier",
+              "text": "url",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 33,
+                  "index": 97
+                },
+                "end": {
+                  "line": 4,
+                  "column": 36,
+                  "index": 100
+                }
+              },
+              "endReason": "Le noeud 'url' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "new window.SharedWorker(url)",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 9,
+                "index": 73
+              },
+              "end": {
+                "line": 4,
+                "column": 37,
+                "index": 101
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "worker/files/1.js",
+    "analyzerName": "worker",
+    "value": "new Worker(params.get(\"worker\"))",
+    "start": {
+      "line": 2,
+      "column": 8,
+      "index": 19
+    },
+    "end": {
+      "line": 2,
+      "column": 40,
+      "index": 51
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "8fbc83e960a965de5b5b82a3bcefaea02c28d835e168965f2c7fd48ea6542811",
+        "analyzerName": "worker",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "SOURCE_REACHED",
+          "sources": [
+            "X.get|post|patch|delete() Call"
+          ],
+          "findings": [
+            {
+              "kind": "INTERNAL",
+              "knownSource": "X.get|post|patch|delete() Call",
+              "sourceString": "var w = new Worker(params.get(\"worker\"));",
+              "nodeType": "CallExpression",
+              "text": "params.get(\"worker\")",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 19,
+                  "index": 30
+                },
+                "end": {
+                  "line": 2,
+                  "column": 39,
+                  "index": 50
+                }
+              },
+              "endReason": "",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "UNBOUND (base de la source)": 1,
+            "LITERAL": 1
+          },
+          "nodeCount": 4,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "new Worker(params.get(\"worker\"))",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 8,
+                "index": 19
+              },
+              "end": {
+                "line": 2,
+                "column": 40,
+                "index": 51
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

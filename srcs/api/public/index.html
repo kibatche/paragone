@@ -1,0 +1,102 @@
+<!doctype html>
+<!--
+  @author [A likely boring stuff made by] Shevek
+  @desc index.html — Page factice servie par l'API : prouve le branchement en appelant /api/meta et /api/summary, et explique comment brancher un vrai front.
+-->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>paragone — page factice</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      body {
+        font:
+          16px/1.5 system-ui,
+          sans-serif;
+        max-width: 52rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      pre {
+        overflow: auto;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        background: color-mix(in srgb, currentColor 8%, transparent);
+      }
+      code {
+        font-family: ui-monospace, monospace;
+      }
+      .ko {
+        color: #b3261e;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>paragone — page factice</h1>
+    <p>
+      Cette page est servie par l'API elle-même, depuis le dossier
+      <code>public</code>. Elle appelle l'API en chemins relatifs : aucun
+      réglage d'origine n'est nécessaire. Le contrat complet est sur
+      <a href="/openapi">/openapi</a> (JSON :
+      <a href="/openapi/json">/openapi/json</a>).
+    </p>
+
+    <h2>Preuve de branchement</h2>
+    <h3>GET /api/meta</h3>
+    <pre id="meta">chargement…</pre>
+    <h3>GET /api/summary</h3>
+    <pre id="summary">chargement…</pre>
+
+    <h2>Brancher un vrai front</h2>
+    <p>
+      <strong>1. Servi par l'API</strong> — construire le front avec son outil,
+      puis lancer :
+    </p>
+    <pre><code>paragone --serve --public ./dist</code></pre>
+    <p>
+      Le dossier est servi à <code>/</code>. Une page sans extension qui
+      n'existe pas (par exemple <code>/leads/12</code>) renvoie son
+      <code>index.html</code>, pour un routeur en mode « history ». Les chemins
+      <code>/api</code> et <code>/openapi</code> sont réservés. Le front appelle
+      l'API en chemins relatifs : <code>fetch("/api/leads")</code>.
+    </p>
+    <p>
+      <strong>2. Hébergé ailleurs</strong> — lancer l'API en autorisant son
+      origine :
+    </p>
+    <pre><code>paragone --serve --cors http://localhost:5173</code></pre>
+    <p>
+      Le front appelle alors l'URL complète :
+      <code>fetch("http://127.0.0.1:7331/api/leads")</code>. Sans
+      <code>--cors</code>, un autre site ne peut pas lire l'API. Un serveur de
+      développement qui fait proxy de <code>/api</code> vers l'API n'a pas
+      besoin de <code>--cors</code> : le navigateur ne voit qu'une seule
+      origine.
+    </p>
+    <p>
+      Le contrat <code>/openapi/json</code> décrit chaque route, ses paramètres
+      et ses réponses : un générateur de client (par exemple
+      <code>openapi-typescript</code>) peut en tirer des types.
+    </p>
+
+    <script>
+      async function show(id, path) {
+        const target = document.getElementById(id);
+        try {
+          const response = await fetch(path);
+          const text = JSON.stringify(await response.json(), null, 2);
+          target.textContent = `${response.status}\n${text}`;
+          if (!response.ok) target.className = "ko";
+        } catch (error) {
+          target.textContent = String(error);
+          target.className = "ko";
+        }
+      }
+      show("meta", "/api/meta");
+      show("summary", "/api/summary");
+    </script>
+  </body>
+</html>

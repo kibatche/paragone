@@ -1,0 +1,561 @@
+[
+  {
+    "filePath": "react-dangerously-set-inner-html/files/1.js",
+    "analyzerName": "dangerouslySetInnerHTML",
+    "value": "{\n    dangerouslySetInnerHTML: {\n      __html: '<div>Nested content</div>'\n    }\n  }",
+    "start": {
+      "line": 48,
+      "column": 11,
+      "index": 1105
+    },
+    "end": {
+      "line": 52,
+      "column": 3,
+      "index": 1189
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "dangerouslySetInnerHTML",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "dangerouslySetInnerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 2,
+          "kept": 0,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "dangerouslySetInnerHTML: {\n  __html: '<div>Nested content</div>'\n}",
+            "loc": {
+              "start": {
+                "line": 49,
+                "column": 4,
+                "index": 1111
+              },
+              "end": {
+                "line": 51,
+                "column": 5,
+                "index": 1185
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "react-dangerously-set-inner-html/files/1.js",
+    "analyzerName": "dangerouslySetInnerHTML",
+    "value": "{\n  className: 'content',\n  dangerouslySetInnerHTML: {\n    __html: '<div>Content with other props</div>'\n  },\n  onClick: () => console.log('clicked')\n}",
+    "start": {
+      "line": 9,
+      "column": 15,
+      "index": 232
+    },
+    "end": {
+      "line": 15,
+      "column": 1,
+      "index": 383
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "dangerouslySetInnerHTML",
+        "slot": {
+          "kind": "object-property",
+          "index": 1,
+          "key": "dangerouslySetInnerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 2,
+          "kept": 0,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "dangerouslySetInnerHTML: {\n  __html: '<div>Content with other props</div>'\n}",
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 2,
+                "index": 260
+              },
+              "end": {
+                "line": 13,
+                "column": 3,
+                "index": 340
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "react-dangerously-set-inner-html/files/1.js",
+    "analyzerName": "dangerouslySetInnerHTML",
+    "value": "{\n  dangerouslySetInnerHTML: {\n    __html: '<div>Base content</div>'\n  }\n}",
+    "start": {
+      "line": 64,
+      "column": 18,
+      "index": 1478
+    },
+    "end": {
+      "line": 68,
+      "column": 1,
+      "index": 1552
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "dangerouslySetInnerHTML",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "dangerouslySetInnerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 2,
+          "kept": 0,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "dangerouslySetInnerHTML: {\n  __html: '<div>Base content</div>'\n}",
+            "loc": {
+              "start": {
+                "line": 65,
+                "column": 2,
+                "index": 1482
+              },
+              "end": {
+                "line": 67,
+                "column": 3,
+                "index": 1550
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "react-dangerously-set-inner-html/files/1.js",
+    "analyzerName": "dangerouslySetInnerHTML",
+    "value": "{\n  dangerouslySetInnerHTML: {\n    __html: '<p>First content</p>'\n  }\n}",
+    "start": {
+      "line": 18,
+      "column": 15,
+      "index": 458
+    },
+    "end": {
+      "line": 22,
+      "column": 1,
+      "index": 529
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "dangerouslySetInnerHTML",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "dangerouslySetInnerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 2,
+          "kept": 0,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "dangerouslySetInnerHTML: {\n  __html: '<p>First content</p>'\n}",
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 2,
+                "index": 462
+              },
+              "end": {
+                "line": 21,
+                "column": 3,
+                "index": 527
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "react-dangerously-set-inner-html/files/1.js",
+    "analyzerName": "dangerouslySetInnerHTML",
+    "value": "{\n  dangerouslySetInnerHTML: {\n    __html: '<span>Hello World</span>'\n  }\n}",
+    "start": {
+      "line": 2,
+      "column": 15,
+      "index": 77
+    },
+    "end": {
+      "line": 6,
+      "column": 1,
+      "index": 152
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "dangerouslySetInnerHTML",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "dangerouslySetInnerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 2,
+          "kept": 0,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "dangerouslySetInnerHTML: {\n  __html: '<span>Hello World</span>'\n}",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 2,
+                "index": 81
+              },
+              "end": {
+                "line": 5,
+                "column": 3,
+                "index": 150
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "react-dangerously-set-inner-html/files/1.js",
+    "analyzerName": "dangerouslySetInnerHTML",
+    "value": "{\n  dangerouslySetInnerHTML: {\n    __html: '<strong>Second content</strong>'\n  }\n}",
+    "start": {
+      "line": 24,
+      "column": 15,
+      "index": 547
+    },
+    "end": {
+      "line": 28,
+      "column": 1,
+      "index": 629
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "dangerouslySetInnerHTML",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "dangerouslySetInnerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 2,
+          "kept": 0,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "dangerouslySetInnerHTML: {\n  __html: '<strong>Second content</strong>'\n}",
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 2,
+                "index": 551
+              },
+              "end": {
+                "line": 27,
+                "column": 3,
+                "index": 627
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "react-dangerously-set-inner-html/files/1.js",
+    "analyzerName": "dangerouslySetInnerHTML",
+    "value": "{\n  dangerouslySetInnerHTML: {\n    __html: `<p>Hello ${name}</p>`\n  }\n}",
+    "start": {
+      "line": 40,
+      "column": 15,
+      "index": 945
+    },
+    "end": {
+      "line": 44,
+      "column": 1,
+      "index": 1016
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "dangerouslySetInnerHTML",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "dangerouslySetInnerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 5,
+          "kept": 0,
+          "traversed": 4,
+          "shared": 0,
+          "sink": {
+            "carrierText": "dangerouslySetInnerHTML: {\n  __html: `<p>Hello ${name}</p>`\n}",
+            "loc": {
+              "start": {
+                "line": 41,
+                "column": 2,
+                "index": 949
+              },
+              "end": {
+                "line": 43,
+                "column": 3,
+                "index": 1014
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "react-dangerously-set-inner-html/files/1.js",
+    "analyzerName": "dangerouslySetInnerHTML",
+    "value": "{\n  dangerouslySetInnerHTML: {\n    __html: userContent\n  }\n}",
+    "start": {
+      "line": 32,
+      "column": 15,
+      "index": 783
+    },
+    "end": {
+      "line": 36,
+      "column": 1,
+      "index": 843
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "2b0a713931f442a07f09e244e844256c8e77d07b98caf95fcf11cda39b426a60",
+        "analyzerName": "dangerouslySetInnerHTML",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "dangerouslySetInnerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "const userContent = fetchUserContent(); // Some function that returns HTML",
+              "nodeType": "Identifier",
+              "text": "fetchUserContent",
+              "loc": {
+                "start": {
+                  "line": 31,
+                  "column": 20,
+                  "index": 713
+                },
+                "end": {
+                  "line": 31,
+                  "column": 36,
+                  "index": 729
+                }
+              },
+              "endReason": "Le noeud 'fetchUserContent' est terminal.",
+              "path": [
+                {
+                  "role": "value de ObjectProperty pour sa properties[0]",
+                  "nodeType": "ObjectExpression"
+                },
+                {
+                  "role": "bindNode",
+                  "nodeType": "BindingNode (const)",
+                  "label": "userContent"
+                },
+                {
+                  "role": "init",
+                  "nodeType": "VariableDeclarator"
+                },
+                {
+                  "role": "callee",
+                  "nodeType": "CallExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 5,
+          "kept": 1,
+          "traversed": 4,
+          "shared": 0,
+          "sink": {
+            "carrierText": "dangerouslySetInnerHTML: {\n  __html: userContent\n}",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 2,
+                "index": 787
+              },
+              "end": {
+                "line": 35,
+                "column": 3,
+                "index": 841
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

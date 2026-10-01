@@ -1,0 +1,447 @@
+[
+  {
+    "filePath": "window-open/files/1.js",
+    "analyzerName": "window-open",
+    "value": "window.open('https://example.com', '_blank', 'width=500,height=500')",
+    "start": {
+      "line": 5,
+      "column": 0,
+      "index": 103
+    },
+    "end": {
+      "line": 5,
+      "column": 68,
+      "index": 171
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "OPEN_REDIRECT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "window-open",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "https://example.com",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.open('https://example.com', '_blank', 'width=500,height=500')",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0,
+                "index": 103
+              },
+              "end": {
+                "line": 5,
+                "column": 68,
+                "index": 171
+              }
+            },
+            "pattern": "https://example.com",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "OPEN_REDIRECT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "window-open",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "_blank",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.open('https://example.com', '_blank', 'width=500,height=500')",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0,
+                "index": 103
+              },
+              "end": {
+                "line": 5,
+                "column": 68,
+                "index": 171
+              }
+            },
+            "pattern": "_blank",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "OPEN_REDIRECT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "window-open",
+        "slot": {
+          "kind": "call-argument",
+          "index": 2
+        },
+        "reconstructed": "width=500,height=500",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.open('https://example.com', '_blank', 'width=500,height=500')",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0,
+                "index": 103
+              },
+              "end": {
+                "line": 5,
+                "column": 68,
+                "index": 171
+              }
+            },
+            "pattern": "width=500,height=500",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "window-open/files/1.js",
+    "analyzerName": "window-open",
+    "value": "window.open('https://example.com')",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 26
+    },
+    "end": {
+      "line": 2,
+      "column": 34,
+      "index": 60
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "OPEN_REDIRECT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "window-open",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "https://example.com",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.open('https://example.com')",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 26
+              },
+              "end": {
+                "line": 2,
+                "column": 34,
+                "index": 60
+              }
+            },
+            "pattern": "https://example.com",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "window-open/files/1.js",
+    "analyzerName": "window-open",
+    "value": "window.open(`${baseUrl}/path`)",
+    "start": {
+      "line": 13,
+      "column": 0,
+      "index": 328
+    },
+    "end": {
+      "line": 13,
+      "column": 30,
+      "index": 358
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "OPEN_REDIRECT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "window-open",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR/path",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 4,
+          "kept": 0,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.open(`${baseUrl}/path`)",
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0,
+                "index": 328
+              },
+              "end": {
+                "line": 13,
+                "column": 30,
+                "index": 358
+              }
+            },
+            "pattern": "EXPR#0/path",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "window-open/files/1.js",
+    "analyzerName": "window-open",
+    "value": "window.open(config.url, config.target)",
+    "start": {
+      "line": 20,
+      "column": 0,
+      "index": 466
+    },
+    "end": {
+      "line": 20,
+      "column": 38,
+      "index": 504
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "OPEN_REDIRECT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "window-open",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 2
+          },
+          "nodeCount": 6,
+          "kept": 0,
+          "traversed": 4,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.open(config.url, config.target)",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 0,
+                "index": 466
+              },
+              "end": {
+                "line": 20,
+                "column": 38,
+                "index": 504
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "OPEN_REDIRECT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "window-open",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 2
+          },
+          "nodeCount": 6,
+          "kept": 0,
+          "traversed": 4,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.open(config.url, config.target)",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 0,
+                "index": 466
+              },
+              "end": {
+                "line": 20,
+                "column": 38,
+                "index": 504
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "window-open/files/1.js",
+    "analyzerName": "window-open",
+    "value": "window.open(url)",
+    "start": {
+      "line": 9,
+      "column": 0,
+      "index": 238
+    },
+    "end": {
+      "line": 9,
+      "column": 16,
+      "index": 254
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "OPEN_REDIRECT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "window-open",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 3,
+          "kept": 0,
+          "traversed": 2,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.open(url)",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0,
+                "index": 238
+              },
+              "end": {
+                "line": 9,
+                "column": 16,
+                "index": 254
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,267 @@
+[
+  {
+    "filePath": "unsafe-html-wrapper/files/1.js",
+    "analyzerName": "unsafe-html-wrapper",
+    "value": "Ember.String.htmlSafe(model.bio)",
+    "start": {
+      "line": 4,
+      "column": 8,
+      "index": 84
+    },
+    "end": {
+      "line": 4,
+      "column": 40,
+      "index": 116
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "6dd89452df4250fb3cc2fd4ab18a64e9f595e8be4e6625b8ff94e90a9cab5feb",
+        "analyzerName": "unsafe-html-wrapper",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "var s = Ember.String.htmlSafe(model.bio);",
+              "nodeType": "Identifier",
+              "text": "model",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 30,
+                  "index": 106
+                },
+                "end": {
+                  "line": 4,
+                  "column": 35,
+                  "index": 111
+                }
+              },
+              "endReason": "Le noeud 'model' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "Ember.String.htmlSafe(model.bio)",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 8,
+                "index": 84
+              },
+              "end": {
+                "line": 4,
+                "column": 40,
+                "index": 116
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "unsafe-html-wrapper/files/1.js",
+    "analyzerName": "unsafe-html-wrapper",
+    "value": "new Handlebars.SafeString(link)",
+    "start": {
+      "line": 6,
+      "column": 11,
+      "index": 153
+    },
+    "end": {
+      "line": 6,
+      "column": 42,
+      "index": 184
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "778a5a7ed586ee8a9ce29f95e3026e209e6dca1e474669ab3b9964dcad2b50cc",
+        "analyzerName": "unsafe-html-wrapper",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "var safe = new Handlebars.SafeString(link);",
+              "nodeType": "Identifier",
+              "text": "link",
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 37,
+                  "index": 179
+                },
+                "end": {
+                  "line": 6,
+                  "column": 41,
+                  "index": 183
+                }
+              },
+              "endReason": "Le noeud 'link' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "new Handlebars.SafeString(link)",
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 11,
+                "index": 153
+              },
+              "end": {
+                "line": 6,
+                "column": 42,
+                "index": 184
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "unsafe-html-wrapper/files/1.js",
+    "analyzerName": "unsafe-html-wrapper",
+    "value": "unsafeHTML(e.body)",
+    "start": {
+      "line": 2,
+      "column": 12,
+      "index": 29
+    },
+    "end": {
+      "line": 2,
+      "column": 30,
+      "index": 47
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "5a5628ffb34cdde060710f98cca45ea51a4a5a7fb58604a6dfa340753570675c",
+        "analyzerName": "unsafe-html-wrapper",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "html`<div>${unsafeHTML(e.body)}</div>`;",
+              "nodeType": "Identifier",
+              "text": "e",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 23,
+                  "index": 40
+                },
+                "end": {
+                  "line": 2,
+                  "column": 24,
+                  "index": 41
+                }
+              },
+              "endReason": "Le noeud 'e' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "unsafeHTML(e.body)",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 12,
+                "index": 29
+              },
+              "end": {
+                "line": 2,
+                "column": 30,
+                "index": 47
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

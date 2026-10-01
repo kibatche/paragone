@@ -1,0 +1,204 @@
+[
+  {
+    "filePath": "dynamic-import/files/1.js",
+    "analyzerName": "dynamic-import",
+    "value": "import(\"/plugins/\" + location.hash.slice(1) + \".js\")",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 29
+    },
+    "end": {
+      "line": 2,
+      "column": 52,
+      "index": 81
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "analyzerName": "dynamic-import",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "/plugins/EXPR.js",
+        "taint": {
+          "verdict": "SOURCE_REACHED",
+          "sources": [
+            "location Read"
+          ],
+          "findings": [
+            {
+              "kind": "INTERNAL",
+              "knownSource": "location Read",
+              "sourceString": "import(\"/plugins/\" + location.hash.slice(1) + \".js\");",
+              "nodeType": "MemberExpression",
+              "text": "location.hash",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 21,
+                  "index": 50
+                },
+                "end": {
+                  "line": 2,
+                  "column": 34,
+                  "index": 63
+                }
+              },
+              "endReason": "",
+              "path": [
+                {
+                  "role": "left",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "callee",
+                  "nodeType": "CallExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 3,
+            "UNBOUND (base de la source)": 1
+          },
+          "nodeCount": 9,
+          "kept": 1,
+          "traversed": 4,
+          "shared": 0,
+          "sink": {
+            "carrierText": "import(\"/plugins/\" + location.hash.slice(1) + \".js\")",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 29
+              },
+              "end": {
+                "line": 2,
+                "column": 52,
+                "index": 81
+              }
+            },
+            "pattern": "/plugins/EXPR#0.js",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "dynamic-import/files/1.js",
+    "analyzerName": "dynamic-import",
+    "value": "import(`./locales/${lang}.js`)",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 111
+    },
+    "end": {
+      "line": 4,
+      "column": 30,
+      "index": 141
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "88da6bf562d2657541a3c30c809a19859224aad0ccff0498dbdad317a1c76806",
+        "analyzerName": "dynamic-import",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "./locales/EXPR.js",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "import(`./locales/${lang}.js`);",
+              "nodeType": "Identifier",
+              "text": "lang",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 20,
+                  "index": 131
+                },
+                "end": {
+                  "line": 4,
+                  "column": 24,
+                  "index": 135
+                }
+              },
+              "endReason": "Le noeud 'lang' est terminal.",
+              "path": [
+                {
+                  "role": "expressions[0]",
+                  "nodeType": "TemplateLiteral"
+                }
+              ],
+              "id": 0,
+              "holes": [
+                {
+                  "name": "EXPR#0"
+                }
+              ]
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "import(`./locales/${lang}.js`)",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0,
+                "index": 111
+              },
+              "end": {
+                "line": 4,
+                "column": 30,
+                "index": 141
+              }
+            },
+            "pattern": "./locales/EXPR#0.js",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": true
+          }
+        }
+      }
+    ]
+  }
+]

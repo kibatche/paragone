@@ -1,0 +1,28 @@
+[
+  {
+    "filePath": "regex-pattern/files/2.js",
+    "analyzerName": "regex-pattern",
+    "value": "/([a-zA-Z0-9]+|\\s)+$/",
+    "start": {
+      "line": 22,
+      "column": 25,
+      "index": 550
+    },
+    "end": {
+      "line": 22,
+      "column": 46,
+      "index": 571
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_PATTERN_INVENTORY"
+        ],
+        "hash": "3491bf17ebf7d47443bef0c3db7762b0ea812e90786bc0c5ed7085897d5d9b15",
+        "analyzerName": "regex-pattern",
+        "reconstructed": "/([a-zA-Z0-9]+|\\s)+$/"
+      }
+    ]
+  }
+]

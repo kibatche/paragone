@@ -1,0 +1,262 @@
+[
+  {
+    "filePath": "html-property-call/files/1.js",
+    "analyzerName": "html-property-call",
+    "value": "Ae(\"innerHTML\", t.content, Ic)",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 43
+    },
+    "end": {
+      "line": 2,
+      "column": 30,
+      "index": 73
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "18d7ee3fcd984e6f7faeef8578de9820b248c72fc23060c83d2766d0c9dba925",
+        "analyzerName": "html-property-call",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "Ae(\"innerHTML\", t.content, Ic);",
+              "nodeType": "Identifier",
+              "text": "t",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 16,
+                  "index": 59
+                },
+                "end": {
+                  "line": 2,
+                  "column": 17,
+                  "index": 60
+                }
+              },
+              "endReason": "Le noeud 't' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "Ae(\"innerHTML\", t.content, Ic)",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 43
+              },
+              "end": {
+                "line": 2,
+                "column": 30,
+                "index": 73
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "html-property-call/files/1.js",
+    "analyzerName": "html-property-call",
+    "value": "Reflect.set(node, \"outerHTML\", payload)",
+    "start": {
+      "line": 6,
+      "column": 0,
+      "index": 193
+    },
+    "end": {
+      "line": 6,
+      "column": 39,
+      "index": 232
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "95bf978b1549a18c0c42b13ca2950b3f5c836e215a5ebb3a686a6da5ae49ff3c",
+        "analyzerName": "html-property-call",
+        "slot": {
+          "kind": "call-argument",
+          "index": 2
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "Reflect.set(node, \"outerHTML\", payload);",
+              "nodeType": "Identifier",
+              "text": "payload",
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 31,
+                  "index": 224
+                },
+                "end": {
+                  "line": 6,
+                  "column": 38,
+                  "index": 231
+                }
+              },
+              "endReason": "Le noeud 'payload' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "Reflect.set(node, \"outerHTML\", payload)",
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0,
+                "index": 193
+              },
+              "end": {
+                "line": 6,
+                "column": 39,
+                "index": 232
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "html-property-call/files/1.js",
+    "analyzerName": "html-property-call",
+    "value": "this.renderer.setProperty(this.el.nativeElement, \"innerHTML\", value)",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 98
+    },
+    "end": {
+      "line": 4,
+      "column": 68,
+      "index": 166
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "d876497f58eb41a9eb6ac9bf35f092a701f5d6727fe3e5276cf52db883e93d64",
+        "analyzerName": "html-property-call",
+        "slot": {
+          "kind": "call-argument",
+          "index": 2
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "this.renderer.setProperty(this.el.nativeElement, \"innerHTML\", value);",
+              "nodeType": "Identifier",
+              "text": "value",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 62,
+                  "index": 160
+                },
+                "end": {
+                  "line": 4,
+                  "column": 67,
+                  "index": 165
+                }
+              },
+              "endReason": "Le noeud 'value' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "this.renderer.setProperty(this.el.nativeElement, \"innerHTML\", value)",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0,
+                "index": 98
+              },
+              "end": {
+                "line": 4,
+                "column": 68,
+                "index": 166
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

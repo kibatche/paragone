@@ -1,0 +1,478 @@
+[
+  {
+    "filePath": "inner-html/files/1.js",
+    "analyzerName": "inner-html",
+    "value": "container1.innerHTML = '<div>First container</div>'",
+    "start": {
+      "line": 24,
+      "column": 0,
+      "index": 687
+    },
+    "end": {
+      "line": 24,
+      "column": 51,
+      "index": 738
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "inner-html",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<div>First container</div>",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "container1.innerHTML = '<div>First container</div>'",
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 0,
+                "index": 687
+              },
+              "end": {
+                "line": 24,
+                "column": 51,
+                "index": 738
+              }
+            },
+            "pattern": "<div>First container</div>",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "inner-html/files/1.js",
+    "analyzerName": "inner-html",
+    "value": "container2.innerHTML = '<div>Second container</div>'",
+    "start": {
+      "line": 25,
+      "column": 0,
+      "index": 740
+    },
+    "end": {
+      "line": 25,
+      "column": 52,
+      "index": 792
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "inner-html",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<div>Second container</div>",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "container2.innerHTML = '<div>Second container</div>'",
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 0,
+                "index": 740
+              },
+              "end": {
+                "line": 25,
+                "column": 52,
+                "index": 792
+              }
+            },
+            "pattern": "<div>Second container</div>",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "inner-html/files/1.js",
+    "analyzerName": "inner-html",
+    "value": "div.innerHTML = '<p>Function content</p>'",
+    "start": {
+      "line": 11,
+      "column": 2,
+      "index": 346
+    },
+    "end": {
+      "line": 11,
+      "column": 43,
+      "index": 387
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "inner-html",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<p>Function content</p>",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "div.innerHTML = '<p>Function content</p>'",
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 2,
+                "index": 346
+              },
+              "end": {
+                "line": 11,
+                "column": 43,
+                "index": 387
+              }
+            },
+            "pattern": "<p>Function content</p>",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "inner-html/files/1.js",
+    "analyzerName": "inner-html",
+    "value": "document.getElementById('container').innerHTML = '<div>Hello World</div>'",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 31
+    },
+    "end": {
+      "line": 2,
+      "column": 73,
+      "index": 104
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "inner-html",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<div>Hello World</div>",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "document.getElementById('container').innerHTML = '<div>Hello World</div>'",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 31
+              },
+              "end": {
+                "line": 2,
+                "column": 73,
+                "index": 104
+              }
+            },
+            "pattern": "<div>Hello World</div>",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "inner-html/files/1.js",
+    "analyzerName": "inner-html",
+    "value": "document.getElementById('greeting').innerHTML = `<h1>Welcome ${name}</h1>`",
+    "start": {
+      "line": 29,
+      "column": 0,
+      "index": 858
+    },
+    "end": {
+      "line": 29,
+      "column": 74,
+      "index": 932
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "inner-html",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<h1>Welcome EXPR</h1>",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 4,
+          "kept": 0,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "document.getElementById('greeting').innerHTML = `<h1>Welcome ${name}</h1>`",
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 0,
+                "index": 858
+              },
+              "end": {
+                "line": 29,
+                "column": 74,
+                "index": 932
+              }
+            },
+            "pattern": "<h1>Welcome EXPR#0</h1>",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": true
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "inner-html/files/1.js",
+    "analyzerName": "inner-html",
+    "value": "document.getElementById('result').innerHTML = '<p>Button clicked!</p>'",
+    "start": {
+      "line": 33,
+      "column": 2,
+      "index": 1044
+    },
+    "end": {
+      "line": 33,
+      "column": 72,
+      "index": 1114
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "inner-html",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<p>Button clicked!</p>",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "document.getElementById('result').innerHTML = '<p>Button clicked!</p>'",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 2,
+                "index": 1044
+              },
+              "end": {
+                "line": 33,
+                "column": 72,
+                "index": 1114
+              }
+            },
+            "pattern": "<p>Button clicked!</p>",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "inner-html/files/1.js",
+    "analyzerName": "inner-html",
+    "value": "element.innerHTML = '<span>Dynamic content</span>'",
+    "start": {
+      "line": 6,
+      "column": 0,
+      "index": 186
+    },
+    "end": {
+      "line": 6,
+      "column": 50,
+      "index": 236
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "inner-html",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<span>Dynamic content</span>",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "element.innerHTML = '<span>Dynamic content</span>'",
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0,
+                "index": 186
+              },
+              "end": {
+                "line": 6,
+                "column": 50,
+                "index": 236
+              }
+            },
+            "pattern": "<span>Dynamic content</span>",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "inner-html/files/1.js",
+    "analyzerName": "inner-html",
+    "value": "obj.element.innerHTML = '<div>Nested access</div>'",
+    "start": {
+      "line": 19,
+      "column": 0,
+      "index": 494
+    },
+    "end": {
+      "line": 19,
+      "column": 50,
+      "index": 544
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "inner-html",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "<div>Nested access</div>",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "obj.element.innerHTML = '<div>Nested access</div>'",
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 0,
+                "index": 494
+              },
+              "end": {
+                "line": 19,
+                "column": 50,
+                "index": 544
+              }
+            },
+            "pattern": "<div>Nested access</div>",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

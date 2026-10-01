@@ -1,0 +1,262 @@
+[
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-read",
+    "value": "document.domain",
+    "start": {
+      "line": 22,
+      "column": 12,
+      "index": 546
+    },
+    "end": {
+      "line": 22,
+      "column": 27,
+      "index": 561
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "c5f766beae5e4d0b9caf36bddbe59c0117a8c0aef0bde7ad9ec993cc3802e780",
+        "analyzerName": "document-domain-read",
+        "reconstructed": "document.domain"
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-read",
+    "value": "document.domain",
+    "start": {
+      "line": 25,
+      "column": 4,
+      "index": 603
+    },
+    "end": {
+      "line": 25,
+      "column": 19,
+      "index": 618
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "c5f766beae5e4d0b9caf36bddbe59c0117a8c0aef0bde7ad9ec993cc3802e780",
+        "analyzerName": "document-domain-read",
+        "reconstructed": "document.domain"
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-read",
+    "value": "document.domain",
+    "start": {
+      "line": 31,
+      "column": 9,
+      "index": 743
+    },
+    "end": {
+      "line": 31,
+      "column": 24,
+      "index": 758
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "c5f766beae5e4d0b9caf36bddbe59c0117a8c0aef0bde7ad9ec993cc3802e780",
+        "analyzerName": "document-domain-read",
+        "reconstructed": "document.domain"
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-read",
+    "value": "document.domain",
+    "start": {
+      "line": 35,
+      "column": 33,
+      "index": 852
+    },
+    "end": {
+      "line": 35,
+      "column": 48,
+      "index": 867
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "c5f766beae5e4d0b9caf36bddbe59c0117a8c0aef0bde7ad9ec993cc3802e780",
+        "analyzerName": "document-domain-read",
+        "reconstructed": "document.domain"
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-read",
+    "value": "document.domain",
+    "start": {
+      "line": 39,
+      "column": 10,
+      "index": 941
+    },
+    "end": {
+      "line": 39,
+      "column": 25,
+      "index": 956
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "c5f766beae5e4d0b9caf36bddbe59c0117a8c0aef0bde7ad9ec993cc3802e780",
+        "analyzerName": "document-domain-read",
+        "reconstructed": "document.domain"
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-assignment",
+    "value": "document.domain = \"example.com\"",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 34
+    },
+    "end": {
+      "line": 2,
+      "column": 31,
+      "index": 65
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "977624435751cd56dda7492cbba165873069897f0daca38578006f1d853cb557",
+        "analyzerName": "document-domain-assignment",
+        "reconstructed": "document.domain = \"example.com\""
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-assignment",
+    "value": "document.domain = \"sub.\" + \"domain.com\"",
+    "start": {
+      "line": 9,
+      "column": 0,
+      "index": 216
+    },
+    "end": {
+      "line": 9,
+      "column": 39,
+      "index": 255
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "a0d2d13e061e725167a5a9c7a3c94789aa9bd8cc652ba84448f121fabcc5574b",
+        "analyzerName": "document-domain-assignment",
+        "reconstructed": "document.domain = \"sub.\" + \"domain.com\""
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-assignment",
+    "value": "document.domain = `${subdomain}.example.com`",
+    "start": {
+      "line": 13,
+      "column": 0,
+      "index": 332
+    },
+    "end": {
+      "line": 13,
+      "column": 44,
+      "index": 376
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "4239b63a493982fec3bd6b42fa522e97060e43efef76280ddc3bb2b847f6db0c",
+        "analyzerName": "document-domain-assignment",
+        "reconstructed": "document.domain = `${subdomain}.example.com`"
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-assignment",
+    "value": "document.domain = domain",
+    "start": {
+      "line": 6,
+      "column": 0,
+      "index": 136
+    },
+    "end": {
+      "line": 6,
+      "column": 24,
+      "index": 160
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "a4257f5339047c88192fc06289963641f08193de5bfcde98a5826a3d9ce6dd8d",
+        "analyzerName": "document-domain-assignment",
+        "reconstructed": "document.domain = domain"
+      }
+    ]
+  },
+  {
+    "filePath": "document-domain/files/1.js",
+    "analyzerName": "document-domain-assignment",
+    "value": "document.domain = getDomain()",
+    "start": {
+      "line": 19,
+      "column": 0,
+      "index": 474
+    },
+    "end": {
+      "line": 19,
+      "column": 29,
+      "index": 503
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "DOCUMENT_DOMAIN_INVENTORY"
+        ],
+        "hash": "4dfec990ccd4d1881a775dd553e0b7fa4d347670b14176aecb3238bdb74ad378",
+        "analyzerName": "document-domain-assignment",
+        "reconstructed": "document.domain = getDomain()"
+      }
+    ]
+  }
+]

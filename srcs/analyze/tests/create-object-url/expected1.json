@@ -1,0 +1,214 @@
+[
+  {
+    "filePath": "create-object-url/files/1.js",
+    "analyzerName": "create-object-url",
+    "value": "URL.createObjectURL(new Blob([e.data], { type: \"text/html\" }))",
+    "start": {
+      "line": 2,
+      "column": 8,
+      "index": 19
+    },
+    "end": {
+      "line": 2,
+      "column": 70,
+      "index": 81
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "ed02ace0cd8001a3808cbce02e1fa568140b56181d54f31cafda7b7e0714f76c",
+        "analyzerName": "create-object-url",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "var u = URL.createObjectURL(new Blob([e.data], { type: \"text/html\" }));",
+              "nodeType": "Identifier",
+              "text": "Blob",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 32,
+                  "index": 43
+                },
+                "end": {
+                  "line": 2,
+                  "column": 36,
+                  "index": 47
+                }
+              },
+              "endReason": "Le noeud 'Blob' est terminal.",
+              "path": [
+                {
+                  "role": "callee",
+                  "nodeType": "NewExpression"
+                }
+              ],
+              "id": 0
+            },
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "var u = URL.createObjectURL(new Blob([e.data], { type: \"text/html\" }));",
+              "nodeType": "Identifier",
+              "text": "e",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 38,
+                  "index": 49
+                },
+                "end": {
+                  "line": 2,
+                  "column": 39,
+                  "index": 50
+                }
+              },
+              "endReason": "Le noeud 'e' est terminal.",
+              "path": [
+                {
+                  "role": "arguments[0]",
+                  "nodeType": "NewExpression"
+                },
+                {
+                  "role": "elements[0]",
+                  "nodeType": "ArrayExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 1
+            }
+          ],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 7,
+          "kept": 2,
+          "traversed": 4,
+          "shared": 0,
+          "sink": {
+            "carrierText": "URL.createObjectURL(new Blob([e.data], {\n  type: \"text/html\"\n}))",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 8,
+                "index": 19
+              },
+              "end": {
+                "line": 2,
+                "column": 70,
+                "index": 81
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "create-object-url/files/1.js",
+    "analyzerName": "create-object-url",
+    "value": "window.webkitURL.createObjectURL(file)",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 104
+    },
+    "end": {
+      "line": 4,
+      "column": 38,
+      "index": 142
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "a5ab61eb9a450f181dd28d4a8ef3518fb0bb1431e0ca44ccab5fe82903bedbcd",
+        "analyzerName": "create-object-url",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "window.webkitURL.createObjectURL(file);",
+              "nodeType": "Identifier",
+              "text": "file",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 33,
+                  "index": 137
+                },
+                "end": {
+                  "line": 4,
+                  "column": 37,
+                  "index": 141
+                }
+              },
+              "endReason": "Le noeud 'file' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.webkitURL.createObjectURL(file)",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0,
+                "index": 104
+              },
+              "end": {
+                "line": 4,
+                "column": 38,
+                "index": 142
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

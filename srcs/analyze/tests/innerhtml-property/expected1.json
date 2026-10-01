@@ -1,0 +1,184 @@
+[
+  {
+    "filePath": "innerhtml-property/files/1.js",
+    "analyzerName": "innerhtml-property",
+    "value": "{ class: \"content\", innerHTML: e.body }",
+    "start": {
+      "line": 2,
+      "column": 9,
+      "index": 45
+    },
+    "end": {
+      "line": 2,
+      "column": 48,
+      "index": 84
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "5a5628ffb34cdde060710f98cca45ea51a4a5a7fb58604a6dfa340753570675c",
+        "analyzerName": "innerhtml-property",
+        "slot": {
+          "kind": "object-property",
+          "index": 1,
+          "key": "innerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "o(\"div\", { class: \"content\", innerHTML: e.body }, null, 8, [\"innerHTML\"]);",
+              "nodeType": "Identifier",
+              "text": "e",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 40,
+                  "index": 76
+                },
+                "end": {
+                  "line": 2,
+                  "column": 41,
+                  "index": 77
+                }
+              },
+              "endReason": "Le noeud 'e' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "innerHTML: e.body",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 29,
+                "index": 65
+              },
+              "end": {
+                "line": 2,
+                "column": 46,
+                "index": 82
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "innerhtml-property/files/1.js",
+    "analyzerName": "innerhtml-property",
+    "value": "{ innerHTML: this.html }",
+    "start": {
+      "line": 4,
+      "column": 21,
+      "index": 162
+    },
+    "end": {
+      "line": 4,
+      "column": 45,
+      "index": 186
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "b3d2ae7d8ac89f23e4506de31b1a3106b4078173c12965e2c35b3ba01f97abed",
+        "analyzerName": "innerhtml-property",
+        "slot": {
+          "kind": "object-property",
+          "index": 0,
+          "key": "innerHTML"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "INCOMPLETE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "THIS_NODE",
+              "knownSource": "",
+              "sourceString": "h(\"div\", { domProps: { innerHTML: this.html } });",
+              "nodeType": "ThisExpression",
+              "text": "this",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 34,
+                  "index": 175
+                },
+                "end": {
+                  "line": 4,
+                  "column": 38,
+                  "index": 179
+                }
+              },
+              "endReason": "Le noeud est de type ThisExpression, déterminé par la classe/fonction englobante et ne sera donc pas exploré.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "innerHTML: this.html",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 23,
+                "index": 164
+              },
+              "end": {
+                "line": 4,
+                "column": 43,
+                "index": 184
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

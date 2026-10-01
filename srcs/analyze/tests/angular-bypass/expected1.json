@@ -1,0 +1,453 @@
+[
+  {
+    "filePath": "angular-bypass/files/1.js",
+    "analyzerName": "angular-bypass",
+    "value": "$sce.trustAs($sce.HTML, value)",
+    "start": {
+      "line": 7,
+      "column": 0,
+      "index": 296
+    },
+    "end": {
+      "line": 7,
+      "column": 30,
+      "index": 326
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "d876497f58eb41a9eb6ac9bf35f092a701f5d6727fe3e5276cf52db883e93d64",
+        "analyzerName": "angular-bypass",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "$sce.trustAs($sce.HTML, value);",
+              "nodeType": "Identifier",
+              "text": "value",
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 24,
+                  "index": 320
+                },
+                "end": {
+                  "line": 7,
+                  "column": 29,
+                  "index": 325
+                }
+              },
+              "endReason": "Le noeud 'value' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "$sce.trustAs($sce.HTML, value)",
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0,
+                "index": 296
+              },
+              "end": {
+                "line": 7,
+                "column": 30,
+                "index": 326
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "angular-bypass/files/1.js",
+    "analyzerName": "angular-bypass",
+    "value": "$sce.trustAsHtml($location.search().msg)",
+    "start": {
+      "line": 5,
+      "column": 0,
+      "index": 183
+    },
+    "end": {
+      "line": 5,
+      "column": 40,
+      "index": 223
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "da749436e486eb36094c481ceb3552782c1c8eb24ba41efcef4dc5da031d2019",
+        "analyzerName": "angular-bypass",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "$sce.trustAsHtml($location.search().msg);",
+              "nodeType": "Identifier",
+              "text": "$location",
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 17,
+                  "index": 200
+                },
+                "end": {
+                  "line": 5,
+                  "column": 26,
+                  "index": 209
+                }
+              },
+              "endReason": "Le noeud '$location' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                },
+                {
+                  "role": "callee",
+                  "nodeType": "CallExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 4,
+          "kept": 1,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "$sce.trustAsHtml($location.search().msg)",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0,
+                "index": 183
+              },
+              "end": {
+                "line": 5,
+                "column": 40,
+                "index": 223
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "angular-bypass/files/1.js",
+    "analyzerName": "angular-bypass",
+    "value": "$sce.trustAsMediaUrl(src)",
+    "start": {
+      "line": 13,
+      "column": 0,
+      "index": 514
+    },
+    "end": {
+      "line": 13,
+      "column": 25,
+      "index": 539
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "d0ba3b1dbae99ab692d0bf08260af0738bbeef584e343fe31fdaef5d11fc4cec",
+        "analyzerName": "angular-bypass",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "$sce.trustAsMediaUrl(src);",
+              "nodeType": "Identifier",
+              "text": "src",
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 21,
+                  "index": 535
+                },
+                "end": {
+                  "line": 13,
+                  "column": 24,
+                  "index": 538
+                }
+              },
+              "endReason": "Le noeud 'src' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "$sce.trustAsMediaUrl(src)",
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0,
+                "index": 514
+              },
+              "end": {
+                "line": 13,
+                "column": 25,
+                "index": 539
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "angular-bypass/files/1.js",
+    "analyzerName": "angular-bypass",
+    "value": "this.sanitizer.bypassSecurityTrustHtml(route.snapshot.queryParams.html)",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 21
+    },
+    "end": {
+      "line": 2,
+      "column": 71,
+      "index": 92
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "11a175d6f4e61bbfb4309a5658a4ae2b14aa72e9a1371b09f109281fc2b69192",
+        "analyzerName": "angular-bypass",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "this.sanitizer.bypassSecurityTrustHtml(route.snapshot.queryParams.html);",
+              "nodeType": "Identifier",
+              "text": "route",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 39,
+                  "index": 60
+                },
+                "end": {
+                  "line": 2,
+                  "column": 44,
+                  "index": 65
+                }
+              },
+              "endReason": "Le noeud 'route' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 4,
+          "kept": 1,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "this.sanitizer.bypassSecurityTrustHtml(route.snapshot.queryParams.html)",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 21
+              },
+              "end": {
+                "line": 2,
+                "column": 71,
+                "index": 92
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "angular-bypass/files/1.js",
+    "analyzerName": "angular-bypass",
+    "value": "this.sanitizer.bypassSecurityTrustResourceUrl(url)",
+    "start": {
+      "line": 3,
+      "column": 0,
+      "index": 94
+    },
+    "end": {
+      "line": 3,
+      "column": 50,
+      "index": 144
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "adfae48d79c9fb3ede9bb086d79908222e81643ec1a02653a98e62d7de5ff952",
+        "analyzerName": "angular-bypass",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "this.sanitizer.bypassSecurityTrustResourceUrl(url);",
+              "nodeType": "Identifier",
+              "text": "url",
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 46,
+                  "index": 140
+                },
+                "end": {
+                  "line": 3,
+                  "column": 49,
+                  "index": 143
+                }
+              },
+              "endReason": "Le noeud 'url' est terminal.",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "this.sanitizer.bypassSecurityTrustResourceUrl(url)",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0,
+                "index": 94
+              },
+              "end": {
+                "line": 3,
+                "column": 50,
+                "index": 144
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

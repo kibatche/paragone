@@ -1,0 +1,106 @@
+[
+  {
+    "filePath": "regex-match/files/1.js",
+    "analyzerName": "regex-match",
+    "value": "\"test123\".match(/\\d+/)",
+    "start": {
+      "line": 4,
+      "column": 15,
+      "index": 104
+    },
+    "end": {
+      "line": 4,
+      "column": 37,
+      "index": 126
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_MATCH_INVENTORY"
+        ],
+        "hash": "8e0d0816fc91b88f56a7f58ea4b3e6d51e2ee0bbb7ebf38fc5a624e73a5b0f2b",
+        "analyzerName": "regex-match",
+        "reconstructed": "\"test123\".match(/\\d+/)"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-match/files/1.js",
+    "analyzerName": "regex-match",
+    "value": "/[a-z]+/.exec(\"abc123\")",
+    "start": {
+      "line": 14,
+      "column": 14,
+      "index": 385
+    },
+    "end": {
+      "line": 14,
+      "column": 37,
+      "index": 408
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_MATCH_INVENTORY"
+        ],
+        "hash": "df822b088c051531ec69b30bc15d89904bb35ba9ac823ddc3f686180855d9ec4",
+        "analyzerName": "regex-match",
+        "reconstructed": "/[a-z]+/.exec(\"abc123\")"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-match/files/1.js",
+    "analyzerName": "regex-match",
+    "value": "/test/.test(\"testing\")",
+    "start": {
+      "line": 9,
+      "column": 14,
+      "index": 237
+    },
+    "end": {
+      "line": 9,
+      "column": 36,
+      "index": 259
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_MATCH_INVENTORY"
+        ],
+        "hash": "0c7fb559c8aa08ae6ee8db085f7c88e16f47bf3e9d14a3e2f2720b760655bd9b",
+        "analyzerName": "regex-match",
+        "reconstructed": "/test/.test(\"testing\")"
+      }
+    ]
+  },
+  {
+    "filePath": "regex-match/files/1.js",
+    "analyzerName": "regex-match",
+    "value": "str.match(/Hello/)",
+    "start": {
+      "line": 3,
+      "column": 15,
+      "index": 69
+    },
+    "end": {
+      "line": 3,
+      "column": 33,
+      "index": 87
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "REGEX_MATCH_INVENTORY"
+        ],
+        "hash": "bf130ed192b012f6691190748b2840cae22e8cd952ef0dc326d1779aa904e6ef",
+        "analyzerName": "regex-match",
+        "reconstructed": "str.match(/Hello/)"
+      }
+    ]
+  }
+]

@@ -1,0 +1,188 @@
+[
+  {
+    "filePath": "lodash-template/files/1.js",
+    "analyzerName": "lodash-template",
+    "value": "_.template(e.data)",
+    "start": {
+      "line": 2,
+      "column": 10,
+      "index": 21
+    },
+    "end": {
+      "line": 2,
+      "column": 28,
+      "index": 39
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "5a5628ffb34cdde060710f98cca45ea51a4a5a7fb58604a6dfa340753570675c",
+        "analyzerName": "lodash-template",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "var tpl = _.template(e.data);",
+              "nodeType": "Identifier",
+              "text": "e",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 21,
+                  "index": 32
+                },
+                "end": {
+                  "line": 2,
+                  "column": 22,
+                  "index": 33
+                }
+              },
+              "endReason": "Le noeud 'e' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "_.template(e.data)",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 10,
+                "index": 21
+              },
+              "end": {
+                "line": 2,
+                "column": 28,
+                "index": 39
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "lodash-template/files/1.js",
+    "analyzerName": "lodash-template",
+    "value": "lodash.template(\"<%= \" + field + \" %>\")",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 52
+    },
+    "end": {
+      "line": 4,
+      "column": 39,
+      "index": 91
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CODE_EXEC"
+        ],
+        "hash": "a7fa76655b82fa5a41dd044d1041e6801b3f5731231749fe5bda8ad39adaf1a8",
+        "analyzerName": "lodash-template",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "<%= EXPR %>",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "lodash.template(\"<%= \" + field + \" %>\");",
+              "nodeType": "Identifier",
+              "text": "field",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 25,
+                  "index": 77
+                },
+                "end": {
+                  "line": 4,
+                  "column": 30,
+                  "index": 82
+                }
+              },
+              "endReason": "Le noeud 'field' est terminal.",
+              "path": [
+                {
+                  "role": "left",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 2
+          },
+          "nodeCount": 5,
+          "kept": 1,
+          "traversed": 2,
+          "shared": 0,
+          "sink": {
+            "carrierText": "lodash.template(\"<%= \" + field + \" %>\")",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0,
+                "index": 52
+              },
+              "end": {
+                "line": 4,
+                "column": 39,
+                "index": 91
+              }
+            },
+            "pattern": "<%= EXPR#0 %>",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

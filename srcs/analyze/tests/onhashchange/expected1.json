@@ -1,0 +1,476 @@
+[
+  {
+    "filePath": "onhashchange/files/1.js",
+    "analyzerName": "onhashchange",
+    "value": "window.addEventListener(\"hashchange\", function() {\n  console.log(\"Hash changed via addEventListener!\");\n})",
+    "start": {
+      "line": 7,
+      "column": 0,
+      "index": 118
+    },
+    "end": {
+      "line": 9,
+      "column": 2,
+      "index": 224
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "onhashchange",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "hashchange",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.addEventListener(\"hashchange\", function () {\n  console.log(\"Hash changed via addEventListener!\");\n})",
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0,
+                "index": 118
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "index": 224
+              }
+            },
+            "pattern": "hashchange",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "analyzerName": "onhashchange",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "INCOMPLETE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "NO_OPERAND",
+              "knownSource": "",
+              "sourceString": "window.addEventListener(\"hashchange\", function() {\n  console.log(\"Hash changed via addEventListener!\");\n});",
+              "nodeType": "FunctionExpression",
+              "text": "function () {\n  console.log(\"Hash changed via addEventListener!\");\n}",
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 38,
+                  "index": 156
+                },
+                "end": {
+                  "line": 9,
+                  "column": 1,
+                  "index": 223
+                }
+              },
+              "endReason": "Aucun ReturnStatement n'a été trouvé dans le body de FunctionExpression",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.addEventListener(\"hashchange\", function () {\n  console.log(\"Hash changed via addEventListener!\");\n})",
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0,
+                "index": 118
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "index": 224
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "onhashchange/files/1.js",
+    "analyzerName": "onhashchange",
+    "value": "window.onhashchange = function() {\n  console.log(\"First handler\");\n}",
+    "start": {
+      "line": 18,
+      "column": 0,
+      "index": 388
+    },
+    "end": {
+      "line": 20,
+      "column": 1,
+      "index": 456
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "analyzerName": "onhashchange",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "INCOMPLETE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "NO_OPERAND",
+              "knownSource": "",
+              "sourceString": "window.onhashchange = function() {\n  console.log(\"First handler\");\n};",
+              "nodeType": "FunctionExpression",
+              "text": "function () {\n  console.log(\"First handler\");\n}",
+              "loc": {
+                "start": {
+                  "line": 18,
+                  "column": 22,
+                  "index": 410
+                },
+                "end": {
+                  "line": 20,
+                  "column": 1,
+                  "index": 456
+                }
+              },
+              "endReason": "Aucun ReturnStatement n'a été trouvé dans le body de FunctionExpression",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.onhashchange = function () {\n  console.log(\"First handler\");\n}",
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 0,
+                "index": 388
+              },
+              "end": {
+                "line": 20,
+                "column": 1,
+                "index": 456
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "onhashchange/files/1.js",
+    "analyzerName": "onhashchange",
+    "value": "window.onhashchange = function() {\n  console.log(\"Hash changed!\");\n}",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 21
+    },
+    "end": {
+      "line": 4,
+      "column": 1,
+      "index": 89
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "analyzerName": "onhashchange",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "INCOMPLETE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "NO_OPERAND",
+              "knownSource": "",
+              "sourceString": "window.onhashchange = function() {\n  console.log(\"Hash changed!\");\n};",
+              "nodeType": "FunctionExpression",
+              "text": "function () {\n  console.log(\"Hash changed!\");\n}",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 22,
+                  "index": 43
+                },
+                "end": {
+                  "line": 4,
+                  "column": 1,
+                  "index": 89
+                }
+              },
+              "endReason": "Aucun ReturnStatement n'a été trouvé dans le body de FunctionExpression",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.onhashchange = function () {\n  console.log(\"Hash changed!\");\n}",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 21
+              },
+              "end": {
+                "line": 4,
+                "column": 1,
+                "index": 89
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "onhashchange/files/1.js",
+    "analyzerName": "onhashchange",
+    "value": "window.onhashchange = function() {\n  console.log(\"Second handler\");\n}",
+    "start": {
+      "line": 21,
+      "column": 0,
+      "index": 458
+    },
+    "end": {
+      "line": 23,
+      "column": 1,
+      "index": 527
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "analyzerName": "onhashchange",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "INCOMPLETE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "NO_OPERAND",
+              "knownSource": "",
+              "sourceString": "window.onhashchange = function() {\n  console.log(\"Second handler\");\n}",
+              "nodeType": "FunctionExpression",
+              "text": "function () {\n  console.log(\"Second handler\");\n}",
+              "loc": {
+                "start": {
+                  "line": 21,
+                  "column": 22,
+                  "index": 480
+                },
+                "end": {
+                  "line": 23,
+                  "column": 1,
+                  "index": 527
+                }
+              },
+              "endReason": "Aucun ReturnStatement n'a été trouvé dans le body de FunctionExpression",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.onhashchange = function () {\n  console.log(\"Second handler\");\n}",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 0,
+                "index": 458
+              },
+              "end": {
+                "line": 23,
+                "column": 1,
+                "index": 527
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "onhashchange/files/1.js",
+    "analyzerName": "onhashchange",
+    "value": "window.onhashchange = handler",
+    "start": {
+      "line": 15,
+      "column": 0,
+      "index": 332
+    },
+    "end": {
+      "line": 15,
+      "column": 29,
+      "index": 361
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "analyzerName": "onhashchange",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "INCOMPLETE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "NO_OPERAND",
+              "knownSource": "",
+              "sourceString": "const handler = function() {\n  console.log(\"Hash changed via variable!\");\n};",
+              "nodeType": "FunctionExpression",
+              "text": "function () {\n  console.log(\"Hash changed via variable!\");\n}",
+              "loc": {
+                "start": {
+                  "line": 12,
+                  "column": 16,
+                  "index": 271
+                },
+                "end": {
+                  "line": 14,
+                  "column": 1,
+                  "index": 330
+                }
+              },
+              "endReason": "Aucun ReturnStatement n'a été trouvé dans le body de FunctionExpression",
+              "path": [
+                {
+                  "role": "bindNode",
+                  "nodeType": "BindingNode (const)",
+                  "label": "handler"
+                },
+                {
+                  "role": "init",
+                  "nodeType": "VariableDeclarator"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 3,
+          "kept": 1,
+          "traversed": 2,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.onhashchange = handler",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 0,
+                "index": 332
+              },
+              "end": {
+                "line": 15,
+                "column": 29,
+                "index": 361
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

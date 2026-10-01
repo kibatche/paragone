@@ -1,0 +1,191 @@
+[
+  {
+    "filePath": "set-html-unsafe/files/1.js",
+    "analyzerName": "set-html-unsafe",
+    "value": "Document.parseHTMLUnsafe(t.body)",
+    "start": {
+      "line": 4,
+      "column": 8,
+      "index": 74
+    },
+    "end": {
+      "line": 4,
+      "column": 40,
+      "index": 106
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "18d7ee3fcd984e6f7faeef8578de9820b248c72fc23060c83d2766d0c9dba925",
+        "analyzerName": "set-html-unsafe",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "var d = Document.parseHTMLUnsafe(t.body);",
+              "nodeType": "Identifier",
+              "text": "t",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 33,
+                  "index": 99
+                },
+                "end": {
+                  "line": 4,
+                  "column": 34,
+                  "index": 100
+                }
+              },
+              "endReason": "Le noeud 't' est terminal.",
+              "path": [
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "Document.parseHTMLUnsafe(t.body)",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 8,
+                "index": 74
+              },
+              "end": {
+                "line": 4,
+                "column": 40,
+                "index": 106
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "set-html-unsafe/files/1.js",
+    "analyzerName": "set-html-unsafe",
+    "value": "host.setHTMLUnsafe(location.hash.slice(1))",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 11
+    },
+    "end": {
+      "line": 2,
+      "column": 42,
+      "index": 53
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "XSS"
+        ],
+        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "analyzerName": "set-html-unsafe",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "SOURCE_REACHED",
+          "sources": [
+            "location Read"
+          ],
+          "findings": [
+            {
+              "kind": "INTERNAL",
+              "knownSource": "location Read",
+              "sourceString": "host.setHTMLUnsafe(location.hash.slice(1));",
+              "nodeType": "MemberExpression",
+              "text": "location.hash",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 19,
+                  "index": 30
+                },
+                "end": {
+                  "line": 2,
+                  "column": 32,
+                  "index": 43
+                }
+              },
+              "endReason": "",
+              "path": [
+                {
+                  "role": "callee",
+                  "nodeType": "CallExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "UNBOUND (base de la source)": 1,
+            "LITERAL": 1
+          },
+          "nodeCount": 5,
+          "kept": 1,
+          "traversed": 2,
+          "shared": 0,
+          "sink": {
+            "carrierText": "host.setHTMLUnsafe(location.hash.slice(1))",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 11
+              },
+              "end": {
+                "line": 2,
+                "column": 42,
+                "index": 53
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

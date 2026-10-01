@@ -1,0 +1,214 @@
+[
+  {
+    "filePath": "onmessage/files/1.js",
+    "analyzerName": "onmessage",
+    "value": "window.addEventListener('message', function(event) {\n  console.log('Message received via addEventListener:', event.data);\n})",
+    "start": {
+      "line": 7,
+      "column": 0,
+      "index": 178
+    },
+    "end": {
+      "line": 9,
+      "column": 2,
+      "index": 302
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "onmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "message",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.addEventListener('message', function (event) {\n  console.log('Message received via addEventListener:', event.data);\n})",
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0,
+                "index": 178
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "index": 302
+              }
+            },
+            "pattern": "message",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "analyzerName": "onmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "INCOMPLETE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "NO_OPERAND",
+              "knownSource": "",
+              "sourceString": "window.addEventListener('message', function(event) {\n  console.log('Message received via addEventListener:', event.data);\n});",
+              "nodeType": "FunctionExpression",
+              "text": "function (event) {\n  console.log('Message received via addEventListener:', event.data);\n}",
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 35,
+                  "index": 213
+                },
+                "end": {
+                  "line": 9,
+                  "column": 1,
+                  "index": 301
+                }
+              },
+              "endReason": "Aucun ReturnStatement n'a été trouvé dans le body de FunctionExpression",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.addEventListener('message', function (event) {\n  console.log('Message received via addEventListener:', event.data);\n})",
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0,
+                "index": 178
+              },
+              "end": {
+                "line": 9,
+                "column": 2,
+                "index": 302
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "onmessage/files/1.js",
+    "analyzerName": "onmessage",
+    "value": "window.onmessage = function(event) {\n  console.log('Message received:', event.data);\n}",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 44
+    },
+    "end": {
+      "line": 4,
+      "column": 1,
+      "index": 130
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "analyzerName": "onmessage",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "INCOMPLETE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "NO_OPERAND",
+              "knownSource": "",
+              "sourceString": "window.onmessage = function(event) {\n  console.log('Message received:', event.data);\n};",
+              "nodeType": "FunctionExpression",
+              "text": "function (event) {\n  console.log('Message received:', event.data);\n}",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 19,
+                  "index": 63
+                },
+                "end": {
+                  "line": 4,
+                  "column": 1,
+                  "index": 130
+                }
+              },
+              "endReason": "Aucun ReturnStatement n'a été trouvé dans le body de FunctionExpression",
+              "path": [],
+              "id": 0
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 1,
+          "kept": 1,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.onmessage = function (event) {\n  console.log('Message received:', event.data);\n}",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 44
+              },
+              "end": {
+                "line": 4,
+                "column": 1,
+                "index": 130
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]

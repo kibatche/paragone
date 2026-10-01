@@ -1,0 +1,340 @@
+[
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'123domain.com'",
+    "start": {
+      "line": 12,
+      "column": 16,
+      "index": 301
+    },
+    "end": {
+      "line": 12,
+      "column": 31,
+      "index": 316
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "a6861c0b4f7ad457ac0800a250ad73e474424e2355e6d9f2ba99b4c1d3d8db3d",
+        "analyzerName": "hostname",
+        "reconstructed": "123domain.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'a1-b2-c3.example.com'",
+    "start": {
+      "line": 16,
+      "column": 16,
+      "index": 393
+    },
+    "end": {
+      "line": 16,
+      "column": 38,
+      "index": 415
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "407c47eea7314bec314cc806df4e8ab8d946de16ccb569f63dddb28b8ffa42af",
+        "analyzerName": "hostname",
+        "reconstructed": "a1-b2-c3.example.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'domain123.com'",
+    "start": {
+      "line": 11,
+      "column": 16,
+      "index": 268
+    },
+    "end": {
+      "line": 11,
+      "column": 31,
+      "index": 283
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "bf6e5c367d0e579bac4830e734cc08a9d9c8dd5388bba96c056220cd2c86a413",
+        "analyzerName": "hostname",
+        "reconstructed": "domain123.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'example.com'",
+    "start": {
+      "line": 2,
+      "column": 16,
+      "index": 38
+    },
+    "end": {
+      "line": 2,
+      "column": 29,
+      "index": 51
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "97f4099c628fa154ddac9ddef304b8ef9807f8e0795767aabbd2bafbe075676c",
+        "analyzerName": "hostname",
+        "reconstructed": "example.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'example.io'",
+    "start": {
+      "line": 22,
+      "column": 17,
+      "index": 558
+    },
+    "end": {
+      "line": 22,
+      "column": 29,
+      "index": 570
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "2c7e1dd25810c24fe5925f0a7877202adab2b5e083e9819dc16644fcfb8131cf",
+        "analyzerName": "hostname",
+        "reconstructed": "example.io"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'example.net'",
+    "start": {
+      "line": 21,
+      "column": 17,
+      "index": 526
+    },
+    "end": {
+      "line": 21,
+      "column": 30,
+      "index": 539
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "631545cea1923115c1b1ce10279d69d8c2f9c0487ab147c92bbf64edf0d0c177",
+        "analyzerName": "hostname",
+        "reconstructed": "example.net"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'example.org'",
+    "start": {
+      "line": 20,
+      "column": 17,
+      "index": 494
+    },
+    "end": {
+      "line": 20,
+      "column": 30,
+      "index": 507
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "f18418889941ce8ef26ec9fecae371e8a9083bfab6d9b7f5681901fc150b05fe",
+        "analyzerName": "hostname",
+        "reconstructed": "example.org"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'my-domain.com'",
+    "start": {
+      "line": 7,
+      "column": 16,
+      "index": 168
+    },
+    "end": {
+      "line": 7,
+      "column": 31,
+      "index": 183
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "f8c8eca5d530fad3723129074a1532bbb075c68a2c1cc9100cfa098fd655c4f4",
+        "analyzerName": "hostname",
+        "reconstructed": "my-domain.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'sub-domain.example.com'",
+    "start": {
+      "line": 8,
+      "column": 16,
+      "index": 201
+    },
+    "end": {
+      "line": 8,
+      "column": 40,
+      "index": 225
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "a12462ea00b44d275ce22628f11f3dc26c5720596bd49f722f8617d76b0c59d8",
+        "analyzerName": "hostname",
+        "reconstructed": "sub-domain.example.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'sub.example.com'",
+    "start": {
+      "line": 3,
+      "column": 16,
+      "index": 69
+    },
+    "end": {
+      "line": 3,
+      "column": 33,
+      "index": 86
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "1231ac47b9a9e2d63f2a2ae25c50f75a6df64c2c3dcc5da6f5c745a2b58838bb",
+        "analyzerName": "hostname",
+        "reconstructed": "sub.example.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'sub.sub.example.com'",
+    "start": {
+      "line": 4,
+      "column": 16,
+      "index": 104
+    },
+    "end": {
+      "line": 4,
+      "column": 37,
+      "index": 125
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "08afb33c4d77932c94d043f18c3c7121504c9250265d2086ccd909cb9e54b736",
+        "analyzerName": "hostname",
+        "reconstructed": "sub.sub.example.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'sub123.example.com'",
+    "start": {
+      "line": 13,
+      "column": 16,
+      "index": 334
+    },
+    "end": {
+      "line": 13,
+      "column": 36,
+      "index": 354
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "c11fcf219147fc1563ff739c26349d9356305182c9f5ccfcf74e8d44db885a01",
+        "analyzerName": "hostname",
+        "reconstructed": "sub123.example.com"
+      }
+    ]
+  },
+  {
+    "filePath": "hostname/files/1.js",
+    "analyzerName": "hostname",
+    "value": "'test-123.example.com'",
+    "start": {
+      "line": 17,
+      "column": 17,
+      "index": 434
+    },
+    "end": {
+      "line": 17,
+      "column": 39,
+      "index": 456
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "HOSTNAME_INVENTORY"
+        ],
+        "hash": "829b2ce107edcdefdcc5e4836e9f393557b65c9d4a12d322d27ff276f56a1ab6",
+        "analyzerName": "hostname",
+        "reconstructed": "test-123.example.com"
+      }
+    ]
+  }
+]

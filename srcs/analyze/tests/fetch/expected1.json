@@ -1,0 +1,266 @@
+[
+  {
+    "filePath": "fetch/files/1.js",
+    "analyzerName": "fetch",
+    "value": "fetch('https://api.example.com/data', {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({ key: 'value' })\n})",
+    "start": {
+      "line": 5,
+      "column": 0,
+      "index": 82
+    },
+    "end": {
+      "line": 11,
+      "column": 2,
+      "index": 240
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "fetch",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "https://api.example.com/data",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch('https://api.example.com/data', {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    key: 'value'\n  })\n})",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0,
+                "index": 82
+              },
+              "end": {
+                "line": 11,
+                "column": 2,
+                "index": 240
+              }
+            },
+            "pattern": "https://api.example.com/data",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "POST",
+          "options": {
+            "method (arguments[1])": "'POST'",
+            "headers (arguments[1])": "{\n  'Content-Type': 'application/json'\n}",
+            "body (arguments[1])": "JSON.stringify({\n  key: 'value'\n})"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "fetch/files/1.js",
+    "analyzerName": "fetch",
+    "value": "fetch('https://api.example.com/data')",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 20
+    },
+    "end": {
+      "line": 2,
+      "column": 37,
+      "index": 57
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "fetch",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "https://api.example.com/data",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch('https://api.example.com/data')",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 20
+              },
+              "end": {
+                "line": 2,
+                "column": 37,
+                "index": 57
+              }
+            },
+            "pattern": "https://api.example.com/data",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "fetch/files/1.js",
+    "analyzerName": "fetch",
+    "value": "fetch('https://api.example.com/data')",
+    "start": {
+      "line": 23,
+      "column": 25,
+      "index": 498
+    },
+    "end": {
+      "line": 23,
+      "column": 62,
+      "index": 535
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "fetch",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "https://api.example.com/data",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch('https://api.example.com/data')",
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 25,
+                "index": 498
+              },
+              "end": {
+                "line": 23,
+                "column": 62,
+                "index": 535
+              }
+            },
+            "pattern": "https://api.example.com/data",
+            "holes": [],
+            "holesMapped": false
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "fetch/files/1.js",
+    "analyzerName": "fetch",
+    "value": "fetch(`https://api.example.com/${endpoint}`)",
+    "start": {
+      "line": 19,
+      "column": 0,
+      "index": 379
+    },
+    "end": {
+      "line": 19,
+      "column": 44,
+      "index": 423
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "fetch",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "https://api.example.com/EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 4,
+          "kept": 0,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "fetch(`https://api.example.com/${endpoint}`)",
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 0,
+                "index": 379
+              },
+              "end": {
+                "line": 19,
+                "column": 44,
+                "index": 423
+              }
+            },
+            "pattern": "https://api.example.com/EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": true
+          }
+        },
+        "request": {
+          "method": "GET",
+          "options": {}
+        }
+      }
+    ]
+  }
+]

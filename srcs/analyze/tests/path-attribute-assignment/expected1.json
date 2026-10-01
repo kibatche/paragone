@@ -1,0 +1,197 @@
+[
+  {
+    "filePath": "path-attribute-assignment/files/1.js",
+    "analyzerName": "path-attribute-assignment",
+    "value": "img.src = \"/api/avatars/\" + user.id + \"/image\"",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 23
+    },
+    "end": {
+      "line": 2,
+      "column": 46,
+      "index": 69
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT",
+          "OPEN_REDIRECT"
+        ],
+        "hash": "3c2313226d890b413845d7e7f41004b555172d069a3a72187746ec191dce53f4",
+        "analyzerName": "path-attribute-assignment",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "/api/avatars/EXPR/image",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "img.src = \"/api/avatars/\" + user.id + \"/image\";",
+              "nodeType": "Identifier",
+              "text": "user",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 28,
+                  "index": 51
+                },
+                "end": {
+                  "line": 2,
+                  "column": 32,
+                  "index": 55
+                }
+              },
+              "endReason": "Le noeud 'user' est terminal.",
+              "path": [
+                {
+                  "role": "left",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "right",
+                  "nodeType": "BinaryExpression"
+                },
+                {
+                  "role": "object",
+                  "nodeType": "MemberExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 2
+          },
+          "nodeCount": 6,
+          "kept": 1,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "img.src = \"/api/avatars/\" + user.id + \"/image\"",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 23
+              },
+              "end": {
+                "line": 2,
+                "column": 46,
+                "index": 69
+              }
+            },
+            "pattern": "/api/avatars/EXPR#0/image",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "path-attribute-assignment/files/1.js",
+    "analyzerName": "path-attribute-assignment",
+    "value": "link.href = `/orders/${orderId}/invoice`",
+    "start": {
+      "line": 4,
+      "column": 0,
+      "index": 104
+    },
+    "end": {
+      "line": 4,
+      "column": 40,
+      "index": 144
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "CSPT",
+          "OPEN_REDIRECT"
+        ],
+        "hash": "bfdddc4ac02b3ca0a5bce427980e508b2a687ab20a71233c15687c76d67f3695",
+        "analyzerName": "path-attribute-assignment",
+        "slot": {
+          "kind": "assignment-expression-right"
+        },
+        "reconstructed": "/orders/EXPR/invoice",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "link.href = `/orders/${orderId}/invoice`;",
+              "nodeType": "Identifier",
+              "text": "orderId",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 23,
+                  "index": 127
+                },
+                "end": {
+                  "line": 4,
+                  "column": 30,
+                  "index": 134
+                }
+              },
+              "endReason": "Le noeud 'orderId' est terminal.",
+              "path": [
+                {
+                  "role": "expressions[0]",
+                  "nodeType": "TemplateLiteral"
+                }
+              ],
+              "id": 0,
+              "holes": [
+                {
+                  "name": "EXPR#0"
+                }
+              ]
+            }
+          ],
+          "omitted": {},
+          "nodeCount": 2,
+          "kept": 1,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "link.href = `/orders/${orderId}/invoice`",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0,
+                "index": 104
+              },
+              "end": {
+                "line": 4,
+                "column": 40,
+                "index": 144
+              }
+            },
+            "pattern": "/orders/EXPR#0/invoice",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": true
+          }
+        }
+      }
+    ]
+  }
+]

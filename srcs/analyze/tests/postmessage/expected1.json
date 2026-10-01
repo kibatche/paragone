@@ -1,0 +1,920 @@
+[
+  {
+    "filePath": "postmessage/files/1.js",
+    "analyzerName": "postmessage",
+    "value": "iframe.contentWindow.postMessage(\"iframe message\", \"*\")",
+    "start": {
+      "line": 13,
+      "column": 0,
+      "index": 354
+    },
+    "end": {
+      "line": 13,
+      "column": 55,
+      "index": 409
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "iframe message",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "iframe.contentWindow.postMessage(\"iframe message\", \"*\")",
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0,
+                "index": 354
+              },
+              "end": {
+                "line": 13,
+                "column": 55,
+                "index": 409
+              }
+            },
+            "pattern": "iframe message",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "*",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "iframe.contentWindow.postMessage(\"iframe message\", \"*\")",
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0,
+                "index": 354
+              },
+              "end": {
+                "line": 13,
+                "column": 55,
+                "index": 409
+              }
+            },
+            "pattern": "*",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "postmessage/files/1.js",
+    "analyzerName": "postmessage",
+    "value": "window.parent.postMessage(\"parent message\", \"*\")",
+    "start": {
+      "line": 15,
+      "column": 0,
+      "index": 412
+    },
+    "end": {
+      "line": 15,
+      "column": 48,
+      "index": 460
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "parent message",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.parent.postMessage(\"parent message\", \"*\")",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 0,
+                "index": 412
+              },
+              "end": {
+                "line": 15,
+                "column": 48,
+                "index": 460
+              }
+            },
+            "pattern": "parent message",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "*",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.parent.postMessage(\"parent message\", \"*\")",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 0,
+                "index": 412
+              },
+              "end": {
+                "line": 15,
+                "column": 48,
+                "index": 460
+              }
+            },
+            "pattern": "*",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "postmessage/files/1.js",
+    "analyzerName": "postmessage",
+    "value": "window.postMessage(\"Hello\", \"*\")",
+    "start": {
+      "line": 2,
+      "column": 0,
+      "index": 27
+    },
+    "end": {
+      "line": 2,
+      "column": 32,
+      "index": 59
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "Hello",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage(\"Hello\", \"*\")",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 27
+              },
+              "end": {
+                "line": 2,
+                "column": 32,
+                "index": 59
+              }
+            },
+            "pattern": "Hello",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "*",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage(\"Hello\", \"*\")",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0,
+                "index": 27
+              },
+              "end": {
+                "line": 2,
+                "column": 32,
+                "index": 59
+              }
+            },
+            "pattern": "*",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "postmessage/files/1.js",
+    "analyzerName": "postmessage",
+    "value": "window.postMessage({\n  type: \"update\",\n  payload: {\n    user: \"test\",\n    data: [1, 2, 3]\n  }\n}, \"*\")",
+    "start": {
+      "line": 24,
+      "column": 0,
+      "index": 653
+    },
+    "end": {
+      "line": 30,
+      "column": 7,
+      "index": 754
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 5
+          },
+          "nodeCount": 8,
+          "kept": 0,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage({\n  type: \"update\",\n  payload: {\n    user: \"test\",\n    data: [1, 2, 3]\n  }\n}, \"*\")",
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 0,
+                "index": 653
+              },
+              "end": {
+                "line": 30,
+                "column": 7,
+                "index": 754
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "*",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage({\n  type: \"update\",\n  payload: {\n    user: \"test\",\n    data: [1, 2, 3]\n  }\n}, \"*\")",
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 0,
+                "index": 653
+              },
+              "end": {
+                "line": 30,
+                "column": 7,
+                "index": 754
+              }
+            },
+            "pattern": "*",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "postmessage/files/1.js",
+    "analyzerName": "postmessage",
+    "value": "window.postMessage({ data: \"secure\" }, \"https://example.com\")",
+    "start": {
+      "line": 5,
+      "column": 0,
+      "index": 96
+    },
+    "end": {
+      "line": 5,
+      "column": 61,
+      "index": 157
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 2,
+          "kept": 0,
+          "traversed": 1,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage({\n  data: \"secure\"\n}, \"https://example.com\")",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0,
+                "index": 96
+              },
+              "end": {
+                "line": 5,
+                "column": 61,
+                "index": 157
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "https://example.com",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage({\n  data: \"secure\"\n}, \"https://example.com\")",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0,
+                "index": 96
+              },
+              "end": {
+                "line": 5,
+                "column": 61,
+                "index": 157
+              }
+            },
+            "pattern": "https://example.com",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "postmessage/files/1.js",
+    "analyzerName": "postmessage",
+    "value": "window.postMessage(buffer, \"*\", [buffer])",
+    "start": {
+      "line": 9,
+      "column": 0,
+      "index": 236
+    },
+    "end": {
+      "line": 9,
+      "column": 41,
+      "index": 277
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "32b8f0492051c1e6d8885b6026b5aec9dba1f59543079383dc6accdb22c9c62f",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "const buffer = new ArrayBuffer(8);",
+              "nodeType": "Identifier",
+              "text": "ArrayBuffer",
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 19,
+                  "index": 220
+                },
+                "end": {
+                  "line": 8,
+                  "column": 30,
+                  "index": 231
+                }
+              },
+              "endReason": "Le noeud 'ArrayBuffer' est terminal.",
+              "path": [
+                {
+                  "role": "bindNode",
+                  "nodeType": "BindingNode (const)",
+                  "label": "buffer"
+                },
+                {
+                  "role": "init",
+                  "nodeType": "VariableDeclarator"
+                },
+                {
+                  "role": "callee",
+                  "nodeType": "NewExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 5,
+          "kept": 1,
+          "traversed": 3,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage(buffer, \"*\", [buffer])",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0,
+                "index": 236
+              },
+              "end": {
+                "line": 9,
+                "column": 41,
+                "index": 277
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "*",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage(buffer, \"*\", [buffer])",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0,
+                "index": 236
+              },
+              "end": {
+                "line": 9,
+                "column": 41,
+                "index": 277
+              }
+            },
+            "pattern": "*",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "32b8f0492051c1e6d8885b6026b5aec9dba1f59543079383dc6accdb22c9c62f",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 2
+        },
+        "reconstructed": "EXPR",
+        "taint": {
+          "verdict": "OPAQUE",
+          "sources": [],
+          "findings": [
+            {
+              "kind": "UNBOUND",
+              "knownSource": "",
+              "sourceString": "const buffer = new ArrayBuffer(8);",
+              "nodeType": "Identifier",
+              "text": "ArrayBuffer",
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "column": 19,
+                  "index": 220
+                },
+                "end": {
+                  "line": 8,
+                  "column": 30,
+                  "index": 231
+                }
+              },
+              "endReason": "Le noeud 'ArrayBuffer' est terminal.",
+              "path": [
+                {
+                  "role": "elements[0]",
+                  "nodeType": "ArrayExpression"
+                },
+                {
+                  "role": "bindNode",
+                  "nodeType": "BindingNode (const)",
+                  "label": "buffer"
+                },
+                {
+                  "role": "init",
+                  "nodeType": "VariableDeclarator"
+                },
+                {
+                  "role": "callee",
+                  "nodeType": "NewExpression"
+                }
+              ],
+              "id": 0
+            }
+          ],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 6,
+          "kept": 1,
+          "traversed": 4,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.postMessage(buffer, \"*\", [buffer])",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0,
+                "index": 236
+              },
+              "end": {
+                "line": 9,
+                "column": 41,
+                "index": 277
+              }
+            },
+            "pattern": "EXPR#0",
+            "holes": [
+              {
+                "name": "EXPR#0"
+              }
+            ],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "postmessage/files/1.js",
+    "analyzerName": "postmessage",
+    "value": "window.referer.postMessage(\"referer message\", \"*\")",
+    "start": {
+      "line": 17,
+      "column": 0,
+      "index": 463
+    },
+    "end": {
+      "line": 17,
+      "column": 50,
+      "index": 513
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "referer message",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.referer.postMessage(\"referer message\", \"*\")",
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 0,
+                "index": 463
+              },
+              "end": {
+                "line": 17,
+                "column": 50,
+                "index": 513
+              }
+            },
+            "pattern": "referer message",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      },
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 1
+        },
+        "reconstructed": "*",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "window.referer.postMessage(\"referer message\", \"*\")",
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 0,
+                "index": 463
+              },
+              "end": {
+                "line": 17,
+                "column": 50,
+                "index": 513
+              }
+            },
+            "pattern": "*",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "filePath": "postmessage/files/1.js",
+    "analyzerName": "postmessage",
+    "value": "worker.postMessage(\"worker message\")",
+    "start": {
+      "line": 21,
+      "column": 0,
+      "index": 581
+    },
+    "end": {
+      "line": 21,
+      "column": 36,
+      "index": 617
+    },
+    "leads": [
+      {
+        "schemaVersion": 2,
+        "class": [
+          "WEB_MESSAGE"
+        ],
+        "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "analyzerName": "postmessage",
+        "slot": {
+          "kind": "call-argument",
+          "index": 0
+        },
+        "reconstructed": "worker message",
+        "taint": {
+          "verdict": "LITERAL_ONLY",
+          "sources": [],
+          "findings": [],
+          "omitted": {
+            "LITERAL": 1
+          },
+          "nodeCount": 1,
+          "kept": 0,
+          "traversed": 0,
+          "shared": 0,
+          "sink": {
+            "carrierText": "worker.postMessage(\"worker message\")",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 0,
+                "index": 581
+              },
+              "end": {
+                "line": 21,
+                "column": 36,
+                "index": 617
+              }
+            },
+            "pattern": "worker message",
+            "holes": [],
+            "holesMapped": false
+          }
+        }
+      }
+    ]
+  }
+]
