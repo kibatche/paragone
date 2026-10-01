@@ -358,6 +358,9 @@ J'aimerais mettre en place plusieurs choses :
 - Améliorer l'aspect sécuritaire du programme, protection des données et cie. Pour l'instant c'est inexistant.
 - Factoriser le code, notamment une fonction de la partie teinte, dans [`set_identifier_value`](https://github.com/kibatche/paragone/blob/fa63f74e74fa5a5118104825e09bea4b17cdff40/srcs/analyze/taint/set_identifier_value.ts#L1349). C'est une fonction très complexe, et même en la relisant, j'ai du mal à comprendre ce que j'ai écrit : ce n'est jamais bon signe. Cette partie là est de base compliquée, mais je pense qu'il y a moyen de la séparer en plusieurs parties plutôt qu'un gros blob comme ça.
 - Et le gros dossier : pouvoir faire ce qu'on fait avec l'api, pour la récupération de données, avec la CLI. Cela permettrait à une machine d'aller directement requêter la BDD, sans passer par HTTP et sans devoir parser la base de données sqlite.
+- Ecrire un article plus détaillé sur le code et son fonctionnement
+- Mieux attribuer les auteurs
+- Mieux commenter mon code.
 
 ## LLM & cie
 
@@ -375,7 +378,7 @@ Ou mieux, ouvrez une issue. :-)
 
 ## Comment participer
 
-Pas d'issues par des LLM, elles seront toutes jetés. L'idée est que des humains, y compris aidés par des LLM, puissent comprendre et soumettre pour la base de code.
+Pas d'issues ouvertes par des LLM, elles seront toutes jetées. L'idée est que des humains, y compris aidés par des LLM, puissent comprendre et soumettre pour la base de code.
 
 Les parties analyses ne sont pas pour ainsi dire toutes évidentes. La partie teinte est quant à elle parfois excessivement difficile. Du gloubi-boulga de code pondu par un LLM n'est pas souhaitable.
 
