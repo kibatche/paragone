@@ -203,7 +203,7 @@ C'est un programme d'analyse *statique*. Je vous invite à lire cette page wikip
 
 Cependant, le vrai test se fait à l'exécution. Il faut donc adjoindre les deux mondes : l'analyse statique permet de brosser rapidement certaines choses, l'analyse dynamique de les confirmer et d'en découvrir d'autres.
 
-Je réfléchis à introduire une génération automatique de configuration pour l'outil [`domlogger++`](https://github.com/kevin-mizu/domloggerpp) de Kevin Mizu. Je ne sais pas si c'est une bonne idée, mais il y a moyen. L'implémentation n'est cependant pas trivial, les bibliothèque comme react étant bourrée de helper qui, in fine, seront des API propres au navigateur.
+Je réfléchis à introduire une génération automatique de configuration pour l'outil [`domlogger++`](https://github.com/kevin-mizu/domloggerpp) de Kevin Mizu. Je ne sais pas si c'est une bonne idée, mais il y a moyen. L'implémentation n'est cependant pas triviale, les bibliothèques comme react étant bourrées de helper qui, in fine, seront des API propres au navigateur.
 
 Une autre idée est d'implémenter un helper pour fournir un "Dossier" - le nom donné à toutes les informations concernant un identifiant - à un agent ou autre qui pourrait tester des chemins potentiels d'exécution dans un environnement favorable (MCP de Caido ou Burp).
 
@@ -212,6 +212,7 @@ Une autre idée encore serait de placer des sortes de points d'arrêt directemen
 Sinon, on peut aussi utiliser notre cerveau ! :)
 
 En un mot comme en cent, ce que ce projet n'est pas : un analyseur dynamique.
+
 ## Les analyseurs
 
 ## Liste
