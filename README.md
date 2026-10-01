@@ -104,7 +104,7 @@ bun install && bun link
 3. Optionnel - Clonez le repo `paragone-front`
 
 ```bash
-git clone
+git clone git@github.com:kibatche/paragone-front.git
 ```
 
 Cela vous permettra d'avoir un front qui n'existe pas dans ce projet de base.
