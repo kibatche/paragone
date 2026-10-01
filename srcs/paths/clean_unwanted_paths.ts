@@ -1,5 +1,5 @@
 /**
- * @author [A likely boring stuff made by] kbtch_ + Shevek
+ * @author [A likely boring stuff made by] kbtch_
  * @desc clean_unwanted_paths.ts — enlève les js/ts inintéressant pour l'analyse, et reconnaît un
  *       contenu qui n'est pas du JavaScript.
  */
