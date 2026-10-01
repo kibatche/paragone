@@ -218,7 +218,7 @@ Ils sont de trois sortes : les analyseurs avec impact (CSPT, XSS etc.) et les an
 
 Les sources n'offrent pas d'analyse en tant que telle, elles permettent juste de signifier lors d'une teinte que l'identifiant a une source nommée et connue. Cela aide à la décision.
 
-Une bonne partie des analyseurs d'inventaire viennent de jxscout, même s'ils ont été remanié. L'honnêteté oblige à le dire, il a vraiment fait un taff de fou pour lequel je dois beaucoup.
+Une bonne partie des analyseurs d'inventaire viennent de jxscout, même s'ils ont été remaniés. L'honnêteté oblige à le dire, il a vraiment fait un taff de fou pour lequel je dois beaucoup.
 
 ```
 srcs/analyze/ast_analyzers/
@@ -344,4 +344,52 @@ bun run test
 ```
 
 Lancer `bun test` sans `--isolate` fait échouer les tests de la base avec un message qui le dit : ils refusent de toucher à la vraie `.paragone/`.
+
+## La suite
+
+J'aimerais mettre en place plusieurs choses :
+
+- Améliorer le traitement des inventaires afin que, ceux qui le permettent, puissent être teintés également. Cela permettrait de bien suivre par exemple ce qu'il y a dans le stockage local du navigateur, qui peut parfois amener à des dingueries en BB.
+- Comme évoqué plus haut, avoir un générateur pour domlogger++. Ce n'est pas un travail simple. Mais pas infaisable non plus.
+- Donner la possibilité de servir un fichier modifié afin de détecter pendant la navigation des leads exécutés.
+- Mettre en place la version anglaise. Elle existe en partie, mais je trouvais que la façon de l'amener était mal foutue. Ce n'est pas très compliqué ceci dit.
+- Filer un "dossier" à un LLM.
+- Ajouter une commande "skill.md"
+- Améliorer l'aspect sécuritaire du programme, protection des données et cie. Pour l'instant c'est inexistant.
+- Factoriser le code, notamment une fonction de la partie teinte, dans [`set_identifier_value`](https://github.com/kibatche/paragone/blob/fa63f74e74fa5a5118104825e09bea4b17cdff40/srcs/analyze/taint/set_identifier_value.ts#L1349). C'est une fonction très complexe, et même en la relisant, j'ai du mal à comprendre ce que j'ai écrit : ce n'est jamais bon signe. Cette partie là est de base compliquée, mais je pense qu'il y a moyen de la séparer en plusieurs parties plutôt qu'un gros blob comme ça.
+- Et le gros dossier : pouvoir faire ce qu'on fait avec l'api, pour la récupération de données, avec la CLI. Cela permettrait à une machine d'aller directement requêter la BDD, sans passer par HTTP et sans devoir parser la base de données sqlite.
+
+## LLM & cie
+
+On est obligé de parler de cela. `paragone` est un projet personnel. Si une partie non négligeable a été faite avec un LLM (l'api par exemple), l'ensemble de ce travail est le mien. Les LLM sont là pour obéir à nos demandes, pas pour créer des choses de toutes pièces qui donnent, bien souvent, de la daube.
+
+J'ai pour plaisir la programmation, mais je ne me plais pas à tout programmer, voilà tout. C'est un projet conséquent, donc les trucs que je n'aime pas, je les refile en général. Ce n'est pas tout le temps vrai cependant. En fait, il n'y a jamais de règles qui tiennent totalement.
+
+Dans tous les cas, ne serait-ce que pour garder ses compétences, c'est important de les exercer. Une grande partie de ce projet avec un LLM a consisté à lui demander de tester l'application, de trouver les failles de détection etc. et mettre à jour ma roadmap perso.
+
+Tout n'est pas parfait, loin de là, mais cette façon de fonctionner est plutôt cool.
+
+Est-ce que ça veut dire que ce programme est un bon programme et qu'il n'est pas bugué ? Non. J'ai fait de mon mieux pour explorer un champ de la sécurité informatique. Si vous n'aimez pas mon travail, écrivez le votre !
+
+Ou mieux, ouvrez une issue. :-)
+
+## Comment participer
+
+Pas d'issues par des LLM, elles seront toutes jetés. L'idée est que des humains, y compris aidés par des LLM, puissent comprendre et soumettre pour la base de code.
+
+Les parties analyses ne sont pas pour ainsi dire toutes évidentes. La partie teinte est quant à elle parfois excessivement difficile. Du gloubi-boulga de code pondu par un LLM n'est pas souhaitable.
+
+Je verrai pour installer des règles si besoin est (tsc, eslint, prettier...), mais le plus probable est que ce repo reste aux tréfonds d'internet !!
+
+Il y a très certainement des tonnes de bugs, n'hésitez pas à les remonter si vous le souhaitez.
+
+## Sécurité
+
+Ce programme est le niveau 0 de la sécurité informatique. N'exposez **jamais** l'api sur une IP du type `0.0.0.0`. L'api permet de faire tout ce qu'on veut avec les données. Je n'ai pas encore pentesté mon application, mais il n'est pas impossible non plus qu'on puisse faire du path traversal et cie.
+
+## Licence
+
+Pas de licence.
+
+Faite ce que vous voulez de cela, mais n'hésitez pas à créditer si, par le plus grand des hasards, vous utgilisez ce travail. C'est toujours sympa  !
 
