@@ -4,7 +4,7 @@
 
 `paragone` analyse des fichiers JavaScript/TypeScript, en extrait des morceaux potentiellement vulnérables de code, et analyse ces derniers afin de découvrir la source d'un identifiant.
 
-L'idée est d'analyser des bundles minifiés, qui font parfois plusieurs centaines de milliers de ligne. `paragone` parse leur AST, détecte les formes vulnérables qu'il est capable de détecter, les notes selon un score de controlabilité, et enregistre le tout en base de données.
+L'idée est d'analyser des bundles minifiés, qui font parfois plusieurs centaines de milliers de lignes. `paragone` parse leur AST, détecte les formes vulnérables qu'il est capable de détecter, les note selon un score de contrôlabilité, et enregistre le tout en base de données.
 
 Exemple, un sink :
 
