@@ -18,7 +18,7 @@ Une fois l'analyse terminée, la source :
 const r = document.getElementById('name').value
 ```
 
-C'est exemple facile. `paragone` fonctionne sur des formes plus complexes et fonctionne d'autant mieux quand il y a de la donnée en masse à traiter.
+C'est un exemple facile. `paragone` fonctionne sur des formes plus complexes et fonctionne d'autant mieux quand il y a de la donnée en masse à traiter.
 
 Le programme est expliqué plus en détail ici : `## Qu'est-ce que c'est ?`.
 
