@@ -187,7 +187,7 @@ Gloire lui soit rendue malgré tout, c'est grâce à son programme que j'ai mis 
 
 On peut voir `paragone` comme une tentative de remplacement à l'analyse par expression régulière : en seulement quelques secondes, on peut découvrir de très nombreuses formes de vulnérabilité selon une classe donnée et avoir un indice de la dangerosité d'un identifiant présent au sein de cette forme grâce à `jev`. Le tout passe par l'AST d'un fichier JavaScript, ce qui rend le travail avec les données bien meilleur qu'avec les expressions régulières.
 
-A mon sens, ce sont des familles de programmes similaires, car ils travaillent sur le syntaxe. La seule différence est que les expressions régulières permettent plus de liberté au détriment du niveau d'information (aucun arbre, rien à remonter), tandis que le parsing d'AST propose plus de détails (arbre, noms etc.) dans un environnement plus contraint (n'existe que ce qui est explicitement cherché).
+À mon sens, ce sont des familles de programmes similaires, car ils travaillent sur la syntaxe. La seule différence est que les expressions régulières permettent plus de liberté au détriment du niveau d'information - aucun arbre, rien à remonter - tandis que le parsing d'AST propose plus de détails - arbre, noms des identiiants, etc. - dans un environnement plus contraint (n'existe que ce qui est explicitement cherché).
 
 La philosophie est celle du *code first*, et les LLM, quoique au départ assez présents, ont été virés au profit de `jev` qui correspond parfaitement au "rouage" qu'était alors les LLM dans ce programme : il s'agissait de tâcherons qui ne faisaient qu'appeler des outils, le tout écrit avec le SDK de `opencode`.
 
@@ -203,7 +203,17 @@ Pour l'instant, il n'est pas possible de faire ce jugement via la CLI : il faudr
 
 Plus d'infos dans la section `## La suite`.
 
-### Qu'est-ce que ça n'est pas ?
+### LLM friendly
+
+Le travail avec les LLM est maintenant incontournable. C'est peu de dire qu'il s'agit d'une évolution majeure dans nos vies, qu'on aime cela ou non, dès lors qu'on travaille dans l'informatique.
+
+Si ce programme est avant tout pour les humains, je me suis efforcé à le rendre pratique pour des LLM également, afin qu'ils puissent avoir le même niveau d'information.
+
+De plus, cela tente de supprimer, en partie, tout le travail en général assez critiquable qu'opèrent ces machines : expressions régulières par milliers, perte d'attention, loupée de formes vulnérables car pas dans son contexte etc. Là, on a une vraie base sur laquelle commencer en quelques secondes.
+
+Je projette d'améliorer cet aspect, en réfléchissant à l'implémentation d'une API-CLI : faire ce qu'on peut faire avec l'API, mais en CLI, sans HTTP. Plus d'infos dans `## La suite`.
+
+## Qu'est-ce que ça n'est pas ?
 
 C'est un programme d'analyse *statique*. Je vous invite à lire cette page wikipédia : [Théorème de Rice sur l'indécidabilité de l'arrêt](https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_de_Rice).
 
@@ -211,21 +221,15 @@ C'est un programme d'analyse *statique*. Je vous invite à lire cette page wikip
 
 Cependant, le vrai test se fait à l'exécution. Il faut donc adjoindre les deux mondes : l'analyse statique permet de brosser rapidement certaines choses, l'analyse dynamique de les confirmer et d'en découvrir d'autres.
 
-Je réfléchis à introduire une génération automatique de configuration pour l'outil [`domlogger++`](https://github.com/kevin-mizu/domloggerpp) de Kevin Mizu. Je ne sais pas si c'est une bonne idée, mais il y a moyen. L'implémentation n'est cependant pas triviale, les bibliothèques comme react étant bourrées de helper qui, in fine, seront des API propres au navigateur.
+Je réfléchis à introduire une génération automatique de configuration pour l'outil [`domlogger++`](https://github.com/kevin-mizu/domloggerpp) de Kevin Mizu. Je ne sais pas si c'est une bonne idée, mais il y a moyen. L'implémentation n'est cependant pas triviale, les bibliothèques comme react étant bourrées de helper qui, in fine, seront des API propres au navigateur. Cela demanderait un travail de conversion conséquent, mais pas impossible à mener.
 
-Une autre idée est d'implémenter un helper pour fournir un "Dossier" - le nom donné à toutes les informations concernant un identifiant - à un agent ou autre qui pourrait tester des chemins potentiels d'exécution dans un environnement favorable (MCP de Caido ou Burp).
-
-Une autre idée encore serait de placer des sortes de points d'arrêt directement dans un fichier copie du fichier original. On pourrait y placer des fonctions arbitraires, ou encore des point de débogage. J'ai déjà testé l'idée avec un add-on Burp de mon côté, mais c'est un autre projet que celui-ci.
-
-Sinon, on peut aussi utiliser notre cerveau ! :)
-
-En un mot comme en cent, ce que ce projet n'est pas : un analyseur dynamique.
+Ce programme ne permet pas non plus de "hacker". C'est une aide à la récupération d'informations. Ce n'est jamais qu'une seule petite brique très spécialisée au sein d'un _workflow_. En bref, comme on dit : il ne fait pas le café !
 
 ## Les analyseurs
 
 ## Liste
 
-Ils sont de trois sortes : les analyseurs avec impact (CSPT, XSS etc.) et les analyseurs d'inventaire (localStorage, secret etc) et les sources.
+Ils sont de trois sortes : les analyseurs avec impact (CSPT, XSS etc.) et les analyseurs d'inventaire (localStorage, secrets etc) et les sources.
 
 Les sources n'offrent pas d'analyse en tant que telle, elles permettent juste de signifier lors d'une teinte que l'identifiant a une source nommée et connue. Cela aide à la décision.
 
@@ -295,7 +299,7 @@ srcs/analyze/ast_analyzers/
     └── unsafe_html_wrapper.ts
 ```
 
-## API (`--serve`)
+## API avec [`Elysia`](https://elysiajs.com/patterns/openapi)
 
 `--serve` lance une API HTTP qui sert les données de `.paragone/findings.db` du dossier courant : leads, jugements, fichiers scannés, usage du juge.
 
@@ -337,10 +341,6 @@ curl -s http://127.0.0.1:7331/api/jobs
 - `POST /api/judge` lance le juge sur les leads sans jugement, pour les classes de la configuration. Il dépense des tokens et lit la clé `JEV_API_KEY` comme la CLI ; sans elle, la réponse est `400`.
 - Un seul travail à la fois : pendant qu'il tourne, `POST /api/scan` et `POST /api/judge` répondent `409`.
 - L'usage d'un travail lancé par l'API porte l'identifiant du lancement du service, comme celui de la CLI.
-
-### Lire le contrat
-
-Ouvrir `http://127.0.0.1:7331/openapi` pour la documentation, ou récupérer `http://127.0.0.1:7331/openapi/json`. C'est la référence des routes, de leurs paramètres et de leurs réponses.
 
 ### Brancher un front
 
