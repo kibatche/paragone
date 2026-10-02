@@ -18,7 +18,9 @@ Une fois l'analyse terminée, la source :
 const r = document.getElementById('name').value
 ```
 
-Le programme est expliqué plus en détail ici : `## Qu'est-ce que c'est ?`
+C'est exemple facile. `paragone` fonctionne sur des formes plus complexes et fonctionne d'autant mieux quand il y a de la donnée en masse à traiter.
+
+Le programme est expliqué plus en détail ici : `## Qu'est-ce que c'est ?`.
 
 ## Installer
 
@@ -159,13 +161,15 @@ bt.get(`/api/v1/users/${t}`)
 
 Le code ci-dessous est une forme évidente de CSPT et on peut la détecter. L'identifiant `t`, quant à lui, est un `TemplateLiteral` dans le vocabulaire Babel.
 
-On peut remonter à la source d'une variable de ce *sink*, afin de savoir si elle est éventuellement contrôlable.
+On peut remonter à la source d'une variable de ce *sink* - `t` ici - afin de savoir si elle est éventuellement contrôlable.
 
 Exemple :
 
 ```js
 const t = new URLSearchParams(location.search).get('client_id')
 ```
+
+### A l'origine, une fusion d'un travailantéireur avec la partie analyse de `jxscout`
 
 Une première version rudimentaire a été écrite en juillet de cette année.
 
@@ -175,15 +179,19 @@ Je trouvais judicieux de fusionner les deux, en migrant la partie de `jxscout` d
 
 Mais au final l'idée de fusion s'est révélée mauvaise.
 
-Gloire lui soit rendue malgré tout, c'est grâce à son programme que j'ai mis le pied à l'étriller *pour de bon*. Et on peut retrouver encore des traces de son programme et de sa structure dans `paragone`.
+Gloire lui soit rendue malgré tout, c'est grâce à son programme que j'ai mis le pied à l'étriller *pour de bon*. Et on peut retrouver encore des traces de son programme et de sa structure dans `paragone` (`analyzer.ts` par exemple, le nom des analyseurs etc.).
 
-`paragone` est de nouveau devenu un standalone. Le travail dans `jxscout` à entièrement été revu à la hausse à tous les niveaux : qualité de détection des analyses, formes syntaxiques et un rework complet de la teinte de variable.
+`paragone` est de nouveau devenu un standalone. Le travail dans `jxscout` à entièrement été revu à la hausse à tous les niveaux : qualité de détection des analyseurs, formes syntaxiques et un rework complet de la teinte de variable qui était flopesque au possible.
 
-Le programme propose énormément de choses, il est donc très difficile de tout lister.
+### Remplacer les expressions régulières dans la recherche dans le code par l'analyse de l'AST
 
-C'est en quelque sorte un remplaçant à l'analyse par expression régulière : en seulement quelques secondes, on peut découvrir de très nombreuses formes de vulnérabilité selon une classe donnée et avoir un indice de la dangerosité d'un identifiant présent au sein de cette forme grâce à `jev`. Le tout passe par l'AST d'un fichier JavaScript, ce qui rend le travail avec les données bien meilleur que de toutes autres façons.
+On peut voir `paragone` comme une tentative de remplacement à l'analyse par expression régulière : en seulement quelques secondes, on peut découvrir de très nombreuses formes de vulnérabilité selon une classe donnée et avoir un indice de la dangerosité d'un identifiant présent au sein de cette forme grâce à `jev`. Le tout passe par l'AST d'un fichier JavaScript, ce qui rend le travail avec les données bien meilleur qu'avec les expressions régulières.
 
-La philosophie est celle du *code first*, et les LLM, quoique au départ assez présents, ont été virés au profit de `jev` qui correspond parfaitement au "rouage" qu'était alors les LLM dans ce programme (ils ne pouvaient pas écrire et ne faisaient qu'appeler des fonctions).
+A mon sens, ce sont des familles de programmes similaires, car ils travaillent sur le syntaxe. La seule différence est que les expressions régulières permettent plus de liberté au détriment du niveau d'information (aucun arbre, rien à remonter), tandis que le parsing d'AST propose plus de détails (arbre, noms etc.) dans un environnement plus contraint (n'existe que ce qui est explicitement cherché).
+
+La philosophie est celle du *code first*, et les LLM, quoique au départ assez présents, ont été virés au profit de `jev` qui correspond parfaitement au "rouage" qu'était alors les LLM dans ce programme : il s'agissait de tâcherons qui ne faisaient qu'appeler des outils, le tout écrit avec le SDK de `opencode`.
+
+### Un centre de triage des données
 
 On peut voir aussi ce programme comme étant un centre de triage des leads. En effet, des centaines de leads peuvent être écrits et jugés, ce qui rend le tout assez conséquent à traiter. 
 
@@ -370,35 +378,23 @@ J'aimerais mettre en place plusieurs choses :
 
 ## LLM & cie
 
-On est obligé de parler de cela. `paragone` est un projet personnel. Si une partie non négligeable a été faite avec un LLM (l'api par exemple), l'ensemble de ce travail est le mien. Les LLM sont là pour obéir à nos demandes, pas pour créer des choses de toutes pièces qui donnent, bien souvent, de la daube.
+On est obligé de parler de cela. `paragone` est un projet personnel. Si une partie non négligeable a été faite avec un LLM (l'api par exemple), l'ensemble de ce travail est le mien. J'oblige mon assistant digital à notifier grâce à `@author` qu'est-ce qu'il a écrit.
 
-J'ai pour plaisir la programmation, mais je ne me plais pas à tout programmer, voilà tout. C'est un projet conséquent, donc les trucs que je n'aime pas, je les refile en général. Ce n'est pas tout le temps vrai cependant. En fait, il n'y a jamais de règles qui tiennent totalement.
-
-Dans tous les cas, ne serait-ce que pour garder ses compétences, c'est important de les exercer. Une grande partie de ce projet avec un LLM a consisté à lui demander de tester l'application, de trouver les failles de détection etc. et mettre à jour ma roadmap perso.
-
-Tout n'est pas parfait, loin de là, mais cette façon de fonctionner est plutôt cool.
-
-Est-ce que ça veut dire que ce programme est un bon programme et qu'il n'est pas bugué ? Non. J'ai fait de mon mieux pour explorer un champ de la sécurité informatique. Si vous n'aimez pas mon travail, écrivez le votre !
-
-Ou mieux, ouvrez une issue. :-)
+Cela améliore la traçabilité, même si le système n'est pas parfait. En effet, vu les nombreuses réécritures et ma tendance pas assumée du "fais ce que je dis, pas ce que je fais", cette traçabilité n'est pas parfaite et tenue à jour.
 
 ## Comment participer
 
-Pas d'issues ouvertes par des LLM, elles seront toutes jetées. L'idée est que des humains, y compris aidés par des LLM, puissent comprendre et soumettre pour la base de code.
+Si vous souhaitez améliorer le programme, n'hésitez pas à le faire. Je regarderai vos propositions.
 
-Les parties analyses ne sont pas pour ainsi dire toutes évidentes. La partie teinte est quant à elle parfois excessivement difficile. Du gloubi-boulga de code pondu par un LLM n'est pas souhaitable.
-
-Je verrai pour installer des règles si besoin est (tsc, eslint, prettier...), mais le plus probable est que ce repo reste aux tréfonds d'internet !!
-
-Il y a très certainement des tonnes de bugs, n'hésitez pas à les remonter si vous le souhaitez.
+N'hésitez pas à remonter les bugs, proposer d'autres analyseurs, ou tout simplement forker le programme et faire le votre !
 
 ## Sécurité
 
-Ce programme est le niveau 0 de la sécurité informatique. N'exposez **jamais** l'api sur une IP du type `0.0.0.0`. L'api permet de faire tout ce qu'on veut avec les données. Je n'ai pas encore pentesté mon application, mais il n'est pas impossible non plus qu'on puisse faire du path traversal et cie.
+Ce programme est le niveau 0 de la sécurité informatique. N'exposez **jamais** l'API sur une IP du type `0.0.0.0`. L'api permet de faire tout ce qu'on veut avec les données. Je n'ai pas encore pentesté mon application, mais il n'est pas impossible non plus qu'on puisse faire du path traversal et cie.
 
 ## Licence
 
 Pas de licence.
 
-Faite ce que vous voulez de cela, mais n'hésitez pas à créditer si, par le plus grand des hasards, vous utgilisez ce travail. C'est toujours sympa  !
+Faite ce que vous voulez de cela, mais n'hésitez pas à créditer si, par le plus grand des hasards, vous utilisez ce travail. C'est toujours sympa  !
 
