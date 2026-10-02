@@ -1,4 +1,5 @@
-# paragone
+
+Bizarre une section `Merci` pour un repo qui ne sera pas # paragone
 
 ## Intro
 
@@ -376,7 +377,7 @@ J'aimerais mettre en place plusieurs choses :
 - Mieux attribuer les auteurs
 - Mieux commenter mon code.
 - Améliorer les analyseurs, en rajouter d'autres.
-- Faire en sorte de systématiser l'ajout d'une analyse : au lieux de programmer un analyser, juste définir ce qu'on souhaite analyser. Je ne sais pas si c'est possible, c'est juste une idée.
+- Faire en sorte de systématiser l'ajout d'une analyse : au lieu de programmer un analyseur, juste définir ce qu'on souhaite analyser. Je ne sais pas si c'est possible, c'est juste une idée.
 - Avoir une configuration stable : pour l'instant c'est une configuration au sein de la mémoire. Je crois que cela est un peu bancal, même si ça fonctionne.
 
 ## LLM & cie
