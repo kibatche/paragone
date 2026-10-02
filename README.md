@@ -189,7 +189,9 @@ On peut voir `paragone` comme une tentative de remplacement à l'analyse par exp
 
 À mon sens, ce sont des familles de programmes similaires, car ils travaillent sur la syntaxe. La seule différence est que les expressions régulières permettent plus de liberté au détriment du niveau d'information - aucun arbre, rien à remonter - tandis que le parsing d'AST propose plus de détails - arbre, noms des identiiants, etc. - dans un environnement plus contraint (n'existe que ce qui est explicitement cherché).
 
-La philosophie est celle du *code first*, et les LLM, quoique au départ assez présents, ont été virés au profit de `jev` qui correspond parfaitement au "rouage" qu'était alors les LLM dans ce programme : il s'agissait de tâcherons qui ne faisaient qu'appeler des outils, le tout écrit avec le SDK de `opencode`.
+La philosophie est celle du *code first*, et les LLM, quoique au départ assez présents, ont été virés au pr
+
+On peut voir aussi ce programme comme étant un centre de triage des leads. En effet, des centaines de leads ofit de `jev` qui correspond parfaitement au "rouage" qu'était alors les LLM dans ce programme : il s'agissait de tâcherons qui ne faisaient qu'appeler des outils, le tout écrit avec le SDK de `opencode`.
 
 ### Un centre de triage des données
 
@@ -378,7 +380,7 @@ J'aimerais mettre en place plusieurs choses :
 
 ## LLM & cie
 
-On est obligé de parler de cela. `paragone` est un projet personnel. Si une partie non négligeable a été faite avec un LLM (l'api par exemple), l'ensemble de ce travail est le mien. J'oblige mon assistant digital à notifier grâce à `@author` qu'est-ce qu'il a écrit.
+On est obligé de parler de cela. `paragone` est un projet personnel. Si une partie non négligeable a été faite avec un LLM (l'api par exemple), l'ensemble de ce travail est le mien. J'oblige mon assistant digital à notifier grâce à `@author Shevek` qu'est-ce qu'il a écrit.
 
 Cela améliore la traçabilité, même si le système n'est pas parfait. En effet, vu les nombreuses réécritures et ma tendance pas assumée du "fais ce que je dis, pas ce que je fais", cette traçabilité n'est pas parfaite et tenue à jour.
 
@@ -391,6 +393,15 @@ N'hésitez pas à remonter les bugs, proposer d'autres analyseurs, ou tout simpl
 ## Sécurité
 
 Ce programme est le niveau 0 de la sécurité informatique. N'exposez **jamais** l'API sur une IP du type `0.0.0.0`. L'api permet de faire tout ce qu'on veut avec les données. Je n'ai pas encore pentesté mon application, mais il n'est pas impossible non plus qu'on puisse faire du path traversal et cie.
+
+## Merci
+
+Gloire à Francisco Neves pour son énorme travail sur `jxscout`, que j'utilise toujours dans sa version pas-pro, sans cela je n'aurais jamais pu explorer de façon aussi approfondie les AST JavaScript.
+
+Et un grand merci à chatte Ursula !
+
+<img width="1200" height="1600" alt="WhatsApp Image 2025-08-21 à 20 57 33_2abb1c35" src="https://github.com/user-attachments/assets/7ebe30fb-db2a-402d-81f7-d6c9d2852614" />
+
 
 ## Licence
 
