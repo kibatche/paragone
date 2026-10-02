@@ -169,7 +169,7 @@ Exemple :
 const t = new URLSearchParams(location.search).get('client_id')
 ```
 
-### A l'origine, une fusion d'un travailantéireur avec la partie analyse de `jxscout`
+### A l'origine, une fusion d'un travail antérieur avec la partie analyse de `jxscout`
 
 Une première version rudimentaire a été écrite en juillet de cette année.
 
