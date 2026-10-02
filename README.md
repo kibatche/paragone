@@ -195,7 +195,8 @@ On peut voir aussi ce programme comme étant un centre de triage des leads. En e
 
 ### Un centre de triage des données
 
-On peut voir aussi ce programme comme étant un centre de triage des leads. En effet, des centaines de leads peuvent être écrits et jugés, ce qui rend le tout assez conséquent à traiter. 
+On peut voir aussi ce programme comme étant un centre de tri
+Bizarre une section `Merci` pour un repo qui ne sera pas age des leads. En effet, des centaines de leads peuvent être écrits et jugés, ce qui rend le tout assez conséquent à traiter. 
 
 Le programme propose donc une API OpenAPI qui permet de faire ce que fait la CLI, mais avec la possibilité de placer un jugement humain en plus. Ce n'est pas grand chose, et les jugements de `jev` peuvent suffire.
 
@@ -398,7 +399,7 @@ Ce programme est le niveau 0 de la sécurité informatique. N'exposez **jamais**
 
 Gloire à Francisco Neves pour son énorme travail sur `jxscout`, que j'utilise toujours dans sa version pas-pro, sans cela je n'aurais jamais pu explorer de façon aussi approfondie les AST JavaScript.
 
-Et un grand merci à chatte Ursula !
+Et un grand merci à ma chatte Ursula !
 
 <img width="1200" height="1600" alt="WhatsApp Image 2025-08-21 à 20 57 33_2abb1c35" src="https://github.com/user-attachments/assets/7ebe30fb-db2a-402d-81f7-d6c9d2852614" />
 
