@@ -179,7 +179,7 @@ Mais au final l'idée de fusion s'est révélée mauvaise.
 
 Gloire lui soit rendue malgré tout, c'est grâce à son programme que j'ai mis le pied à l'étriller *pour de bon*. Et on peut retrouver encore des traces de son programme et de sa structure dans `paragone` (`analyzer.ts` par exemple, le nom des analyseurs etc.).
 
-`paragone` est de nouveau devenu un standalone. Le travail dans `jxscout` à entièrement été revu à la hausse à tous les niveaux : qualité de détection des analyseurs, formes syntaxiques et un rework complet de la teinte de variable qui était flopesque au possible.
+`paragone` est de nouveau devenu un standalone. Le travail dans `jxscout` a entièrement été revu à la hausse à tous les niveaux : qualité de détection des analyseurs, formes syntaxiques et un rework complet de la teinte de variable qui était flopesque au possible.
 
 ### Remplacer les expressions régulières dans la recherche dans le code par l'analyse de l'AST
 
