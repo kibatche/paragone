@@ -403,5 +403,5 @@ Et un grand merci à ma chatte Ursula !
 
 Pas de licence.
 
-Faite ce que vous voulez de cela, mais n'hésitez pas à créditer si, par le plus grand des hasards, vous utilisez ce travail. C'est toujours sympa  !
+Faîtes ce que vous voulez de cela, mais n'hésitez pas à créditer si, par le plus grand des hasards, vous utilisez ce travail. C'est toujours sympa  !
 
