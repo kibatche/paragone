@@ -1,10 +1,7 @@
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";
 import { NodePath, type Visitor } from "@babel/traverse";
 import * as t from "@babel/types";
-import {
-  isValidPath,
-  processStringConcatenation,
-} from "./cspt_utils";
+import { isValidPath, processStringConcatenation } from "./cspt_utils";
 import {
   taintIdentifier,
   getTaintTable,

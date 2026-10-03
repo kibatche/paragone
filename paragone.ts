@@ -18,37 +18,36 @@ import { existsSync, mkdirSync } from "node:fs";
 import { PARAGONE_DIR } from "./srcs/config/constants";
 import { confirmReset, destroyParagoneDir } from "./srcs/cli/reset/reset";
 
-
 async function main() {
-
-  getConfig()
+  getConfig();
 
   try {
     if (config.reset === true) {
       if (config.noninteractive === false && !process.stdin.isTTY) {
-        throw new Error("Impossible de supprimer le dossier .paragone car l'option --noninteractive n'a pas été spécifiée alors que le programme est lancé sans TTY. Veuillez recommencer avec l'option '--noninteractive'.")   
+        throw new Error(
+          "Impossible de supprimer le dossier .paragone car l'option --noninteractive n'a pas été spécifiée alors que le programme est lancé sans TTY. Veuillez recommencer avec l'option '--noninteractive'.",
+        );
       }
-      const choice = confirmReset()
+      const choice = confirmReset();
       if (choice === true) {
-        destroyParagoneDir()
-      }
-      else {
-        console.log("Reset annulé. Le programme va quitter.")
-        process.exit(0)
+        destroyParagoneDir();
+      } else {
+        console.log("Reset annulé. Le programme va quitter.");
+        process.exit(0);
       }
     }
   } catch (e) {
-    console.error("[ERROR]", e)
-    process.exit(1)
+    console.error("[ERROR]", e);
+    process.exit(1);
   }
   if (existsSync(PARAGONE_DIR) === false) {
-    mkdirSync(PARAGONE_DIR)
+    mkdirSync(PARAGONE_DIR);
   }
 
-  if (config.scan === true || config.reset === true) await ensureScan()
+  if (config.scan === true || config.reset === true) await ensureScan();
   if (config.judge === true) {
     try {
-      const client = createJevClient()
+      const client = createJevClient();
       const usage = await judgeClasses(client);
 
       let runTotal: Usage = { ...ZERO_USAGE };
@@ -61,7 +60,6 @@ async function main() {
       log(`  ── RUN ${RUN_ID} : ${formatUsage(runTotal)}`);
       logEvent("run_end", { ...runTotal });
       log("\nFinished.\n");
-
     } catch (e) {
       log(`\n[ERROR]: ${e}`);
       process.exit(1);
@@ -83,4 +81,4 @@ async function main() {
   }
 }
 
-main()
+main();

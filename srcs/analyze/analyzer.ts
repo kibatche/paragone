@@ -25,6 +25,7 @@ import { windowNameAnalyzerBuilder } from "./ast_analyzers/inventory/window_name
 import { windowOpenAnalyzerBuilder } from "./ast_analyzers/open_redirect/window_open";
 import { dangerousHtmlAnalyzerBuilder } from "./ast_analyzers/xss/react_dangerously_set_inner_html";
 import { httpMethodsAnalyzerBuilder } from "./ast_analyzers/cspt/http_clients";
+import { robustPathsAnalyzerBuilder } from "./ast_analyzers/inventory/robust_path";
 import { resetTaintTable } from "./taint/set_identifier_value";
 import { urlInObjectExpressionAnalyzerBuilder } from "./ast_analyzers/cspt/url_object_expression";
 import { outerHTMLAnalyzerBuilder } from "./ast_analyzers/xss/outer_html";
@@ -129,6 +130,7 @@ export type AnalyzerType =
   | "regex-pattern"
   | "url-in-object-expression"
   | "paths"
+  | "robust-paths"
   | "window-name"
   | "window-open"
   | "dangerous-html"
@@ -225,97 +227,127 @@ export async function analyzeFile(
     urlInObjectExpressionAnalyzerBuilder,
   );
 
+  const robustPathsAnalyzer = createAnalyzer(
+    "robust-paths",
+    robustPathsAnalyzerBuilder,
+  );
+
   const windowNameAnalyzer = createAnalyzer(
     "window-name",
     windowNameAnalyzerBuilder,
   );
+
   const windowOpenAnalyzer = createAnalyzer(
     "window-open",
     windowOpenAnalyzerBuilder,
   );
+
   const dangerousHtmlAnalyzer = createAnalyzer(
     "dangerous-html",
     dangerousHtmlAnalyzerBuilder,
   );
+
   const httpMethodsAnalyzer = createAnalyzer(
     "http-clients",
     httpMethodsAnalyzerBuilder,
   );
+
   const outerHTMLAnalyzer = createAnalyzer(
     "outer-html",
     outerHTMLAnalyzerBuilder,
   );
+
   const documentWriteAnalyzer = createAnalyzer(
     "document-write",
     documentWriteAnalyzerBuilder,
   );
+
   const insertAdjacentHTMLAnalyzer = createAnalyzer(
     "insert-adjacent-html",
     insertAdjacentHTMLAnalyzerBuilder,
   );
+
   const srcdocAnalyzer = createAnalyzer("srcdoc", srcdocAnalyzerBuilder);
+
   const createContextualFragmentAnalyzer = createAnalyzer(
     "create-contextual-fragment",
     createContextualFragmentAnalyzerBuilder,
   );
+
   const parseFromStringAnalyzer = createAnalyzer(
     "parse-from-string",
     parseFromStringAnalyzerBuilder,
   );
+
   const setHTMLUnsafeAnalyzer = createAnalyzer(
     "set-html-unsafe",
     setHTMLUnsafeAnalyzerBuilder,
   );
+
   const jqueryAnalyzer = createAnalyzer("jquery", jqueryAnalyzerBuilder);
+
   const innerHTMLPropertyAnalyzer = createAnalyzer(
     "innerhtml-property",
     innerHTMLPropertyAnalyzerBuilder,
   );
+
   const htmlPropertyCallAnalyzer = createAnalyzer(
     "html-property-call",
     htmlPropertyCallAnalyzerBuilder,
   );
+
   const angularBypassAnalyzer = createAnalyzer(
     "angular-bypass",
     angularBypassAnalyzerBuilder,
   );
+
   const unsafeHTMLWrapperAnalyzer = createAnalyzer(
     "unsafe-html-wrapper",
     unsafeHTMLWrapperAnalyzerBuilder,
   );
+
   const createObjectURLAnalyzer = createAnalyzer(
     "create-object-url",
     createObjectURLAnalyzerBuilder,
   );
+
   const functionConstructorAnalyzer = createAnalyzer(
     "function-constructor",
     functionConstructorAnalyzerBuilder,
   );
+
   const stringTimerAnalyzer = createAnalyzer(
     "string-timer",
     stringTimerAnalyzerBuilder,
   );
+
   const dynamicImportAnalyzer = createAnalyzer(
     "dynamic-import",
     dynamicImportAnalyzerBuilder,
   );
+
   const scriptElementAnalyzer = createAnalyzer(
     "script-element",
     scriptElementAnalyzerBuilder,
   );
+
   const workerAnalyzer = createAnalyzer("worker", workerAnalyzerBuilder);
+
   const lodashTemplateAnalyzer = createAnalyzer(
     "lodash-template",
     lodashTemplateAnalyzerBuilder,
   );
+
   const pathAttributeAssignmentAnalyzer = createAnalyzer(
     "path-attribute-assignment",
     pathAttributeAssignmentAnalyzerBuilder,
   );
+
   const spaNavigationAnalyzer = createAnalyzer(
     "spa-navigation",
     spaNavigationAnalyzerBuilder,
   );
+
   const analyzers = [
     postMessageAnalyzer, //done
     regexAnalyzer, //done
@@ -333,6 +365,7 @@ export async function analyzeFile(
     onhashchangeAnalyzer, //done
     onmessageAnalyzer, // done
     regexMatchAnalyzer, // done
+    robustPathsAnalyzer,
     urlInObjectExpressionAnalyzer, // done
     windowNameAnalyzer, //done
     windowOpenAnalyzer, //done

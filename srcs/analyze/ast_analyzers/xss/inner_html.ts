@@ -11,9 +11,7 @@ import {
   taintIdentifier,
 } from "../../taint/set_identifier_value";
 import { LEAD_SCHEMA_VERSION, type Lead } from "../../constants/lead";
-import {
-  processStringConcatenation,
-} from "../cspt/cspt_utils";
+import { processStringConcatenation } from "../cspt/cspt_utils";
 import { SHA256 } from "bun";
 import { randomBytes } from "crypto";
 

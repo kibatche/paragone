@@ -1,6 +1,5 @@
 import { DEFAULT_MAX_TURNS } from "./constants";
 
-
 /** @brief Découpe un tableau en lots de taille n (dernier lot éventuellement plus court). */
 export function chunk<T>(arr: T[], n: number): T[][] {
   const out: T[][] = [];

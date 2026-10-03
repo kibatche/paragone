@@ -18,7 +18,6 @@ export const DB_WAL_PATH = join(PARAGONE_DIR, "findings.db-wal");
 export const LOG_TXT = join(PARAGONE_DIR, "log.txt");
 export const LOG_JSONL = join(PARAGONE_DIR, "events.jsonl");
 
-
 /** Port d'écoute par défaut de l'API ; l'hôte par défaut est local, Elysia écoutant sinon sur 0.0.0.0. */
 export const DEFAULT_SERVE_PORT = 7331;
 export const DEFAULT_SERVE_HOST = "127.0.0.1";
@@ -31,23 +30,23 @@ export const OPTIONS: ParseArgsOptionsConfig = {
   scan: {
     type: "boolean",
     short: "s",
-    default: false
+    default: false,
   },
   judge: {
     type: "boolean",
     short: "j",
-    default: false
+    default: false,
   },
   batch: {
     type: "string",
     short: "b",
-    default: "1"
+    default: "1",
   },
   classes: {
     type: "string",
     short: "c",
     default: ["all"],
-    multiple: true
+    multiple: true,
   },
   reset: {
     type: "boolean",
@@ -56,34 +55,34 @@ export const OPTIONS: ParseArgsOptionsConfig = {
   },
   noninteractive: {
     type: "boolean",
-    default: false
+    default: false,
   },
   project_name: {
     type: "string",
     short: "p",
-    default: process.cwd()
+    default: process.cwd(),
   },
   serve: {
     type: "boolean",
-    default: false
+    default: false,
   },
   port: {
-    type: "string"
+    type: "string",
   },
   host: {
-    type: "string"
+    type: "string",
   },
   cors: {
     type: "string",
-    multiple: true
+    multiple: true,
   },
   public: {
-    type: "string"
+    type: "string",
   },
   help: {
     type: "boolean",
     short: "h",
-    default: false
+    default: false,
   },
 };
 

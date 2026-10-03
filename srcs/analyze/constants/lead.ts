@@ -32,6 +32,7 @@ export const INVENTORY_CLASSES = [
   "COOKIE_INVENTORY",
   "GRAPHQL_INVENTORY",
   "HOSTNAME_INVENTORY",
+  "ROBUST_PATH",
   "DOCUMENT_DOMAIN_INVENTORY",
   "LOCAL_STORAGE_INVENTORY",
   "SESSION_STORAGE_INVENTORY",
@@ -60,7 +61,9 @@ export function leadKind(classes: readonly LeadClass[]): LeadKind {
 
 /** Porteur syntaxique de la racine. */
 export type LeadSlotKind =
-  "call-argument" | "object-property" | "assignment-expression-right";
+  | "call-argument"
+  | "object-property"
+  | "assignment-expression-right";
 
 /** Où se trouve la racine dans son porteur. */
 export interface LeadSlot {

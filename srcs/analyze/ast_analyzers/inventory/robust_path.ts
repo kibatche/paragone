@@ -8,70 +8,49 @@ import {
   getConcatCallExprStr,
   getTemplateLiteralStr,
   isConcatCallExpr,
+  isValidPath,
 } from "../cspt/cspt_utils";
 import { LEAD_SCHEMA_VERSION } from "../../constants/lead";
 import { SHA256 } from "bun";
-import {
-  HOSTNAME_REGEX,
-  IANA_TLD,
-  UNWANTED_VALS,
-} from "../../constants/iana_tld";
 
-export const HOSTNAME_ANALYZER_NAME = "hostname";
+export const ROBUST_PATHS_ANALYZER_NAME = "robust-paths";
 
-function unwanted(val: string): boolean {
-  return (
-    UNWANTED_VALS.some((unval) => val.includes(unval)) ||
-    val.startsWith("react.") ||
-    val === "https://" ||
-    val === "http://"
-  );
-}
-
-function isValidDomain(value: string) {
-  if (!value) return false;
-  if (value.startsWith("https://") || value.startsWith("http://")) return true;
-  if (HOSTNAME_REGEX.test(value)) {
-    const h = value.split(".").at(-1)?.toUpperCase();
-    if (!h || !IANA_TLD.has(h)) return false;
-    return true;
-  }
-  return false;
-}
-
-const hostnameAnalyzerBuilder = (
+const robustPathsAnalyzerBuilder = (
   args: AnalyzerParams,
   matchesReturn: AnalyzerMatch[],
 ): Visitor => {
+  // du type "/api/admin/id"
   const handleStringLiteral = (path: NodePath<t.StringLiteral>) => {
     const node = path.node;
     if (!node.loc || node.start == null || node.end == null) return;
+    // pas de match avec les imports du type import {x} from "/chemin/vers/module"
+    if (path.findParent((p) => p.isImportDeclaration())) return;
 
-    if (isValidDomain(node.value) && unwanted(node.value) === false) {
+    if (isValidPath(node.value)) {
       const match: AnalyzerMatch = {
         filePath: args.filePath,
-        analyzerName: HOSTNAME_ANALYZER_NAME,
+        analyzerName: ROBUST_PATHS_ANALYZER_NAME,
         value: args.source.slice(node.start, node.end),
         start: node.loc.start,
         end: node.loc.end,
         leads: [
           {
             schemaVersion: LEAD_SCHEMA_VERSION,
-            class: ["HOSTNAME_INVENTORY"],
+            class: ["ROBUST_PATH"],
             hash: SHA256.hash(
               args.source.slice(node.start, node.end),
               "hex",
             ).toString(),
-            analyzerName: HOSTNAME_ANALYZER_NAME,
+            analyzerName: ROBUST_PATHS_ANALYZER_NAME,
             reconstructed: node.value,
           },
         ],
       };
-      console.log(node.value);
       matchesReturn.push(match);
     }
   };
 
+  // du type "/admin/${e}/id"
   const handleTemplateLiteral = (path: NodePath<t.TemplateLiteral>) => {
     const node = path.node;
     if (!node.loc || node.start == null || node.end == null) return;
@@ -83,27 +62,26 @@ const hostnameAnalyzerBuilder = (
     } else {
       processedValue = getTemplateLiteralStr(node);
     }
-    if (isValidDomain(processedValue) && unwanted(processedValue) === false) {
+    if (isValidPath(processedValue)) {
       const match: AnalyzerMatch = {
         filePath: args.filePath,
-        analyzerName: HOSTNAME_ANALYZER_NAME,
+        analyzerName: ROBUST_PATHS_ANALYZER_NAME,
         value: args.source.slice(node.start, node.end),
         start: node.loc.start,
         end: node.loc.end,
         leads: [
           {
             schemaVersion: LEAD_SCHEMA_VERSION,
-            class: ["HOSTNAME_INVENTORY"],
+            class: ["ROBUST_PATH"],
             hash: SHA256.hash(
               args.source.slice(node.start, node.end),
               "hex",
             ).toString(),
-            analyzerName: HOSTNAME_ANALYZER_NAME,
+            analyzerName: ROBUST_PATHS_ANALYZER_NAME,
             reconstructed: processedValue,
           },
         ],
       };
-      console.log(processedValue);
       matchesReturn.push(match);
     }
   };
@@ -116,31 +94,30 @@ const hostnameAnalyzerBuilder = (
       let processedValue;
       const processedValueEval = path.evaluate();
       if (processedValueEval.confident == true) {
-        processedValue = String(processedValueEval.value);
+        processedValue = processedValueEval.value;
       } else {
         processedValue = getBinaryExpressionStr(node);
       }
-      if (isValidDomain(processedValue) && unwanted(processedValue) === false) {
+      if (isValidPath(processedValue)) {
         const match: AnalyzerMatch = {
           filePath: args.filePath,
-          analyzerName: HOSTNAME_ANALYZER_NAME,
+          analyzerName: ROBUST_PATHS_ANALYZER_NAME,
           value: args.source.slice(node.start, node.end),
           start: node.loc.start,
           end: node.loc.end,
           leads: [
             {
               schemaVersion: LEAD_SCHEMA_VERSION,
-              class: ["HOSTNAME_INVENTORY"],
+              class: ["ROBUST_PATH"],
               hash: SHA256.hash(
                 args.source.slice(node.start, node.end),
                 "hex",
               ).toString(),
-              analyzerName: HOSTNAME_ANALYZER_NAME,
+              analyzerName: ROBUST_PATHS_ANALYZER_NAME,
               reconstructed: processedValue,
             },
           ],
         };
-        console.log(processedValue);
         matchesReturn.push(match);
       }
     }
@@ -166,27 +143,26 @@ const hostnameAnalyzerBuilder = (
       } else {
         processedValue = getConcatCallExprStr(node);
       }
-      if (isValidDomain(processedValue) && unwanted(processedValue) === false) {
+      if (isValidPath(processedValue)) {
         const match: AnalyzerMatch = {
           filePath: args.filePath,
-          analyzerName: HOSTNAME_ANALYZER_NAME,
+          analyzerName: ROBUST_PATHS_ANALYZER_NAME,
           value: args.source.slice(node.start, node.end),
           start: node.loc.start,
           end: node.loc.end,
           leads: [
             {
               schemaVersion: LEAD_SCHEMA_VERSION,
-              class: ["HOSTNAME_INVENTORY"],
+              class: ["ROBUST_PATH"],
               hash: SHA256.hash(
                 args.source.slice(node.start, node.end),
                 "hex",
               ).toString(),
-              analyzerName: HOSTNAME_ANALYZER_NAME,
+              analyzerName: ROBUST_PATHS_ANALYZER_NAME,
               reconstructed: processedValue,
             },
           ],
         };
-        console.log(processedValue);
         matchesReturn.push(match);
       }
     }
@@ -200,4 +176,4 @@ const hostnameAnalyzerBuilder = (
   };
 };
 
-export { hostnameAnalyzerBuilder };
+export { robustPathsAnalyzerBuilder };

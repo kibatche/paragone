@@ -1013,9 +1013,7 @@ function paramKindDispatch(
           const paramIdx = functionParent.node.params.indexOf(paramNode);
 
           // L'injection d'abord : elle donne une VALEUR (le service nommé), l'export une provenance.
-          const token = getInjectPropertyTokens(
-            functionBinding.referencePaths,
-          );
+          const token = getInjectPropertyTokens(functionBinding.referencePaths);
           if (token && t.isIdentifier(paramNode)) {
             const terminal = injectTokenTerminal(
               functionParent,

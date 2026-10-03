@@ -25,9 +25,8 @@ async function scanFile(
 ): Promise<{ outcome: FileOutcome; added: number }> {
   const content = await Bun.file(path).text();
   const sha256 = SHA256.hash(content, "hex").toString();
-  
-  if (getFileSha256(path) === sha256)
-    return { outcome: "unchanged", added: 0 };
+
+  if (getFileSha256(path) === sha256) return { outcome: "unchanged", added: 0 };
 
   if (isMarkupContent(content)) {
     saveFileScan({ path, sha256, status: "not_js", matches: [] });
@@ -37,13 +36,13 @@ async function scanFile(
   try {
     const matches = await analyzeFile(path);
     const added = saveFileScan({ path, sha256, status: "ok", matches });
-    
+
     return { outcome: "ok", added };
   } catch (e) {
     if (!(e instanceof SyntaxError)) throw e;
-    
+
     log(`[scan] ⚠️  ${path} : ${e.message}`);
-    
+
     saveFileScan({
       path,
       sha256,
@@ -51,7 +50,7 @@ async function scanFile(
       error: e.message,
       matches: [],
     });
-    
+
     return { outcome: "parse_error", added: 0 };
   }
 }
@@ -63,11 +62,10 @@ async function scanFile(
 export async function ensureScan(
   onProgress?: (done: number, total: number, file: string) => void,
 ): Promise<ScanSummary> {
-  
   log(`[scan] ${config.analyze}${config.reset ? " (forcé)" : ""} …`);
-  
+
   const paths = [...(await cleanUnwantedPath(config.analyze))].sort();
-  
+
   const summary: ScanSummary = {
     files: paths.length,
     scanned: 0,
@@ -76,9 +74,9 @@ export async function ensureScan(
     parseErrors: 0,
     addedLeads: 0,
   };
- 
+
   let done = 0;
-  
+
   for (const path of paths) {
     const { outcome, added } = await scanFile(path);
     summary.addedLeads += added;
@@ -89,14 +87,14 @@ export async function ensureScan(
     done++;
     onProgress?.(done, paths.length, path);
   }
-  
+
   log(
     `[scan] terminé : ${summary.files} fichiers — ${summary.scanned} analysés, ` +
       `${summary.unchanged} inchangés, ${summary.notJs} non-JS, ${summary.parseErrors} en erreur de parsing ; ` +
       `${summary.addedLeads} leads ajoutés (${countRows("leads")} en base).`,
   );
-  
+
   logEvent("scan", { analyze: config.analyze, ...summary });
-  
+
   return summary;
 }
