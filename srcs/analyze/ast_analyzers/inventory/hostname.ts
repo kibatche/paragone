@@ -67,7 +67,6 @@ const hostnameAnalyzerBuilder = (
           },
         ],
       };
-      console.log(node.value);
       matchesReturn.push(match);
     }
   };
@@ -103,7 +102,6 @@ const hostnameAnalyzerBuilder = (
           },
         ],
       };
-      console.log(processedValue);
       matchesReturn.push(match);
     }
   };
@@ -140,7 +138,6 @@ const hostnameAnalyzerBuilder = (
             },
           ],
         };
-        console.log(processedValue);
         matchesReturn.push(match);
       }
     }
@@ -186,7 +183,6 @@ const hostnameAnalyzerBuilder = (
             },
           ],
         };
-        console.log(processedValue);
         matchesReturn.push(match);
       }
     }
