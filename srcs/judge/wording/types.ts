@@ -41,6 +41,7 @@ export interface CaseWording {
   noOrigins: string;
   origin: (rank: number, holes: string | undefined, text: string) => string;
   knownSource: (source: string) => string;
+  knownSanitizeMethod: (sanitizeMethod: string) => string;
   derivedOrigin: string;
   originCode: (line: number, code: string) => string;
   chainStop: (kindWithLegend: string) => string;

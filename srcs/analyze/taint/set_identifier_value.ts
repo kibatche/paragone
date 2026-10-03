@@ -14,6 +14,7 @@ import {
   getInlineInjectTokens,
 } from "./param_boundaries";
 import { getCallsOnKeyAnywhere, isUnprovenReceiverCall } from "./key_callsites";
+import { getSanitizeCall } from "../ast_analyzers/detect_sanitization/sanitize";
 
 const nodeTable: TaintNode[] = [];
 const nodeIds = new Map<t.Node, number>();
@@ -337,6 +338,7 @@ function taint(path: NodePath<t.Node>): TaintNode {
             return a.node;
           }),
         ),
+        getSanitizeCall(node)
       );
     }
 
@@ -646,6 +648,7 @@ function setReturnObject(
   endReason: string,
   children: TaintChildNode[],
   knownSource?: string,
+  sanitizeMethod?: string,
 ): TaintNode {
   return {
     nodeType: nodeType,
@@ -655,6 +658,7 @@ function setReturnObject(
     endKind: endKind,
     endReason: endReason,
     knownSource: knownSource ?? "",
+    sanitizeMethod: sanitizeMethod ?? "",
     children: children,
   };
 }
