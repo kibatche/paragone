@@ -187,14 +187,11 @@ On peut voir `paragone` comme une tentative de remplacement à l'analyse par exp
 
 À mon sens, ce sont des familles de programmes similaires, car ils travaillent sur la syntaxe. La seule différence est que les expressions régulières permettent plus de liberté au détriment du niveau d'information - aucun arbre, rien à remonter - tandis que le parsing d'AST propose plus de détails - arbre, noms des identiiants, etc. - dans un environnement plus contraint (n'existe que ce qui est explicitement cherché).
 
-La philosophie est celle du *code first*, et les LLM, quoique au départ assez présents, ont été virés au pr
-
-On peut voir aussi ce programme comme étant un centre de triage des leads. En effet, des centaines de leads ofit de `jev` qui correspond parfaitement au "rouage" qu'était alors les LLM dans ce programme : il s'agissait de tâcherons qui ne faisaient qu'appeler des outils, le tout écrit avec le SDK de `opencode`.
+La philosophie est celle du *code first*, et les LLM, quoique au départ assez présents, ont été virés au profit de `jev` qui correspond parfaitement au "rouage" qu'était alors les LLM dans ce programme : il s'agissait de tâcherons qui ne faisaient qu'appeler des outils, le tout écrit avec le SDK de `opencode`.
 
 ### Un centre de triage des données
 
-On peut voir aussi ce programme comme étant un centre de tri
-Bizarre une section `Merci` pour un repo qui ne sera pas age des leads. En effet, des centaines de leads peuvent être écrits et jugés, ce qui rend le tout assez conséquent à traiter. 
+On peut voir aussi ce programme comme étant un centre de triage des leads. En effet, des centaines de leads peuvent être écrits et jugés, ce qui rend le tout assez conséquent à traiter. 
 
 Le programme propose donc une API OpenAPI qui permet de faire ce que fait la CLI, mais avec la possibilité de placer un jugement humain en plus. Ce n'est pas grand chose, et les jugements de `jev` peuvent suffire.
 
@@ -228,7 +225,7 @@ Ce programme ne permet pas non plus de "hacker". C'est une aide à la récupéra
 
 ## Les analyseurs
 
-## Liste
+### Liste
 
 Ils sont de trois sortes : les analyseurs avec impact (CSPT, XSS etc.) et les analyseurs d'inventaire (localStorage, secrets etc) et les sources.
 
