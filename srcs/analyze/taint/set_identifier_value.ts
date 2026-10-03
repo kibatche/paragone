@@ -338,7 +338,7 @@ function taint(path: NodePath<t.Node>): TaintNode {
             return a.node;
           }),
         ),
-        getSanitizeCall(node)
+        getSanitizeCall(node),
       );
     }
 
