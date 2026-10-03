@@ -6,7 +6,18 @@ import * as t from "@babel/types";
 
 //.sanitize, .escape, .escapeHtml, .escapeExpression, .sanitizeUrl, .encodeURIComponent
 //escapeRegExp, ni encodeURI, ni htmlEscape, ni encodeHTML
-const SANITIZE_METHODS = ["sanitize", "escape", "escapeHtml", "escapeExpression", "sanitizeUrl", "encodeURIComponent", "escapeRegExp", "encodeURI", "htmlEscape", "encodeHTML"];
+const SANITIZE_METHODS = [
+  "sanitize",
+  "escape",
+  "escapeHtml",
+  "escapeExpression",
+  "sanitizeUrl",
+  "encodeURIComponent",
+  "escapeRegExp",
+  "encodeURI",
+  "htmlEscape",
+  "encodeHTML",
+];
 
 export function getSanitizeCall(
   node: t.CallExpression | t.OptionalCallExpression,
@@ -19,12 +30,16 @@ export function getSanitizeCall(
 
   const callee = node.callee;
 
-  if ((t.isIdentifier(callee.property) &&
+  if (
+    t.isIdentifier(callee.property) &&
     !callee.computed &&
-    SANITIZE_METHODS.includes(callee.property.name)))
-    return callee.property.name
-  else if ((t.isStringLiteral(callee.property) &&
-    SANITIZE_METHODS.includes(callee.property.value)))
-    return callee.property.value
-  return ""
+    SANITIZE_METHODS.includes(callee.property.name)
+  )
+    return callee.property.name;
+  else if (
+    t.isStringLiteral(callee.property) &&
+    SANITIZE_METHODS.includes(callee.property.value)
+  )
+    return callee.property.value;
+  return "";
 }

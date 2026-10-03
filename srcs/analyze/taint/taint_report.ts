@@ -156,7 +156,7 @@ export function taintReport(
       sources.add(node.knownSource!);
     }
 
-    const isSanitized = !!node.sanitizeMethod
+    const isSanitized = !!node.sanitizeMethod;
     // Sous un noeud déjà étiqueté source, l'identifiant sans binding est sa propre base (`window` sous
     // `window.location.search`, `URLSearchParams` sous son `new`) : le label le dit déjà.
     const redondant =
@@ -179,7 +179,9 @@ export function taintReport(
     let currentSource = sourceAncestor;
     if (
       isSource ||
-      (node.end && !redondant && !KINDS_NON_INFORMATIFS.includes(node.endKind)) ||
+      (node.end &&
+        !redondant &&
+        !KINDS_NON_INFORMATIFS.includes(node.endKind)) ||
       isSanitized
     ) {
       const findingId = findings.length;
@@ -295,7 +297,7 @@ export function normalizeNode(
       hasSource = true;
       sources.add(node.knownSource!);
     }
-    const isSanitized = !!node.sanitizeMethod
+    const isSanitized = !!node.sanitizeMethod;
     const redondant =
       sourceAncestor !== undefined && node.endKind === "UNBOUND";
 
@@ -315,7 +317,9 @@ export function normalizeNode(
     let currentSource = sourceAncestor;
     if (
       isSource ||
-      (node.end && !redondant && !KINDS_NON_INFORMATIFS.includes(node.endKind)) ||
+      (node.end &&
+        !redondant &&
+        !KINDS_NON_INFORMATIFS.includes(node.endKind)) ||
       isSanitized
     ) {
       const findingId = findings.length;
