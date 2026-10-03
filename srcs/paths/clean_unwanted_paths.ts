@@ -8,10 +8,10 @@ import { lstatSync, statSync } from "node:fs";
 
 export async function cleanUnwantedPath(analyze: string) {
   const paths = new Set<string>();
-  
-  if (lstatSync(analyze).isFile() === true ) {
-    paths.add(analyze)
-    return paths
+
+  if (lstatSync(analyze).isFile() === true) {
+    paths.add(analyze);
+    return paths;
   }
   for await (const path of glob([`${analyze}/**/*.ts`, `${analyze}/**/*.js`], {
     exclude: [

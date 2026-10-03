@@ -5,7 +5,6 @@
 import { appendFileSync } from "node:fs";
 import { LOG_TXT, LOG_JSONL } from "../../config/constants";
 
-
 /** Identifiant du process courant : relie entre eux tous les événements d'un même lancement. */
 export const RUN_ID = `run_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
 

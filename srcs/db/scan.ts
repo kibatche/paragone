@@ -24,9 +24,10 @@ import type {
 /** @brief Empreinte enregistrée d'un fichier, ou undefined s'il n'a jamais été scanné. */
 export function getFileSha256(path: string): string | undefined {
   const row = getDatabase()
-    .query<{ sha256: string }, [string]>(
-      "SELECT sha256 FROM files WHERE path = ?",
-    )
+    .query<
+      { sha256: string },
+      [string]
+    >("SELECT sha256 FROM files WHERE path = ?")
     .get(path);
   return row?.sha256;
 }
@@ -74,9 +75,10 @@ function writeMatch(
       match.end.column,
     );
   const row = database
-    .query<{ id: number }, SQLQueryBindings[]>(
-      "SELECT id FROM matches WHERE file_id = ? AND analyzer = ? AND start_line = ? AND start_column = ?",
-    )
+    .query<
+      { id: number },
+      SQLQueryBindings[]
+    >("SELECT id FROM matches WHERE file_id = ? AND analyzer = ? AND start_line = ? AND start_column = ?")
     .get(fileId, match.analyzerName, match.start.line, match.start.column);
   if (!row) {
     throw new Error(

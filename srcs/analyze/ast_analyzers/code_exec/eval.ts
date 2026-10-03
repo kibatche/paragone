@@ -18,14 +18,16 @@ import { randomBytes } from "crypto";
 export const EVAL_ANALYZER_NAME = "eval";
 
 function isEvalCall(node: t.CallExpression | t.OptionalCallExpression) {
-  return ((t.isMemberExpression(node.callee) ||
-    t.isOptionalMemberExpression(node.callee)) &&
-    ((t.isIdentifier(node.callee.property, { name: "eval" }) &&
-      !node.callee.computed) ||
-      t.isStringLiteral(node.callee.property, { value: "eval" }))) ||
-  t.isIdentifier(node.callee, { name: "eval" }) ||
-  (t.isSequenceExpression(node.callee) &&
-    t.isIdentifier(node.callee.expressions.at(-1), { name: "eval" }))
+  return (
+    ((t.isMemberExpression(node.callee) ||
+      t.isOptionalMemberExpression(node.callee)) &&
+      ((t.isIdentifier(node.callee.property, { name: "eval" }) &&
+        !node.callee.computed) ||
+        t.isStringLiteral(node.callee.property, { value: "eval" }))) ||
+    t.isIdentifier(node.callee, { name: "eval" }) ||
+    (t.isSequenceExpression(node.callee) &&
+      t.isIdentifier(node.callee.expressions.at(-1), { name: "eval" }))
+  );
 }
 
 const evalAnalyzerBuilder = (

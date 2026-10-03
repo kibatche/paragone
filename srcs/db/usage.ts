@@ -98,11 +98,13 @@ function readByPhase(): Record<string, PhaseUsage> {
 /** @brief Lu d'un seul instantané : les quatre agrégats se rapportent à la même base. */
 export function getUsage(): UsageReport {
   const database = getDatabase();
-  const read = database.transaction((): UsageReport => ({
-    summary: readSummary(),
-    runs: readRuns(),
-    byClass: readByClass(),
-    byPhase: readByPhase(),
-  }));
+  const read = database.transaction(
+    (): UsageReport => ({
+      summary: readSummary(),
+      runs: readRuns(),
+      byClass: readByClass(),
+      byPhase: readByPhase(),
+    }),
+  );
   return withContext("getUsage", undefined, read);
 }

@@ -4,6 +4,7 @@
 import type { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { type ReconstructibleNode } from "../../taint/taint_report";
+import { COMMON_MIME_TYPES } from "../../constants/iana_tld";
 
 function isHighEntropy(str: string, threshold = 4.9): boolean {
   const freq: Record<string, number> = {};
@@ -60,6 +61,10 @@ export function isReconstructible(
 }
 
 export function isValidPath(value: string): boolean {
+  if (COMMON_MIME_TYPES.has(value)) {
+    return false;
+  }
+
   // Check if path starts with a letter or forward slash
   if (!/^[a-zA-Z/]/.test(value)) {
     return false;

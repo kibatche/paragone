@@ -1,41 +1,126 @@
-import { IANA_TLD } from "../../constants/iana_tld";
+import type { AnalyzerMatch, AnalyzerParams } from "../../constants/types";
+import { NodePath } from "@babel/traverse";
+import type { Visitor } from "@babel/traverse";
+import * as t from "@babel/types";
+import type { BinaryExpression } from "@babel/types";
+import {
+  getBinaryExpressionStr,
+  getConcatCallExprStr,
+  getTemplateLiteralStr,
+  isConcatCallExpr,
+} from "../cspt/cspt_utils";
 import { LEAD_SCHEMA_VERSION } from "../../constants/lead";
-import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";
-import { type Visitor } from "@babel/traverse";
 import { SHA256 } from "bun";
+import {
+  HOSTNAME_REGEX,
+  IANA_TLD,
+  UNWANTED_VALS,
+} from "../../constants/iana_tld";
 
 export const HOSTNAME_ANALYZER_NAME = "hostname";
 
-// Regex pattern to match hostnames
-// Matches:
-// - Domain names with subdomains (e.g. sub.example.com)
-// - Allows only letters, numbers, hyphens, and dots
-// - Each label must start and end with a letter or number
-// - Labels cannot start or end with hyphens
-const HOSTNAME_REGEX = new RegExp(
-  `^(?!.*\\.(js|ts|jsx|tsx|html|css|json|md|txt|xml|yaml|yml|svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|eot|otf|mp4|webm|mp3|wav|pdf|zip|tar|gz|rar|7z|sql|db|sqlite|env|log|lock|map|min|bundle|config|conf|ini|toml|lock|pem|key|crt|cer|p12|pfx|bak|tmp|temp)$)[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9](?:\\.[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])*\\.[a-zA-Z]{2,4}$`,
-  "i",
-);
+function unwanted(val: string): boolean {
+  return (
+    UNWANTED_VALS.some((unval) => val.includes(unval)) ||
+    val.startsWith("react.") ||
+    val === "https://" ||
+    val === "http://"
+  );
+}
+
+function isValidDomain(value: string) {
+  if (!value) return false;
+  if (value.startsWith("https://") || value.startsWith("http://")) return true;
+  if (HOSTNAME_REGEX.test(value)) {
+    const h = value.split(".").at(-1)?.toUpperCase();
+    if (!h || !IANA_TLD.has(h)) return false;
+    return true;
+  }
+  return false;
+}
 
 const hostnameAnalyzerBuilder = (
   args: AnalyzerParams,
   matchesReturn: AnalyzerMatch[],
 ): Visitor => {
-  return {
-    StringLiteral(path) {
-      const node = path.node;
-      if (!node.loc || node.start == null || node.end == null) return;
+  const handleStringLiteral = (path: NodePath<t.StringLiteral>) => {
+    const node = path.node;
+    if (!node.loc || node.start == null || node.end == null) return;
 
-      if (HOSTNAME_REGEX.test(node.value)) {
-        // ajout d'un vrai check de hostname via la liste IANA. Elimine énormément de bruit.
-        const h = node.value.split(".").at(-1)?.toUpperCase();
-        if (!h || !IANA_TLD.has(h)) return;
-        try {
-          new URL(`https://${node.value}`);
-        } catch {
-          return;
-        }
+    if (isValidDomain(node.value) && unwanted(node.value) === false) {
+      const match: AnalyzerMatch = {
+        filePath: args.filePath,
+        analyzerName: HOSTNAME_ANALYZER_NAME,
+        value: args.source.slice(node.start, node.end),
+        start: node.loc.start,
+        end: node.loc.end,
+        leads: [
+          {
+            schemaVersion: LEAD_SCHEMA_VERSION,
+            class: ["HOSTNAME_INVENTORY"],
+            hash: SHA256.hash(
+              args.source.slice(node.start, node.end),
+              "hex",
+            ).toString(),
+            analyzerName: HOSTNAME_ANALYZER_NAME,
+            reconstructed: node.value,
+          },
+        ],
+      };
+      console.log(node.value);
+      matchesReturn.push(match);
+    }
+  };
 
+  const handleTemplateLiteral = (path: NodePath<t.TemplateLiteral>) => {
+    const node = path.node;
+    if (!node.loc || node.start == null || node.end == null) return;
+
+    const processedValueEval = path.evaluate();
+    let processedValue;
+    if (processedValueEval.confident == true) {
+      processedValue = processedValueEval.value;
+    } else {
+      processedValue = getTemplateLiteralStr(node);
+    }
+    if (isValidDomain(processedValue) && unwanted(processedValue) === false) {
+      const match: AnalyzerMatch = {
+        filePath: args.filePath,
+        analyzerName: HOSTNAME_ANALYZER_NAME,
+        value: args.source.slice(node.start, node.end),
+        start: node.loc.start,
+        end: node.loc.end,
+        leads: [
+          {
+            schemaVersion: LEAD_SCHEMA_VERSION,
+            class: ["HOSTNAME_INVENTORY"],
+            hash: SHA256.hash(
+              args.source.slice(node.start, node.end),
+              "hex",
+            ).toString(),
+            analyzerName: HOSTNAME_ANALYZER_NAME,
+            reconstructed: processedValue,
+          },
+        ],
+      };
+      console.log(processedValue);
+      matchesReturn.push(match);
+    }
+  };
+
+  const handleBinaryExpression = (path: NodePath<BinaryExpression>) => {
+    const node = path.node;
+    if (!node.loc || node.start == null || node.end == null) return;
+
+    if (node.operator === "+") {
+      let processedValue;
+      const processedValueEval = path.evaluate();
+      if (processedValueEval.confident == true) {
+        processedValue = String(processedValueEval.value);
+      } else {
+        processedValue = getBinaryExpressionStr(node);
+      }
+      if (isValidDomain(processedValue) && unwanted(processedValue) === false) {
         const match: AnalyzerMatch = {
           filePath: args.filePath,
           analyzerName: HOSTNAME_ANALYZER_NAME,
@@ -51,21 +136,67 @@ const hostnameAnalyzerBuilder = (
                 "hex",
               ).toString(),
               analyzerName: HOSTNAME_ANALYZER_NAME,
-              reconstructed: node.value,
+              reconstructed: processedValue,
             },
           ],
         };
-
-        if (
-          node.value.includes("www.w3.org") ||
-          node.value.startsWith("react.")
-        ) {
-          return;
-        }
-
+        console.log(processedValue);
         matchesReturn.push(match);
       }
-    },
+    }
+  };
+
+  const handleCallExpression = (
+    path: NodePath<t.CallExpression | t.OptionalCallExpression>,
+  ) => {
+    const node = path.node;
+    if (!node.loc || node.start == null || node.end == null) return;
+
+    if (
+      !t.isMemberExpression(node.callee) &&
+      !t.isOptionalMemberExpression(node.callee)
+    )
+      return;
+
+    if (isConcatCallExpr(node)) {
+      let processedValue;
+      const processedValueEval = path.evaluate();
+      if (processedValueEval.confident == true) {
+        processedValue = processedValueEval.value;
+      } else {
+        processedValue = getConcatCallExprStr(node);
+      }
+      if (isValidDomain(processedValue) && unwanted(processedValue) === false) {
+        const match: AnalyzerMatch = {
+          filePath: args.filePath,
+          analyzerName: HOSTNAME_ANALYZER_NAME,
+          value: args.source.slice(node.start, node.end),
+          start: node.loc.start,
+          end: node.loc.end,
+          leads: [
+            {
+              schemaVersion: LEAD_SCHEMA_VERSION,
+              class: ["HOSTNAME_INVENTORY"],
+              hash: SHA256.hash(
+                args.source.slice(node.start, node.end),
+                "hex",
+              ).toString(),
+              analyzerName: HOSTNAME_ANALYZER_NAME,
+              reconstructed: processedValue,
+            },
+          ],
+        };
+        console.log(processedValue);
+        matchesReturn.push(match);
+      }
+    }
+  };
+  return {
+    StringLiteral: handleStringLiteral,
+    TemplateLiteral: handleTemplateLiteral,
+    BinaryExpression: handleBinaryExpression,
+    CallExpression: handleCallExpression,
+    OptionalCallExpression: handleCallExpression,
   };
 };
 

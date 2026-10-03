@@ -15,10 +15,7 @@ import {
 import type { LeadToJudge } from "../db/types";
 import { log, logEvent, RUN_ID } from "../cli/log/log";
 import { saveBatchUsage } from "../db/usage";
-import {
-  chunk,
-  stopReason,
-} from "../cli/state/state";
+import { chunk, stopReason } from "../cli/state/state";
 import { buildCase } from "./case/build";
 import type { JudgeRequest } from "./constants";
 import { isPermanentJevError, type JevClient } from "./jev/client";
@@ -108,11 +105,10 @@ async function judgeBatch(
   batch: LeadToJudge[],
   ctx: BatchContext,
 ): Promise<Usage> {
-  
   log(
     `[judge:${ctx.cls}] lot ${ctx.batch}/${ctx.of} (${batch.length} leads : ${batch.map((lead) => lead.id).join(", ")})`,
   );
-  
+
   logEvent("batch_start", {
     phase: "judge",
     sinkType: ctx.cls,
@@ -120,14 +116,14 @@ async function judgeBatch(
     of: ctx.of,
     rowids: batch.map((lead) => lead.id),
   });
-  
+
   const results = await Promise.allSettled(
     batch.map((lead) => judgeLead(lead, ctx)),
   );
 
   let usage: Usage = { ...ZERO_USAGE };
   let permanent: { lead: LeadToJudge; err: unknown } | undefined;
-  
+
   results.forEach((result, i) => {
     const lead = batch[i]!;
     if (result.status === "fulfilled") {
@@ -195,7 +191,8 @@ export function reportMissingGuidance(
  * @return L'usage cumulé du passage.
  */
 export async function runJudge(
-client: JevClient, sinkType: string
+  client: JevClient,
+  sinkType: string,
 ): Promise<Usage> {
   if (!isImpactClass(sinkType)) {
     throw new Error(
@@ -239,10 +236,7 @@ export async function runJudgeUntilDone(
   let total: Usage = { ...ZERO_USAGE };
   let prevRemaining = Number.POSITIVE_INFINITY;
   for (let turn = 1; ; turn++) {
-    total = addUsage(
-      total,
-      await runJudge(client, sinkType),
-    );
+    total = addUsage(total, await runJudge(client, sinkType));
     const remaining = countRemainingJudge(sinkType);
     const reason = stopReason({
       remaining,
@@ -270,6 +264,7 @@ export async function judgeClasses(
   client: JevClient,
 ): Promise<Record<string, Usage>> {
   const usage: Record<string, Usage> = {};
-  for (const cls of config.classes) usage[cls] = await runJudgeUntilDone(client, cls);
+  for (const cls of config.classes)
+    usage[cls] = await runJudgeUntilDone(client, cls);
   return usage;
 }
