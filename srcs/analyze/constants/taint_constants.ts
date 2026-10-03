@@ -53,6 +53,7 @@ export interface TaintNode {
   end: boolean;
   endKind: TaintEndKind;
   endReason: string;
+  sanitizeMethod?: string;
   knownSource?: string;
   children: TaintChildNode[];
 }
@@ -136,6 +137,7 @@ export interface TaintSinkContext {
 export interface TaintFinding {
   kind: TaintEndKind;
   knownSource: string;
+  sanitizeMethod: string;
   sourceString: string;
   nodeType: string;
   text: string;
@@ -160,6 +162,7 @@ export interface TaintFinding {
 export interface TaintFindingNormalized {
   kind: TaintEndKind;
   knownSource: string;
+  sanitizeMethod: string;
   nodeType: string;
   endReason: string;
   derivedFrom?: number;

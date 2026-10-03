@@ -113,6 +113,7 @@ function renderFinding(
     w.origin(rank, holes, cap(finding.text, CODE_LINE_MAX_CHARS, w)),
   ];
   if (finding.knownSource) lines.push(w.knownSource(finding.knownSource));
+  if (finding.sanitizeMethod) lines.push(w.knownSanitizeMethod(finding.sanitizeMethod))
   if (finding.derivedFrom !== undefined) lines.push(w.derivedOrigin);
 
   const lineNumber = finding.loc.start?.line;

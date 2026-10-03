@@ -24,6 +24,7 @@ export const CASE: CaseWording = {
   origin: (rank, holes, text) =>
     `[Origin #${rank}${holes ? ` for ${holes}` : ""}] ${text}`,
   knownSource: (source) => `  Known source: ${source}`,
+  knownSanitizeMethod: (sanitizeMethod) => `  Sanitization detected: ${sanitizeMethod}`,
   derivedOrigin: "  Derives from an origin already listed, same chain.",
   originCode: (line, code) => `  Code (line ${line}): ${code}`,
   chainStop: (kind) => `  Chain stops: ${kind}`,
