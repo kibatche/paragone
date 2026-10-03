@@ -1,6 +1,3 @@
-
-Bizarre une section `Merci` pour un repo qui ne sera pas # paragone
-
 ## Intro
 
 `paragone` analyse des fichiers JavaScript/TypeScript, en extrait des morceaux potentiellement vulnérables de code, et analyse ces derniers afin de découvrir la source d'un identifiant.
