@@ -2,21 +2,19 @@
  * @desc Constantes pour le parsing d'argument.
  */
 
-/**
- * @desc Constantes pour la configuration.
- */
-
-import { join } from "node:path";
 import type { ParseArgsOptionsConfig } from "node:util";
 
-export const ROOT = process.cwd();
-export const PARAGONE_DIR = join(ROOT, ".paragone");
-export const CONFIG_PATH = join(PARAGONE_DIR, "config.json");
-export const DB_PATH = join(PARAGONE_DIR, "findings.db");
-export const DB_SHM_PATH = join(PARAGONE_DIR, "findings.db-shm");
-export const DB_WAL_PATH = join(PARAGONE_DIR, "findings.db-wal");
-export const LOG_TXT = join(PARAGONE_DIR, "log.txt");
-export const LOG_JSONL = join(PARAGONE_DIR, "events.jsonl");
+export const DEFAULT_PROJECT_DIR = process.cwd()
+
+export const PARAGONE_DIR_NAME = ".paragone";
+export const PARAGONE_CONFIG_NAME = "paragone_config.json";
+export const PARAGONE_DB_NAME = "findings.db";
+export const PARAGONE_DB_SHM_NAME = "findings.db-shm";
+export const PARAGONE_DB_WAL_PATH_NAME = "findings.db-wal";
+export const PARAGONE_LOG_TXT_NAME = "log.txt";
+export const PARAGONE_LOG_JSONL_NAME = "events.jsonl";
+
+export const DEFAULT_BATCH = 1;
 
 /** Port d'écoute par défaut de l'API ; l'hôte par défaut est local, Elysia écoutant sinon sur 0.0.0.0. */
 export const DEFAULT_SERVE_PORT = 7331;
@@ -26,6 +24,13 @@ export const OPTIONS: ParseArgsOptionsConfig = {
   analyze: {
     type: "string",
     short: "a",
+  },
+  project: {
+    type: "string",
+    short: "p",
+  },
+  project_name: {
+    type: "string",
   },
   scan: {
     type: "boolean",
@@ -57,11 +62,6 @@ export const OPTIONS: ParseArgsOptionsConfig = {
     type: "boolean",
     default: false,
   },
-  project_name: {
-    type: "string",
-    short: "p",
-    default: process.cwd(),
-  },
   serve: {
     type: "boolean",
     default: false,
@@ -87,39 +87,54 @@ export const OPTIONS: ParseArgsOptionsConfig = {
 };
 
 export const HELP = `
-paragone : triage statique de vulns client-side sur bundles JS et analyse du potentiel de vulnérabilité grâce à un juge de type 'System One'.
+paragone : triage statique de bundles JS et analyse du potentiel de vulnérabilité grâce à un juge de type 'System One'.
 
-Utilisation : paragone [--analyze PATH] [options]
+Utilisation : paragone [--analyze CHEMIN] [options]
 
 OPTIONS
-  -a, --analyze <chemin>, aucune valeur par défaut. Dossier OU fichier à scanner. Ne scanne pas les dossiers vendors.
+
+CONFIGURATION :
+  -a, --analyze CHEMIN                              Dossier OU fichier à scanner.
+  -p, --project CHEMIN                              Ouvre ou crée la configuration au chemin spécifié.
+                                                    Si l'option est non spécifiée, tente d'ouvrir une éventuelle
+                                                    configuration dans le chemin d'accès courant ou propose de la créer.
+  --project_name NOM                                Spécifie le nom du projet. Défaut à 'basename($CWD)+_paragone_project'
+  -b, --batch, défaut à '1'                         Nombre de "dossier(s)" à envoyer au juge.
+
+ANALYSE :
+  -c, --classes, défaut à 'all'.                    Analyse une ou plusieurs classe(s) de vulnérabilité. Insensible à la casse.
+                                                    Répétable ou séparée par des virgules.
+                                                    Classes possibles : cspt, xss, code_exec, open_redirect, web_message, all
   -s, --scan, défaut à 'false'.                     Lance le scan du dossier. Ne supprime aucune donnée pré-existante.
   -j, --judge, défaut à 'false'                     Lance le juge pour ce run. Ne supprime aucune donnée pré-existante.
-  -b, --batch, défaut à '1'                         Nombre de "dossier(s)" à envoyer au juge.
-  -c, --classes                                     Analyse une ou plusieurs classe(s) de vulnérabilité. Insensible à la casse.
-    <cspt,xss,code_exec,                            Exemple : 'paragone (...) -c cspt -c XSS' ou "paragone (...) -c cspt,xss".
-    open_redirect,web_message,all>
-    , défaut à 'all'.
-  -r, --reset, défaut à 'false'                     ATTENTION ! Destructif. DETRUIT la base de donnée, et FORCE une réanalyse du corpus. Pour juger, l'option '--judge' est nécessaire.
-                                                    Si la commande est lancée sans TTY '--noninteractive' est obligatoire.
-  --noninteractive, défaut à false                  Mode non-interactif, utile sans TTY de disponible, afin d'opérer un '--reset' sans demande de confirmation.
-  -p, --project_name, défaut                        Le nom du projet.
-    au nom du dossier courant
-  --serve, défaut à 'false'                      Lance l'API (données de la base, contrat OpenAPI sur /openapi) une fois le scan et le juge demandés terminés.
-                                                    Seul, il ne demande pas --analyze.
-  --port <n>, défaut à '7331'                     Port d'écoute de l'API. Exige --serve.
-  --host <adresse>, défaut à '127.0.0.1'          Adresse d'écoute de l'API. Une adresse non locale expose au réseau /api/lead/:id/open (lance l'éditeur), /api/lead/:id/human (écrit en base), /api/config (change le dossier, les classes et le lot), /api/scan et /api/judge (lancent un travail). Exige --serve.
-  --cors <origine>                                  Origine autorisée à appeler l'API depuis un autre site, par exemple http://localhost:5173. Répétable ou séparée par des virgules ; aucune par défaut. Exige --serve.
-  --public <dossier>                                Dossier servi à la racine de l'API (le front construit). Par défaut, la page factice livrée. Exige --serve.
+
+CONTRÔLE :
+  -r, --reset, défaut à 'false'                     ATTENTION ! Destructif. DETRUIT la base de donnée, et FORCE un scan du corpus.
+                                                    Utilisé avec '--noninteractive', ne demande AUCUNE confirmation.
+  --noninteractive, défaut à false                  Mode non-interactif. Permet d'utiliser les options '--reset' ou '--project'
+                                                    sans TTY et SANS confirmation.
+
+API :
+  --serve, défaut à 'false'                         Lance l'API OpenAPI. Utilisable seul.
+  --port PORT, défaut à '7331'                      Port d'écoute de l'API.
+  --host ADRESSE, défaut à '127.0.0.1'              Adresse d'écoute de l'API.
+  --cors ORIGINE(S)                                 Origine(s) autorisée(s) à appeler l'API depuis un autre site. Répétable ou séparée par des virgules.
+  --public DOSSIER                                  Dossier du 'frontend' servi à la racine de l'API.
+
+AIDE :
   -h, --help                                        Affiche cette aide et quitte le programme.
 
-CONFIGURATION
-  Le dossier à analyser, les classes et le lot se règlent par ces arguments. Avec --serve, PUT /api/config les change ensuite en mémoire, le temps du service : rien n'est enregistré.
-
 EXEMPLES:
-    paragone -a ./example.com -s -j -c all          Pour l'ensemble des classe de vulnérabilité, analyse le dossier 'example.com', et passe le juge sur les données d'analyse.
-    paragone -a ./example.com -s -j -c cspt --reset  Pour la classe 'cspt', REFAIT une analyse du dossier 'example.com', et REPASSE le juge sur les données d'analyse.
-    paragone --serve                                 Lance l'API sur les données déjà en base.
-    paragone -a ./example.com -s --serve --public ./dist --cors http://localhost:5173
-                                                    Scanne, puis lance l'API qui sert aussi le front de ./dist, appelable depuis http://localhost:5173.
+
+$> paragone --analyze ./example.com --project ~/projects/megacorp --scan --judge --classes all
+-> Crée ou ouvre un projet dans '~/projects/megacorp' puis, pour l'ensemble des classes de vulnérabilité, analyse le dossier 'example.com', et lance le juge.
+    
+$> paragone -a ./example.com -s -j -c cspt -c xss,web_message --reset --noninteractive
+-> Pour les classes 'cspt','xss' et 'web_message', efface la base de données et REFAIT une analyse du dossier 'example.com', et REPASSE le juge sur les données d'analyse. Crée une nouvelle configuration.
+
+$> paragone --serve
+-> Lance l'API sur les données déjà en base, si existantes.
+
+$> paragone -a ./example.com -s --serve --public ./dist --cors http://localhost:5173
+-> Scanne, puis lance l'API qui sert aussi le front de ./dist, appelable depuis http://localhost:5173. Propose de créer une configuration 
 `;

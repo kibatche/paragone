@@ -6,7 +6,7 @@
  *       les données à jour. L'API se charge par import dynamique : sans --serve, Elysia n'est pas chargé.
  */
 
-import { config, getConfig } from "./srcs/config/config";
+import { config, createConfigInMemory, readExistingConfigOnDisk, writeConfigFileOnDisk } from "./srcs/config/config";
 import { log, RUN_ID, logEvent } from "./srcs/cli/log/log";
 import { judgeClasses } from "./srcs/judge/judge";
 import { ZERO_USAGE } from "./srcs/cli/usage/constants";
@@ -15,11 +15,27 @@ import { createJevClient } from "./srcs/judge/jev/client";
 import { ensureScan } from "./srcs/scan/scan";
 import type { Usage } from "./srcs/cli/usage/types";
 import { existsSync, mkdirSync } from "node:fs";
-import { PARAGONE_DIR } from "./srcs/config/constants";
+import { OPTIONS } from "./srcs/config/constants";
 import { confirmReset, destroyParagoneDir } from "./srcs/cli/reset/reset";
+import { parseArgs } from "node:util";
+import { printHelpAndExit } from "./srcs/config/help";
+import { checkArgs } from "./srcs/config/check_arguments";
 
 async function main() {
-  getConfig();
+  const { values } = parseArgs({
+    args: Bun.argv,
+    options: OPTIONS,
+    allowPositionals: true,
+  });
+  
+  if (values["help"] as boolean === true) printHelpAndExit();
+  
+  checkArgs(values);// jette une erreur si un argument est incorrecte.
+  
+  const configFromDisk = await readExistingConfigOnDisk(values['project'] as string)
+
+  createConfigInMemory(values, configFromDisk)
+  writeConfigFileOnDisk()
 
   try {
     if (config.reset === true) {
@@ -31,6 +47,7 @@ async function main() {
       const choice = confirmReset();
       if (choice === true) {
         destroyParagoneDir();
+        writeConfigFileOnDisk()
       } else {
         console.log("Reset annulé. Le programme va quitter.");
         process.exit(0);
@@ -40,8 +57,8 @@ async function main() {
     console.error("[ERROR]", e);
     process.exit(1);
   }
-  if (existsSync(PARAGONE_DIR) === false) {
-    mkdirSync(PARAGONE_DIR);
+  if (existsSync(config.paragone_dir) === false) {
+    mkdirSync(config.paragone_dir);
   }
 
   if (config.scan === true || config.reset === true) await ensureScan();
