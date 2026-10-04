@@ -18,8 +18,8 @@ import { Database, type SQLQueryBindings } from "bun:sqlite";
 import { mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { ADDED_COLUMNS, SCHEMA } from "./constants";
-import { DB_PATH, ROOT } from "../config/constants";
 import type { ProjectInfo } from "./types";
+import { config } from "../config/config";
 
 /** @brief Relance `action` en nommant la fonction et l'objet en cause, l'erreur d'origine en `cause`. */
 export function withContext<T>(
@@ -74,12 +74,12 @@ let connection: Database | undefined;
 
 /** @brief La connexion du process, ouverte au premier appel. */
 export function getDatabase(): Database {
-  connection ??= openDatabase(DB_PATH);
+  connection ??= openDatabase(config.paragone_db);
   return connection;
 }
 
 export function getProjectInfo(): ProjectInfo {
-  return { root: ROOT, dbPath: DB_PATH };
+  return { root: config.project, dbPath: config.paragone_db };
 }
 
 /** @brief Ouvre la base maintenant, pour la créer et la mettre au schéma avant le premier appel utile. */
