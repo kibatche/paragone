@@ -2,11 +2,16 @@
 
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc paragone.ts — front CLI. Enchaîne le scan et le juge demandés, puis, avec --serve, lance l'API sur
+ * @desc paragone.ts : front CLI. Enchaîne le scan et le juge demandés, puis, avec --serve, lance l'API sur
  *       les données à jour. L'API se charge par import dynamique : sans --serve, Elysia n'est pas chargé.
  */
 
-import { config, createConfigInMemory, readExistingConfigOnDisk, writeConfigFileOnDisk } from "./srcs/config/config";
+import {
+  config,
+  createConfigInMemory,
+  readExistingConfigOnDisk,
+  writeConfigFileOnDisk,
+} from "./srcs/config/config";
 import { log, RUN_ID, logEvent } from "./srcs/cli/log/log";
 import { judgeClasses } from "./srcs/judge/judge";
 import { ZERO_USAGE } from "./srcs/cli/usage/constants";
@@ -20,6 +25,7 @@ import { confirmReset, destroyParagoneDir } from "./srcs/cli/reset/reset";
 import { parseArgs } from "node:util";
 import { printHelpAndExit } from "./srcs/config/help";
 import { checkArgs } from "./srcs/config/check_arguments";
+import { initDatabase } from "./srcs/db/db";
 
 async function main() {
   const { values } = parseArgs({
@@ -27,15 +33,17 @@ async function main() {
     options: OPTIONS,
     allowPositionals: true,
   });
-  
-  if (values["help"] as boolean === true) printHelpAndExit();
-  
-  checkArgs(values);// jette une erreur si un argument est incorrecte.
-  
-  const configFromDisk = await readExistingConfigOnDisk(values['project'] as string)
 
-  createConfigInMemory(values, configFromDisk)
-  writeConfigFileOnDisk()
+  if ((values["help"] as boolean) === true) printHelpAndExit();
+
+  checkArgs(values); // jette une erreur si un argument est incorrecte.
+
+  const configFromDisk = await readExistingConfigOnDisk(
+    (values["project"] as string) ?? process.cwd(),
+  );
+
+  createConfigInMemory(values, configFromDisk);
+  writeConfigFileOnDisk();
 
   try {
     if (config.reset === true) {
@@ -47,7 +55,7 @@ async function main() {
       const choice = confirmReset();
       if (choice === true) {
         destroyParagoneDir();
-        writeConfigFileOnDisk()
+        writeConfigFileOnDisk();
       } else {
         console.log("Reset annulé. Le programme va quitter.");
         process.exit(0);
@@ -60,7 +68,7 @@ async function main() {
   if (existsSync(config.paragone_dir) === false) {
     mkdirSync(config.paragone_dir);
   }
-
+  initDatabase();
   if (config.scan === true || config.reset === true) await ensureScan();
   if (config.judge === true) {
     try {

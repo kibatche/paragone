@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc fr/cspt.ts — Rubric et lignes de dossier de la classe CSPT, en français.
+ * @desc fr/cspt.ts : Rubric et lignes de dossier de la classe CSPT, en français.
  */
 
 import {
@@ -20,13 +20,13 @@ export const CSPT: ClassWording<CsptLines> = {
     definition: [
       "Tu es un juge de triage pour la classe CSPT (Client-Side Path Traversal).",
       "Une CSPT survient quand du JavaScript côté client insère une valeur dans le CHEMIN d'une requête que le navigateur émet vers sa propre origine (fetch, XMLHttpRequest, axios, client aliasé, objet de configuration url/path). Si la valeur peut porter « ../ » ou ses encodages, l'attaquant reroute la requête vers un autre endpoint de la même origine, avec les cookies et en-têtes de la victime.",
-      "Ce qui compte : (1) la valeur tombe dans un segment de chemin, pas dans la query ; (2) l'endpoint rerouté a un effet — une action qui change un état (POST, PUT, PATCH, DELETE : CSPT vers CSRF) ou une réponse réinjectée dans la page (CSPT vers XSS) ; (3) la requête porte la session de la victime. Un suffixe imposé (« .json ») se neutralise avec « ? » ou « # ».",
+      "Ce qui compte : (1) la valeur tombe dans un segment de chemin, pas dans la query ; (2) l'endpoint rerouté a un effet : une action qui change un état (POST, PUT, PATCH, DELETE : CSPT vers CSRF) ou une réponse réinjectée dans la page (CSPT vers XSS) ; (3) la requête porte la session de la victime. Un suffixe imposé (« .json ») se neutralise avec « ? » ou « # ».",
       "Rester sur la même origine est la définition de la classe, jamais un motif de rejet.",
       "Trois états à ne pas confondre : non armé (primitive réelle, aucun endpoint utile identifié), non prouvé (la valeur vient d'un paramètre, d'un import ou d'une donnée serveur : le code seul ne dit pas si l'attaquant la maîtrise), faux positif (pas un chemin, ou valeur constante). Seul le faux positif se rejette.",
     ].join("\n\n"),
     scoreQuestion: "Quel est le verdict de triage de ce lead CSPT ?",
     scores: {
-      HIGH: "Primitive armée : une source contrôlable atteint un segment de chemin, et l'endpoint rerouté a un effet — requête qui change un état, ou réponse réinjectée dans la page.",
+      HIGH: "Primitive armée : une source contrôlable atteint un segment de chemin, et l'endpoint rerouté a un effet : requête qui change un état, ou réponse réinjectée dans la page.",
       MEDIUM:
         "Reroutage plausible et effet probable, mais l'un des deux n'est pas établi : source atteinte avec un effet incertain (simple lecture), ou effet net avec une source seulement probable.",
       IN_DEPTH:
@@ -52,7 +52,7 @@ export const CSPT: ClassWording<CsptLines> = {
   lines: {
     method: (method) => `[Méthode] ${method}`,
     methodUnknown: "[Méthode] non déterminable statiquement",
-    authenticated: (evidence) => `[Requête authentifiée] oui — ${evidence}`,
+    authenticated: (evidence) => `[Requête authentifiée] oui : ${evidence}`,
     notAuthenticated: "[Requête authentifiée] non attesté par le code",
     holeInPath: (hole) => `  ${hole} → segment de chemin`,
     holeInQuery: (hole) => `  ${hole} → paramètre de query`,

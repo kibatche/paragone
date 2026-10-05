@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc case/code_exec.ts — Ligne du dossier propre à CODE_EXEC : par quel point la valeur est exécutée.
+ * @desc case/code_exec.ts : Ligne du dossier propre à CODE_EXEC : par quel point la valeur est exécutée.
  */
 
 import { EVAL_ANALYZER_NAME } from "../../analyze/ast_analyzers/code_exec/eval";

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc taint-report.ts — Réduit un arbre de taint à ce qu'un juge doit lire : le sink et sa chaîne
+ * @desc taint-report.ts : Réduit un arbre de taint à ce qu'un juge doit lire : le sink et sa chaîne
  *       reconstruite, un verdict de racine, et les seuls noeuds retenus avec le chemin qui y mène.
  *       Ne rend aucune forme lisible : la présentation vit dans `srcs/judge/case/build.ts`.
  */

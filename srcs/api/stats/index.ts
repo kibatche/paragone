@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc stats/index.ts — Routes `/api/summary` et `/api/tokens` : compteurs de la base et usage du juge.
+ * @desc stats/index.ts : Routes `/api/summary` et `/api/tokens` : compteurs de la base et usage du juge.
  */
 
 import { Elysia } from "elysia";

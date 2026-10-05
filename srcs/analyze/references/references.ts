@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc references.ts — Références documentaires par analyzer, affichées dans le dossier d'un lead.
+ * @desc references.ts : Références documentaires par analyzer, affichées dans le dossier d'un lead.
  *       Chaque URL a été lue lors de la vérification des consignes du juge (table
  *       `COMMONS/js-analyzer-agent/SOURCES_CONSIGNES.md`) ; un analyzer sans source lue n'en a aucune.
  */
@@ -47,35 +47,35 @@ const MDN_JS =
 const HTML_SPEC = "https://html.spec.whatwg.org/multipage";
 
 const MDN_INNER_HTML: Reference = {
-  label: "MDN — Element.innerHTML, « Security considerations »",
+  label: "MDN : Element.innerHTML, « Security considerations »",
   url: `${MDN_API}/Element/innerHTML`,
 };
 const HTML_PARSING: Reference = {
-  label: "HTML Standard § 13.2 — parsing, modes de script du parseur",
+  label: "HTML Standard § 13.2 : parsing, modes de script du parseur",
   url: `${HTML_SPEC}/parsing.html`,
 };
 const HTML_DYNAMIC_MARKUP: Reference = {
-  label: "HTML Standard § 8.4-8.5 — insertion dynamique de balisage",
+  label: "HTML Standard § 8.4-8.5 : insertion dynamique de balisage",
   url: `${HTML_SPEC}/dynamic-markup-insertion.html`,
 };
 const MDN_POST_MESSAGE: Reference = {
-  label: "MDN — Window.postMessage",
+  label: "MDN : Window.postMessage",
   url: `${MDN_API}/Window/postMessage`,
 };
 const MDN_JAVASCRIPT_SCHEME: Reference = {
-  label: "MDN — le schéma javascript:",
+  label: "MDN : le schéma javascript:",
   url: "https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/javascript",
 };
 const JQUERY_HTML: Reference = {
-  label: "jQuery — .html()",
+  label: "jQuery : .html()",
   url: "https://api.jquery.com/html/",
 };
 const JQUERY_GET_SCRIPT: Reference = {
-  label: "jQuery — jQuery.getScript",
+  label: "jQuery : jQuery.getScript",
   url: "https://api.jquery.com/jQuery.getScript/",
 };
 const JQUERY_GLOBAL_EVAL: Reference = {
-  label: "jQuery — jQuery.globalEval",
+  label: "jQuery : jQuery.globalEval",
   url: "https://api.jquery.com/jQuery.globalEval/",
 };
 
@@ -88,7 +88,7 @@ export const ANALYZER_REFERENCES: Record<string, readonly Reference[]> = {
   [HTML_PROPERTY_CALL_ANALYZER_NAME]: [MDN_INNER_HTML],
   [CREATE_CONTEXTUAL_FRAGMENT_ANALYZER_NAME]: [
     {
-      label: "MDN — Range.createContextualFragment",
+      label: "MDN : Range.createContextualFragment",
       url: `${MDN_API}/Range/createContextualFragment`,
     },
     HTML_DYNAMIC_MARKUP,
@@ -98,103 +98,103 @@ export const ANALYZER_REFERENCES: Record<string, readonly Reference[]> = {
   [DOCUMENT_WRITE_ANALYZER_NAME]: [HTML_DYNAMIC_MARKUP, HTML_PARSING],
   [SRCDOC_ANALYZER_NAME]: [
     {
-      label: "MDN — <iframe>, srcdoc et sandbox",
+      label: "MDN : <iframe>, srcdoc et sandbox",
       url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe",
     },
     {
-      label: "HTML Standard — iframe, sandbox",
+      label: "HTML Standard : iframe, sandbox",
       url: `${HTML_SPEC}/iframe-embed-object.html`,
     },
     {
-      label: "HTML Standard — navigation, about:srcdoc",
+      label: "HTML Standard : navigation, about:srcdoc",
       url: `${HTML_SPEC}/browsing-the-web.html`,
     },
   ],
   [DANGEROUS_HTML_ANALYZER_NAME]: [
     {
-      label: "React — composants communs, dangerouslySetInnerHTML",
+      label: "React : composants communs, dangerouslySetInnerHTML",
       url: "https://react.dev/reference/react-dom/components/common",
     },
   ],
   [UNSAFE_HTML_WRAPPER_ANALYZER_NAME]: [
     {
-      label: "lit — directives, unsafeHTML",
+      label: "lit : directives, unsafeHTML",
       url: "https://lit.dev/docs/api/directives/",
     },
     {
-      label: "Handlebars — utilitaires, SafeString",
+      label: "Handlebars : utilitaires, SafeString",
       url: "https://handlebarsjs.com/api-reference/utilities.html",
     },
     {
-      label: "Vue — directives intégrées, v-html",
+      label: "Vue : directives intégrées, v-html",
       url: "https://vuejs.org/api/built-in-directives.html",
     },
   ],
   [ANGULAR_BYPASS_ANALYZER_NAME]: [
     {
-      label: "Angular — sécurité, bypassSecurityTrust*",
+      label: "Angular : sécurité, bypassSecurityTrust*",
       url: "https://angular.dev/best-practices/security",
     },
     {
-      label: "AngularJS — src/ng/sce.js ($sce.trustAs / parseAs)",
+      label: "AngularJS : src/ng/sce.js ($sce.trustAs / parseAs)",
       url: "https://raw.githubusercontent.com/angular/angular.js/master/src/ng/sce.js",
     },
   ],
   [JQUERY_ANALYZER_NAME]: [JQUERY_HTML, JQUERY_GET_SCRIPT, JQUERY_GLOBAL_EVAL],
   [CREATE_OBJECT_URL_ANALYZER_NAME]: [
     {
-      label: "MDN — URL.createObjectURL",
+      label: "MDN : URL.createObjectURL",
       url: `${MDN_API}/URL/createObjectURL_static`,
     },
     {
-      label: "MDN — le schéma blob:",
+      label: "MDN : le schéma blob:",
       url: "https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/blob",
     },
   ],
   [EVAL_ANALYZER_NAME]: [
-    { label: "MDN — eval()", url: `${MDN_JS}/Global_Objects/eval` },
+    { label: "MDN : eval()", url: `${MDN_JS}/Global_Objects/eval` },
   ],
   [FUNCTION_CONSTRUCTOR_ANALYZER_NAME]: [
     {
-      label: "MDN — Function()",
+      label: "MDN : Function()",
       url: `${MDN_JS}/Global_Objects/Function/Function`,
     },
   ],
   [STRING_TIMER_ANALYZER_NAME]: [
-    { label: "MDN — setTimeout", url: `${MDN_API}/Window/setTimeout` },
+    { label: "MDN : setTimeout", url: `${MDN_API}/Window/setTimeout` },
   ],
   [DYNAMIC_IMPORT_ANALYZER_NAME]: [
-    { label: "MDN — import()", url: `${MDN_JS}/Operators/import` },
+    { label: "MDN : import()", url: `${MDN_JS}/Operators/import` },
   ],
   [SCRIPT_ELEMENT_ANALYZER_NAME]: [
     {
-      label: "HTML Standard — scripting, l'élément script",
+      label: "HTML Standard : scripting, l'élément script",
       url: `${HTML_SPEC}/scripting.html`,
     },
   ],
   [WORKER_ANALYZER_NAME]: [
-    { label: "MDN — Worker()", url: `${MDN_API}/Worker/Worker` },
+    { label: "MDN : Worker()", url: `${MDN_API}/Worker/Worker` },
   ],
   [LODASH_TEMPLATE_ANALYZER_NAME]: [
     {
-      label: "lodash — _.template",
+      label: "lodash : _.template",
       url: "https://lodash.com/docs/4.17.15#template",
     },
   ],
   [LOCATION_ANALYZER_NAME]: [MDN_JAVASCRIPT_SCHEME],
   [WINDOW_OPEN_ANALYZER_NAME]: [
-    { label: "MDN — Window.open", url: `${MDN_API}/Window/open` },
+    { label: "MDN : Window.open", url: `${MDN_API}/Window/open` },
     MDN_JAVASCRIPT_SCHEME,
   ],
   [SPA_NAVIGATION_ANALYZER_NAME]: [
-    { label: "MDN — History.pushState", url: `${MDN_API}/History/pushState` },
+    { label: "MDN : History.pushState", url: `${MDN_API}/History/pushState` },
   ],
   [POSTMESSAGE_ANALYZER_NAME]: [MDN_POST_MESSAGE],
   [ONMESSAGE_ANALYZER_NAME]: [MDN_POST_MESSAGE],
   [ADD_EVENT_LISTENER_ANALYZER_NAME]: [MDN_POST_MESSAGE],
   [ONHASHCHANGE_ANALYZER_NAME]: [
     {
-      label: "MDN — l'événement hashchange",
+      label: "MDN : l'événement hashchange",
       url: `${MDN_API}/Window/hashchange_event`,
     },
   ],

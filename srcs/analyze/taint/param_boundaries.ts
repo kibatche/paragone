@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc param-boundaries.ts — Qualifie les culs-de-sac de `resolveParam` que l'on sait NOMMER.
+ * @desc param-boundaries.ts : Qualifie les culs-de-sac de `resolveParam` que l'on sait NOMMER.
  *       Quand aucune référence de la fonction porteuse n'est un call-site exploitable, deux cas ne
  *       sont pas des trous de l'outil : la fonction n'est référencée que par son export (la valeur
  *       entre par un appelant hors fichier), ou son paramètre est un service injecté nommé
@@ -12,7 +12,7 @@ import { Binding, NodePath } from "@babel/traverse";
 
 /** Un export par lequel la fonction quitte le fichier. */
 export interface ExportBoundary {
-  /** Nom local dans ce fichier — minifié en pratique (`D2r`). */
+  /** Nom local dans ce fichier : minifié en pratique (`D2r`). */
   local: string;
   /** Nom sous lequel un autre fichier l'importe (`k_`), ou `default`. */
   exported: string;
@@ -36,9 +36,9 @@ function getSpecifierExportedName(
  * @param binding Le binding de la fonction, pour reconnaître la déclaration exportée elle-même.
  * @return La frontière, ou undefined si cette référence n'est pas un export.
  *
- * Trois formes : `export { f as g }` (la dominante sur du code bundlé — 46 références sur 46 au
+ * Trois formes : `export { f as g }` (la dominante sur du code bundlé : 46 références sur 46 au
  * corpus), `export default f`, et la déclaration exportée en place (`export function f(){}`), qui
- * fabrique une référence FANTÔME au nom de la fonction — mesuré au banc le 2026-08-20.
+ * fabrique une référence FANTÔME au nom de la fonction : mesuré au banc le 2026-08-20.
  */
 function classifyExportReference(
   reference: NodePath<t.Node>,
@@ -49,7 +49,7 @@ function classifyExportReference(
     : binding.identifier.name;
 
   // Déclaration exportée en place (`export function f(a) {}`) : la référence FANTÔME n'est pas un
-  // identifiant, c'est le noeud `ExportNamedDeclaration` lui-même — vérifié par sonde le
+  // identifiant, c'est le noeud `ExportNamedDeclaration` lui-même : vérifié par sonde le
   // 2026-08-21 (`ref.type === "ExportNamedDeclaration"`, `parentPath === Program`). Le nom local
   // est alors aussi le nom exporté.
   if (
@@ -92,7 +92,7 @@ function classifyExportReference(
  *
  * Le « toutes » est la condition de vérité : une fonction exportée mais aussi utilisée localement a
  * un usage dans le fichier, et déclarer la frontière masquerait ce que cet usage n'a pas résolu.
- * Une liste vide rend null — sans référence, il n'y a pas de frontière à nommer.
+ * Une liste vide rend null : sans référence, il n'y a pas de frontière à nommer.
  */
 export function getExportBoundaries(
   references: NodePath<t.Node>[],
@@ -165,7 +165,7 @@ export function getInjectPropertyTokens(
  * @return Les jetons, ou null.
  *
  * Même convention que `$inject`, autre syntaxe : la fonction est le DERNIER élément d'un tableau
- * dont les précédents sont les noms de ses paramètres. On exige cette position — une fonction au
+ * dont les précédents sont les noms de ses paramètres. On exige cette position : une fonction au
  * milieu d'un tableau de chaînes n'est pas une annotation, et l'alignement positionnel n'y
  * tiendrait pas.
  */

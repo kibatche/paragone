@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc lead.ts — Contrat d'entrée du juge : une racine de taint et ce qui la rend décidable.
+ * @desc lead.ts : Contrat d'entrée du juge : une racine de taint et ce qui la rend décidable.
  */
 
 import { type TaintReport } from "./taint_constants";

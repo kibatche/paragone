@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc create_object_url.ts — Appels `URL.createObjectURL(blob)` : l'URL `blob:` produite est servie avec
+ * @desc create_object_url.ts : Appels `URL.createObjectURL(blob)` : l'URL `blob:` produite est servie avec
  *       l'origine de la page. Un Blob de type `text/html` ouvert ou chargé en iframe s'exécute dans cette origine.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

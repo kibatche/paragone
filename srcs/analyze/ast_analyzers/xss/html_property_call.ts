@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc html_property_call.ts — Appels qui affectent une propriété HTML nommée par une chaîne :
+ * @desc html_property_call.ts : Appels qui affectent une propriété HTML nommée par une chaîne :
  *       `ɵɵproperty("innerHTML", x)` (liaison `[innerHTML]` compilée par Angular), `renderer.setProperty(el,
  *       "innerHTML", x)`, `Reflect.set(el, "innerHTML", x)`. En bundle, `ɵɵproperty` perd son nom ; le
  *       littéral `"innerHTML"` suivi de la valeur, lui, survit.

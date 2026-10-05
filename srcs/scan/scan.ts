@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc scan.ts — passe AST sur chaque fichier du corpus, dans l'ordre des chemins : matches et
+ * @desc scan.ts : passe AST sur chaque fichier du corpus, dans l'ordre des chemins : matches et
  *       leads inscrits en base, un fichier par transaction. Incrémental : un fichier dont
  *       l'empreinte n'a pas changé est sauté.
  */
@@ -89,7 +89,7 @@ export async function ensureScan(
   }
 
   log(
-    `[scan] terminé : ${summary.files} fichiers — ${summary.scanned} analysés, ` +
+    `[scan] terminé : ${summary.files} fichiers : ${summary.scanned} analysés, ` +
       `${summary.unchanged} inchangés, ${summary.notJs} non-JS, ${summary.parseErrors} en erreur de parsing ; ` +
       `${summary.addedLeads} leads ajoutés (${countRows("leads")} en base).`,
   );

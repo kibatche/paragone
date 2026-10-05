@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc set_html_unsafe.ts — Appels `el.setHTMLUnsafe(html)` et `Document.parseHTMLUnsafe(html)` : analyse
+ * @desc set_html_unsafe.ts : Appels `el.setHTMLUnsafe(html)` et `Document.parseHTMLUnsafe(html)` : analyse
  *       HTML sans désinfection, déclarative shadow DOM comprise.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc queue.ts — Lectures de la file de triage du front (filtres, masques, priorité, espérance du grade
+ * @desc queue.ts : Lectures de la file de triage du front (filtres, masques, priorité, espérance du grade
  *       de Jev, compteurs) et revue humaine d'un lead.
  */
 

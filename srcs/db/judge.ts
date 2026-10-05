@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc judge.ts — Lectures et écritures du juge Jev dans findings.db : leads à juger d'une classe,
+ * @desc judge.ts : Lectures et écritures du juge Jev dans findings.db : leads à juger d'une classe,
  *       compteurs de progression, enregistrement et remise à zéro des jugements.
  */
 

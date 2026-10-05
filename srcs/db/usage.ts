@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc usage.ts — Coûts et tokens dans findings.db : une ligne par lot de jugement, et les agrégats
+ * @desc usage.ts : Coûts et tokens dans findings.db : une ligne par lot de jugement, et les agrégats
  *       (par lancement, par classe, par phase, globaux) calculés par SELECT sur cette table.
  */
 

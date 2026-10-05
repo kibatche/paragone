@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc source/model.ts — Schémas de la lecture de source et de l'ouverture dans l'éditeur.
+ * @desc source/model.ts : Schémas de la lecture de source et de l'ouverture dans l'éditeur.
  */
 
 import { t } from "elysia";

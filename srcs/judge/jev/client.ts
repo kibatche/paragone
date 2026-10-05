@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jev/client.ts — Accès à l'API Jev (TypeSafe System One) : lecture de la clé, création du
+ * @desc jev/client.ts : Accès à l'API Jev (TypeSafe System One) : lecture de la clé, création du
  *       client, et tri des erreurs qui doivent arrêter un run.
  */
 

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc stub_client.ts — Faux clients du juge pour les tests : un qui répond, un qui attend qu'on le libère, deux
+ * @desc stub_client.ts : Faux clients du juge pour les tests : un qui répond, un qui attend qu'on le libère, deux
  *       qui échouent. Aucun n'appelle Jev.
  */
 

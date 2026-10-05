@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc stats/model.ts — Schémas des réponses de `/api/summary` et `/api/tokens`.
+ * @desc stats/model.ts : Schémas des réponses de `/api/summary` et `/api/tokens`.
  */
 
 import { t } from "elysia";

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc scan.ts — Écritures du scan dans findings.db : fichiers, matches et leads, dans une transaction par
+ * @desc scan.ts : Écritures du scan dans findings.db : fichiers, matches et leads, dans une transaction par
  *       fichier, et la lecture de l'empreinte qui rend le scan incrémental.
  */
 

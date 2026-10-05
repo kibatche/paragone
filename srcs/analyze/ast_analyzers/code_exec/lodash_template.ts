@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc lodash_template.ts — `_.template(source)` : lodash compile le gabarit en fonction par `Function`, et
+ * @desc lodash_template.ts : `_.template(source)` : lodash compile le gabarit en fonction par `Function`, et
  *       les blocs `<% … %>` sont du JavaScript. Une source de gabarit contrôlée est une exécution de code.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

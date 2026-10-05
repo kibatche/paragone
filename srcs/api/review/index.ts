@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc review/index.ts — Routes de la revue humaine : enregistrer ou effacer le verdict d'un lead.
+ * @desc review/index.ts : Routes de la revue humaine : enregistrer ou effacer le verdict d'un lead.
  */
 
 import { Elysia } from "elysia";

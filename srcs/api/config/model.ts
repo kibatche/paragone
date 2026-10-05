@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc config/model.ts — Schémas de la configuration : le dossier, les classes et le lot que l'API lit et remplace.
+ * @desc config/model.ts : Schémas de la configuration : le dossier, les classes et le lot que l'API lit et remplace.
  */
 
 import { t } from "elysia";

@@ -1,17 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc db.ts — Connexion à findings.db et propriétaire du SCHÉMA : il crée les tables, ajoute les
- *       colonnes manquantes d'une base plus ancienne et pose le mode WAL. Les requêtes vivent dans un
- *       fichier par catégorie : `scan.ts`, `judge.ts`, `usage.ts`, `queue.ts`.
- *
- *       Backend : `bun:sqlite`, synchrone. La base s'ouvre au premier appel de `getDatabase()`
- *       (jamais à l'import) et la connexion est réutilisée ensuite.
- *
- *       Concurrence : le CLI et le front (`serve`) peuvent être deux process sur le même fichier.
- *       WAL et busy_timeout (le writer attend au lieu de lever SQLITE_BUSY) suffisent.
- *
- *       Modèle : `files` 1→N `matches` 1→N `leads` 1→N `judgements`. Un match est un
- *       `AnalyzerMatch`, un lead un `Lead` ; un jugement porte sur un couple (lead, classe).
+ * @desc db.ts : utilitaires liés à la base de données.
  */
 
 import { Database, type SQLQueryBindings } from "bun:sqlite";

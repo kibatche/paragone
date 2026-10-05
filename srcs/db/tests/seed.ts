@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc seed.ts — Base jetable pour les tests : un dossier temporaire devient le dossier courant avant
+ * @desc seed.ts : Base jetable pour les tests : un dossier temporaire devient le dossier courant avant
  *       tout import de `db/` (`ROOT` vaut `process.cwd()` à l'import), puis un corpus y est scanné.
  */
 

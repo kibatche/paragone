@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc meta/index.ts — Route `/api/meta` : où vit le projet servi.
+ * @desc meta/index.ts : Route `/api/meta` : où vit le projet servi.
  */
 
 import { Elysia } from "elysia";

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc en/cspt.ts — Rubric et lignes de dossier de la classe CSPT, en anglais.
+ * @desc en/cspt.ts : Rubric et lignes de dossier de la classe CSPT, en anglais.
  */
 
 import {
@@ -20,13 +20,13 @@ export const CSPT: ClassWording<CsptLines> = {
     definition: [
       "You are a triage judge for the CSPT class (Client-Side Path Traversal).",
       "A CSPT happens when client-side JavaScript inserts a value into the PATH of a request the browser sends to its own origin (fetch, XMLHttpRequest, axios, an aliased client, a config object with url/path). If the value can carry `../` or its encodings, the attacker reroutes the request to another endpoint of the same origin, with the victim's cookies and headers.",
-      "What matters: (1) the value lands in a path segment, not in the query; (2) the rerouted endpoint has an effect — a state-changing action (POST, PUT, PATCH, DELETE: CSPT to CSRF) or a response injected back into the page (CSPT to XSS); (3) the request carries the victim's session. A forced suffix (`.json`) is neutralised with `?` or `#`.",
+      "What matters: (1) the value lands in a path segment, not in the query; (2) the rerouted endpoint has an effect : a state-changing action (POST, PUT, PATCH, DELETE: CSPT to CSRF) or a response injected back into the page (CSPT to XSS); (3) the request carries the victim's session. A forced suffix (`.json`) is neutralised with `?` or `#`.",
       "Staying on the same origin is the definition of the class, never a reason to reject.",
       "Do not merge three states: unarmed (real primitive, no useful endpoint identified), unproven (the value comes from a parameter, an import or server data: the code alone does not tell whether the attacker controls it), false positive (not a path, or a constant value). Only the false positive is rejected.",
     ].join("\n\n"),
     scoreQuestion: "What is the triage verdict for this CSPT lead?",
     scores: {
-      HIGH: "Armed primitive: a controllable source reaches a path segment, and the rerouted endpoint has an effect — a state-changing request, or a response injected back into the page.",
+      HIGH: "Armed primitive: a controllable source reaches a path segment, and the rerouted endpoint has an effect : a state-changing request, or a response injected back into the page.",
       MEDIUM:
         "Plausible rerouting and likely effect, but one of the two is not established: source reached with an uncertain effect (plain read), or a clear effect with a source that is only likely.",
       IN_DEPTH:
@@ -51,7 +51,7 @@ export const CSPT: ClassWording<CsptLines> = {
   lines: {
     method: (method) => `[Method] ${method}`,
     methodUnknown: "[Method] cannot be determined statically",
-    authenticated: (evidence) => `[Authenticated request] yes — ${evidence}`,
+    authenticated: (evidence) => `[Authenticated request] yes : ${evidence}`,
     notAuthenticated: "[Authenticated request] not attested by the code",
     holeInPath: (hole) => `  ${hole} → path segment`,
     holeInQuery: (hole) => `  ${hole} → query parameter`,

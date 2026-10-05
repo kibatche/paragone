@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc constants.ts — Vocabulaire du juge (scores, motifs de rejet, langues, analyzers par classe), la requête qu'il
+ * @desc constants.ts : Vocabulaire du juge (scores, motifs de rejet, langues, analyzers par classe), la requête qu'il
  *       reçoit pour un lead, et les budgets de mise en forme du dossier.
  */
 

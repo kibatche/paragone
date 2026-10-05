@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc dossier.ts — Ce qui aide un humain à comprendre un lead : par classe d'impact, la définition, la
+ * @desc dossier.ts : Ce qui aide un humain à comprendre un lead : par classe d'impact, la définition, la
  *       consigne de l'analyzer, le sens de chaque score et le dossier exact envoyé à Jev ; pour le
  *       lead, ses références et les légendes de son taint.
  */

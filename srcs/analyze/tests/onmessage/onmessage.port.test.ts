@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc onmessage.port.test.ts — Couverture de l'analyzer onmessage porté sur Babel :
+ * @desc onmessage.port.test.ts : Couverture de l'analyzer onmessage porté sur Babel :
  *       affectations (identifiant nu, chaîne de membres, propriété calculée) et
  *       addEventListener("message", …), plus les cas négatifs et le comportement actuel
  *       sur les formes non couvertes. Autonome : n'utilise pas le harnais tests/base.ts.
@@ -40,7 +40,7 @@ async function values(source: string): Promise<string[]> {
   return matches.map((m) => m.value).sort();
 }
 
-describe("onmessage — affectations", () => {
+describe("onmessage : affectations", () => {
   it("identifiant nu : onmessage = fn", async () => {
     expect(await values("onmessage = handler;")).toEqual([
       "onmessage = handler",
@@ -106,7 +106,7 @@ describe("onmessage — affectations", () => {
   });
 });
 
-describe("onmessage — affectations non retenues", () => {
+describe("onmessage : affectations non retenues", () => {
   it("propriété calculée par variable : window[onmessage] = fn", async () => {
     expect(await values("window[onmessage] = handler;")).toEqual([]);
   });
@@ -138,7 +138,7 @@ describe("onmessage — affectations non retenues", () => {
   });
 });
 
-describe("onmessage — addEventListener", () => {
+describe("onmessage : addEventListener", () => {
   it("cas de base : window.addEventListener('message', fn)", async () => {
     expect(
       await values("window.addEventListener('message', handler);"),
@@ -196,7 +196,7 @@ describe("onmessage — addEventListener", () => {
   });
 });
 
-describe("onmessage — addEventListener non retenus", () => {
+describe("onmessage : addEventListener non retenus", () => {
   it("autre évènement : click, messageerror", async () => {
     const source = [
       "window.addEventListener('click', handler);",
@@ -233,7 +233,7 @@ describe("onmessage — addEventListener non retenus", () => {
   });
 });
 
-describe("onmessage — comportement actuel sur les formes non couvertes", () => {
+describe("onmessage : comportement actuel sur les formes non couvertes", () => {
   it("addEventListener nu (callee Identifier) est détecté", async () => {
     // Le callee Identifier est désormais couvert au même titre que le MemberExpression :
     // `addEventListener("message", fn)` sans receveur explicite remonte un match.
@@ -252,7 +252,7 @@ describe("onmessage — comportement actuel sur les formes non couvertes", () =>
   });
 });
 
-describe("onmessage — forme des matches", () => {
+describe("onmessage : forme des matches", () => {
   it("filePath, analyzerName, tags et positions", async () => {
     const source = "\nwindow.onmessage = handler;\n";
     const matches = await analyze(source);

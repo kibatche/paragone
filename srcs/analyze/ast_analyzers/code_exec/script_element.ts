@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc script_element.ts — Élément `<script>` construit à la main : `s = document.createElement("script")`
+ * @desc script_element.ts : Élément `<script>` construit à la main : `s = document.createElement("script")`
  *       puis `s.src = url` (script chargé) ou `s.text = code` / `s.textContent = code` (script en ligne).
  *       Seules les affectations dont le receveur vient de `createElement("script")` comptent : un `.text =`
  *       nu vise surtout `<a>` ou `<option>`.

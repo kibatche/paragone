@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jobs/index.ts — Routes qui lancent le scan et le juge avec la configuration en mémoire, et route qui
+ * @desc jobs/index.ts : Routes qui lancent le scan et le juge avec la configuration en mémoire, et route qui
  *       donne l'état du travail en cours et du dernier terminé.
  */
 

@@ -42,7 +42,7 @@ export function getTaintTable(): readonly TaintNode[] {
 /**
  * @brief Purge la table et les ids.
  *
- * @warning À appeler **par fichier**, depuis `analyzeFile` — jamais depuis `taintIdentifier`.
+ * @warning À appeler **par fichier**, depuis `analyzeFile` : jamais depuis `taintIdentifier`.
  */
 export function resetTaintTable() {
   nodeTable.length = 0;
@@ -593,7 +593,7 @@ function taint(path: NodePath<t.Node>): TaintNode {
       const properties = (path as NodePath<t.ObjectExpression>).get(
         "properties",
       );
-      // Objet vide : même argument que le tableau vide ci-dessus — une valeur constante, pas un trou.
+      // Objet vide : même argument que le tableau vide ci-dessus : une valeur constante, pas un trou.
       if (!properties.length)
         return setReturnObject(
           node.type,
@@ -843,7 +843,7 @@ function argumentEdgeRole(
 ): string {
   const base = `arguments[${paramIdx}] for referencePaths[${referenceIdx}]`;
   if (!isUnprovenReceiverCall(call.node)) return base;
-  return `${base} — récepteur NON PROUVÉ, appel retrouvé par la seule clé`;
+  return `${base} : récepteur NON PROUVÉ, appel retrouvé par la seule clé`;
 }
 
 function paramKindDispatch(
@@ -1331,7 +1331,7 @@ function getCallSitesThroughObjectProperty(
 
     // Objet sans binding (`return { getSsoUrl: s }`, objet imbriqué, `use({…})`) : le couple
     // (objet, clé) n'existe pas, il ne reste que la clé. On retombe sur les appels `X.clé(...)` du
-    // fichier, plafonnés et marqués comme non prouvés — cf. `key-callsites.ts`.
+    // fichier, plafonnés et marqués comme non prouvés : cf. `key-callsites.ts`.
     const objectBinding = getOwningObjectBinding(property);
     const appels = objectBinding
       ? getCallsOnObjectKey(objectBinding, keyName)
@@ -1377,7 +1377,7 @@ function getReferencePaths(
         .map((ref) => ref.parentPath as NodePath<t.CallExpression>);
 
       // Appel indirect, la fonction ayant été rangée dans un objet : `{ extend: f }` puis `o.extend(x)`.
-      // Les deux se cumulent — une même fonction peut être appelée des deux façons.
+      // Les deux se cumulent : une même fonction peut être appelée des deux façons.
       return [
         ...directCalls,
         ...getCallSitesThroughObjectProperty(functionBinding),
