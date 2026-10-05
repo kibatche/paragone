@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc refusal.ts — Traduit le refus de lancer un travail en réponse HTTP : 409 si un travail tourne, 400
+ * @desc refusal.ts : Traduit le refus de lancer un travail en réponse HTTP : 409 si un travail tourne, 400
  *       si la configuration ne permet pas de lancer. Toute autre erreur remonte.
  */
 

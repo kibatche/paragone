@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc config/index.ts — Routes de la configuration : lire l'objet `config`, le remplacer. Le changement vit
+ * @desc config/index.ts : Routes de la configuration : lire l'objet `config`, le remplacer. Le changement vit
  *       en mémoire, le temps du service.
  */
 

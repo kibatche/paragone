@@ -4,7 +4,7 @@
 
 import type { ParseArgsOptionsConfig } from "node:util";
 
-export const DEFAULT_PROJECT_DIR = process.cwd()
+export const DEFAULT_PROJECT_DIR = process.cwd();
 
 export const PARAGONE_DIR_NAME = ".paragone";
 export const PARAGONE_CONFIG_NAME = "paragone_config.json";

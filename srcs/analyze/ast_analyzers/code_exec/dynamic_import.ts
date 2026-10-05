@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc dynamic_import.ts — `import(x)` dont la source n'est pas un littéral : le module chargé depuis cette
+ * @desc dynamic_import.ts : `import(x)` dont la source n'est pas un littéral : le module chargé depuis cette
  *       URL s'exécute dans l'origine de la page. Babel 8 le représente par un `ImportExpression`.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

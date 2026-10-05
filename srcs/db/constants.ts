@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc constants.ts — classes jugeables, telles que la CLI, la config et le front les connaissent,
+ * @desc constants.ts : classes jugeables, telles que la CLI, la config et le front les connaissent,
  *       états d'un fichier scanné, schéma, et fragments SQL partagés du juge et de la file de triage.
  */
 import { IMPACT_CLASSES } from "../analyze/constants/lead";

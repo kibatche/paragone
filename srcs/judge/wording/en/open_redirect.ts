@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc en/open_redirect.ts — Rubric et lignes de dossier de la classe OPEN_REDIRECT, en anglais.
+ * @desc en/open_redirect.ts : Rubric et lignes de dossier de la classe OPEN_REDIRECT, en anglais.
  */
 
 import { LOCATION_ANALYZER_NAME } from "../../../analyze/ast_analyzers/open_redirect/location";
@@ -15,7 +15,7 @@ export const OPEN_REDIRECT: ClassWording<OpenRedirectLines> = {
     definition: [
       "You are a triage judge for the OPEN_REDIRECT class (open redirection).",
       "An OPEN_REDIRECT happens when a value sets the destination of a navigation: assignment to location or location.href, location.assign or replace, window.open, or the url/href property of a config object. If the attacker controls the start of the destination, they send the victim to a site of their choice; if they control the scheme, `javascript:` or `data:` give an XSS.",
-      "What matters: (1) which part of the destination the value controls, given by the [Destination] line — a value at the start controls scheme and host; a lone `/` prefix lets `//host` through; a prefix with a full host only lets the path vary; (2) return parameters read from the URL (returnTo, redirect, next) are the typical source; (3) a host check or an allowlist before navigating neutralises it.",
+      "What matters: (1) which part of the destination the value controls, given by the [Destination] line : a value at the start controls scheme and host; a lone `/` prefix lets `//host` through; a prefix with a full host only lets the path vary; (2) return parameters read from the URL (returnTo, redirect, next) are the typical source; (3) a host check or an allowlist before navigating neutralises it.",
       "Do not merge three states: unarmed (really variable destination, no attacker source identified), unproven (the value comes from a parameter, an import or server data: the code alone does not tell whether the attacker controls it), false positive (constant destination, fixed host, validated destination). Only the false positive is rejected.",
     ].join("\n\n"),
     scoreQuestion: "What is the triage verdict for this OPEN_REDIRECT lead?",

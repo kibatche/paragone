@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc outer_html.ts — Affectation à `outerHTML` : l'élément est remplacé par la valeur interprétée comme du HTML.
+ * @desc outer_html.ts : Affectation à `outerHTML` : l'élément est remplacé par la valeur interprétée comme du HTML.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";
 import { type Visitor } from "@babel/traverse";

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc fr/web_message.ts — Rubric et lignes de dossier de la classe WEB_MESSAGE, en français.
+ * @desc fr/web_message.ts : Rubric et lignes de dossier de la classe WEB_MESSAGE, en français.
  */
 
 import { POSTMESSAGE_ANALYZER_NAME } from "../../../analyze/ast_analyzers/web_message/postmessage";
@@ -13,7 +13,7 @@ export const WEB_MESSAGE: ClassWording<WebMessageLines> = {
   rubric: {
     definition: [
       "Tu es un juge de triage pour la classe WEB_MESSAGE (messages entre fenêtres).",
-      "Deux situations, que la ligne [Rôle] du dossier distingue. Émission : postMessage envoie des données à une autre fenêtre ; avec l'origine cible « * » ou une variable, toute page qui tient la fenêtre destinataire (iframe, popup) reçoit le message — fuite si les données sont sensibles (jeton, identifiants, données personnelles). Réception : un gestionnaire (onmessage, addEventListener('message'), onhashchange) traite une donnée venue de l'extérieur ; sans contrôle strict de event.origin, n'importe quel site peut lui envoyer des données, qui deviennent une source attaquant.",
+      "Deux situations, que la ligne [Rôle] du dossier distingue. Émission : postMessage envoie des données à une autre fenêtre ; avec l'origine cible « * » ou une variable, toute page qui tient la fenêtre destinataire (iframe, popup) reçoit le message : fuite si les données sont sensibles (jeton, identifiants, données personnelles). Réception : un gestionnaire (onmessage, addEventListener('message'), onhashchange) traite une donnée venue de l'extérieur ; sans contrôle strict de event.origin, n'importe quel site peut lui envoyer des données, qui deviennent une source attaquant.",
       "Ce qui compte : en émission, la sensibilité des données et l'origine cible ; en réception, le contrôle d'origine (égalité stricte : sûr ; indexOf, includes, startsWith, endsWith, regex non ancrée : contournable) et ce que le gestionnaire fait de la donnée (sink HTML, navigation, requête, eval).",
       "Trois états à ne pas confondre : non armé (échange réel, sans donnée sensible ni sink identifié), non prouvé (origine cible, contrôle d'origine ou données venant d'une variable dont la valeur n'est pas démontrable en statique), faux positif (origine fixe, contrôle strict, données constantes, code tiers). Seul le faux positif se rejette.",
     ].join("\n\n"),

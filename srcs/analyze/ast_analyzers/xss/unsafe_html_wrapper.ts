@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc unsafe_html_wrapper.ts — Enveloppes qui marquent une chaîne comme HTML de confiance pour le moteur
+ * @desc unsafe_html_wrapper.ts : Enveloppes qui marquent une chaîne comme HTML de confiance pour le moteur
  *       de gabarits : `unsafeHTML(x)` / `unsafeSVG(x)` (lit), `htmlSafe(x)` (Ember), `new SafeString(x)`
  *       (Handlebars, Ember). Le moteur l'insère ensuite sans échappement.
  */

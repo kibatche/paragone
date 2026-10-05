@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc angular_bypass.ts — Appels du modèle de confiance des frameworks Angular :
+ * @desc angular_bypass.ts : Appels du modèle de confiance des frameworks Angular :
  *       `sanitizer.bypassSecurityTrustHtml|Script|Style|Url|ResourceUrl(x)` (Angular) et `$sce.trustAs*(…)`
  *       (AngularJS) marquent la valeur sûre, qui échappe alors à la désinfection ; `$sce.parseAs*(…)`
  *       (AngularJS) évalue une expression AngularJS dont le résultat doit déjà être approuvé.

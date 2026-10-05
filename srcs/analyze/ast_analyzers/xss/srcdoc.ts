@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc srcdoc.ts — Contenu d'iframe `srcdoc` : affectation `iframe.srcdoc = …` et propriété d'objet
+ * @desc srcdoc.ts : Contenu d'iframe `srcdoc` : affectation `iframe.srcdoc = …` et propriété d'objet
  *       `srcdoc:` / `srcDoc:` (props React compilées). La valeur devient le document HTML de l'iframe.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

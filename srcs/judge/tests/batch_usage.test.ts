@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc batch_usage.test.ts — Le juge écrit en base une ligne d'usage par lot, y compris quand les leads
+ * @desc batch_usage.test.ts : Le juge écrit en base une ligne d'usage par lot, y compris quand les leads
  *       d'un lot échouent, et `getUsage` en tire les totaux sans lire events.jsonl.
  */
 import { mkdirSync, writeFileSync } from "node:fs";

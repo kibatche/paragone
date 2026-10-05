@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc types.ts — Types des entrées et des sorties des fonctions de db.ts, et formes des lignes
+ * @desc types.ts : Types des entrées et des sorties des fonctions de db.ts, et formes des lignes
  *       lues dans findings.db.
  */
 

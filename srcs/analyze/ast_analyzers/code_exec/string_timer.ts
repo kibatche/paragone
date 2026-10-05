@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc string_timer.ts — `setTimeout(x, …)` et `setInterval(x, …)` dont le premier argument est une chaîne
+ * @desc string_timer.ts : `setTimeout(x, …)` et `setInterval(x, …)` dont le premier argument est une chaîne
  *       construite sur place : elle y est évaluée comme du code, à la manière d'`eval`.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

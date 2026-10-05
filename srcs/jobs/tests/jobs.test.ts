@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jobs.test.ts — Les travaux de scan et de juge : lancés avec `config`, un seul à la fois, avancement
+ * @desc jobs.test.ts : Les travaux de scan et de juge : lancés avec `config`, un seul à la fois, avancement
  *       lisible, échec rendu sans bloquer le suivant.
  */
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";

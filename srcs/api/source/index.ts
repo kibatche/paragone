@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc source/index.ts — Routes du code source d'un lead : son texte, et son ouverture dans l'éditeur
+ * @desc source/index.ts : Routes du code source d'un lead : son texte, et son ouverture dans l'éditeur
  *       local. Le client n'envoie qu'un identifiant de lead, jamais un chemin.
  */
 

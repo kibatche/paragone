@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc leads/index.ts — Routes de la file de triage : la file filtrée, son effectif, le détail d'un lead,
+ * @desc leads/index.ts : Routes de la file de triage : la file filtrée, son effectif, le détail d'un lead,
  *       son dossier de jugement et ses doublons.
  */
 

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc corpus/index.ts — Routes du corpus scanné : les fichiers, et les matches des analyzers.
+ * @desc corpus/index.ts : Routes du corpus scanné : les fichiers, et les matches des analyzers.
  */
 
 import { Elysia } from "elysia";

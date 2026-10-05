@@ -66,7 +66,7 @@ export function checkClasses(classes: unknown): void {
     (classes as string[]).forEach((cls) => {
       if (
         (IMPACT_CLASSES as readonly string[]).includes(cls.toUpperCase()) ===
-        false &&
+          false &&
         cls.toUpperCase() !== "ALL"
       ) {
         throw new Error(
@@ -78,11 +78,16 @@ export function checkClasses(classes: unknown): void {
 }
 
 export function checkProject(project: unknown): void {
-  const projectFullPath = resolve(project as string)
-  if (existsSync(projectFullPath) === false && statSync(projectFullPath).isDirectory() === false) {
-    throw new Error(
-      `[ERREUR ARGUMENT] ${project} n'existe pas ou n'est pas un dossier.`,
-    );
+  if (project) {
+    const projectFullPath = resolve(project as string);
+    if (
+      existsSync(projectFullPath) === false &&
+      statSync(projectFullPath).isDirectory() === false
+    ) {
+      throw new Error(
+        `[ERREUR ARGUMENT] ${project} n'existe pas ou n'est pas un dossier.`,
+      );
+    }
   }
 }
 

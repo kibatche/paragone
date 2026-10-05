@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc en/xss.ts — Rubric et lignes de dossier de la classe XSS, en anglais.
+ * @desc en/xss.ts : Rubric et lignes de dossier de la classe XSS, en anglais.
  */
 
 import { INNER_HTML_ANALYZER_NAME } from "../../../analyze/ast_analyzers/xss/inner_html";

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc corpus/model.ts — Schémas des routes du corpus scanné : fichiers et matches.
+ * @desc corpus/model.ts : Schémas des routes du corpus scanné : fichiers et matches.
  */
 
 import { t } from "elysia";

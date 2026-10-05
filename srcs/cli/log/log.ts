@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + PAI
- * @desc log.ts — Utilitaires pour les logs
+ * @desc log.ts : Utilitaires pour les logs
  */
 import { appendFileSync } from "node:fs";
 import { config } from "../../config/config";
@@ -21,7 +21,7 @@ export function log(msg: string): void {
 /**
  * @brief Journalise un événement structuré (une ligne JSON) dans events.jsonl.
  * @param event Type d'événement (scan, batch, drop, usage, error…).
- * @param data Charge utile — y mettre les rowids, c'est ce qui rend un hit traçable.
+ * @param data Charge utile : y mettre les rowids, c'est ce qui rend un hit traçable.
  */
 export function logEvent(event: string, data: Record<string, unknown>): void {
   appendFileSync(

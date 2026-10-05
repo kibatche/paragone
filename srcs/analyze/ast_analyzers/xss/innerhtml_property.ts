@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc innerhtml_property.ts — Propriété d'objet `innerHTML:` / `outerHTML:` : forme compilée de `v-html`
+ * @desc innerhtml_property.ts : Propriété d'objet `innerHTML:` / `outerHTML:` : forme compilée de `v-html`
  *       (Vue 3, props de vnode) et de `domProps: { innerHTML }` (Vue 2). Le rendu l'affecte à l'élément.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

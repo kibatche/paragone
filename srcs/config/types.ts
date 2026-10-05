@@ -1,7 +1,15 @@
 import { basename, join } from "node:path";
 import { IMPACT_CLASSES } from "../analyze/constants/lead";
-import * as z from "zod"; 
-import { PARAGONE_CONFIG_NAME, PARAGONE_DB_NAME, PARAGONE_DB_SHM_NAME, PARAGONE_DB_WAL_PATH_NAME, PARAGONE_DIR_NAME, PARAGONE_LOG_JSONL_NAME, PARAGONE_LOG_TXT_NAME } from "./constants";
+import * as z from "zod";
+import {
+  PARAGONE_CONFIG_NAME,
+  PARAGONE_DB_NAME,
+  PARAGONE_DB_SHM_NAME,
+  PARAGONE_DB_WAL_PATH_NAME,
+  PARAGONE_DIR_NAME,
+  PARAGONE_LOG_JSONL_NAME,
+  PARAGONE_LOG_TXT_NAME,
+} from "./constants";
 
 export interface ProjectConfig {
   project: string; // emplacement du projet
@@ -27,17 +35,47 @@ export interface ProjectConfig {
   public?: string; // dossier servi à la racine de l'API
 }
 
-
-export const defaultConfig: Pick<ProjectConfig, 'project' | 'project_name' | 'paragone_dir' | 'paragone_config' | 'paragone_db' | 'paragone_shm' | 'paragone_wal' | 'paragone_log' | 'paragone_jsonl' | 'analyze' | 'classes' | 'scan' | 'judge' | 'reset' | 'noninteractive' | 'batch' | 'serve' | 'port' | 'host' | 'cors' | 'public'> = {
+export const defaultConfig: Pick<
+  ProjectConfig,
+  | "project"
+  | "project_name"
+  | "paragone_dir"
+  | "paragone_config"
+  | "paragone_db"
+  | "paragone_shm"
+  | "paragone_wal"
+  | "paragone_log"
+  | "paragone_jsonl"
+  | "analyze"
+  | "classes"
+  | "scan"
+  | "judge"
+  | "reset"
+  | "noninteractive"
+  | "batch"
+  | "serve"
+  | "port"
+  | "host"
+  | "cors"
+  | "public"
+> = {
   project: process.cwd(),
   project_name: basename(process.cwd()),
   paragone_dir: join(process.cwd(), PARAGONE_DIR_NAME),
   paragone_config: join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_CONFIG_NAME),
   paragone_db: join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_DB_NAME),
   paragone_shm: join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_DB_SHM_NAME),
-  paragone_wal: join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_DB_WAL_PATH_NAME),
+  paragone_wal: join(
+    process.cwd(),
+    PARAGONE_DIR_NAME,
+    PARAGONE_DB_WAL_PATH_NAME,
+  ),
   paragone_log: join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_LOG_TXT_NAME),
-  paragone_jsonl: join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_LOG_JSONL_NAME),
+  paragone_jsonl: join(
+    process.cwd(),
+    PARAGONE_DIR_NAME,
+    PARAGONE_LOG_JSONL_NAME,
+  ),
   analyze: "",
   classes: IMPACT_CLASSES as unknown as string[],
   scan: false,
@@ -47,12 +85,15 @@ export const defaultConfig: Pick<ProjectConfig, 'project' | 'project_name' | 'pa
   batch: 1,
   serve: false,
   port: 7331,
-  host: '127.0.0.1',
+  host: "127.0.0.1",
   cors: [],
   public: "",
-}
+};
 
-export type ProjectConfigDisk = Pick<ProjectConfig, "project" | "project_name" | "batch" | "port" | "host" | "cors" | "public">
+export type ProjectConfigDisk = Pick<
+  ProjectConfig,
+  "project" | "project_name" | "batch" | "port" | "host" | "cors" | "public"
+>;
 
 export const ProjectConfigDiskSchema = z.object({
   project: z.string(),
@@ -62,4 +103,4 @@ export const ProjectConfigDiskSchema = z.object({
   host: z.ipv4(),
   cors: z.array(z.string()),
   public: z.string(),
-})
+});

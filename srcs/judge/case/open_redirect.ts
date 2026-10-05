@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc case/open_redirect.ts — Lignes du dossier propres à OPEN_REDIRECT : le type de navigation, et
+ * @desc case/open_redirect.ts : Lignes du dossier propres à OPEN_REDIRECT : le type de navigation, et
  *       ce que le préfixe fixe de la destination laisse à la valeur (schéma, hôte ou chemin seul).
  */
 

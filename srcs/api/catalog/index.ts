@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc catalog/index.ts — Routes de référence : les valeurs énumérées des données et leurs explications,
+ * @desc catalog/index.ts : Routes de référence : les valeurs énumérées des données et leurs explications,
  *       et les analyzers avec leurs sources et consignes.
  */
 

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc app.ts — Assemble l'API : les routes de données, le contrat OpenAPI (`/openapi`, `/openapi/json`),
+ * @desc app.ts : Assemble l'API : les routes de données, le contrat OpenAPI (`/openapi`, `/openapi/json`),
  *       l'ouverture aux autres origines, puis le dossier public servi à `/`, avec repli sur son
  *       index.html pour les pages d'un front. L'application est rendue sans écouter : `start.ts` lui
  *       donne un port, les tests l'appellent directement.

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc framework-router.ts — Jetons d'injection de dépendance qui SONT de la donnée d'URL.
+ * @desc framework-router.ts : Jetons d'injection de dépendance qui SONT de la donnée d'URL.
  *       Sert à qualifier un paramètre résolu par annotation `$inject` : le paramètre n'est pas une
  *       expression que l'on peut lire dans l'AST, c'est un nom de service, et certains de ces noms
  *       désignent la donnée que l'utilisateur contrôle dans la barre d'adresse.

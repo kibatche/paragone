@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc editor.ts — Ouvre un fichier du projet dans l'éditeur local (VSCodium par défaut), à la
+ * @desc editor.ts : Ouvre un fichier du projet dans l'éditeur local (VSCodium par défaut), à la
  *       ligne et à la colonne d'un lead. Le chemin vient toujours de la base, jamais du client.
  */
 import { execFile } from "node:child_process";
@@ -37,7 +37,7 @@ export function openInEditor(
         if (!error) return resolvePromise();
         reject(
           new Error(
-            `Error [openInEditor]: ${command} a échoué sur ${file}:${line} — ${stderr || error.message}`,
+            `Error [openInEditor]: ${command} a échoué sur ${file}:${line} : ${stderr || error.message}`,
             { cause: error },
           ),
         );

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc vocabulary.ts — Les valeurs que prennent les champs des données (classes, scores, motifs, verdicts,
+ * @desc vocabulary.ts : Les valeurs que prennent les champs des données (classes, scores, motifs, verdicts,
  *       statuts, masques) et les phrases qui les expliquent, dans chaque langue du juge.
  */
 

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc review/model.ts — Schéma du corps de la revue humaine d'un lead.
+ * @desc review/model.ts : Schéma du corps de la revue humaine d'un lead.
  */
 
 import { t } from "elysia";

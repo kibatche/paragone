@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc en/code_exec.ts — Rubric et lignes de dossier de la classe CODE_EXEC, en anglais.
+ * @desc en/code_exec.ts : Rubric et lignes de dossier de la classe CODE_EXEC, en anglais.
  */
 
 import { EVAL_ANALYZER_NAME } from "../../../analyze/ast_analyzers/code_exec/eval";

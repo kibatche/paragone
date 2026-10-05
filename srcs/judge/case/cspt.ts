@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc case/cspt.ts — Lignes du dossier propres à CSPT : méthode, session portée par la requête,
+ * @desc case/cspt.ts : Lignes du dossier propres à CSPT : méthode, session portée par la requête,
  *       position de chaque trou (chemin ou query) et suffixe imposé.
  */
 
