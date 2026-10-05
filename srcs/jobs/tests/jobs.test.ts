@@ -107,10 +107,9 @@ describe("juge", () => {
 
   it("range l'usage sous l'identifiant du lancement du processus", () => {
     const rows = getDatabase()
-      .query<
-        { run_id: string; n: number },
-        []
-      >("SELECT run_id, count(*) n FROM usage GROUP BY run_id")
+      .query<{ run_id: string; n: number }, []>(
+        "SELECT run_id, count(*) n FROM usage GROUP BY run_id",
+      )
       .all();
     expect(rows).toEqual([{ run_id: RUN_ID, n: 2 }]);
   });
