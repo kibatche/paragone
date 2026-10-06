@@ -1,15 +1,8 @@
 #!/usr/bin/env bun
 
-/**
- * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc paragone.ts : front CLI. Enchaîne le scan et le juge demandés, puis, avec --serve, lance l'API sur
- *       les données à jour. L'API se charge par import dynamique : sans --serve, Elysia n'est pas chargé.
- */
-
 import {
   config,
-  createConfigInMemory,
-  readExistingConfigOnDisk,
+  loadConfig,
   writeConfigFileOnDisk,
 } from "./srcs/config/config";
 import { log, RUN_ID, logEvent } from "./srcs/cli/log/log";
@@ -20,32 +13,15 @@ import { createJevClient } from "./srcs/judge/jev/client";
 import { ensureScan } from "./srcs/scan/scan";
 import type { Usage } from "./srcs/cli/usage/types";
 import { existsSync, mkdirSync } from "node:fs";
-import { OPTIONS } from "./srcs/config/constants";
 import { confirmReset, destroyParagoneDir } from "./srcs/cli/reset/reset";
-import { parseArgs } from "node:util";
-import { printHelpAndExit } from "./srcs/config/help";
-import { checkArgs } from "./srcs/config/check_arguments";
+import { parseCliOptions } from "./srcs/config/check_arguments";
 import { initDatabase } from "./srcs/db/db";
 
 async function main() {
-  const { values } = parseArgs({
-    args: Bun.argv,
-    options: OPTIONS,
-    allowPositionals: true,
-  });
-
-  if ((values["help"] as boolean) === true) printHelpAndExit();
-
-  checkArgs(values); // jette une erreur si un argument est incorrecte.
-
-  const configFromDisk = await readExistingConfigOnDisk(
-    (values["project"] as string) ?? process.cwd(),
-  );
-
-  createConfigInMemory(values, configFromDisk);
-  writeConfigFileOnDisk();
-
   try {
+    const args = parseCliOptions(Bun.argv);
+    await loadConfig(args)
+    writeConfigFileOnDisk();
     if (config.reset === true) {
       if (config.noninteractive === false && !process.stdin.isTTY) {
         throw new Error(
@@ -55,6 +31,7 @@ async function main() {
       const choice = confirmReset();
       if (choice === true) {
         destroyParagoneDir();
+        mkdirSync(config.paragone_directory);
         writeConfigFileOnDisk();
       } else {
         console.log("Reset annulé. Le programme va quitter.");
@@ -65,8 +42,9 @@ async function main() {
     console.error("[ERROR]", e);
     process.exit(1);
   }
-  if (existsSync(config.paragone_dir) === false) {
-    mkdirSync(config.paragone_dir);
+  if (existsSync(config.paragone_directory) === false) {
+    mkdirSync(config.paragone_directory);
+    writeConfigFileOnDisk()
   }
   initDatabase();
   if (config.scan === true || config.reset === true) await ensureScan();

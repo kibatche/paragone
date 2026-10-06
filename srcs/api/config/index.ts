@@ -7,7 +7,7 @@
 import { Elysia } from "elysia";
 import { config, setConfig } from "../../config/config";
 import { CommonModel } from "../common/model";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { ConfigModel } from "./model";
 
 function view() {

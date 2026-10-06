@@ -17,7 +17,7 @@ export function confirmReset(): boolean {
 
 export function destroyParagoneDir() {
   try {
-    rmSync(config.paragone_dir, { force: true, recursive: true });
+    rmSync(config.paragone_directory, { force: true, recursive: true });
   } catch (e) {
     console.error("[ERROR]", e);
   }

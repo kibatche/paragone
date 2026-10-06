@@ -63,12 +63,12 @@ let connection: Database | undefined;
 
 /** @brief La connexion du process, ouverte au premier appel. */
 export function getDatabase(): Database {
-  connection ??= openDatabase(config.paragone_db);
+  connection ??= openDatabase(config.paragone_db_file);
   return connection;
 }
 
 export function getProjectInfo(): ProjectInfo {
-  return { root: config.project, dbPath: config.paragone_db };
+  return { root: config.paragone_project_path, dbPath: config.paragone_db_file };
 }
 
 /** @brief Ouvre la base maintenant, pour la créer et la mettre au schéma avant le premier appel utile. */

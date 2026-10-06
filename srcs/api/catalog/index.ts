@@ -7,7 +7,7 @@
 import { Elysia } from "elysia";
 import { listAnalyzers } from "../../judge/analyzers";
 import { getVocabulary } from "../../judge/vocabulary";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { CatalogModel } from "./model";
 
 export const catalog = new Elysia({ prefix: API_PREFIX, name: "api.catalog" })

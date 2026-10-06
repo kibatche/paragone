@@ -6,7 +6,7 @@
 import { Elysia } from "elysia";
 import { summary } from "../../db/queue";
 import { getUsage } from "../../db/usage";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { StatsModel } from "./model";
 
 export const stats = new Elysia({ prefix: API_PREFIX, name: "api.stats" })

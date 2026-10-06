@@ -9,7 +9,7 @@ import type { JevClient } from "../../judge/jev/client";
 import { getJobs, startJudge, startScan } from "../../jobs/jobs";
 import { CommonModel } from "../common/model";
 import { refusalOf } from "../common/refusal";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { JobsModel } from "./model";
 
 const started = {
