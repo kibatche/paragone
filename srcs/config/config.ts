@@ -16,8 +16,8 @@ import {
   PARAGONE_LOG_TXT_NAME,
 } from "./constants";
 import {
-  defaultConfig,
   ProjectConfigDiskSchema,
+  ProjectConfigSchema,
   type ProjectConfig,
   type ProjectConfigDisk,
 } from "./types";
@@ -28,7 +28,7 @@ import { basename, join, resolve } from "node:path";
 import * as z from "zod";
 import { checkAnalyze, checkBatch, checkClasses } from "./check_arguments";
 
-export let config: ProjectConfig = { ...defaultConfig };
+export let config: ProjectConfig;
 
 export function isConfigExists(path?: string): boolean {
   if (path !== undefined) return existsSync(path);
@@ -108,7 +108,7 @@ export async function readExistingConfigOnDisk(
 }
 
 export async function writeConfigFileOnDisk(): Promise<void> {
-  const configFile = Bun.file(config.paragone_config);
+  const configFile = Bun.file(config.paragone_config_file);
   await configFile.write(
     JSON.stringify(config as ProjectConfigDisk, undefined, 2),
   );
@@ -122,7 +122,7 @@ export function createConfigInMemory(
 ): void {
   const project: string = values["project"]
     ? resolve(values["project"] as string)
-    : (configFromDisk?.project ?? config.project);
+    : (configFromDisk?.paragone_project_name ?? config.project);
   const project_name: string = values["project_name"]
     ? resolve(basename(values["project"] as string))
     : (configFromDisk?.project_name ?? config.project_name);
