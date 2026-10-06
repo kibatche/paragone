@@ -55,56 +55,34 @@ Normalement, toute IA compatible avec le client de TypeSafe - comme `Clef` - dev
 ## Aide (`--help`)
 
 ```bash
-paragone : triage statique de bundles JS et analyse du potentiel de vulnérabilité grâce à un juge de type 'System One'.
+Usage: paragone [options]
 
-Utilisation : paragone [--analyze CHEMIN] [options]
+Projet :
+  -p, --project-path <dir>    Dossier du projet (défaut : dossier courant)
+  -n, --project-name <name>   Nom du projet (défaut : nom du dossier)
 
-OPTIONS
+Analyse :
+  -a, --analyze <path>        Dossier ou fichier à scanner
+  -c, --classes <classes...>  Classes de vulnérabilité à analyser, parmi : CSPT, XSS, CODE_EXEC, OPEN_REDIRECT, WEB_MESSAGE, ALL. Insensible à la casse, répétable ou séparée par des virgules (défaut : toutes)
+  --no-scan                   Saute le scan du dossier
 
-CONFIGURATION :
-  -a, --analyze CHEMIN                              Dossier OU fichier à scanner.
-  -p, --project CHEMIN                              Ouvre ou crée la configuration au chemin spécifié.
-                                                    Si l'option est non spécifiée, tente d'ouvrir une éventuelle
-                                                    configuration dans le chemin d'accès courant ou propose de la créer.
-  --project_name NOM                                Spécifie le nom du projet. Défaut à `basename($CWD)+_paragone_project`
-  -b, --batch, défaut à '1'                         Nombre de "dossier(s)" à envoyer au juge.
+Jugement :
+  -j, --judge                 Lance le juge pour ce run. Ne supprime aucune donnée pré-existante
+  -b, --batch <n>             Nombre de dossier(s) à envoyer au juge, strictement entre 0 et 10 (défaut : 1)
 
-ANALYSE :
-  -c, --classes, défaut à 'all'.                    Analyse une ou plusieurs classe(s) de vulnérabilité. Insensible à la casse.
-                                                    Répétable ou séparée par des virgules.
-                                                    Classes possibles : cspt, xss, code_exec, open_redirect, web_message, all
-  -s, --scan, défaut à 'false'.                     Lance le scan du dossier. Ne supprime aucune donnée pré-existante.
-  -j, --judge, défaut à 'false'                     Lance le juge pour ce run. Ne supprime aucune donnée pré-existante.
+Serveur (host, port, cors et public n'ont d'effet qu'avec --serve) :
+  -s, --serve                 Lance l'API. Utilisable seul
+  -H, --host <ip>             Adresse d'écoute de l'API (défaut : 127.0.0.1)
+  -P, --port <n>              Port d'écoute de l'API (défaut : 7331)
+  --cors <origins...>         Origine(s) autorisée(s) à appeler l'API depuis un autre site. Répétable ou séparée par des virgules
+  --public <dir>              Dossier du frontend servi à la racine de l'API
 
-CONTRÔLE :
-  -r, --reset, défaut à 'false'                     ATTENTION ! Destructif. DETRUIT la base de donnée, et FORCE un scan du corpus.
-                                                    Utilisé avec '--noninteractive', ne demande AUCUNE confirmation.
-  --noninteractive, défaut à false                  Mode non-interactif. Permet d'utiliser les options '--reset' ou '--project'
-                                                    sans TTY et SANS confirmation.
+Général :
+  -r, --reset                 ATTENTION, destructif : détruit la base de données et force un scan du corpus
+  --noninteractive            Mode non-interactif : --reset et --project-path s'utilisent sans TTY et sans confirmation
 
-API :
-  --serve, défaut à 'false'                         Lance l'API OpenAPI. Utilisable seul.
-  --port PORT, défaut à '7331'                      Port d'écoute de l'API.
-  --host ADRESSE, défaut à '127.0.0.1'              Adresse d'écoute de l'API.
-  --cors ORIGINE(S)                                 Origine(s) autorisée(s) à appeler l'API depuis un autre site. Répétable ou séparée par des virgules.
-  --public DOSSIER                                  Dossier du 'frontend' servi à la racine de l'API.
-
-AIDE :
-  -h, --help                                        Affiche cette aide et quitte le programme.
-
-EXEMPLES:
-
-$> paragone --analyze ./example.com --project ~/projects/megacorp --scan --judge --classes all
--> Crée ou ouvre un projet dans '~/projects/megacorp' puis, pour l'ensemble des classes de vulnérabilité, analyse le dossier 'example.com', et lance le juge.
-    
-$> paragone -a ./example.com -s -j -c cspt -c xss,web_message --reset --noninteractive
--> Pour les classes 'cspt','xss' et 'web_message', efface la base de données et REFAIT une analyse du dossier 'example.com', et REPASSE le juge sur les données d'analyse. Crée une nouvelle configuration.
-
-$> paragone --serve
--> Lance l'API sur les données déjà en base, si existantes.
-
-$> paragone -a ./example.com -s --serve --public ./dist --cors http://localhost:5173
--> Scanne, puis lance l'API qui sert aussi le front de ./dist, appelable depuis http://localhost:5173. Propose de créer une configuration 
+Options:
+  -h, --help                  display help for command
 ```
 
 ## Démarrage rapide
