@@ -5,7 +5,7 @@
 
 import { Elysia } from "elysia";
 import { getProjectInfo } from "../../db/db";
-import { API_PREFIX, API_VERSION } from "../constants";
+import { API_PREFIX, API_VERSION } from "../../config/constants";
 import { MetaModel } from "./model";
 
 export const meta = new Elysia({ prefix: API_PREFIX, name: "api.meta" }).get(

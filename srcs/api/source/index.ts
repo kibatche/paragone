@@ -8,7 +8,7 @@ import { Elysia } from "elysia";
 import { getLead } from "../../db/queue";
 import { readLeadSource } from "../../paths/source";
 import { CommonModel } from "../common/model";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { openInEditor } from "../utils/editor";
 import { SourceModel } from "./model";
 

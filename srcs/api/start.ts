@@ -4,7 +4,7 @@
  */
 
 import { createApp } from "./app";
-import { LOOPBACK_HOSTS } from "./constants";
+import { LOOPBACK_HOSTS } from "../config/constants";
 import type { ApiOptions } from "./types";
 
 /** @throws si le dossier public est introuvable ou si le port est pris. */

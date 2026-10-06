@@ -11,7 +11,7 @@ import type { ListFilters } from "../../db/types";
 import { DEFAULT_JUDGE_LANGUAGE } from "../../judge/constants";
 import { buildLeadDossier } from "../../judge/dossier";
 import { CommonModel } from "../common/model";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { LeadsModel } from "./model";
 
 type Query = typeof LeadsModel.queue.static;

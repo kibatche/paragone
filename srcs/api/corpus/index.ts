@@ -10,7 +10,7 @@ import {
   listFiles,
   listMatches,
 } from "../../db/scan";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { CorpusModel } from "./model";
 
 export const corpus = new Elysia({ prefix: API_PREFIX, name: "api.corpus" })

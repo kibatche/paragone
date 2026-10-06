@@ -2,6 +2,7 @@ import { basename, join } from "node:path";
 import { IMPACT_CLASSES } from "../analyze/constants/lead";
 import * as z from "zod";
 import {
+  DEFAULT_PUBLIC_DIR,
   PARAGONE_CONFIG_NAME,
   PARAGONE_DB_NAME,
   PARAGONE_DB_SHM_NAME,
@@ -12,6 +13,27 @@ import {
 } from "./constants";
 import { isDirectory, isFile } from "../path_utils/path_utils";
 import { isClassesCorrect } from "./check_arguments";
+
+
+/**Lié à la CLI */
+export interface CliOptions {
+  projectPath?: string;
+  projectName?: string;
+  analyze: string;
+  classes?: string[];
+  scan: boolean;
+  judge?: boolean;
+  batch?: string;
+  reset?: boolean;
+  noninteractive?: boolean;
+  serve?: boolean;
+  host?: string;
+  port?: string;
+  cors?: string[];
+  public?: string;
+}
+
+/** Liés à Zod */
 
 /** @brief Permet de customiser les erreurs de zod. */
 function customErrors(iss: z.core.$ZodRawIssue): string | undefined {
@@ -46,39 +68,55 @@ function customErrors(iss: z.core.$ZodRawIssue): string | undefined {
 
 z.config({customError: customErrors})
 
-const ProjectConfigSchema = z.object({
-  paragone_project_path: z.string().default(process.cwd()).refine((p) => isDirectory(p), {error: (iss) => `<projet> : '${iss.input}' n'est pas un dossier.`}),
-  paragone_project_name: z.string().default(basename(process.cwd())),
-  paragone_directory: z.string().default(join(process.cwd(), PARAGONE_DIR_NAME)),
-  paragone_config_file: z.string().default(join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_CONFIG_NAME)),
-  paragone_db_file: z.string().default(join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_DB_NAME)),
-  paragone_shm_file: z.string().default(join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_DB_SHM_NAME)),
-  paragone_wal_file: z.string().default(join(
-    process.cwd(),
-    PARAGONE_DIR_NAME,
-    PARAGONE_DB_WAL_PATH_NAME,
-  )),
-  paragone_log: z.string().default(join(process.cwd(), PARAGONE_DIR_NAME, PARAGONE_LOG_TXT_NAME)),
-  paragone_jsonl: z.string().default(join(
-    process.cwd(),
-    PARAGONE_DIR_NAME,
-    PARAGONE_LOG_JSONL_NAME,
-  )),
-  analyze: z.string().refine(p => isDirectory(p) || isFile(p), { error: (iss) => `<analyze> : '${iss.input}' n'est ni un fichier, ni un dossier`}),
-  classes: z.array(z.string()).default(IMPACT_CLASSES as unknown as string[]).refine(p => isClassesCorrect(p), { error: (iss) => `<classes> : [${(iss.input as string[]).join(' ')}] contient une ou plusieurs valeurs incorrectes.`}),
-  scan: z.boolean().default(true),
-  judge: z.boolean().default(false),
-  reset: z.boolean().default(false),
-  noninteractive: z.boolean().default(false),
+export const PersistentConfigSchema = z.object({
   batch: z.coerce.number().gt(0).lt(10).default(1),
-  serve: z.boolean().default(false),
   port: z.coerce.number().gt(1000).lt(65535).default(7331),
   host: z.ipv4().or(z.ipv6()).default("127.0.0.1"),
   cors: z.array(z.ipv4().or(z.ipv6())).default([]),
-  public: z.string().default(join(import.meta.dir, "../api/public")).refine((p) => isDirectory(p), {error: (iss) => `<public> : '${iss.input}' n'est pas un dossier.`}),
+  public: z.string().default(DEFAULT_PUBLIC_DIR).refine((p) => isDirectory(p), {error: (iss) => `<public> : '${iss.input}' n'est pas un dossier.`}),
 })
 
-export type ProjectConfig = z.infer<typeof ProjectConfigSchema>
+const ProjectInputSchema = z.object({
+  paragone_project_path: z.string().default(() => process.cwd()).refine((p) => isDirectory(p), {error: (iss) => `<projet> : '${iss.input}' n'est pas un dossier.`}),
+  classes: z.array(z.string()).default(IMPACT_CLASSES as unknown as string[]).refine(p => isClassesCorrect(p), { error: (iss) => `<classes> : [${(iss.input as string[]).join(' ')}] contient une ou plusieurs valeurs incorrectes.`}),
+  analyze: z.string().refine(p => isDirectory(p) || isFile(p), { error: (iss) => `<analyze> : '${iss.input}' n'est ni un fichier, ni un dossier`}),
+  scan: z.boolean().default(true),
+  judge: z.boolean().default(false),
+  serve: z.boolean().default(false),
+  reset: z.boolean().default(false),
+  noninteractive: z.boolean().default(false),
+})
 
-export const ProjectConfigDiskSchema = ProjectConfigSchema.pick({ analyze: true, paragone_project_name: true, batch: true, cors: true, host: true, port: true, public: true, scan: true })
-export type ProjectConfigDisk = z.infer<typeof ProjectConfigDiskSchema>
+export const PartialProjectSchema = PersistentConfigSchema.extend(ProjectInputSchema.shape)
+
+export type PersistentConfig = z.infer<typeof PersistentConfigSchema>
+
+/** Ce que le fichier de configuration conserve d'un run à l'autre : la config, jamais les args. */
+export const DiskConfigSchema = PersistentConfigSchema.extend({
+  paragone_project_name: z.string().optional(),
+});
+export type DiskConfig = z.infer<typeof DiskConfigSchema>;
+
+
+export function getProjectConfigSchema(projectInputSchema: typeof PartialProjectSchema, projectPath: string) {
+  return projectInputSchema.extend({
+    paragone_project_name: z.string().default(basename(projectPath)),
+    paragone_directory: z.string().default(join(projectPath, PARAGONE_DIR_NAME)),
+    paragone_config_file: z.string().default(join(projectPath, PARAGONE_DIR_NAME, PARAGONE_CONFIG_NAME)),
+    paragone_db_file: z.string().default(join(projectPath, PARAGONE_DIR_NAME, PARAGONE_DB_NAME)),
+    paragone_shm_file: z.string().default(join(projectPath, PARAGONE_DIR_NAME, PARAGONE_DB_SHM_NAME)),
+    paragone_wal_file: z.string().default(join(
+      projectPath,
+      PARAGONE_DIR_NAME,
+      PARAGONE_DB_WAL_PATH_NAME,
+    )),
+    paragone_log: z.string().default(join(projectPath, PARAGONE_DIR_NAME, PARAGONE_LOG_TXT_NAME)),
+    paragone_jsonl: z.string().default(join(
+      projectPath,
+      PARAGONE_DIR_NAME,
+      PARAGONE_LOG_JSONL_NAME,
+    )),
+  })
+}
+
+export type FullProjectConfigSchema = ReturnType<typeof getProjectConfigSchema>
