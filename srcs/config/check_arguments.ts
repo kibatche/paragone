@@ -1,6 +1,7 @@
-import { existsSync, lstatSync, statSync } from "node:fs";
+import { existsSync, statSync } from "node:fs";
 import { IMPACT_CLASSES } from "../analyze/constants/lead";
 import { resolve } from "node:path";
+import { Command } from 'commander';
 
 /** @brief Refuse une option du service sans --serve, un port invalide et un dossier public introuvable. */
 function checkServeArgs(values: {
@@ -15,13 +16,6 @@ function checkServeArgs(values: {
       `[ERREUR ARGUMENT] ${serveOnly.map((name) => `--${name}`).join(", ")} n'a d'effet qu'avec --serve.`,
     );
   }
-  if (values["port"] !== undefined) {
-    const port = Number(values["port"]);
-    if (!Number.isInteger(port) || port < 1 || port > 65535)
-      throw new Error(
-        `[ERREUR ARGUMENT] --port ${values["port"]} n'est pas un numéro de port (1 à 65535).`,
-      );
-  }
   const publicDir = values["public"];
   if (publicDir === undefined) return;
   if (
@@ -34,47 +28,22 @@ function checkServeArgs(values: {
     );
 }
 
-export function checkAnalyze(analyze: unknown): void {
-  if (!analyze) {
-    throw new Error(
-      "[ERREUR ARGUMENT] Vous devez spécifier le dossier OU le fichier à analyser à l'aide '--analyze'.",
-    );
-  }
-  if (existsSync(analyze as string) === false) {
-    throw new Error(
-      `[ERREUR ARGUMENT] Le fichier ou le dossier '${analyze}' n'existe pas.`,
-    );
-  }
-  if (
-    lstatSync(analyze as string).isDirectory() === false &&
-    lstatSync(analyze as string).isFile() === false
-  ) {
-    throw new Error(
-      `[ERREUR ARGUMENT] L'objet '${analyze}' n'est ni un fichier, ni un dossier.`,
-    );
-  }
-}
-
-export function checkBatch(batch: unknown): void {
-  if (batch !== undefined && isNaN(Number(batch))) {
-    throw new Error(`[ERREUR ARGUMENT] 'batch' n'est pas un nombre.`);
-  }
-}
-
-export function checkClasses(classes: unknown): void {
+export function isClassesCorrect(classes: string[]): boolean {
+  let correctClasses = false
   if (classes) {
     (classes as string[]).forEach((cls) => {
       if (
         (IMPACT_CLASSES as readonly string[]).includes(cls.toUpperCase()) ===
-          false &&
-        cls.toUpperCase() !== "ALL"
+          true ||
+        cls.toUpperCase() === "ALL"
       ) {
-        throw new Error(
-          `[ERREUR ARGUMENT] ${cls} n'est pas une classe de vulnérabilité prise charge. Autorisées : ${(IMPACT_CLASSES as readonly string[]).join(" ").trim()}.`,
-        );
+        return correctClasses = true
+      } else {
+        correctClasses = false
       }
     });
   }
+  return correctClasses
 }
 
 export function checkProject(project: unknown): void {
@@ -91,27 +60,15 @@ export function checkProject(project: unknown): void {
   }
 }
 
-export function checkArgs(values: {
-  [longOption: string]: string | boolean | (string | boolean)[] | undefined;
-}): void {
-  checkServeArgs(values);
-  if (
-    values["scan"] === false &&
-    values["judge"] === false &&
-    values["reset"] === false &&
-    values["serve"] === false
-  ) {
-    console.log("Rien à faire, bye.");
-    process.exit(0);
-  }
-  if (
-    values["scan"] === true ||
-    values["judge"] === true ||
-    values["reset"] === true
-  ) {
-    checkAnalyze(values["analyze"]);
-  }
-  checkBatch(values["batch"]);
-  checkProject(values["project"]);
-  checkClasses(values["classes"]);
+export function parseArguments(): void {
+  const program = new Command()
+  program
+  .name('paragone')
+  .description('Analyse statique d\'AST de fichier(s) JavaScript/TypeScript, découverte de schéma de code vulnérable et scoring de contrôlabilité des variables.')
+  .requiredOption('-a, --analyze <chemin>', 'Dossier OU fichier à scanner. Requis.')
+  .option('-p, --project <chemin>', 'Emplacement d\'un projet \'.paragone\' préexistant.')
+  .option('--project-name <nom>', 'Nom du projet paragone. Enregistré à la création du projet.')
+  .option('--project-name <nom>', 'Nom du projet paragone. Enregistré à la création du projet.')
+
+
 }
