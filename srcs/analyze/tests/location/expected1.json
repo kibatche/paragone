@@ -377,7 +377,7 @@
         "class": [
           "OPEN_REDIRECT"
         ],
-        "hash": "79cddb4680219dc2487192b7814b518ec5fbdabfdb38297173a8bcc45343ec43",
+        "hash": "d43405cfed42c5ba9367a30e909b4081ade43559a195554bf34d6f792879e01e",
         "analyzerName": "location",
         "slot": {
           "kind": "assignment-expression-right"
@@ -391,6 +391,7 @@
               "kind": "PARAM_NO_CALLSITE",
               "knownSource": "",
               "sourceString": "function updateLocation(url) {\n  location.href = url;\n  window.location.href = url;\n}",
+              "sanitizeMethod": "",
               "nodeType": "BindingNode (FunctionDeclaration)",
               "text": "Function Name: 'updateLocation'",
               "loc": {
@@ -461,7 +462,7 @@
         "class": [
           "OPEN_REDIRECT"
         ],
-        "hash": "73429e8724ccd035ccf09ac9c32f917eab5a234bbe4e9414ca899b0cd3b6ec76",
+        "hash": "e437eecd826addf92aed62abbaf1bc85f6e9025fedf1969fff0f03c3b03dfc24",
         "analyzerName": "location",
         "slot": {
           "kind": "assignment-expression-right"
@@ -475,6 +476,7 @@
               "kind": "PARAM_NO_CALLSITE",
               "knownSource": "",
               "sourceString": "const updateLocationArrow = (url) => {\n  location.href = url;\n  window.location.href = url;\n};",
+              "sanitizeMethod": "",
               "nodeType": "BindingNode (ArrowFunctionExpression)",
               "text": "Function Name: 'updateLocationArrow'",
               "loc": {
@@ -545,7 +547,7 @@
         "class": [
           "OPEN_REDIRECT"
         ],
-        "hash": "2950f676797d76327de52a05d7dc22281bf081c36a7c0ed0ae0081be99ba7c77",
+        "hash": "0a5cdb1380b2d917264a0a431d305e618607436d1bad9bc97806560c7517e289",
         "analyzerName": "location",
         "slot": {
           "kind": "assignment-expression-right"
@@ -559,6 +561,7 @@
               "kind": "PARAM_NO_CALLSITE",
               "knownSource": "",
               "sourceString": "  update(url) {\n    location.href = url;\n    window.location.href = url;\n  }",
+              "sanitizeMethod": "",
               "nodeType": "BindingNode (ClassMethod)",
               "text": "Function Name: 'LocationManager'",
               "loc": {
@@ -747,7 +750,7 @@
         "class": [
           "OPEN_REDIRECT"
         ],
-        "hash": "79cddb4680219dc2487192b7814b518ec5fbdabfdb38297173a8bcc45343ec43",
+        "hash": "d43405cfed42c5ba9367a30e909b4081ade43559a195554bf34d6f792879e01e",
         "analyzerName": "location",
         "slot": {
           "kind": "assignment-expression-right"
@@ -761,6 +764,7 @@
               "kind": "PARAM_NO_CALLSITE",
               "knownSource": "",
               "sourceString": "function updateLocation(url) {\n  location.href = url;\n  window.location.href = url;\n}",
+              "sanitizeMethod": "",
               "nodeType": "BindingNode (FunctionDeclaration)",
               "text": "Function Name: 'updateLocation'",
               "loc": {
@@ -831,7 +835,7 @@
         "class": [
           "OPEN_REDIRECT"
         ],
-        "hash": "73429e8724ccd035ccf09ac9c32f917eab5a234bbe4e9414ca899b0cd3b6ec76",
+        "hash": "e437eecd826addf92aed62abbaf1bc85f6e9025fedf1969fff0f03c3b03dfc24",
         "analyzerName": "location",
         "slot": {
           "kind": "assignment-expression-right"
@@ -845,6 +849,7 @@
               "kind": "PARAM_NO_CALLSITE",
               "knownSource": "",
               "sourceString": "const updateLocationArrow = (url) => {\n  location.href = url;\n  window.location.href = url;\n};",
+              "sanitizeMethod": "",
               "nodeType": "BindingNode (ArrowFunctionExpression)",
               "text": "Function Name: 'updateLocationArrow'",
               "loc": {
@@ -915,7 +920,7 @@
         "class": [
           "OPEN_REDIRECT"
         ],
-        "hash": "2950f676797d76327de52a05d7dc22281bf081c36a7c0ed0ae0081be99ba7c77",
+        "hash": "0a5cdb1380b2d917264a0a431d305e618607436d1bad9bc97806560c7517e289",
         "analyzerName": "location",
         "slot": {
           "kind": "assignment-expression-right"
@@ -929,6 +934,7 @@
               "kind": "PARAM_NO_CALLSITE",
               "knownSource": "",
               "sourceString": "  update(url) {\n    location.href = url;\n    window.location.href = url;\n  }",
+              "sanitizeMethod": "",
               "nodeType": "BindingNode (ClassMethod)",
               "text": "Function Name: 'LocationManager'",
               "loc": {

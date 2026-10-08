@@ -21,6 +21,6 @@ const settings = {
 };
 
 export const ConfigModel = {
-  view: t.Object(settings),
+  view: t.Object({ ...settings, analyze: t.Optional(settings.analyze) }),
   body: t.Object(settings),
 } as const;

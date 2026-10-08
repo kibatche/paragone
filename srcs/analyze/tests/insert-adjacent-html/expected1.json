@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "28f58344cae15436f368769cc6b8ebd2756191a83c7afce1138cbe00f593859c",
+        "hash": "c5bb939e75dec5e48af60d1a94e3ed68bf2a705be2a5fac3858c1cc817b96d05",
         "analyzerName": "insert-adjacent-html",
         "slot": {
           "kind": "call-argument",
@@ -36,6 +36,7 @@
               "kind": "INTERNAL",
               "knownSource": "location Read",
               "sourceString": "el.insertAdjacentHTML(\"beforeend\", \"<li>\" + decodeURIComponent(location.hash) + \"</li>\");",
+              "sanitizeMethod": "",
               "nodeType": "MemberExpression",
               "text": "location.hash",
               "loc": {
@@ -71,6 +72,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "el.insertAdjacentHTML(\"beforeend\", \"<li>\" + decodeURIComponent(location.hash) + \"</li>\");",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "decodeURIComponent",
               "loc": {

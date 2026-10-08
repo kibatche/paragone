@@ -21,7 +21,6 @@ async function main() {
   try {
     const args = parseCliOptions(Bun.argv);
     await loadConfig(args);
-    writeConfigFileOnDisk();
     if (config.reset === true) {
       if (config.noninteractive === false && !process.stdin.isTTY) {
         throw new Error(
@@ -39,7 +38,7 @@ async function main() {
       }
     }
   } catch (e) {
-    console.error("[ERROR]", e);
+    console.error("[ERROR]", e instanceof Error ? e.message : e);
     process.exit(1);
   }
   if (existsSync(config.paragone_directory) === false) {
@@ -47,7 +46,11 @@ async function main() {
     writeConfigFileOnDisk();
   }
   initDatabase();
-  if (config.scan === true || config.reset === true) await ensureScan();
+  if (
+    config.analyze !== undefined &&
+    (config.scan === true || config.reset === true)
+  )
+    await ensureScan();
   if (config.judge === true) {
     try {
       const client = createJevClient();

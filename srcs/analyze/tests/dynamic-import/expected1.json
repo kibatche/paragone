@@ -19,7 +19,7 @@
         "class": [
           "CODE_EXEC"
         ],
-        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "hash": "9c05494c2bf4d60a386db0bc33d78b138406e473b17b63262938b908805e90ab",
         "analyzerName": "dynamic-import",
         "slot": {
           "kind": "call-argument",
@@ -36,6 +36,7 @@
               "kind": "INTERNAL",
               "knownSource": "location Read",
               "sourceString": "import(\"/plugins/\" + location.hash.slice(1) + \".js\");",
+              "sanitizeMethod": "",
               "nodeType": "MemberExpression",
               "text": "location.hash",
               "loc": {
@@ -126,7 +127,7 @@
         "class": [
           "CODE_EXEC"
         ],
-        "hash": "88da6bf562d2657541a3c30c809a19859224aad0ccff0498dbdad317a1c76806",
+        "hash": "c237e2fce2c3c687a4f62e1c0bfc6578b0e1f32d939a37d8e4d1bbac0133f929",
         "analyzerName": "dynamic-import",
         "slot": {
           "kind": "call-argument",
@@ -141,6 +142,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "import(`./locales/${lang}.js`);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "lang",
               "loc": {

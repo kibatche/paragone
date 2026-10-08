@@ -20,7 +20,7 @@
           "CSPT",
           "OPEN_REDIRECT"
         ],
-        "hash": "134c631cc1b478d44d29073733d9cbb314eba4b9f54be8f47a00654aa044936d",
+        "hash": "33726f7bf99baf6d83c0a789548a8b248c03a6deb1e3a6f637dd4a93e46681ed",
         "analyzerName": "spa-navigation",
         "slot": {
           "kind": "call-argument",
@@ -35,6 +35,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "history.pushState({}, \"\", \"/search?q=\" + q);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "q",
               "loc": {
@@ -114,7 +115,7 @@
           "CSPT",
           "OPEN_REDIRECT"
         ],
-        "hash": "21ef4d215738ac8bb0d0ac6f907692b7695094ac58e2994bd3916322543447de",
+        "hash": "aafba0d429446729b79ce26968583b750aeddf5262c0416d117fa98913ec9000",
         "analyzerName": "spa-navigation",
         "slot": {
           "kind": "call-argument",
@@ -129,6 +130,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "navigate(`/account/${tab}`);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "tab",
               "loc": {
@@ -210,7 +212,7 @@
           "CSPT",
           "OPEN_REDIRECT"
         ],
-        "hash": "8fbc83e960a965de5b5b82a3bcefaea02c28d835e168965f2c7fd48ea6542811",
+        "hash": "345e76ff810ccdebdaf71a8de418736216be1f3df6be4ed0088b50cb9e01ed54",
         "analyzerName": "spa-navigation",
         "slot": {
           "kind": "call-argument",
@@ -220,13 +222,14 @@
         "taint": {
           "verdict": "SOURCE_REACHED",
           "sources": [
-            "X.get|post|patch|delete() Call"
+            "x.get|post|patch|delete() Call"
           ],
           "findings": [
             {
               "kind": "INTERNAL",
-              "knownSource": "X.get|post|patch|delete() Call",
+              "knownSource": "x.get|post|patch|delete() Call",
               "sourceString": "this.$router.push(\"/orders/\" + params.get(\"id\"));",
+              "sanitizeMethod": "",
               "nodeType": "CallExpression",
               "text": "params.get(\"id\")",
               "loc": {
@@ -306,7 +309,7 @@
           "CSPT",
           "OPEN_REDIRECT"
         ],
-        "hash": "c10cebe15ba3c02f9ea7811aca847a01dbb8abd58f49071da35e0a49643f1cbd",
+        "hash": "83100a7fc9cddbe3c2b4f8bceb4d3ff15102cc060961f5ba9b51e4ea6d72c560",
         "analyzerName": "spa-navigation",
         "slot": {
           "kind": "call-argument",
@@ -321,6 +324,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "this.router.navigateByUrl(returnUrl);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "returnUrl",
               "loc": {
@@ -392,7 +396,7 @@
           "CSPT",
           "OPEN_REDIRECT"
         ],
-        "hash": "adfae48d79c9fb3ede9bb086d79908222e81643ec1a02653a98e62d7de5ff952",
+        "hash": "3b317f732def67c2b7ea9398f84103cbd338458b2d1d2e8e67532e513499176e",
         "analyzerName": "spa-navigation",
         "slot": {
           "kind": "call-argument",
@@ -407,6 +411,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "window.history.replaceState(null, \"\", url);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "url",
               "loc": {

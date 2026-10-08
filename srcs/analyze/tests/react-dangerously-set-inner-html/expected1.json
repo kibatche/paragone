@@ -474,7 +474,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "2b0a713931f442a07f09e244e844256c8e77d07b98caf95fcf11cda39b426a60",
+        "hash": "6c91a774ba560b7690925d8e5c3b7d50c66642d212b19ba88a0b9efb36560b2a",
         "analyzerName": "dangerouslySetInnerHTML",
         "slot": {
           "kind": "object-property",
@@ -490,6 +490,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "const userContent = fetchUserContent(); // Some function that returns HTML",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "fetchUserContent",
               "loc": {

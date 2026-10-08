@@ -19,7 +19,7 @@
         "class": [
           "CODE_EXEC"
         ],
-        "hash": "adfae48d79c9fb3ede9bb086d79908222e81643ec1a02653a98e62d7de5ff952",
+        "hash": "3b317f732def67c2b7ea9398f84103cbd338458b2d1d2e8e67532e513499176e",
         "analyzerName": "jquery",
         "slot": {
           "kind": "call-argument",
@@ -34,6 +34,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "$.getScript(url);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "url",
               "loc": {
@@ -104,7 +105,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "5a5628ffb34cdde060710f98cca45ea51a4a5a7fb58604a6dfa340753570675c",
+        "hash": "b725e92399050da26bc27836871bf4277d382e24440583d74015e1e850c947a6",
         "analyzerName": "jquery",
         "slot": {
           "kind": "call-argument",
@@ -119,6 +120,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var nodes = $.parseHTML(e.data);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "e",
               "loc": {
@@ -194,7 +196,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "hash": "9c05494c2bf4d60a386db0bc33d78b138406e473b17b63262938b908805e90ab",
         "analyzerName": "jquery",
         "slot": {
           "kind": "call-argument",
@@ -211,6 +213,7 @@
               "kind": "INTERNAL",
               "knownSource": "location Read",
               "sourceString": "$(\"#out\").html(location.hash.slice(1));",
+              "sanitizeMethod": "",
               "nodeType": "MemberExpression",
               "text": "location.hash",
               "loc": {
@@ -293,7 +296,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "8fbc83e960a965de5b5b82a3bcefaea02c28d835e168965f2c7fd48ea6542811",
+        "hash": "345e76ff810ccdebdaf71a8de418736216be1f3df6be4ed0088b50cb9e01ed54",
         "analyzerName": "jquery",
         "slot": {
           "kind": "call-argument",
@@ -303,13 +306,14 @@
         "taint": {
           "verdict": "SOURCE_REACHED",
           "sources": [
-            "X.get|post|patch|delete() Call"
+            "x.get|post|patch|delete() Call"
           ],
           "findings": [
             {
               "kind": "INTERNAL",
-              "knownSource": "X.get|post|patch|delete() Call",
+              "knownSource": "x.get|post|patch|delete() Call",
               "sourceString": "$(\"a.next\").attr(\"href\", params.get(\"next\"));",
+              "sanitizeMethod": "",
               "nodeType": "CallExpression",
               "text": "params.get(\"next\")",
               "loc": {
@@ -383,7 +387,7 @@
         "class": [
           "CODE_EXEC"
         ],
-        "hash": "d5e8693ba7410b40180686b56c59f4ccbe699b9401ade77aee7de5adae526d7d",
+        "hash": "02944acf359157540a64655613e55bc825c09a26368f8f1b51e0daef39604b9c",
         "analyzerName": "jquery",
         "slot": {
           "kind": "call-argument",
@@ -398,6 +402,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "jQuery.globalEval(code);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "code",
               "loc": {
@@ -468,7 +473,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "c922cbc73f27713709d1cbb3f1e7c15cede97c530d30911fe5f2fc830625bf79",
+        "hash": "029876ca32011755a716a571377d9cceb5ae9707f56e59f078cb318c9574394d",
         "analyzerName": "jquery",
         "slot": {
           "kind": "call-argument",
@@ -483,6 +488,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "jQuery(\".list\").find(\"li\").first().append(\"<b>\" + name + \"</b>\");",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "name",
               "loc": {

@@ -13,7 +13,7 @@ import {
 } from "../../db/tests/seed";
 import { answeringClient, failingClient } from "./stub_client";
 
-const root = enterTempProject();
+const root = await enterTempProject();
 const corpus = join(root, "corpus");
 mkdirSync(corpus);
 writeFileSync(

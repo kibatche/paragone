@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "5a5628ffb34cdde060710f98cca45ea51a4a5a7fb58604a6dfa340753570675c",
+        "hash": "b725e92399050da26bc27836871bf4277d382e24440583d74015e1e850c947a6",
         "analyzerName": "parse-from-string",
         "slot": {
           "kind": "call-argument",
@@ -34,6 +34,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var doc = new DOMParser().parseFromString(e.data, \"text/html\");",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "e",
               "loc": {
@@ -109,7 +110,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "67adab787106542c6e0b4dac6ebb10c1b61b086dd393797ad5c4d6a3a277e65c",
+        "hash": "4ce85ea8d4d3da1b66f17346c5db93892b41fe5575ef067b9de7dfa9c0128157",
         "analyzerName": "parse-from-string",
         "slot": {
           "kind": "call-argument",
@@ -124,6 +125,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var doc2 = parser.parseFromString(xml, mime);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "xml",
               "loc": {

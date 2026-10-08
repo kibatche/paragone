@@ -62,7 +62,7 @@
         "class": [
           "WEB_MESSAGE"
         ],
-        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "hash": "8c6794ec5e87af22cc7c6bc5713bbfcfa5ff64ca12ed783650ac5cc471524c22",
         "analyzerName": "onhashchange",
         "slot": {
           "kind": "call-argument",
@@ -77,6 +77,7 @@
               "kind": "NO_OPERAND",
               "knownSource": "",
               "sourceString": "window.addEventListener(\"hashchange\", function() {\n  console.log(\"Hash changed via addEventListener!\");\n});",
+              "sanitizeMethod": "",
               "nodeType": "FunctionExpression",
               "text": "function () {\n  console.log(\"Hash changed via addEventListener!\");\n}",
               "loc": {
@@ -147,7 +148,7 @@
         "class": [
           "WEB_MESSAGE"
         ],
-        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "hash": "8c6794ec5e87af22cc7c6bc5713bbfcfa5ff64ca12ed783650ac5cc471524c22",
         "analyzerName": "onhashchange",
         "slot": {
           "kind": "assignment-expression-right"
@@ -161,6 +162,7 @@
               "kind": "NO_OPERAND",
               "knownSource": "",
               "sourceString": "window.onhashchange = function() {\n  console.log(\"First handler\");\n};",
+              "sanitizeMethod": "",
               "nodeType": "FunctionExpression",
               "text": "function () {\n  console.log(\"First handler\");\n}",
               "loc": {
@@ -231,7 +233,7 @@
         "class": [
           "WEB_MESSAGE"
         ],
-        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "hash": "8c6794ec5e87af22cc7c6bc5713bbfcfa5ff64ca12ed783650ac5cc471524c22",
         "analyzerName": "onhashchange",
         "slot": {
           "kind": "assignment-expression-right"
@@ -245,6 +247,7 @@
               "kind": "NO_OPERAND",
               "knownSource": "",
               "sourceString": "window.onhashchange = function() {\n  console.log(\"Hash changed!\");\n};",
+              "sanitizeMethod": "",
               "nodeType": "FunctionExpression",
               "text": "function () {\n  console.log(\"Hash changed!\");\n}",
               "loc": {
@@ -315,7 +318,7 @@
         "class": [
           "WEB_MESSAGE"
         ],
-        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "hash": "8c6794ec5e87af22cc7c6bc5713bbfcfa5ff64ca12ed783650ac5cc471524c22",
         "analyzerName": "onhashchange",
         "slot": {
           "kind": "assignment-expression-right"
@@ -329,6 +332,7 @@
               "kind": "NO_OPERAND",
               "knownSource": "",
               "sourceString": "window.onhashchange = function() {\n  console.log(\"Second handler\");\n}",
+              "sanitizeMethod": "",
               "nodeType": "FunctionExpression",
               "text": "function () {\n  console.log(\"Second handler\");\n}",
               "loc": {
@@ -399,7 +403,7 @@
         "class": [
           "WEB_MESSAGE"
         ],
-        "hash": "70b8e6c5c774c777bd44e4f31598193fced6ef70722bbdee70dfd3b3c6830332",
+        "hash": "8c6794ec5e87af22cc7c6bc5713bbfcfa5ff64ca12ed783650ac5cc471524c22",
         "analyzerName": "onhashchange",
         "slot": {
           "kind": "assignment-expression-right"
@@ -413,6 +417,7 @@
               "kind": "NO_OPERAND",
               "knownSource": "",
               "sourceString": "const handler = function() {\n  console.log(\"Hash changed via variable!\");\n};",
+              "sanitizeMethod": "",
               "nodeType": "FunctionExpression",
               "text": "function () {\n  console.log(\"Hash changed via variable!\");\n}",
               "loc": {

@@ -7,13 +7,14 @@ import { SERVER_OPTIONS } from "./constants";
 export function isClassesCorrect(classes: string[]): boolean {
   let correctClasses = false;
   if (classes) {
+    correctClasses = classes.length > 0;
     (classes as string[]).forEach((cls) => {
       if (
         (IMPACT_CLASSES as readonly string[]).includes(cls.toUpperCase()) ===
           true ||
         cls.toUpperCase() === "ALL"
       ) {
-        return (correctClasses = true);
+        return;
       } else {
         correctClasses = false;
       }
@@ -55,13 +56,10 @@ function projectOptions(): Option[] {
 
 function analysisOptions(): Option[] {
   return [
-    new Option(
-      "-a, --analyze <path>",
-      "Dossier ou fichier à scanner",
-    ).makeOptionMandatory(),
+    new Option("-a, --analyze <path>", "Dossier ou fichier à scanner"),
     new Option(
       "-c, --classes <classes...>",
-      `Classes de vulnérabilité à analyser, parmi : ${IMPACT_CLASSES.join(", ")}, ALL. Insensible à la casse, répétable ou séparée par des virgules (défaut : toutes)`,
+      `Classes de vulnérabilité à envoyer au juge, parmi : ${IMPACT_CLASSES.join(", ")}, ALL. Insensible à la casse, répétable ou séparée par des virgules (défaut : toutes)`,
     ).argParser(collectList),
     new Option("--no-scan", "Saute le scan du dossier"),
   ];
@@ -146,6 +144,14 @@ function assertServerOptionsNeedServe(program: Command): void {
   program.error(`${flags} : option sans effet sans --serve.`);
 }
 
+function assertAnalyzeGivenToScan(program: Command): void {
+  const { analyze, scan, serve, reset } = program.opts();
+  if (analyze !== undefined) return;
+  if (reset === true || (scan === true && serve !== true)) {
+    program.error("--analyze : option obligatoire pour lancer un scan.");
+  }
+}
+
 /**
  * @description Renomme `projectPath` et `projectName` (clés Commander) en `paragone_project_path` et
  * `paragone_project_name` (clés des schémas Zod). Une option non fournie n'a pas de clé, pour ne pas
@@ -164,5 +170,6 @@ export function parseCliOptions(argv: string[]): Record<string, unknown> {
   const program = buildProgram();
   program.parse(argv);
   assertServerOptionsNeedServe(program);
+  assertAnalyzeGivenToScan(program);
   return renameProjectKeys(program.opts());
 }

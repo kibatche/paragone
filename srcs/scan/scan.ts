@@ -62,9 +62,11 @@ async function scanFile(
 export async function ensureScan(
   onProgress?: (done: number, total: number, file: string) => void,
 ): Promise<ScanSummary> {
-  log(`[scan] ${config.analyze}${config.reset ? " (forcé)" : ""} …`);
+  const analyze = config.analyze;
+  if (analyze === undefined) throw new Error("<analyze> : non renseigné.");
+  log(`[scan] ${analyze}${config.reset ? " (forcé)" : ""} …`);
 
-  const paths = [...(await cleanUnwantedPath(config.analyze))].sort();
+  const paths = [...(await cleanUnwantedPath(analyze))].sort();
 
   const summary: ScanSummary = {
     files: paths.length,
@@ -94,7 +96,7 @@ export async function ensureScan(
       `${summary.addedLeads} leads ajoutés (${countRows("leads")} en base).`,
   );
 
-  logEvent("scan", { analyze: config.analyze, ...summary });
+  logEvent("scan", { analyze, ...summary });
 
   return summary;
 }
