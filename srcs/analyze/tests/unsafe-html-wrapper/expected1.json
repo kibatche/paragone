@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "6dd89452df4250fb3cc2fd4ab18a64e9f595e8be4e6625b8ff94e90a9cab5feb",
+        "hash": "da36bfc4535be1cf976fae2768b4b6cbab37f663644b5a8c38c03c3f406740dc",
         "analyzerName": "unsafe-html-wrapper",
         "slot": {
           "kind": "call-argument",
@@ -34,6 +34,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var s = Ember.String.htmlSafe(model.bio);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "model",
               "loc": {
@@ -109,7 +110,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "778a5a7ed586ee8a9ce29f95e3026e209e6dca1e474669ab3b9964dcad2b50cc",
+        "hash": "2e6b494aa8242e7e2bfdca332922cbf2a90e6bb6614f1ab11a5facb73ef8a1f2",
         "analyzerName": "unsafe-html-wrapper",
         "slot": {
           "kind": "call-argument",
@@ -124,6 +125,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var safe = new Handlebars.SafeString(link);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "link",
               "loc": {
@@ -194,7 +196,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "5a5628ffb34cdde060710f98cca45ea51a4a5a7fb58604a6dfa340753570675c",
+        "hash": "b725e92399050da26bc27836871bf4277d382e24440583d74015e1e850c947a6",
         "analyzerName": "unsafe-html-wrapper",
         "slot": {
           "kind": "call-argument",
@@ -209,6 +211,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "html`<div>${unsafeHTML(e.body)}</div>`;",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "e",
               "loc": {

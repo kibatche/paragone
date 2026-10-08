@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jev/verdict.ts — Une requête Jev par lead : le dossier en `state`, le score et le motif de
+ * @desc jev/verdict.ts : Une requête Jev par lead : le dossier en `state`, le score et le motif de
  *       rejet d'un rubric en deux questions `choice`. Le motif n'est retenu que si le score est REJECT.
  */
 

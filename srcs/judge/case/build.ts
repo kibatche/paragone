@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc case/build.ts — Transforme un lead en dossier texte lisible par le juge : en-tête, verdict du
+ * @desc case/build.ts : Transforme un lead en dossier texte lisible par le juge : en-tête, verdict du
  *       taint et motif, lignes propres à la classe, origines de la valeur, fenêtre de code. Les
  *       phrases viennent de `wording/` ; ce fichier n'en écrit aucune.
  */
@@ -50,7 +50,7 @@ function cap(text: string, max: number, w: CaseWording): string {
 /** @brief Une valeur d'énumération suivie de sa phrase, pour que le modèle n'ait rien à deviner. */
 function withLegend(value: string, legend: Record<string, string>): string {
   const sentence = legend[value];
-  return sentence ? `${value} — ${sentence}` : value;
+  return sentence ? `${value} : ${sentence}` : value;
 }
 
 function renderHeader(request: JudgeRequest, w: CaseWording): string[] {

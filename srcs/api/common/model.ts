@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc common/model.ts — Schémas partagés par plusieurs routes : valeur parmi une liste, erreur,
+ * @desc common/model.ts : Schémas partagés par plusieurs routes : valeur parmi une liste, erreur,
  *       confirmation, indicateur de requête et pagination.
  */
 

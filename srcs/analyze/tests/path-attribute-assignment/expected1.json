@@ -20,7 +20,7 @@
           "CSPT",
           "OPEN_REDIRECT"
         ],
-        "hash": "3c2313226d890b413845d7e7f41004b555172d069a3a72187746ec191dce53f4",
+        "hash": "b3409dd1a5aa1fc26ee9155f6f56396a3a153cc057922d18aa2e3beb61f295a2",
         "analyzerName": "path-attribute-assignment",
         "slot": {
           "kind": "assignment-expression-right"
@@ -34,6 +34,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "img.src = \"/api/avatars/\" + user.id + \"/image\";",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "user",
               "loc": {
@@ -120,7 +121,7 @@
           "CSPT",
           "OPEN_REDIRECT"
         ],
-        "hash": "bfdddc4ac02b3ca0a5bce427980e508b2a687ab20a71233c15687c76d67f3695",
+        "hash": "01010ee130ee508fc435978902d4c080ddc51b7b51435cb19c5be3a5445e5b69",
         "analyzerName": "path-attribute-assignment",
         "slot": {
           "kind": "assignment-expression-right"
@@ -134,6 +135,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "link.href = `/orders/${orderId}/invoice`;",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "orderId",
               "loc": {

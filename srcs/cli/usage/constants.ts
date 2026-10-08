@@ -4,7 +4,7 @@
 
 import type { Usage } from "./types";
 
-/** @brief Usage neutre — élément neutre de addUsage(). */
+/** @brief Usage neutre : élément neutre de addUsage(). */
 export const ZERO_USAGE: Usage = {
   input: 0,
   cacheRead: 0,

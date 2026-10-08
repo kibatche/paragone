@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc leads/model.ts — Schémas des routes de la file de triage : filtres, lignes de file, détail d'un
+ * @desc leads/model.ts : Schémas des routes de la file de triage : filtres, lignes de file, détail d'un
  *       lead et dossier de jugement.
  */
 

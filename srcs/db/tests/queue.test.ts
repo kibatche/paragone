@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc queue.test.ts — file de triage sur une base jetable : masques par défaut, levée de
+ * @desc queue.test.ts : file de triage sur une base jetable : masques par défaut, levée de
  *       chaque masque, ordre de priorité, compteurs, et dossier d'un lead.
  */
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -8,7 +8,7 @@ import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { assertIsolated, enterTempProject, seedCorpus } from "./seed";
 
-const root = enterTempProject();
+const root = await enterTempProject();
 const corpus = join(root, "corpus");
 
 const APP = [
@@ -81,7 +81,7 @@ function ids(rows: { id: number }[]): number[] {
   return rows.map((r) => r.id);
 }
 
-describe("listLeads — masques par défaut", () => {
+describe("listLeads : masques par défaut", () => {
   it("ne garde que les leads d'impact canoniques, non littéraux, non rejetés, non triés", () => {
     const rows = queue.listLeads();
     expect(ids(rows)).toEqual([xssSource]);
@@ -188,7 +188,7 @@ describe("buildLeadDossier", () => {
   });
 });
 
-describe("listLeads — espérance du grade", () => {
+describe("listLeads : espérance du grade", () => {
   afterAll(() => judge(cspt, "CSPT", "REJECT"));
 
   it("départage deux leads jugés par l'espérance, pas par le score retenu", () => {

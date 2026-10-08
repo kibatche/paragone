@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc document_write.ts — Appels `document.write(…)` et `document.writeln(…)` : chaque argument est
+ * @desc document_write.ts : Appels `document.write(…)` et `document.writeln(…)` : chaque argument est
  *       écrit dans le flux du document et interprété comme du HTML.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

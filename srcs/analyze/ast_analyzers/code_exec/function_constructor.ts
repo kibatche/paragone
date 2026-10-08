@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc function_constructor.ts — `new Function(…)` et `Function(…)` : le dernier argument est compilé comme
+ * @desc function_constructor.ts : `new Function(…)` et `Function(…)` : le dernier argument est compilé comme
  *       corps de fonction, les précédents comme noms de paramètres. Tous sont du code.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

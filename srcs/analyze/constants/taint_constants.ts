@@ -16,7 +16,7 @@ export interface TaintChildNode {
 
 /**
  * Etat d'un noeud de taint. INTERNAL == le noeud a des enfants, on continue de descendre.
- * Tout le reste est un arret, et dit POURQUOI en une valeur triable — `endReason` reste le
+ * Tout le reste est un arret, et dit POURQUOI en une valeur triable : `endReason` reste le
  * texte explicatif, ce type est la donnee.
  */
 export type TaintEndKind =
@@ -24,7 +24,7 @@ export type TaintEndKind =
   | "INTERNAL" // pas un arret : la descente continue
   | "LITERAL" // valeur constante, non controlable, decidable
   | "IMPORT" // declare dans un autre fichier
-  | "UNBOUND" // aucun binding dans la chaine de portees du fichier — ce que le test
+  | "UNBOUND" // aucun binding dans la chaine de portees du fichier : ce que le test
   // prouve, et rien de plus : global navigateur, variable posee par le
   // wrapper du bundler, ou identifiant jamais declare
   | "NO_OPERAND" // le noeud n'a pas l'operande dont il faudrait descendre
@@ -40,7 +40,7 @@ export type TaintEndKind =
   | "NULL_NODE" // NodePath sans noeud
   | "THIS_NODE" // noeud de type "ThisExpression", inintéressant à explorer via l'AST.
   | "EXTERNAL_ENTRY" // la valeur entre par un appelant hors fichier : la fonction porteuse
-  // n'est referencee que par son export. Miroir d'IMPORT, sens inverse —
+  // n'est referencee que par son export. Miroir d'IMPORT, sens inverse :
   // frontiere NOMMEE (nom exporte + index du parametre), pas un trou.
   | "DI_TOKEN" // le parametre est un service injecte, nomme positionnellement par une
   // annotation `$inject` posee dans le fichier. Valeur identifiee.
@@ -69,7 +69,7 @@ export type TaintVerdict =
   | "INCOMPLETE" // aucune source, au moins une branche coupee
   | "NAMED_BOUNDARY" // aucune source et aucune coupe, mais au moins une FRONTIERE NOMMEE : la
   // valeur vient d'un endroit qu'on sait designer (appelant hors fichier,
-  // service injecte). Decidable par le juge — ce n'est pas un echec de l'outil,
+  // service injecte). Decidable par le juge : ce n'est pas un echec de l'outil,
   // et ce n'est pas non plus prouve non controlable comme LITERAL_ONLY
   | "OPAQUE"; // aucune source, aucune branche coupee exploitable (global, import, cycle)
 
@@ -88,7 +88,7 @@ export const TAINT_VERDICTS = [
  * `label` décrivent le noeud d'où elle part.
  *
  * Volontairement sans `text` complet : recopier le texte de chaque ancêtre dans chaque descendant
- * rend le rapport quadratique — mesuré, 79 Mo de rapports pour 17,6 Mo d'arbres. `label` est le
+ * rend le rapport quadratique : mesuré, 79 Mo de rapports pour 17,6 Mo d'arbres. `label` est le
  * texte du noeud SEULEMENT quand il tient en `LABEL_MAX` sur une ligne, ce qui le réserve de fait
  * aux identifiants : sans lui un chemin est une suite de `BindingNode (const)` anonymes, et le juge
  * ne peut relier aucun cran au code qu'il relit.
@@ -110,7 +110,7 @@ export interface TaintSinkHole {
 /**
  * Ce dont part la teinte : l'appel, l'argument teinté, et sa chaîne reconstruite.
  *
- * Sans ça le rapport est indécidable — `bt.get(`/api/${v}/x`)` et `bt.get(`/api/x?id=${v}`)`
+ * Sans ça le rapport est indécidable : `bt.get(`/api/${v}/x`)` et `bt.get(`/api/x?id=${v}`)`
  * produisent le MÊME arbre de taint (mesuré au banc), alors que le premier est un CSPT et le second
  * ne l'est pas. Le discriminant est la position de l'interpolation, et il n'existe que côté sink.
  */
@@ -153,7 +153,7 @@ export interface TaintFinding {
    *
    * Une LISTE, parce qu'un noeud peut être partagé par plusieurs trous : `f(a.client, a.returnTo)`
    * descend deux fois dans le même `a`, et tout ce qui est sous `a` alimente les deux. Rendre un
-   * seul trou obligerait à choisir, et le choix serait celui de l'ordre de parcours — mesuré sur
+   * seul trou obligerait à choisir, et le choix serait celui de l'ordre de parcours : mesuré sur
    * `/sso/`, les deux sources tombaient sur `EXPR#0` alors que l'une n'alimente que `returnTo`.
    */
   holes?: TaintSinkHole[];
@@ -183,7 +183,7 @@ export interface TaintReport {
   /** Noeuds ni retenus ni écartés : de la mécanique interne, traversée sans rien décider. */
   traversed: number;
   /**
-   * Arêtes qui pointent vers un noeud déjà visité — arête arrière, ou simple partage entre deux
+   * Arêtes qui pointent vers un noeud déjà visité : arête arrière, ou simple partage entre deux
    * branches. Elles ne sont pas redescendues ; les compter évite qu'un partage se lise comme une
    * coupe silencieuse.
    */
@@ -196,7 +196,7 @@ export interface TaintReport {
  *
  * Sans lui, un arbre de 10 215 noeuds sort des milliers de terminaux identiques et noie le juge.
  * Le tri place les sources d'abord, puis les branches coupées : ce qui déborde est le moins
- * informatif, et il est compté dans `omitted` sous `TRUNCATED` — arrêt déclaré, jamais silencieux.
+ * informatif, et il est compté dans `omitted` sous `TRUNCATED` : arrêt déclaré, jamais silencieux.
  */
 export const FINDINGS_MAX = 20;
 

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc fr/case.ts — Étiquettes et phrases du dossier commun à toutes les classes, en français.
+ * @desc fr/case.ts : Étiquettes et phrases du dossier commun à toutes les classes, en français.
  */
 
 import type { CaseWording } from "../types";
@@ -76,7 +76,7 @@ export const CASE: CaseWording = {
     NULL_NODE: "noeud absent",
     THIS_NODE: "`this` : non suivi par le résolveur",
     EXTERNAL_ENTRY:
-      "la valeur entre par un appelant hors de ce fichier — frontière nommée, pas un trou",
+      "la valeur entre par un appelant hors de ce fichier : frontière nommée, pas un trou",
     DI_TOKEN: "service injecté, nommé par une annotation `$inject` du fichier",
     TRUNCATED: "coupé par une borne du résolveur",
   },

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc queue.ts — Lectures de la file de triage du front (filtres, masques, priorité, espérance du grade
+ * @desc queue.ts : Lectures de la file de triage du front (filtres, masques, priorité, espérance du grade
  *       de Jev, compteurs) et revue humaine d'un lead.
  */
 
@@ -199,10 +199,9 @@ export function countQueue(filters: ListFilters = {}): QueueCount {
 export function getLeadLocation(id: number): LeadLocation | null {
   return withContext("getLeadLocation", `lead ${id}`, () => {
     const row = getDatabase()
-      .query<
-        LeadLocation,
-        [number]
-      >(`SELECT f.path file, m.start_line line ${LEAD_JOINS} WHERE l.id = ?`)
+      .query<LeadLocation, [number]>(
+        `SELECT f.path file, m.start_line line ${LEAD_JOINS} WHERE l.id = ?`,
+      )
       .get(id);
     return row ?? null;
   });
@@ -256,10 +255,9 @@ export function setHumanReview(
 ): boolean {
   return withContext("setHumanReview", `lead ${id}`, () => {
     const result = getDatabase()
-      .query<
-        null,
-        SQLQueryBindings[]
-      >("UPDATE leads SET human_score = ?, human_note = ?, reviewed_at = ? WHERE id = ?")
+      .query<null, SQLQueryBindings[]>(
+        "UPDATE leads SET human_score = ?, human_note = ?, reviewed_at = ? WHERE id = ?",
+      )
       .run(score, note, Date.now(), id);
     return result.changes > 0;
   });
@@ -269,10 +267,9 @@ export function setHumanReview(
 export function clearHumanReview(id: number): boolean {
   return withContext("clearHumanReview", `lead ${id}`, () => {
     const result = getDatabase()
-      .query<
-        null,
-        SQLQueryBindings[]
-      >("UPDATE leads SET human_score = NULL, human_note = NULL, reviewed_at = NULL WHERE id = ?")
+      .query<null, SQLQueryBindings[]>(
+        "UPDATE leads SET human_score = NULL, human_note = NULL, reviewed_at = NULL WHERE id = ?",
+      )
       .run(id);
     return result.changes > 0;
   });

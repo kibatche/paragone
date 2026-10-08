@@ -1,13 +1,13 @@
 <!doctype html>
 <!--
   @author [A likely boring stuff made by] Shevek
-  @desc index.html — Page factice servie par l'API : prouve le branchement en appelant /api/meta et /api/summary, et explique comment brancher un vrai front.
+  @desc index.html : Page factice servie par l'API : prouve le branchement en appelant /api/meta et /api/summary, et explique comment brancher un vrai front.
 -->
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>paragone — page factice</title>
+    <title>paragone : page factice</title>
     <style>
       :root {
         color-scheme: light dark;
@@ -35,7 +35,7 @@
     </style>
   </head>
   <body>
-    <h1>paragone — page factice</h1>
+    <h1>paragone : page factice</h1>
     <p>
       Cette page est servie par l'API elle-même, depuis le dossier
       <code>public</code>. Elle appelle l'API en chemins relatifs : aucun
@@ -52,7 +52,7 @@
 
     <h2>Brancher un vrai front</h2>
     <p>
-      <strong>1. Servi par l'API</strong> — construire le front avec son outil,
+      <strong>1. Servi par l'API</strong> : construire le front avec son outil,
       puis lancer :
     </p>
     <pre><code>paragone --serve --public ./dist</code></pre>
@@ -64,7 +64,7 @@
       l'API en chemins relatifs : <code>fetch("/api/leads")</code>.
     </p>
     <p>
-      <strong>2. Hébergé ailleurs</strong> — lancer l'API en autorisant son
+      <strong>2. Hébergé ailleurs</strong> : lancer l'API en autorisant son
       origine :
     </p>
     <pre><code>paragone --serve --cors http://localhost:5173</code></pre>

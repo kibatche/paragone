@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc parse_from_string.ts — Appels `new DOMParser().parseFromString(html, "text/html")` : la chaîne est
+ * @desc parse_from_string.ts : Appels `new DOMParser().parseFromString(html, "text/html")` : la chaîne est
  *       analysée comme un document HTML. Un nœud de ce document réinséré dans la page porte le contenu
  *       tel quel ; c'est aussi le terrain des mutations mXSS (analyse, sérialisation, réanalyse).
  */
@@ -25,7 +25,7 @@ export const PARSE_FROM_STRING_ANALYZER_NAME = "parse-from-string";
 
 const HTML_MIME_TYPE = "text/html";
 
-// parseFromString(x, "text/html") — le type MIME est un littéral en pratique. Un type non littéral
+// parseFromString(x, "text/html") : le type MIME est un littéral en pratique. Un type non littéral
 // n'est pas tranchable ici : il est gardé, le juge lit l'appel.
 export function isParseFromStringHTMLCall(
   node: t.CallExpression | t.OptionalCallExpression,

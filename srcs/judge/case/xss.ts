@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc case/xss.ts — Ligne du dossier propre à XSS : par quel point la valeur est insérée comme HTML.
+ * @desc case/xss.ts : Ligne du dossier propre à XSS : par quel point la valeur est insérée comme HTML.
  */
 
 import { INNER_HTML_ANALYZER_NAME } from "../../analyze/ast_analyzers/xss/inner_html";

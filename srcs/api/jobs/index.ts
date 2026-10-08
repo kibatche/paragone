@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jobs/index.ts — Routes qui lancent le scan et le juge avec la configuration en mémoire, et route qui
+ * @desc jobs/index.ts : Routes qui lancent le scan et le juge avec la configuration en mémoire, et route qui
  *       donne l'état du travail en cours et du dernier terminé.
  */
 
@@ -9,7 +9,7 @@ import type { JevClient } from "../../judge/jev/client";
 import { getJobs, startJudge, startScan } from "../../jobs/jobs";
 import { CommonModel } from "../common/model";
 import { refusalOf } from "../common/refusal";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { JobsModel } from "./model";
 
 const started = {

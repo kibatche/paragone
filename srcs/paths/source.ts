@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc source.ts — Lecture du fichier source d'un lead. Le chemin vient de la base, jamais du client :
+ * @desc source.ts : Lecture du fichier source d'un lead. Le chemin vient de la base, jamais du client :
  *       c'est le fichier que le scan a enregistré pour ce lead.
  */
 

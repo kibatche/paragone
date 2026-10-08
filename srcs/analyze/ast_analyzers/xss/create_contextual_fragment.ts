@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc create_contextual_fragment.ts — Appels `range.createContextualFragment(html)` : la chaîne est
+ * @desc create_contextual_fragment.ts : Appels `range.createContextualFragment(html)` : la chaîne est
  *       analysée comme du HTML, et ses `<script>` s'exécutent quand le fragment est inséré.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

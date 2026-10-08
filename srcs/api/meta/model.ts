@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc meta/model.ts — Schéma de la réponse de `/api/meta`.
+ * @desc meta/model.ts : Schéma de la réponse de `/api/meta`.
  */
 
 import { t } from "elysia";

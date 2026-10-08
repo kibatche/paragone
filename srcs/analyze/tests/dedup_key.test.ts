@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc dedup_key.test.ts — ce qui distingue, et ce qui ne distingue pas, deux clés de dédup.
+ * @desc dedup_key.test.ts : ce qui distingue, et ce qui ne distingue pas, deux clés de dédup.
  */
 import { describe, expect, it } from "vitest";
 import { dedupKey } from "../taint/taint_report";

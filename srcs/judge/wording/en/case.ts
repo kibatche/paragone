@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc en/case.ts — Étiquettes et phrases du dossier commun à toutes les classes, en anglais.
+ * @desc en/case.ts : Étiquettes et phrases du dossier commun à toutes les classes, en anglais.
  */
 
 import type { CaseWording } from "../types";
@@ -73,7 +73,7 @@ export const CASE: CaseWording = {
     NULL_NODE: "missing node",
     THIS_NODE: "`this`: not followed by the resolver",
     EXTERNAL_ENTRY:
-      "the value comes from a caller outside this file — a named boundary, not a gap",
+      "the value comes from a caller outside this file : a named boundary, not a gap",
     DI_TOKEN: "injected service, named by a `$inject` annotation in the file",
     TRUNCATED: "cut by a resolver limit",
   },

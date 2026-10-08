@@ -542,7 +542,7 @@
         "class": [
           "WEB_MESSAGE"
         ],
-        "hash": "32b8f0492051c1e6d8885b6026b5aec9dba1f59543079383dc6accdb22c9c62f",
+        "hash": "363a69addb5f45d8f93cd5f8adb42faea711fa98c5fe8bdbf286f75d09d8cee5",
         "analyzerName": "postmessage",
         "slot": {
           "kind": "call-argument",
@@ -557,6 +557,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "const buffer = new ArrayBuffer(8);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "ArrayBuffer",
               "loc": {
@@ -669,7 +670,7 @@
         "class": [
           "WEB_MESSAGE"
         ],
-        "hash": "32b8f0492051c1e6d8885b6026b5aec9dba1f59543079383dc6accdb22c9c62f",
+        "hash": "363a69addb5f45d8f93cd5f8adb42faea711fa98c5fe8bdbf286f75d09d8cee5",
         "analyzerName": "postmessage",
         "slot": {
           "kind": "call-argument",
@@ -684,6 +685,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "const buffer = new ArrayBuffer(8);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "ArrayBuffer",
               "loc": {

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc types.ts — Paramètres d'un lancement de l'API.
+ * @desc types.ts : Paramètres d'un lancement de l'API.
  */
 
 import type { JevClient } from "../judge/jev/client";

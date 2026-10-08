@@ -1,12 +1,10 @@
 #!/usr/bin/env bun
 
-/**
- * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc paragone.ts — front CLI. Enchaîne le scan et le juge demandés, puis, avec --serve, lance l'API sur
- *       les données à jour. L'API se charge par import dynamique : sans --serve, Elysia n'est pas chargé.
- */
-
-import { config, getConfig } from "./srcs/config/config";
+import {
+  config,
+  loadConfig,
+  writeConfigFileOnDisk,
+} from "./srcs/config/config";
 import { log, RUN_ID, logEvent } from "./srcs/cli/log/log";
 import { judgeClasses } from "./srcs/judge/judge";
 import { ZERO_USAGE } from "./srcs/cli/usage/constants";
@@ -15,13 +13,14 @@ import { createJevClient } from "./srcs/judge/jev/client";
 import { ensureScan } from "./srcs/scan/scan";
 import type { Usage } from "./srcs/cli/usage/types";
 import { existsSync, mkdirSync } from "node:fs";
-import { PARAGONE_DIR } from "./srcs/config/constants";
 import { confirmReset, destroyParagoneDir } from "./srcs/cli/reset/reset";
+import { parseCliOptions } from "./srcs/config/check_arguments";
+import { initDatabase } from "./srcs/db/db";
 
 async function main() {
-  getConfig();
-
   try {
+    const args = parseCliOptions(Bun.argv);
+    await loadConfig(args);
     if (config.reset === true) {
       if (config.noninteractive === false && !process.stdin.isTTY) {
         throw new Error(
@@ -31,20 +30,27 @@ async function main() {
       const choice = confirmReset();
       if (choice === true) {
         destroyParagoneDir();
+        mkdirSync(config.paragone_directory);
+        writeConfigFileOnDisk();
       } else {
         console.log("Reset annulé. Le programme va quitter.");
         process.exit(0);
       }
     }
   } catch (e) {
-    console.error("[ERROR]", e);
+    console.error("[ERROR]", e instanceof Error ? e.message : e);
     process.exit(1);
   }
-  if (existsSync(PARAGONE_DIR) === false) {
-    mkdirSync(PARAGONE_DIR);
+  if (existsSync(config.paragone_directory) === false) {
+    mkdirSync(config.paragone_directory);
+    writeConfigFileOnDisk();
   }
-
-  if (config.scan === true || config.reset === true) await ensureScan();
+  initDatabase();
+  if (
+    config.analyze !== undefined &&
+    (config.scan === true || config.reset === true)
+  )
+    await ensureScan();
   if (config.judge === true) {
     try {
       const client = createJevClient();

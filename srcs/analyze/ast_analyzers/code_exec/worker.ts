@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc worker.ts — `new Worker(url)` et `new SharedWorker(url)` : le script chargé depuis cette URL
+ * @desc worker.ts : `new Worker(url)` et `new SharedWorker(url)` : le script chargé depuis cette URL
  *       s'exécute dans un worker de l'origine de la page.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

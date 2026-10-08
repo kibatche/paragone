@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc case/web_message.ts — Ligne du dossier propre à WEB_MESSAGE : émission (et quel argument de
+ * @desc case/web_message.ts : Ligne du dossier propre à WEB_MESSAGE : émission (et quel argument de
  *       postMessage) ou réception (quel gestionnaire).
  */
 

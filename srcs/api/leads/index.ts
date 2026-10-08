@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc leads/index.ts — Routes de la file de triage : la file filtrée, son effectif, le détail d'un lead,
+ * @desc leads/index.ts : Routes de la file de triage : la file filtrée, son effectif, le détail d'un lead,
  *       son dossier de jugement et ses doublons.
  */
 
@@ -11,7 +11,7 @@ import type { ListFilters } from "../../db/types";
 import { DEFAULT_JUDGE_LANGUAGE } from "../../judge/constants";
 import { buildLeadDossier } from "../../judge/dossier";
 import { CommonModel } from "../common/model";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { LeadsModel } from "./model";
 
 type Query = typeof LeadsModel.queue.static;

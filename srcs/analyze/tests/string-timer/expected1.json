@@ -19,7 +19,7 @@
         "class": [
           "CODE_EXEC"
         ],
-        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "hash": "9c05494c2bf4d60a386db0bc33d78b138406e473b17b63262938b908805e90ab",
         "analyzerName": "string-timer",
         "slot": {
           "kind": "call-argument",
@@ -36,6 +36,7 @@
               "kind": "INTERNAL",
               "knownSource": "location Read",
               "sourceString": "setTimeout(\"update(\" + location.hash.slice(1) + \")\", 100);",
+              "sanitizeMethod": "",
               "nodeType": "MemberExpression",
               "text": "location.hash",
               "loc": {
@@ -126,7 +127,7 @@
         "class": [
           "CODE_EXEC"
         ],
-        "hash": "ef4f5b8034b980b1b2f1f036cb69304d189af1ecebb231085ad1304386e6e9a1",
+        "hash": "8a14becc9590dc4b45c423d0f85ca2f4ffefce6d28cb99fde0f59fd929642346",
         "analyzerName": "string-timer",
         "slot": {
           "kind": "call-argument",
@@ -141,6 +142,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "window.setInterval(`poll(\"${id}\")`, 1000);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "id",
               "loc": {

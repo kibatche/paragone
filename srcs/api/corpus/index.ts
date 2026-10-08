@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc corpus/index.ts — Routes du corpus scanné : les fichiers, et les matches des analyzers.
+ * @desc corpus/index.ts : Routes du corpus scanné : les fichiers, et les matches des analyzers.
  */
 
 import { Elysia } from "elysia";
@@ -10,7 +10,7 @@ import {
   listFiles,
   listMatches,
 } from "../../db/scan";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { CorpusModel } from "./model";
 
 export const corpus = new Elysia({ prefix: API_PREFIX, name: "api.corpus" })

@@ -1,13 +1,13 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc config/index.ts — Routes de la configuration : lire l'objet `config`, le remplacer. Le changement vit
+ * @desc config/index.ts : Routes de la configuration : lire l'objet `config`, le remplacer. Le changement vit
  *       en mémoire, le temps du service.
  */
 
 import { Elysia } from "elysia";
 import { config, setConfig } from "../../config/config";
 import { CommonModel } from "../common/model";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { ConfigModel } from "./model";
 
 function view() {

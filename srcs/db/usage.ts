@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc usage.ts — Coûts et tokens dans findings.db : une ligne par lot de jugement, et les agrégats
+ * @desc usage.ts : Coûts et tokens dans findings.db : une ligne par lot de jugement, et les agrégats
  *       (par lancement, par classe, par phase, globaux) calculés par SELECT sur cette table.
  */
 
@@ -98,13 +98,11 @@ function readByPhase(): Record<string, PhaseUsage> {
 /** @brief Lu d'un seul instantané : les quatre agrégats se rapportent à la même base. */
 export function getUsage(): UsageReport {
   const database = getDatabase();
-  const read = database.transaction(
-    (): UsageReport => ({
-      summary: readSummary(),
-      runs: readRuns(),
-      byClass: readByClass(),
-      byPhase: readByPhase(),
-    }),
-  );
+  const read = database.transaction((): UsageReport => ({
+    summary: readSummary(),
+    runs: readRuns(),
+    byClass: readByClass(),
+    byPhase: readByPhase(),
+  }));
   return withContext("getUsage", undefined, read);
 }

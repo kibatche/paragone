@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc path_attribute_assignment.ts — Affectation `el.src = "/…" + x` ou `el.href = \`/…${x}\`` : un chemin
+ * @desc path_attribute_assignment.ts : Affectation `el.src = "/…" + x` ou `el.href = \`/…${x}\`` : un chemin
  *       ancré à la racine du site. La valeur choisit la ressource chargée (CSPT) ; placée en tête du chemin,
  *       elle peut en faire une URL `//hôte` relative au protocole (OPEN_REDIRECT).
  */
