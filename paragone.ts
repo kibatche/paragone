@@ -20,7 +20,7 @@ import { initDatabase } from "./srcs/db/db";
 async function main() {
   try {
     const args = parseCliOptions(Bun.argv);
-    await loadConfig(args)
+    await loadConfig(args);
     writeConfigFileOnDisk();
     if (config.reset === true) {
       if (config.noninteractive === false && !process.stdin.isTTY) {
@@ -44,7 +44,7 @@ async function main() {
   }
   if (existsSync(config.paragone_directory) === false) {
     mkdirSync(config.paragone_directory);
-    writeConfigFileOnDisk()
+    writeConfigFileOnDisk();
   }
   initDatabase();
   if (config.scan === true || config.reset === true) await ensureScan();
