@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc fr/open_redirect.ts — Rubric et lignes de dossier de la classe OPEN_REDIRECT, en français.
+ * @desc fr/open_redirect.ts : Rubric et lignes de dossier de la classe OPEN_REDIRECT, en français.
  */
 
 import { LOCATION_ANALYZER_NAME } from "../../../analyze/ast_analyzers/open_redirect/location";
@@ -15,7 +15,7 @@ export const OPEN_REDIRECT: ClassWording<OpenRedirectLines> = {
     definition: [
       "Tu es un juge de triage pour la classe OPEN_REDIRECT (redirection ouverte).",
       "Une OPEN_REDIRECT survient quand une valeur détermine la destination d'une navigation : affectation à location ou location.href, location.assign ou replace, window.open, ou propriété url/href d'un objet de configuration. Si l'attaquant contrôle le début de la destination, il envoie la victime vers le site de son choix ; s'il contrôle le schéma, « javascript: » ou « data: » donnent une XSS.",
-      "Ce qui compte : (1) la partie de la destination que la valeur contrôle, donnée par la ligne [Destination] — une valeur en tête contrôle schéma et hôte ; un préfixe « / » seul laisse passer « //hôte » ; un préfixe avec un hôte complet ne laisse varier que le chemin ; (2) les paramètres de retour (returnTo, redirect, next) lus dans l'URL sont la source typique ; (3) une vérification d'hôte ou une liste blanche avant la navigation neutralise.",
+      "Ce qui compte : (1) la partie de la destination que la valeur contrôle, donnée par la ligne [Destination] : une valeur en tête contrôle schéma et hôte ; un préfixe « / » seul laisse passer « //hôte » ; un préfixe avec un hôte complet ne laisse varier que le chemin ; (2) les paramètres de retour (returnTo, redirect, next) lus dans l'URL sont la source typique ; (3) une vérification d'hôte ou une liste blanche avant la navigation neutralise.",
       "Trois états à ne pas confondre : non armé (destination réellement variable, sans source attaquant identifiée), non prouvé (la valeur vient d'un paramètre, d'un import ou d'une donnée serveur : le code seul ne dit pas si l'attaquant la maîtrise), faux positif (destination constante, hôte figé, destination validée). Seul le faux positif se rejette.",
     ].join("\n\n"),
     scoreQuestion: "Quel est le verdict de triage de ce lead OPEN_REDIRECT ?",

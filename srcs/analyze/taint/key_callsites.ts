@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc key-callsites.ts — Appels `X.clé(...)` cherchés dans TOUT le fichier, sans prouver le
+ * @desc key-callsites.ts : Appels `X.clé(...)` cherchés dans TOUT le fichier, sans prouver le
  *       récepteur. Dernier recours quand la fonction est rangée dans un objet qui n'a pas de
  *       binding (`return { getSsoUrl: s }`) : le couple (objet, clé) n'existe pas, il ne reste que
  *       la clé. Index construit une fois par Program, appels marqués comme non prouvés.
@@ -15,7 +15,7 @@ import { NodePath } from "@babel/traverse";
  * Au-delà, la clé est trop commune pour désigner cette fonction-là (`get`, `set`, `then`…) et
  * accepter les appels reviendrait à teinter des arguments qui n'ont rien à voir. Mesuré sur le
  * corpus : les clés effectivement interrogées par le résolveur sont soit uniques, soit très
- * au-dessus de ce seuil — il n'y a pas de zone grise à arbitrer.
+ * au-dessus de ce seuil : il n'y a pas de zone grise à arbitrer.
  */
 export const KEY_CALLSITES_MAX = 3;
 
@@ -94,7 +94,7 @@ function getIndex(
  * @return Les appels, ou [] si la clé est absente ou trop commune.
  *
  * ⚠️ Ce que ça suppose, et qui n'est pas prouvé : que `X.clé(...)` appelle bien CETTE fonction. On
- * ne le sait pas — l'objet qui la porte n'a pas de nom, donc la chaîne récepteur → objet ne peut pas
+ * ne le sait pas : l'objet qui la porte n'a pas de nom, donc la chaîne récepteur → objet ne peut pas
  * être refermée. C'est assumé et marqué : les appels rendus passent par `isUnprovenReceiverCall`,
  * et le rôle de l'arête le dit au juge. Le plafond est ce qui empêche l'heuristique de dériver.
  */

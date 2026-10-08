@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc wording/index.ts — Point d'entrée des textes du juge : une langue donne un `Wording` complet.
+ * @desc wording/index.ts : Point d'entrée des textes du juge : une langue donne un `Wording` complet.
  */
 
 import { JUDGE_LANGUAGES, type JudgeLanguage } from "../constants";

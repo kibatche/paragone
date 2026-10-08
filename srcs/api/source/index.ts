@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc source/index.ts — Routes du code source d'un lead : son texte, et son ouverture dans l'éditeur
+ * @desc source/index.ts : Routes du code source d'un lead : son texte, et son ouverture dans l'éditeur
  *       local. Le client n'envoie qu'un identifiant de lead, jamais un chemin.
  */
 
@@ -8,7 +8,7 @@ import { Elysia } from "elysia";
 import { getLead } from "../../db/queue";
 import { readLeadSource } from "../../paths/source";
 import { CommonModel } from "../common/model";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { openInEditor } from "../utils/editor";
 import { SourceModel } from "./model";
 

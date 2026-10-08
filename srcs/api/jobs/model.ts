@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jobs/model.ts — Schémas des travaux de scan et de juge : leur état et leur bilan.
+ * @desc jobs/model.ts : Schémas des travaux de scan et de juge : leur état et leur bilan.
  */
 
 import { t } from "elysia";

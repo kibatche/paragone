@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jev/constants.ts — Constantes du juge Jev (TypeSafe) : le modèle interrogé, la variable
+ * @desc jev/constants.ts : Constantes du juge Jev (TypeSafe) : le modèle interrogé, la variable
  *       d'environnement portant la clé et le `.env` de repli, et le tarif qui sert à chiffrer un run.
  */
 

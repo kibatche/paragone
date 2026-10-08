@@ -1,7 +1,7 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc seed.ts — Base jetable pour les tests : un dossier temporaire devient le dossier courant avant
- *       tout import de `db/` (`ROOT` vaut `process.cwd()` à l'import), puis un corpus y est scanné.
+ * @desc seed.ts : Base jetable pour les tests : un dossier temporaire devient le dossier courant avant
+ *       tout import de `db/` et la config y est chargée (`config.paragone_project_path`), puis un corpus y est scanné.
  */
 
 import { mkdirSync, mkdtempSync } from "node:fs";
@@ -12,10 +12,12 @@ import { join } from "node:path";
  * @brief Crée un projet jetable et s'y place. À appeler avant tout import de `db/`.
  * @return Le dossier du projet.
  */
-export function enterTempProject(): string {
+export async function enterTempProject(): Promise<string> {
   const root = mkdtempSync(join(tmpdir(), "paragone-test-"));
   mkdirSync(join(root, ".paragone"));
   process.chdir(root);
+  const { loadConfig } = await import("../../config/config");
+  await loadConfig({ paragone_project_path: root });
   return root;
 }
 

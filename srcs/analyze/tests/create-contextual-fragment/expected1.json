@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "hash": "9c05494c2bf4d60a386db0bc33d78b138406e473b17b63262938b908805e90ab",
         "analyzerName": "create-contextual-fragment",
         "slot": {
           "kind": "call-argument",
@@ -36,6 +36,7 @@
               "kind": "INTERNAL",
               "knownSource": "location Read",
               "sourceString": "var frag = document.createRange().createContextualFragment(location.hash.substring(1));",
+              "sanitizeMethod": "",
               "nodeType": "MemberExpression",
               "text": "location.hash",
               "loc": {

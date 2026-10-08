@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "5a5628ffb34cdde060710f98cca45ea51a4a5a7fb58604a6dfa340753570675c",
+        "hash": "b725e92399050da26bc27836871bf4277d382e24440583d74015e1e850c947a6",
         "analyzerName": "innerhtml-property",
         "slot": {
           "kind": "object-property",
@@ -35,6 +35,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "o(\"div\", { class: \"content\", innerHTML: e.body }, null, 8, [\"innerHTML\"]);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "e",
               "loc": {
@@ -110,7 +111,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "b3d2ae7d8ac89f23e4506de31b1a3106b4078173c12965e2c35b3ba01f97abed",
+        "hash": "11fca37b86ce64481849407e11cd461a8dccfc08176b026db699288f83cd8ef4",
         "analyzerName": "innerhtml-property",
         "slot": {
           "kind": "object-property",
@@ -126,6 +127,7 @@
               "kind": "THIS_NODE",
               "knownSource": "",
               "sourceString": "h(\"div\", { domProps: { innerHTML: this.html } });",
+              "sanitizeMethod": "",
               "nodeType": "ThisExpression",
               "text": "this",
               "loc": {

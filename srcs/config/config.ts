@@ -1,48 +1,28 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc config.ts : configuration et vérification des arguments de la run. `config` est l'unique objet de
- *       configuration : les arguments l'écrivent au lancement, `setConfig` l'écrit ensuite, et le reste du
- *       code le lit.
+ * @desc config.ts : charge la configuration du run (défauts Zod, config persistante du disque, args de la
+ *       ligne de commande) dans `config`, que `setConfig` met à jour ensuite et que le reste du code lit.
  */
 
-import { parseArgs } from "util";
-import {
-  DEFAULT_SERVE_HOST,
-  DEFAULT_SERVE_PORT,
-  HELP,
-  OPTIONS,
-} from "./constants";
-import type { ProjectConfig } from "./types";
-import "node:fs";
-import { existsSync, lstatSync, statSync } from "node:fs";
+import { join, resolve } from "node:path";
+import * as z from "zod";
 import { IMPACT_CLASSES } from "../analyze/constants/lead";
-import { basename, resolve } from "node:path";
+import { isFile } from "../path_utils/path_utils";
+import { PARAGONE_CONFIG_NAME, PARAGONE_DIR_NAME } from "./constants";
+import {
+  DiskConfigSchema,
+  PartialProjectSchema,
+  getProjectConfigSchema,
+  type DiskConfig,
+  type FullProjectConfigSchema,
+} from "./types";
 
-export let config: ProjectConfig = {
-  project_name: "dummy",
-  classes: ["all"],
-  analyze: "",
-  scan: false,
-  judge: false,
-  batch: 1,
-  reset: false,
-  noninteractive: false,
-  serve: false,
-  port: DEFAULT_SERVE_PORT,
-  host: DEFAULT_SERVE_HOST,
-  cors: [],
-};
+export type ProjectConfig = z.output<FullProjectConfigSchema>;
 
-function printHelpAndExit() {
-  console.log(HELP.trim());
-  process.exit(0);
-}
+export let config: ProjectConfig;
 
-function splitList(rawValues: string[]): string[] {
-  return rawValues
-    .flatMap((raw) => raw.split(","))
-    .map((value) => value.trim())
-    .filter((value) => value !== "");
+function describeIssues(error: z.ZodError): string {
+  return error.issues.map((issue) => issue.message).join("\n");
 }
 
 function normalizeClasses(rawClasses: string[]): string[] {
@@ -56,140 +36,88 @@ function normalizeClasses(rawClasses: string[]): string[] {
   return classes.has("ALL") ? [...IMPACT_CLASSES] : [...classes];
 }
 
-/** @brief Refuse une option du service sans --serve, un port invalide et un dossier public introuvable. */
-function checkServeArgs(values: {
-  [longOption: string]: string | boolean | (string | boolean)[] | undefined;
-}): void {
-  const serveOnly = ["port", "host", "cors", "public"].filter(
-    (name) => values[name] !== undefined,
-  );
-  if (values["serve"] !== true) {
-    if (serveOnly.length === 0) return;
-    throw new Error(
-      `[ARGUMENT ERROR] ${serveOnly.map((name) => `--${name}`).join(", ")} n'a d'effet qu'avec --serve.`,
-    );
-  }
-  if (values["port"] !== undefined) {
-    const port = Number(values["port"]);
-    if (!Number.isInteger(port) || port < 1 || port > 65535)
-      throw new Error(
-        `[ARGUMENT ERROR] --port ${values["port"]} n'est pas un numéro de port (1 à 65535).`,
-      );
-  }
-  const publicDir = values["public"];
-  if (publicDir === undefined) return;
-  if (
-    typeof publicDir !== "string" ||
-    !existsSync(publicDir) ||
-    !statSync(publicDir).isDirectory()
-  )
-    throw new Error(
-      `[ARGUMENT ERROR] Le dossier public '${publicDir}' n'existe pas.`,
-    );
+function resolveProjectPath(args: Record<string, unknown>): string {
+  const given = args.paragone_project_path;
+  return resolve(typeof given === "string" ? given : process.cwd());
 }
 
-export function checkAnalyze(analyze: unknown): void {
-  if (!analyze) {
-    throw new Error(
-      "[ARGUMENT ERROR] Vous devez spécifier le dossier OU le fichier à analyser à l'aide '--analyze'.",
+/** @description Une config disque absente ou invalide n'est pas fatale : elle est signalée, puis recréée. */
+async function readDiskConfig(
+  projectPath: string,
+): Promise<DiskConfig | undefined> {
+  const configFile = join(projectPath, PARAGONE_DIR_NAME, PARAGONE_CONFIG_NAME);
+  if (!isFile(configFile)) {
+    console.log(
+      "[LOG] Aucune configuration détectée, une nouvelle sera créée.",
     );
+    return undefined;
   }
-  if (existsSync(analyze as string) === false) {
-    throw new Error(
-      `[ARGUMENT ERROR] Le fichier ou le dossier '${analyze}' n'existe pas.`,
-    );
-  }
-  if (
-    lstatSync(analyze as string).isDirectory() === false &&
-    lstatSync(analyze as string).isFile() === false
-  ) {
-    throw new Error(
-      `[ARGUMENT ERROR] L'objet '${analyze}' n'est ni un fichier, ni un dossier.`,
-    );
-  }
-}
 
-function checkBatch(batch: unknown): void {
-  if (batch !== undefined && isNaN(Number(batch))) {
-    throw new Error(`[ARGUMENT ERROR] 'batch' n'est pas un nombre.`);
-  }
-}
-
-function checkClasses(classes: unknown): void {
-  if (classes) {
-    (classes as string[]).forEach((cls) => {
-      if (
-        (IMPACT_CLASSES as readonly string[]).includes(cls.toUpperCase()) ===
-          false &&
-        cls.toUpperCase() !== "ALL"
-      ) {
-        throw new Error(
-          `[ARGUMENT ERROR] ${cls} n'est pas une classe de vulnérabilité prise charge. Autorisées : ${(IMPACT_CLASSES as readonly string[]).join(" ").trim()}.`,
-        );
-      }
-    });
-  }
-}
-
-function checkArgs(values: {
-  [longOption: string]: string | boolean | (string | boolean)[] | undefined;
-}): void {
-  if (values["help"] === true) printHelpAndExit();
-  checkServeArgs(values);
-  if (
-    values["scan"] === false &&
-    values["judge"] === false &&
-    values["reset"] === false &&
-    values["serve"] === false
-  ) {
-    console.log("Rien à faire, bye.");
-    process.exit(0);
-  }
-  if (
-    values["scan"] === true ||
-    values["judge"] === true ||
-    values["reset"] === true
-  ) {
-    checkAnalyze(values["analyze"]);
-  }
-  checkBatch(values["batch"]);
-  checkClasses(values["classes"]);
-}
-
-export function getConfig() {
+  let raw: unknown;
   try {
-    const { values } = parseArgs({
-      args: Bun.argv,
-      options: OPTIONS,
-      allowPositionals: true,
-    });
-
-    checkArgs(values);
-
-    config = {
-      project_name: basename(values["project_name"] as string),
-      classes: normalizeClasses(values["classes"] as string[]),
-      analyze:
-        values["analyze"] === undefined
-          ? config.analyze
-          : resolve(values["analyze"] as string),
-      scan: values["scan"] as boolean,
-      judge: values["judge"] as boolean,
-      batch: Number(values["batch"]),
-      reset: values["reset"] as boolean,
-      noninteractive: values["noninteractive"] as boolean,
-      serve: values["serve"] as boolean,
-      port: values["port"] ? Number(values["port"]) : DEFAULT_SERVE_PORT,
-      host: (values["host"] as string | undefined) ?? DEFAULT_SERVE_HOST,
-      cors: splitList((values["cors"] as string[] | undefined) ?? []),
-      public: values["public"]
-        ? resolve(values["public"] as string)
-        : undefined,
-    };
-  } catch (e) {
-    console.error("[ERROR]", e);
-    process.exit(1);
+    raw = await Bun.file(configFile).json();
+  } catch (error) {
+    console.error(
+      `[CONFIG INVALIDE] ${configFile} n'est pas un JSON lisible : ${error}. Elle sera recréée.`,
+    );
+    return undefined;
   }
+
+  const parsed = DiskConfigSchema.safeParse(raw);
+  if (!parsed.success) {
+    console.error(
+      `[CONFIG INVALIDE] ${configFile} :\n${describeIssues(parsed.error)}\nElle sera recréée.`,
+    );
+    return undefined;
+  }
+  console.log("[LOG] Configuration récupérée du disque !");
+  return parsed.data;
+}
+
+/**
+ * @description Les couches se superposent dans cet ordre : défauts Zod, config du disque, args de la ligne
+ * de commande, chemins dérivés du projet. Un seul `parse` du schéma complet les valide ensemble.
+ * @throws si une valeur est refusée : le run ne peut pas continuer.
+ */
+export async function loadConfig(args: Record<string, unknown>): Promise<void> {
+  const projectPath = resolveProjectPath(args);
+  const disk = await readDiskConfig(projectPath);
+  const schema = getProjectConfigSchema(PartialProjectSchema, projectPath);
+
+  const parsed = schema.safeParse({
+    ...disk,
+    ...args,
+    paragone_project_path: projectPath,
+  });
+  if (!parsed.success) {
+    throw new Error(`Configuration refusée :\n${describeIssues(parsed.error)}`);
+  }
+
+  config = {
+    ...parsed.data,
+    analyze:
+      parsed.data.analyze === undefined
+        ? undefined
+        : resolve(parsed.data.analyze),
+    classes: normalizeClasses(parsed.data.classes),
+    public: resolve(parsed.data.public),
+  };
+  if (disk === undefined) await writeConfigFileOnDisk();
+}
+
+export async function writeConfigFileOnDisk(): Promise<void> {
+  const persisted = DiskConfigSchema.parse(config);
+  await Bun.write(
+    config.paragone_config_file,
+    JSON.stringify(persisted, undefined, 2),
+  );
+}
+
+/** @throws si `analyze` n'est ni un fichier, ni un dossier. */
+export function checkAnalyze(analyze: string | undefined): void {
+  if (analyze === undefined) throw new Error("<analyze> : non renseigné.");
+  const result = PartialProjectSchema.shape.analyze.safeParse(analyze);
+  if (!result.success) throw new Error(describeIssues(result.error));
 }
 
 /**
@@ -201,13 +129,16 @@ export function setConfig(values: {
   classes: string[];
   batch: number;
 }): void {
-  checkAnalyze(values.analyze);
-  checkClasses(values.classes);
-  checkBatch(values.batch);
+  const result = PartialProjectSchema.pick({
+    analyze: true,
+    classes: true,
+    batch: true,
+  }).safeParse(values);
+  if (!result.success) throw new Error(describeIssues(result.error));
 
   Object.assign(config, {
     analyze: resolve(values.analyze),
-    classes: normalizeClasses(values.classes),
-    batch: Number(values.batch),
+    classes: normalizeClasses(result.data.classes),
+    batch: result.data.batch,
   });
 }

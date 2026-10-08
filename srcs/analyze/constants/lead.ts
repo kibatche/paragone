@@ -1,22 +1,13 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc lead.ts — Contrat d'entrée du juge : une racine de taint et ce qui la rend décidable.
+ * @desc lead.ts : Contrat d'entrée du juge : une racine de taint et ce qui la rend décidable.
  */
 
 import { type TaintReport } from "./taint_constants";
 
-/**
- * Version de la forme décrite dans ce fichier.
- *
- * Toute modification incompatible l'incrémente. Rien ne la lit encore : un lead déjà en base garde
- * la sienne, `--force-scan` ne réécrivant pas un lead existant.
- *
- * v2 : `class` scalaire → `LeadClass[]`, `index` optionnel, ajout de `kind`.
- */
-export const LEAD_SCHEMA_VERSION = 2;
+export const LEAD_SCHEMA_VERSION = 2; //useless, voir pour enlever.
 
-/** Version du calcul de `dedupKey`, stockée en base avec chaque clé. */
-export const DEDUP_KEY_VERSION = 1;
+export const DEDUP_KEY_VERSION = 1; //useless, voir pour enlever.
 
 /** Classes d'impact : les seules qui partent au juge. */
 export const IMPACT_CLASSES = [
@@ -61,9 +52,7 @@ export function leadKind(classes: readonly LeadClass[]): LeadKind {
 
 /** Porteur syntaxique de la racine. */
 export type LeadSlotKind =
-  | "call-argument"
-  | "object-property"
-  | "assignment-expression-right";
+  "call-argument" | "object-property" | "assignment-expression-right";
 
 /** Où se trouve la racine dans son porteur. */
 export interface LeadSlot {

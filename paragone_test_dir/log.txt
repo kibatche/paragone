@@ -1,48 +1,48 @@
 2026-10-01T13:42:28.312Z [scan] /home/kbtch_/Projects/paragone/fake_js_dir …
-2026-10-01T13:42:28.388Z [scan] terminé : 1 fichiers — 1 analysés, 0 inchangés, 0 non-JS, 0 en erreur de parsing ; 1 leads ajoutés (1 en base).
-2026-10-01T13:42:28.389Z [judge:CSPT] 0 leads jugeables — 0 déjà jugés (ignorés), 0 à juger (langue : fr}).
-2026-10-01T13:42:28.389Z [judge:XSS] 1 leads jugeables — 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
+2026-10-01T13:42:28.388Z [scan] terminé : 1 fichiers : 1 analysés, 0 inchangés, 0 non-JS, 0 en erreur de parsing ; 1 leads ajoutés (1 en base).
+2026-10-01T13:42:28.389Z [judge:CSPT] 0 leads jugeables : 0 déjà jugés (ignorés), 0 à juger (langue : fr}).
+2026-10-01T13:42:28.389Z [judge:XSS] 1 leads jugeables : 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
 2026-10-01T13:42:28.390Z [judge:XSS] lot 1/1 (1 leads : 1)
-2026-10-01T13:42:28.713Z [judge:XSS] 1657 tok (frais in=1545 out=112 | cache r=0 w=0) — $0.0001
-2026-10-01T13:42:28.713Z [judge:CODE_EXEC] 0 leads jugeables — 0 déjà jugés (ignorés), 0 à juger (langue : fr}).
-2026-10-01T13:42:28.713Z [judge:OPEN_REDIRECT] 0 leads jugeables — 0 déjà jugés (ignorés), 0 à juger (langue : fr}).
-2026-10-01T13:42:28.713Z [judge:WEB_MESSAGE] 0 leads jugeables — 0 déjà jugés (ignorés), 0 à juger (langue : fr}).
+2026-10-01T13:42:28.713Z [judge:XSS] 1657 tok (frais in=1545 out=112 | cache r=0 w=0) : $0.0001
+2026-10-01T13:42:28.713Z [judge:CODE_EXEC] 0 leads jugeables : 0 déjà jugés (ignorés), 0 à juger (langue : fr}).
+2026-10-01T13:42:28.713Z [judge:OPEN_REDIRECT] 0 leads jugeables : 0 déjà jugés (ignorés), 0 à juger (langue : fr}).
+2026-10-01T13:42:28.713Z [judge:WEB_MESSAGE] 0 leads jugeables : 0 déjà jugés (ignorés), 0 à juger (langue : fr}).
 2026-10-01T13:42:28.713Z 
 === Coût par classe ===
-2026-10-01T13:42:28.713Z   CSPT: judge 0 tok (frais in=0 out=0 | cache r=0 w=0) — $0.0000
-2026-10-01T13:42:28.713Z   XSS: judge 1657 tok (frais in=1545 out=112 | cache r=0 w=0) — $0.0001
-2026-10-01T13:42:28.713Z   CODE_EXEC: judge 0 tok (frais in=0 out=0 | cache r=0 w=0) — $0.0000
-2026-10-01T13:42:28.713Z   OPEN_REDIRECT: judge 0 tok (frais in=0 out=0 | cache r=0 w=0) — $0.0000
-2026-10-01T13:42:28.713Z   WEB_MESSAGE: judge 0 tok (frais in=0 out=0 | cache r=0 w=0) — $0.0000
-2026-10-01T13:42:28.713Z   ── RUN run_mupl31e1ccnh : 1657 tok (frais in=1545 out=112 | cache r=0 w=0) — $0.0001
+2026-10-01T13:42:28.713Z   CSPT: judge 0 tok (frais in=0 out=0 | cache r=0 w=0) : $0.0000
+2026-10-01T13:42:28.713Z   XSS: judge 1657 tok (frais in=1545 out=112 | cache r=0 w=0) : $0.0001
+2026-10-01T13:42:28.713Z   CODE_EXEC: judge 0 tok (frais in=0 out=0 | cache r=0 w=0) : $0.0000
+2026-10-01T13:42:28.713Z   OPEN_REDIRECT: judge 0 tok (frais in=0 out=0 | cache r=0 w=0) : $0.0000
+2026-10-01T13:42:28.713Z   WEB_MESSAGE: judge 0 tok (frais in=0 out=0 | cache r=0 w=0) : $0.0000
+2026-10-01T13:42:28.713Z   ── RUN run_mupl31e1ccnh : 1657 tok (frais in=1545 out=112 | cache r=0 w=0) : $0.0001
 2026-10-01T13:42:28.713Z 
 Finished.
 
 2026-10-01T13:45:09.121Z [scan] /home/kbtch_/Projects/paragone/fake_js_dir …
-2026-10-01T13:45:09.180Z [scan] terminé : 1 fichiers — 1 analysés, 0 inchangés, 0 non-JS, 0 en erreur de parsing ; 7 leads ajoutés (8 en base).
-2026-10-01T13:45:09.182Z [judge:CSPT] 1 leads jugeables — 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
+2026-10-01T13:45:09.180Z [scan] terminé : 1 fichiers : 1 analysés, 0 inchangés, 0 non-JS, 0 en erreur de parsing ; 7 leads ajoutés (8 en base).
+2026-10-01T13:45:09.182Z [judge:CSPT] 1 leads jugeables : 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
 2026-10-01T13:45:09.182Z [judge:CSPT] lot 1/1 (1 leads : 3)
-2026-10-01T13:45:09.760Z [judge:CSPT] 1900 tok (frais in=1786 out=114 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:09.760Z [judge:XSS] 2 leads jugeables — 1 déjà jugés (ignorés), 1 à juger (langue : fr}).
+2026-10-01T13:45:09.760Z [judge:CSPT] 1900 tok (frais in=1786 out=114 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:09.760Z [judge:XSS] 2 leads jugeables : 1 déjà jugés (ignorés), 1 à juger (langue : fr}).
 2026-10-01T13:45:09.760Z [judge:XSS] lot 1/1 (1 leads : 8)
-2026-10-01T13:45:09.976Z [judge:XSS] 1627 tok (frais in=1514 out=113 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:09.976Z [judge:CODE_EXEC] 1 leads jugeables — 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
+2026-10-01T13:45:09.976Z [judge:XSS] 1627 tok (frais in=1514 out=113 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:09.976Z [judge:CODE_EXEC] 1 leads jugeables : 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
 2026-10-01T13:45:09.976Z [judge:CODE_EXEC] lot 1/1 (1 leads : 4)
-2026-10-01T13:45:10.194Z [judge:CODE_EXEC] 1637 tok (frais in=1524 out=113 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:10.194Z [judge:OPEN_REDIRECT] 1 leads jugeables — 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
+2026-10-01T13:45:10.194Z [judge:CODE_EXEC] 1637 tok (frais in=1524 out=113 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:10.194Z [judge:OPEN_REDIRECT] 1 leads jugeables : 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
 2026-10-01T13:45:10.195Z [judge:OPEN_REDIRECT] lot 1/1 (1 leads : 5)
-2026-10-01T13:45:10.460Z [judge:OPEN_REDIRECT] 1771 tok (frais in=1658 out=113 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:10.460Z [judge:WEB_MESSAGE] 1 leads jugeables — 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
+2026-10-01T13:45:10.460Z [judge:OPEN_REDIRECT] 1771 tok (frais in=1658 out=113 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:10.460Z [judge:WEB_MESSAGE] 1 leads jugeables : 0 déjà jugés (ignorés), 1 à juger (langue : fr}).
 2026-10-01T13:45:10.460Z [judge:WEB_MESSAGE] lot 1/1 (1 leads : 7)
-2026-10-01T13:45:10.671Z [judge:WEB_MESSAGE] 1703 tok (frais in=1590 out=113 | cache r=0 w=0) — $0.0001
+2026-10-01T13:45:10.671Z [judge:WEB_MESSAGE] 1703 tok (frais in=1590 out=113 | cache r=0 w=0) : $0.0001
 2026-10-01T13:45:10.671Z 
 === Coût par classe ===
-2026-10-01T13:45:10.672Z   CSPT: judge 1900 tok (frais in=1786 out=114 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:10.672Z   XSS: judge 1627 tok (frais in=1514 out=113 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:10.672Z   CODE_EXEC: judge 1637 tok (frais in=1524 out=113 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:10.672Z   OPEN_REDIRECT: judge 1771 tok (frais in=1658 out=113 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:10.672Z   WEB_MESSAGE: judge 1703 tok (frais in=1590 out=113 | cache r=0 w=0) — $0.0001
-2026-10-01T13:45:10.672Z   ── RUN run_mupl6hgyyww1 : 8638 tok (frais in=8072 out=566 | cache r=0 w=0) — $0.0003
+2026-10-01T13:45:10.672Z   CSPT: judge 1900 tok (frais in=1786 out=114 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:10.672Z   XSS: judge 1627 tok (frais in=1514 out=113 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:10.672Z   CODE_EXEC: judge 1637 tok (frais in=1524 out=113 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:10.672Z   OPEN_REDIRECT: judge 1771 tok (frais in=1658 out=113 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:10.672Z   WEB_MESSAGE: judge 1703 tok (frais in=1590 out=113 | cache r=0 w=0) : $0.0001
+2026-10-01T13:45:10.672Z   ── RUN run_mupl6hgyyww1 : 8638 tok (frais in=8072 out=566 | cache r=0 w=0) : $0.0003
 2026-10-01T13:45:10.672Z 
 Finished.
 

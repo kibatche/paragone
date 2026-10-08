@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "hash": "9c05494c2bf4d60a386db0bc33d78b138406e473b17b63262938b908805e90ab",
         "analyzerName": "document-write",
         "slot": {
           "kind": "call-argument",
@@ -36,6 +36,7 @@
               "kind": "INTERNAL",
               "knownSource": "location Read",
               "sourceString": "document.write(\"<script src='\" + location.search.slice(1) + \"'></script>\");",
+              "sanitizeMethod": "",
               "nodeType": "MemberExpression",
               "text": "location.search",
               "loc": {
@@ -126,7 +127,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "5a5628ffb34cdde060710f98cca45ea51a4a5a7fb58604a6dfa340753570675c",
+        "hash": "b725e92399050da26bc27836871bf4277d382e24440583d74015e1e850c947a6",
         "analyzerName": "document-write",
         "slot": {
           "kind": "call-argument",
@@ -141,6 +142,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "frame.contentDocument.write(e.data);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "e",
               "loc": {
@@ -216,7 +218,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "02ec1a0b366533bb1214a8b54b5100607b9bda6cf4d6a0e4d0d4ee10878e8858",
+        "hash": "5957dd3d92c240dcf15c251b6e9f66f1ae02b535b8b7da081cf7e29a20f80ca2",
         "analyzerName": "document-write",
         "slot": {
           "kind": "call-argument",
@@ -231,6 +233,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "window.document.writeln(a, b);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "a",
               "loc": {
@@ -284,7 +287,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "85d8400fbbc234ea6f1dace2555926c9bac6d2777e98f01561a40114fb998b4c",
+        "hash": "cd69af929c6ad633ad0e610c3658db86d92377acc3028a5d44fcfe292c23203a",
         "analyzerName": "document-write",
         "slot": {
           "kind": "call-argument",
@@ -299,6 +302,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "window.document.writeln(a, b);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "b",
               "loc": {

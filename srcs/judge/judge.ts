@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc judge.ts — Étape juge du pipeline : soumet à Jev les leads jugeables d'une classe, par lots de
+ * @desc judge.ts : Étape juge du pipeline : soumet à Jev les leads jugeables d'une classe, par lots de
  *       requêtes concurrentes, et écrit chaque verdict dans `judgements`. Un lead en erreur transitoire
  *       reste sans jugement pour le tour suivant ; une erreur permanente arrête le run.
  */
@@ -85,7 +85,7 @@ function reportLeadError(
 ): void {
   const message = err instanceof Error ? err.message : String(err);
   log(
-    `[judge:${ctx.cls}] ⚠️  lot ${ctx.batch}/${ctx.of} : lead ${lead.id} sans jugement — ${message}`,
+    `[judge:${ctx.cls}] ⚠️  lot ${ctx.batch}/${ctx.of} : lead ${lead.id} sans jugement : ${message}`,
   );
   logEvent("lead_error", {
     phase: "judge",
@@ -151,7 +151,7 @@ async function judgeBatch(
   });
   if (permanent) {
     throw new Error(
-      `Error [judge:${ctx.cls}]: lead ${permanent.lead.id} — erreur permanente de l'API Jev, run arrêté.`,
+      `Error [judge:${ctx.cls}]: lead ${permanent.lead.id} : erreur permanente de l'API Jev, run arrêté.`,
       { cause: permanent.err },
     );
   }
@@ -202,7 +202,7 @@ export async function runJudge(
   const judgeable = countJudgeableLeads(sinkType);
   const remaining = listLeadsToJudge(sinkType);
   log(
-    `[judge:${sinkType}] ${judgeable} leads jugeables — ${judgeable - remaining.length} déjà jugés (ignorés), ${remaining.length} à juger (langue : fr}).`,
+    `[judge:${sinkType}] ${judgeable} leads jugeables : ${judgeable - remaining.length} déjà jugés (ignorés), ${remaining.length} à juger (langue : fr}).`,
   );
   if (remaining.length === 0) return { ...ZERO_USAGE };
 
@@ -247,7 +247,7 @@ export async function runJudgeUntilDone(
     if (reason) {
       if (turn > 1)
         log(
-          `[judge:${sinkType}] max_turns : arrêt après ${turn} tours — ${reason}.`,
+          `[judge:${sinkType}] max_turns : arrêt après ${turn} tours : ${reason}.`,
         );
       break;
     }

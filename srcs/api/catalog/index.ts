@@ -1,13 +1,13 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc catalog/index.ts — Routes de référence : les valeurs énumérées des données et leurs explications,
+ * @desc catalog/index.ts : Routes de référence : les valeurs énumérées des données et leurs explications,
  *       et les analyzers avec leurs sources et consignes.
  */
 
 import { Elysia } from "elysia";
 import { listAnalyzers } from "../../judge/analyzers";
 import { getVocabulary } from "../../judge/vocabulary";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { CatalogModel } from "./model";
 
 export const catalog = new Elysia({ prefix: API_PREFIX, name: "api.catalog" })

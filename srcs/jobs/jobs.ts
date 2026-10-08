@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jobs.ts — Lance le scan et le juge en arrière-plan, avec la configuration en mémoire au moment du
+ * @desc jobs.ts : Lance le scan et le juge en arrière-plan, avec la configuration en mémoire au moment du
  *       lancement. Un seul travail à la fois ; son état et son avancement se lisent à tout moment.
  */
 

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc en/web_message.ts — Rubric et lignes de dossier de la classe WEB_MESSAGE, en anglais.
+ * @desc en/web_message.ts : Rubric et lignes de dossier de la classe WEB_MESSAGE, en anglais.
  */
 
 import { POSTMESSAGE_ANALYZER_NAME } from "../../../analyze/ast_analyzers/web_message/postmessage";
@@ -13,7 +13,7 @@ export const WEB_MESSAGE: ClassWording<WebMessageLines> = {
   rubric: {
     definition: [
       "You are a triage judge for the WEB_MESSAGE class (cross-window messaging).",
-      "Two situations, told apart by the [Role] line of the case. Sending: postMessage sends data to another window; with the target origin `*` or a variable, any page holding the receiving window (iframe, popup) gets the message — a leak if the data is sensitive (token, credentials, personal data). Receiving: a handler (onmessage, addEventListener('message'), onhashchange) processes data coming from outside; without a strict check of event.origin, any site can send it data, which becomes an attacker source.",
+      "Two situations, told apart by the [Role] line of the case. Sending: postMessage sends data to another window; with the target origin `*` or a variable, any page holding the receiving window (iframe, popup) gets the message : a leak if the data is sensitive (token, credentials, personal data). Receiving: a handler (onmessage, addEventListener('message'), onhashchange) processes data coming from outside; without a strict check of event.origin, any site can send it data, which becomes an attacker source.",
       "What matters: when sending, the sensitivity of the data and the target origin; when receiving, the origin check (strict equality: safe; indexOf, includes, startsWith, endsWith, unanchored regex: bypassable) and what the handler does with the data (HTML sink, navigation, request, eval).",
       "Do not merge three states: unarmed (real exchange, no sensitive data or sink identified), unproven (target origin, origin check or data coming from a variable whose value cannot be shown statically), false positive (fixed origin, strict check, constant data, third-party code). Only the false positive is rejected.",
     ].join("\n\n"),

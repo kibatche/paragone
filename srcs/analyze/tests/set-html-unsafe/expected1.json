@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "18d7ee3fcd984e6f7faeef8578de9820b248c72fc23060c83d2766d0c9dba925",
+        "hash": "52ccbe854ee8cb109797ba43eda2943cb43d1915132569e1410d3b80d2520578",
         "analyzerName": "set-html-unsafe",
         "slot": {
           "kind": "call-argument",
@@ -34,6 +34,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var d = Document.parseHTMLUnsafe(t.body);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "t",
               "loc": {
@@ -109,7 +110,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "de49a51e8ffa3a12b864942e9688975c950c018cdbbb65ecbc7c460497fa4d26",
+        "hash": "9c05494c2bf4d60a386db0bc33d78b138406e473b17b63262938b908805e90ab",
         "analyzerName": "set-html-unsafe",
         "slot": {
           "kind": "call-argument",
@@ -126,6 +127,7 @@
               "kind": "INTERNAL",
               "knownSource": "location Read",
               "sourceString": "host.setHTMLUnsafe(location.hash.slice(1));",
+              "sanitizeMethod": "",
               "nodeType": "MemberExpression",
               "text": "location.hash",
               "loc": {

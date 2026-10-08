@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc analyzers.ts — Catalogue des analyzers dont les leads se jugent : leurs classes d'impact, les
+ * @desc analyzers.ts : Catalogue des analyzers dont les leads se jugent : leurs classes d'impact, les
  *       sources lues pour les juger et la consigne de jugement, dans chaque langue.
  */
 

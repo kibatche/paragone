@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] kbtch_ + Shevek
- * @desc usage.ts — Usage des LLM : cumul lot par lot, lecture humaine, et usage d'un verdict. La base est
+ * @desc usage.ts : Usage des LLM : cumul lot par lot, lecture humaine, et usage d'un verdict. La base est
  *       écrite lot par lot par `saveBatchUsage` de db/usage.ts.
  */
 
@@ -22,7 +22,7 @@ export function addUsage(a: Usage, b: Usage): Usage {
 
 /** @brief Rend l'usage lisible en une ligne (log humain). */
 export function formatUsage(u: Usage): string {
-  return `${u.total} tok (frais in=${u.input} out=${u.output} | cache r=${u.cacheRead} w=${u.cacheWrite}) — $${u.cost.toFixed(4)}`;
+  return `${u.total} tok (frais in=${u.input} out=${u.output} | cache r=${u.cacheRead} w=${u.cacheWrite}) : $${u.cost.toFixed(4)}`;
 }
 
 /** @brief Tokens et coût d'un verdict. Jev n'a pas de cache : ces deux compteurs restent à zéro. */

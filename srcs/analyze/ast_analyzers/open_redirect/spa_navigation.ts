@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc spa_navigation.ts — Navigation d'application monopage : `router.push|replace|navigate|navigateByUrl(x)`
+ * @desc spa_navigation.ts : Navigation d'application monopage : `router.push|replace|navigate|navigateByUrl(x)`
  *       (vue-router, Angular, Next), `navigate(x)` (react-router) et `history.pushState|replaceState(s, t, url)`.
  *       La valeur choisit la route, donc les vues et les appels d'API qui la suivent.
  */

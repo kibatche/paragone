@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc check_sources.test.ts — une écriture ou un sink en position de valeur n'est pas une source :
+ * @desc check_sources.test.ts : une écriture ou un sink en position de valeur n'est pas une source :
  *       `setItem(…)`/`postMessage(…)` valent `undefined`, `window.open(…)` une `Window`. Témoin : une
  *       vraie lecture (`getItem`) reste une source.
  */

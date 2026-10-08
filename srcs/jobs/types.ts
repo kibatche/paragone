@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc types.ts — Les travaux de scan et de juge lancés depuis l'API.
+ * @desc types.ts : Les travaux de scan et de juge lancés depuis l'API.
  */
 
 import type { Usage } from "../cli/usage/types";

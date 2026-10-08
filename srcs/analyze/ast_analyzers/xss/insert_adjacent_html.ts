@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc insert_adjacent_html.ts — Appels `el.insertAdjacentHTML(position, html)` : le second argument est
+ * @desc insert_adjacent_html.ts : Appels `el.insertAdjacentHTML(position, html)` : le second argument est
  *       interprété comme du HTML. Le premier (`beforebegin`…) n'est qu'une position.
  */
 import { type AnalyzerMatch, type AnalyzerParams } from "../../constants/types";

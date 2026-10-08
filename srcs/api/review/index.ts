@@ -1,12 +1,12 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc review/index.ts — Routes de la revue humaine : enregistrer ou effacer le verdict d'un lead.
+ * @desc review/index.ts : Routes de la revue humaine : enregistrer ou effacer le verdict d'un lead.
  */
 
 import { Elysia } from "elysia";
 import { clearHumanReview, setHumanReview } from "../../db/queue";
 import { CommonModel } from "../common/model";
-import { API_PREFIX } from "../constants";
+import { API_PREFIX } from "../../config/constants";
 import { ReviewModel } from "./model";
 
 const notFound = { error: "lead introuvable" };

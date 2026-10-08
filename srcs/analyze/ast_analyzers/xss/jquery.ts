@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jquery.ts — Méthodes jQuery qui interprètent du HTML ou du code, seulement quand la chaîne d'appels
+ * @desc jquery.ts : Méthodes jQuery qui interprètent du HTML ou du code, seulement quand la chaîne d'appels
  *       remonte à `$(…)` / `jQuery(…)` ou à `$.x` / `jQuery.x` : `.append`, `.after`, `.before`,
  *       `.replaceWith` existent aussi sur le DOM natif, où une chaîne est insérée comme texte.
  */
@@ -29,7 +29,7 @@ export const JQUERY_ANALYZER_NAME = "jquery";
 
 const JQUERY_NAMES = ["$", "jQuery"];
 
-// $(…).html(x) — `.html()` sans argument est une lecture.
+// $(…).html(x) : `.html()` sans argument est une lecture.
 const JQUERY_HTML_SETTERS = [
   "html",
   "append",
@@ -49,7 +49,7 @@ const JQUERY_STATIC_SINKS: Record<string, LeadClass> = {
   getScript: "CODE_EXEC",
 };
 
-// $(…).attr("href", x) — un `javascript:` s'exécute au clic ou au chargement.
+// $(…).attr("href", x) : un `javascript:` s'exécute au clic ou au chargement.
 const JQUERY_URL_ATTRIBUTES = ["href", "src"];
 
 /** Ce que l'appel jQuery fait de ses arguments. */

@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc jobs.test.ts — Les travaux de scan et de juge : lancés avec `config`, un seul à la fois, avancement
+ * @desc jobs.test.ts : Les travaux de scan et de juge : lancés avec `config`, un seul à la fois, avancement
  *       lisible, échec rendu sans bloquer le suivant.
  */
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
@@ -13,7 +13,7 @@ import {
   permanentFailureClient,
 } from "../../judge/tests/stub_client";
 
-const root = enterTempProject();
+const root = await enterTempProject();
 const corpus = join(root, "corpus");
 mkdirSync(corpus);
 writeFileSync(
@@ -107,10 +107,9 @@ describe("juge", () => {
 
   it("range l'usage sous l'identifiant du lancement du processus", () => {
     const rows = getDatabase()
-      .query<
-        { run_id: string; n: number },
-        []
-      >("SELECT run_id, count(*) n FROM usage GROUP BY run_id")
+      .query<{ run_id: string; n: number }, []>(
+        "SELECT run_id, count(*) n FROM usage GROUP BY run_id",
+      )
       .all();
     expect(rows).toEqual([{ run_id: RUN_ID, n: 2 }]);
   });

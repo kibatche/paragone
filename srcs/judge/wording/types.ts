@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc types.ts — Forme de tout texte envoyé au modèle : le dossier commun, le rubric et les lignes
+ * @desc types.ts : Forme de tout texte envoyé au modèle : le dossier commun, le rubric et les lignes
  *       propres à chaque classe. Chaque langue fournit un `Wording` complet ; le compilateur refuse
  *       une traduction à laquelle il manque une phrase.
  */

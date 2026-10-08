@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc en/index.ts — Assemble les textes anglais du juge.
+ * @desc en/index.ts : Assemble les textes anglais du juge.
  */
 
 import type { Wording } from "../types";

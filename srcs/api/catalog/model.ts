@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc catalog/model.ts — Schémas du vocabulaire des données et du catalogue des analyzers.
+ * @desc catalog/model.ts : Schémas du vocabulaire des données et du catalogue des analyzers.
  */
 
 import { t } from "elysia";

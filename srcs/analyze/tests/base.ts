@@ -1,6 +1,6 @@
 /**
  * @author [A likely boring stuff made by] Shevek
- * @desc base.ts — Harnais commun des tests d'analyzer : lance un analyzer sur une fixture et
+ * @desc base.ts : Harnais commun des tests d'analyzer : lance un analyzer sur une fixture et
  * compare la sortie à une baseline `expectedN.json`.
  *
  * La baseline est une référence de NON-RÉGRESSION, pas une preuve de justesse : elle grave le

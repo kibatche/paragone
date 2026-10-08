@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "d876497f58eb41a9eb6ac9bf35f092a701f5d6727fe3e5276cf52db883e93d64",
+        "hash": "2ea0cea0d706f6a2bdaeb6b2197ec9fb715626297e520cb52f3f1ef31379c5fb",
         "analyzerName": "angular-bypass",
         "slot": {
           "kind": "call-argument",
@@ -34,6 +34,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "$sce.trustAs($sce.HTML, value);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "value",
               "loc": {
@@ -104,7 +105,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "da749436e486eb36094c481ceb3552782c1c8eb24ba41efcef4dc5da031d2019",
+        "hash": "108205cd79921e31be3c84e09b529d6080caba47187798298a2953a363ad7545",
         "analyzerName": "angular-bypass",
         "slot": {
           "kind": "call-argument",
@@ -119,6 +120,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "$sce.trustAsHtml($location.search().msg);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "$location",
               "loc": {
@@ -202,7 +204,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "d0ba3b1dbae99ab692d0bf08260af0738bbeef584e343fe31fdaef5d11fc4cec",
+        "hash": "2df6cb0ab5c041087b25d3dc1d4e01d744c3b3cc3cbf80839f9a363d828604d1",
         "analyzerName": "angular-bypass",
         "slot": {
           "kind": "call-argument",
@@ -217,6 +219,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "$sce.trustAsMediaUrl(src);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "src",
               "loc": {
@@ -287,7 +290,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "11a175d6f4e61bbfb4309a5658a4ae2b14aa72e9a1371b09f109281fc2b69192",
+        "hash": "aa1bd438391de513b61ded735008415b0e92af3fe33e2d95e0c3105be5790c6b",
         "analyzerName": "angular-bypass",
         "slot": {
           "kind": "call-argument",
@@ -302,6 +305,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "this.sanitizer.bypassSecurityTrustHtml(route.snapshot.queryParams.html);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "route",
               "loc": {
@@ -385,7 +389,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "adfae48d79c9fb3ede9bb086d79908222e81643ec1a02653a98e62d7de5ff952",
+        "hash": "3b317f732def67c2b7ea9398f84103cbd338458b2d1d2e8e67532e513499176e",
         "analyzerName": "angular-bypass",
         "slot": {
           "kind": "call-argument",
@@ -400,6 +404,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "this.sanitizer.bypassSecurityTrustResourceUrl(url);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "url",
               "loc": {
