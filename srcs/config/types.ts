@@ -18,7 +18,7 @@ import { isClassesCorrect } from "./check_arguments";
 export interface CliOptions {
   projectPath?: string;
   projectName?: string;
-  analyze: string;
+  analyze?: string;
   classes?: string[];
   scan: boolean;
   judge?: boolean;
@@ -72,11 +72,22 @@ function customErrors(iss: z.core.$ZodRawIssue): string | undefined {
 
 z.config({ customError: customErrors });
 
+/** Origine telle que l'envoie un navigateur : schéma://hôte[:port], sans chemin. */
+const OriginSchema = z
+  .string()
+  .refine(
+    (o) => /^https?:\/\//.test(o) && URL.canParse(o) && new URL(o).origin === o,
+    {
+      error: (iss) =>
+        `<cors> : '${iss.input}' n'est pas une origine (schéma://hôte[:port], sans chemin).`,
+    },
+  );
+
 export const PersistentConfigSchema = z.object({
-  batch: z.coerce.number().gt(0).lt(10).default(1),
+  batch: z.coerce.number().int().gt(0).lt(10).default(1),
   port: z.coerce.number().gt(1000).lt(65535).default(7331),
   host: z.ipv4().or(z.ipv6()).default("127.0.0.1"),
-  cors: z.array(z.ipv4().or(z.ipv6())).default([]),
+  cors: z.array(OriginSchema).default([]),
   public: z
     .string()
     .default(DEFAULT_PUBLIC_DIR)
@@ -99,10 +110,13 @@ const ProjectInputSchema = z.object({
       error: (iss) =>
         `<classes> : [${(iss.input as string[]).join(" ")}] contient une ou plusieurs valeurs incorrectes.`,
     }),
-  analyze: z.string().refine((p) => isDirectory(p) || isFile(p), {
-    error: (iss) =>
-      `<analyze> : '${iss.input}' n'est ni un fichier, ni un dossier`,
-  }),
+  analyze: z
+    .string()
+    .refine((p) => isDirectory(p) || isFile(p), {
+      error: (iss) =>
+        `<analyze> : '${iss.input}' n'est ni un fichier, ni un dossier`,
+    })
+    .optional(),
   scan: z.boolean().default(true),
   judge: z.boolean().default(false),
   serve: z.boolean().default(false),
@@ -116,7 +130,7 @@ export const PartialProjectSchema = PersistentConfigSchema.extend(
 
 export type PersistentConfig = z.infer<typeof PersistentConfigSchema>;
 
-/** Ce que le fichier de configuration conserve d'un run à l'autre : la config, jamais les args. */
+/** Ce que le fichier de configuration conserve d'un run à l'autre */
 export const DiskConfigSchema = PersistentConfigSchema.extend({
   paragone_project_name: z.string().optional(),
 });

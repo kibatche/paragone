@@ -67,8 +67,8 @@ Projet :
 
 Analyse :
   -a, --analyze <path>        Dossier ou fichier à scanner
-  -c, --classes <classes...>  Classes de vulnérabilité à analyser, parmi : CSPT, XSS, CODE_EXEC, OPEN_REDIRECT, WEB_MESSAGE, ALL. Insensible à la casse, répétable ou séparée par des virgules (défaut : toutes)
-  --no-scan                   Saute le scan du dossier
+  -c, --classes <classes...>  Classes de vulnérabilité à envoyer au juge, parmi : CSPT, XSS, CODE_EXEC, OPEN_REDIRECT, WEB_MESSAGE, ALL. Insensible à la casse, répétable ou séparée par des virgules (défaut : toutes)
+  --no-scan                   Saute le scan automatique du dossier
 
 Jugement :
   -j, --judge                 Lance le juge pour ce run. Ne supprime aucune donnée pré-existante
@@ -111,22 +111,26 @@ Cela vous permettra d'avoir un front qui n'existe pas dans ce projet de base.
 4. Lancez `paragone` sur votre dossier :
 
 ```bash
-paragone --analyze ~/jxscout/megacorp/original/auth.megacorp.com/ --scan --judge --serve --classes all --project megacorpAnalysis
+paragone --analyze ~/jxscout/megacorp/original/auth.megacorp.com/ --judge --serve --classes all --project megacorpAnalysis --public ~/monfront/public
 ```
 
-Cela lancera une analyse sur tous les fichiers JavaScript du dossier. En ressortiront des leads, sous forme de dossiers, qui seront envoyés à `jev`.
+Cela lancera une analyse automatique sur tous les fichiers JavaScript du dossier. En ressortiront des leads, sous forme de dossiers, qui seront envoyés à `jev`.
 
 Vous pouvez maintenant accéder aux données soit via la base de données directement, soit via l'API (méthode conseillée pour les yeux).
 
+Si vous ne souhaitez pas lancer de scan automatisé, indiquez l'option `--no-scan`.
+
+Un premier lancement configure le fichier `.paragone/paragone_config.json`, avec les valeurs spécifiées dans les options, ou celles par défaut si certaines ne sont pas spécifiées.
+
+La configuration prend en compte les données dans cet ordre :
+
+Configuration par défaut < Configuration `.paragone/paragone_config.json` < Options de la cli.
+
 ### Vous n'avez pas de clé `jev` mais vous souhaitez voir à quoi ça ressemble
 
-1. A partir de la racine de ce repo :
+Vous pouvez lancer une analyse sans juge.
 
-```bash
-cp ./paragone_test_dir ./.paragone
-```
-
-2. (Optionnel mais conseillé) Clonez le repo [`paragone-front`](https://github.com/kibatche/paragone-front)
+Vous pouvez aussi voir des images du rendu dans ce repo : [`paragone-front`](https://github.com/kibatche/paragone-front)
 
 ```bash
 git clone git@github.com:kibatche/paragone-front.git
@@ -146,11 +150,11 @@ Au contraire d'une vraie BDD, cette dernière contient un chemin **factice**. L'
 
 `paragone` est un programme qui s'insère dans la phase de recon : il repère des formes syntaxiques dangereuses, l'utilisation de fonctions qu'on sait conduire à des vulnérabilités, inventorie les utilisations de fonctions tel que le localStorage, les cookies etc. Il permet de faire de nombreuses choses, que vous pouvez retrouver dans le code dans le dossier `srcs/analyze/ast_analyzers`.
 
-### Remplacer les expressions régulières dans la recherche dans le code par l'analyse de l'AST
+### Remplacer les expressions régulières de la recon par l'analyse de l'AST
 
-On peut voir `paragone` comme une tentative de remplacement à l'analyse par expression régulière : en seulement quelques secondes, les fichiers sont parsés et analysés, envoyés à `jev` et jugés. Le tout passe par l'AST des fichiers, un moyen puissant d'explorer le code de façon programmatique.
+On peut voir `paragone` comme une tentative de remplacement à l'analyse par expression régulière lors des phases de recon sur une cible : en seulement quelques secondes, les fichiers sont parsés et analysés, envoyés à `jev` et jugés. Le tout passe par l'AST des fichiers, un moyen puissant d'explorer le code de façon programmatique. Même sur plusieurs dizaines de fichiers et plusieurs centaines voir millions de lignes de code, le programme reste très rapide : moins d'une minute sur ma machine.
 
-À mon sens, ce sont des familles de programmes similaires, car ils travaillent sur la syntaxe. La seule différence est que les expressions régulières permettent plus de liberté au détriment du niveau d'information - aucun arbre, rien à remonter - tandis que le parsing d'AST propose plus de détails - arbre, noms des identifiants, etc. - dans un environnement plus contraint (n'existe que ce qui est explicitement cherché et écrit dans le programme).
+Autre intérêt : parser l'AST permet de récupérer les identifiants, et les teinter, c'est à dire remonter l'arbre qui conduit à son placement dans un sink, trouver sa source si possible, et jauger sa contrôlabilité et donc sa dangerosité.
 
 ### Un centre de triage des données
 

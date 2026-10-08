@@ -8,7 +8,7 @@ import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { assertIsolated, enterTempProject, seedCorpus } from "./seed";
 
-const root = enterTempProject();
+const root = await enterTempProject();
 const corpus = join(root, "corpus");
 
 const APP = [

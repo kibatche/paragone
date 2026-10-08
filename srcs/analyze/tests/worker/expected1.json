@@ -19,7 +19,7 @@
         "class": [
           "CODE_EXEC"
         ],
-        "hash": "adfae48d79c9fb3ede9bb086d79908222e81643ec1a02653a98e62d7de5ff952",
+        "hash": "3b317f732def67c2b7ea9398f84103cbd338458b2d1d2e8e67532e513499176e",
         "analyzerName": "worker",
         "slot": {
           "kind": "call-argument",
@@ -34,6 +34,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var sw = new window.SharedWorker(url);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "url",
               "loc": {
@@ -104,7 +105,7 @@
         "class": [
           "CODE_EXEC"
         ],
-        "hash": "8fbc83e960a965de5b5b82a3bcefaea02c28d835e168965f2c7fd48ea6542811",
+        "hash": "345e76ff810ccdebdaf71a8de418736216be1f3df6be4ed0088b50cb9e01ed54",
         "analyzerName": "worker",
         "slot": {
           "kind": "call-argument",
@@ -114,13 +115,14 @@
         "taint": {
           "verdict": "SOURCE_REACHED",
           "sources": [
-            "X.get|post|patch|delete() Call"
+            "x.get|post|patch|delete() Call"
           ],
           "findings": [
             {
               "kind": "INTERNAL",
-              "knownSource": "X.get|post|patch|delete() Call",
+              "knownSource": "x.get|post|patch|delete() Call",
               "sourceString": "var w = new Worker(params.get(\"worker\"));",
+              "sanitizeMethod": "",
               "nodeType": "CallExpression",
               "text": "params.get(\"worker\")",
               "loc": {

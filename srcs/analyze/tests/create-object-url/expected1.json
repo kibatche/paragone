@@ -19,7 +19,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "ed02ace0cd8001a3808cbce02e1fa568140b56181d54f31cafda7b7e0714f76c",
+        "hash": "5b5634301182c33a87ee09a5121264a65318c92c060cfca050d12b5824d65259",
         "analyzerName": "create-object-url",
         "slot": {
           "kind": "call-argument",
@@ -34,6 +34,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var u = URL.createObjectURL(new Blob([e.data], { type: \"text/html\" }));",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "Blob",
               "loc": {
@@ -61,6 +62,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "var u = URL.createObjectURL(new Blob([e.data], { type: \"text/html\" }));",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "e",
               "loc": {
@@ -146,7 +148,7 @@
         "class": [
           "XSS"
         ],
-        "hash": "a5ab61eb9a450f181dd28d4a8ef3518fb0bb1431e0ca44ccab5fe82903bedbcd",
+        "hash": "830e41e2c4ac0b405caccf01eedaca0ad74889025288d4cce5403a3567ada502",
         "analyzerName": "create-object-url",
         "slot": {
           "kind": "call-argument",
@@ -161,6 +163,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "window.webkitURL.createObjectURL(file);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "file",
               "loc": {

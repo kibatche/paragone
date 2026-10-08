@@ -13,7 +13,7 @@ import {
   permanentFailureClient,
 } from "../../judge/tests/stub_client";
 
-const root = enterTempProject();
+const root = await enterTempProject();
 const corpus = join(root, "corpus");
 mkdirSync(corpus);
 writeFileSync(

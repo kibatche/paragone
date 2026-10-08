@@ -95,10 +95,14 @@ export async function loadConfig(args: Record<string, unknown>): Promise<void> {
 
   config = {
     ...parsed.data,
-    analyze: resolve(parsed.data.analyze),
+    analyze:
+      parsed.data.analyze === undefined
+        ? undefined
+        : resolve(parsed.data.analyze),
     classes: normalizeClasses(parsed.data.classes),
     public: resolve(parsed.data.public),
   };
+  if (disk === undefined) await writeConfigFileOnDisk();
 }
 
 export async function writeConfigFileOnDisk(): Promise<void> {
@@ -110,7 +114,8 @@ export async function writeConfigFileOnDisk(): Promise<void> {
 }
 
 /** @throws si `analyze` n'est ni un fichier, ni un dossier. */
-export function checkAnalyze(analyze: string): void {
+export function checkAnalyze(analyze: string | undefined): void {
+  if (analyze === undefined) throw new Error("<analyze> : non renseigné.");
   const result = PartialProjectSchema.shape.analyze.safeParse(analyze);
   if (!result.success) throw new Error(describeIssues(result.error));
 }
@@ -132,7 +137,7 @@ export function setConfig(values: {
   if (!result.success) throw new Error(describeIssues(result.error));
 
   Object.assign(config, {
-    analyze: resolve(result.data.analyze),
+    analyze: resolve(values.analyze),
     classes: normalizeClasses(result.data.classes),
     batch: result.data.batch,
   });

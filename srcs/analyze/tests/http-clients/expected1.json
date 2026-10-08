@@ -83,7 +83,7 @@
         "class": [
           "CSPT"
         ],
-        "hash": "e7a729f13c1fc6a3ab03e7af19571ad9adab2628207566e3055d789a79563908",
+        "hash": "0f1de984a891dd6af7013fbbd9ae9a3c0cef96a6716d6f60fdc16bcd6d930713",
         "analyzerName": "http-clients",
         "slot": {
           "kind": "call-argument",
@@ -98,6 +98,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "api.delete(\"/api/users/\" + userId);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "userId",
               "loc": {
@@ -2117,7 +2118,7 @@
         "class": [
           "CSPT"
         ],
-        "hash": "d18a39ad08e69e41d7b9de1adba81760bb0fe23a8896b9f6d1a3f1cda35d0a64",
+        "hash": "3276af9b962adc073d9041c69ff614f18bfbfc7bb8c10bc5b2bce0e1dca2a839",
         "analyzerName": "axios",
         "slot": {
           "kind": "call-argument",
@@ -2132,6 +2133,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "axios.get(`/api/users/${userId}`);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "userId",
               "loc": {
@@ -3946,7 +3948,7 @@
         "class": [
           "CSPT"
         ],
-        "hash": "d18a39ad08e69e41d7b9de1adba81760bb0fe23a8896b9f6d1a3f1cda35d0a64",
+        "hash": "3276af9b962adc073d9041c69ff614f18bfbfc7bb8c10bc5b2bce0e1dca2a839",
         "analyzerName": "http-clients",
         "slot": {
           "kind": "call-argument",
@@ -3961,6 +3963,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "fetch.post(`/api/users/${userId}/posts`, postData);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "userId",
               "loc": {
@@ -4368,7 +4371,7 @@
         "class": [
           "CSPT"
         ],
-        "hash": "e7a729f13c1fc6a3ab03e7af19571ad9adab2628207566e3055d789a79563908",
+        "hash": "0f1de984a891dd6af7013fbbd9ae9a3c0cef96a6716d6f60fdc16bcd6d930713",
         "analyzerName": "request",
         "slot": {
           "kind": "call-argument",
@@ -4383,6 +4386,7 @@
               "kind": "UNBOUND",
               "knownSource": "",
               "sourceString": "request.put(\"/api/users/\" + userId + \"/profile\", profileData);",
+              "sanitizeMethod": "",
               "nodeType": "Identifier",
               "text": "userId",
               "loc": {
