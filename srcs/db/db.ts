@@ -68,7 +68,10 @@ export function getDatabase(): Database {
 }
 
 export function getProjectInfo(): ProjectInfo {
-  return { root: config.paragone_project_path, dbPath: config.paragone_db_file };
+  return {
+    root: config.paragone_project_path,
+    dbPath: config.paragone_db_file,
+  };
 }
 
 /** @brief Ouvre la base maintenant, pour la créer et la mettre au schéma avant le premier appel utile. */

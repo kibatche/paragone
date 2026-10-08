@@ -15,7 +15,11 @@ import { join, resolve } from "node:path";
 import { createJevClient } from "../judge/jev/client";
 import { catalog } from "./catalog";
 import { configuration } from "./config";
-import { API_PREFIX, API_VERSION, DEFAULT_PUBLIC_DIR } from "../config/constants";
+import {
+  API_PREFIX,
+  API_VERSION,
+  DEFAULT_PUBLIC_DIR,
+} from "../config/constants";
 import { corpus } from "./corpus";
 import { jobs } from "./jobs";
 import { leads } from "./leads";

@@ -5,7 +5,7 @@ import { PartialProjectSchema } from "./types";
 import { SERVER_OPTIONS } from "./constants";
 
 export function isClassesCorrect(classes: string[]): boolean {
-  let correctClasses = false
+  let correctClasses = false;
   if (classes) {
     (classes as string[]).forEach((cls) => {
       if (
@@ -13,13 +13,13 @@ export function isClassesCorrect(classes: string[]): boolean {
           true ||
         cls.toUpperCase() === "ALL"
       ) {
-        return correctClasses = true
+        return (correctClasses = true);
       } else {
-        correctClasses = false
+        correctClasses = false;
       }
     });
   }
-  return correctClasses
+  return correctClasses;
 }
 
 /** @description Valeur par défaut d'un membre d'un schéma */

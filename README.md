@@ -36,13 +36,17 @@ bun link
 
 ## Environnement
 
-Ce projet utilise une IA de type `System One`, un paradigme décisionnel basé sur les probabilités.
+Ce projet utilise une IA de type `System One`.
 
-En l'occurrence, il s'agit de `jev`, développé par TypeSafe.
+Pour ce projet précis, commencé bien avant l'arrivée de telles IA, ce paradigme est parfait.
+
+Plutôt que de générer du texte, ce type d'IA donne une probabilité, avec un score de confiance, qu'une assertion soit plus probable qu'une autre, selon trois modalités différentes (`noul`, `choice`, `score`).
+
+En l'occurrence, ce projet a été testé avec `jev`, développé par TypeSafe.
 
 Plus d'infos [ici](https://docs.typesafe.ai/introduction).
 
-Une clé est donc nécessaire, si vous souhaitez juger les leads automatiquement. Cependant, cela n'est pas obligatoire.
+Une clé est donc nécessaire, si vous souhaitez juger les leads automatiquement. Cependant, cela n'est pas obligatoire, même si le principe reste tout de même d'avoir des leads.
 
 Dans un fichier `.env`, à la racine du projet :
 
@@ -94,7 +98,7 @@ bun install && bun link
 
 2. Allez dans un dossier de travail, par exemple `BugBounty/MegaCorp`.
 
-`paragone` fonctionne avec du JavaScript beautifié, pas un oneliner de plusieurs milliers d'octets qui lévera une erreur. Prenez `jxscout` pour fetch vos données.
+`paragone` fonctionne avec du JavaScript beautifié, pas un oneliner de plusieurs milliers d'octets qui lévera une erreur. Prenez `jxscout` pour récupérer vos données.
 
 3. Optionnel - Clonez le repo `paragone-front`
 
@@ -140,31 +144,13 @@ Au contraire d'une vraie BDD, cette dernière contient un chemin **factice**. L'
 
 ## Qu'est-ce que c'est ?
 
-L'idée de ce programme est partie d'un constat simple : je trouvais des CSPT à la main, et je me suis demandé si, après coup, on avait un moyen de le voir dans le code récupéré par  `jxscout`.
-
-Je voulais aussi détecter automatiquement ce qui se révèle souvent facile à voir, dès lors qu'on l'a sous les yeux.
-
-### A l'origine, une fusion d'un travail antérieur avec la partie analyse de `jxscout`
-
-Une première version rudimentaire a été écrite en juillet de cette année, et consistait basiquement en un tas d'expressions régulières auxquelles étaients adjointes une teinte des indentifiants relevés.
-
-C'est devenu ensuite un ajout à [`jxscout`](https://github.com/francisconeves97/jxscout) de Francisco Neves qui, comme je l'ai découvert, proposait déjà une analyse des fichiers JavaScript, mais sans teinte des identifiants et avec le programme `oxc`.
-
-Je trouvais judicieux de fusionner les deux, en migrant la partie de `jxscout` dédiée à l'analyse de `oxc` vers Babel, que je trouve bien mieux.
-
-Mais au final l'idée de fusion s'est révélée mauvaise.
-
-Gloire lui soit rendue malgré tout, c'est grâce à son programme que j'ai mis le pied à l'étriller *pour de bon*. Et on peut retrouver encore des traces de son programme et de sa structure dans `paragone` (`analyzer.ts` par exemple, le nom des analyseurs etc.).
-
-`paragone` est de nouveau devenu un standalone. Le travail dans `jxscout` à entièrement réécrit : analyseurs, ajouts de formes syntaxiques et rework complet de la teinte de variable.
+`paragone` est un programme qui s'insère dans la phase de recon : il repère des formes syntaxiques dangereuses, l'utilisation de fonctions qu'on sait conduire à des vulnérabilités, inventorie les utilisations de fonctions tel que le localStorage, les cookies etc. Il permet de faire de nombreuses choses, que vous pouvez retrouver dans le code dans le dossier `srcs/analyze/ast_analyzers`.
 
 ### Remplacer les expressions régulières dans la recherche dans le code par l'analyse de l'AST
 
-On peut voir `paragone` comme une tentative de remplacement à l'analyse par expression régulière : en seulement quelques secondes, on peut découvrir de très nombreuses formes de vulnérabilité selon une classe donnée et avoir un indice de la dangerosité d'un identifiant présent au sein de cette forme grâce à `jev`. Le tout passe par l'AST d'un fichier JavaScript, ce qui rend le travail avec les données bien meilleur qu'avec les expressions régulières.
+On peut voir `paragone` comme une tentative de remplacement à l'analyse par expression régulière : en seulement quelques secondes, les fichiers sont parsés et analysés, envoyés à `jev` et jugés. Le tout passe par l'AST des fichiers, un moyen puissant d'explorer le code de façon programmatique.
 
-À mon sens, ce sont des familles de programmes similaires, car ils travaillent sur la syntaxe. La seule différence est que les expressions régulières permettent plus de liberté au détriment du niveau d'information - aucun arbre, rien à remonter - tandis que le parsing d'AST propose plus de détails - arbre, noms des identiiants, etc. - dans un environnement plus contraint (n'existe que ce qui est explicitement cherché et écrit dans le programme).
-
-La philosophie est celle du *code first*, et les LLM, quoique au départ assez présents, ont été virés au profit de `jev` qui correspond parfaitement au "rouage" qu'était alors les LLM dans ce programme : il s'agissait de tâcherons qui ne faisaient qu'appeler des outils, le tout écrit avec le SDK de `opencode`.
+À mon sens, ce sont des familles de programmes similaires, car ils travaillent sur la syntaxe. La seule différence est que les expressions régulières permettent plus de liberté au détriment du niveau d'information - aucun arbre, rien à remonter - tandis que le parsing d'AST propose plus de détails - arbre, noms des identifiants, etc. - dans un environnement plus contraint (n'existe que ce qui est explicitement cherché et écrit dans le programme).
 
 ### Un centre de triage des données
 
@@ -196,79 +182,13 @@ Ce programme ne permet pas non plus de "hacker". C'est une aide à la récupéra
 
 En bref, comme on dit : il ne fait pas le café !
 
-## Les analyseurs
-
-## Liste
+## Les analyseurs : impacts, inventaires, et détecteur.
 
 Ils sont de plusieurs sortes : les analyseurs avec impact (CSPT, XSS etc.), les analyseurs d'inventaire (`localStorage`, `secrets` etc) et les sources. Un dernier est un détecteur de désinfection simple (DOMPurify...).
 
 Les sources n'offrent pas d'analyse en tant que telle, elles permettent juste de signifier lors d'une teinte que l'identifiant a une source nommée et connue. Idem pour la détection de la désinfection. Cela aide votre jugement, et le scoring de `jev`.
 
 Une bonne partie des analyseurs vient de `jxscout`, même s'ils ont été réécrits entièrement pour la majeure partie. L'honnêteté oblige à le dire, il a vraiment fait un taff de fou pour lequel je dois beaucoup.
-
-```
-srcs/analyze/ast_analyzers/
-├── code_exec
-│   ├── dynamic_import.ts
-│   ├── eval.ts
-│   ├── function_constructor.ts
-│   ├── lodash_template.ts
-│   ├── script_element.ts
-│   ├── string_timer.ts
-│   └── worker.ts
-├── cspt
-│   ├── cspt_utils.ts
-│   ├── http_clients.ts
-│   ├── path_attribute_assignment.ts
-│   └── url_object_expression.ts
-├── inventory
-│   ├── cookie.ts
-│   ├── document_domain.ts
-│   ├── graphql.ts
-│   ├── hostname.ts
-│   ├── local_storage.ts
-│   ├── secrets
-│   │   ├── regex_match.ts
-│   │   ├── regex_pattern.ts
-│   │   └── secrets.ts
-│   ├── session_storage.ts
-│   └── window_name.ts
-├── open_redirect
-│   ├── location.ts
-│   ├── spa_navigation.ts
-│   └── window_open.ts
-├── sources
-│   ├── check_sources.ts
-│   ├── cookie.ts
-│   ├── document_domain.ts
-│   ├── local_storage.ts
-│   ├── location.ts
-│   ├── referrer.ts
-│   ├── session_storage.ts
-│   ├── url_search_params.ts
-│   └── window_name.ts
-├── web_message
-│   ├── add_event_listener.ts
-│   ├── onhashchange.ts
-│   ├── onmessage.ts
-│   └── postmessage.ts
-└── xss
-    ├── angular_bypass.ts
-    ├── create_contextual_fragment.ts
-    ├── create_object_url.ts
-    ├── document_write.ts
-    ├── html_property_call.ts
-    ├── innerhtml_property.ts
-    ├── inner_html.ts
-    ├── insert_adjacent_html.ts
-    ├── jquery.ts
-    ├── outer_html.ts
-    ├── parse_from_string.ts
-    ├── react_dangerously_set_inner_html.ts
-    ├── set_html_unsafe.ts
-    ├── srcdoc.ts
-    └── unsafe_html_wrapper.ts
-```
 
 ## API avec [Elysia](https://elysiajs.com/patterns/openapi)
 
@@ -282,17 +202,13 @@ Depuis le dossier qui contient `.paragone/` :
 
 ```bash
 paragone --serve
-paragone -a ./example.com -s --serve --port 8000
+paragone -a ./example.com --serve --port 8000
 paragone --serve --public /votre/vue/public --cors http://localhost:5173
 ```
 
 Le troisième exemple sert la page factice du dépôt ; remplacer `votre/vue/public` par le dossier du front.
 
 Aucun front n'est fourni dans ce repo. Vous pouvez trouver un front d'exemple là : https://github.com/kibatche/paragone-front
-
-- `paragone --serve` écoute sur `http://127.0.0.1:7331` et sert la base existante.
-- Avec `--scan` ou `--judge`, ces deux actions se terminent avant que l'API écoute : elle sert des données à jour.
-- `--host` change l'adresse. Une adresse non locale expose au réseau `POST /api/lead/:id/open` (lance l'éditeur), `/api/lead/:id/human` (écrit en base), `PUT /api/config` (change le dossier, les classes et le lot), `POST /api/scan` et `POST /api/judge` (lancent un travail) ; un avertissement s'affiche.
 
 ### Définitions OpenApi
 
@@ -336,10 +252,11 @@ J'aimerais mettre en place plusieurs choses :
 - Faire en sorte de systématiser l'ajout d'une analyse : au lieu de programmer un analyseur, juste définir ce qu'on souhaite analyser. Je ne sais pas si c'est possible, c'est juste une idée.
 - Avoir une configuration stable : pour l'instant c'est une configuration au sein de la mémoire. Je crois que cela est un peu bancal, même si ça fonctionne.
 - Une teinte inter-module ? Très difficile.
+- Tester et mettre en place la possibilité d'avoir n'importe quel provider d'une IA `System One`.
 
 ## LLM & cie
 
-On est obligé de parler de cela. `paragone` est un projet personnel. Si une partie non négligeable a été faite avec un LLM (l'api par exemple), l'ensemble de ce travail est le mien. J'oblige mon assistant digital à notifier grâce à `@author (...) Shevek` ce qu'il a écrit.
+On est obligé de parler de cela. `paragone` est un projet personnel. Si une partie non négligeable a été faite avec un LLM (l'api par exemple), l'ensemble de ce travail reste celui d'un humain. Mon assistant digital à notifier grâce à `@author (...) Shevek` ce qu'il a écrit.
 
 Cela améliore la traçabilité, même si le système n'est pas parfait. En effet, vu les nombreuses réécritures et une tendance mal assumée du "fais ce que je dis, pas ce que je fais", cette traçabilité n'est pas parfaite et tenue à jour.
 
@@ -359,12 +276,9 @@ Gloire à Francisco Neves pour son énorme travail sur `jxscout`, que j'utilise 
 
 Et un grand merci à ma chatte Ursula !
 
-<img width="1200" height="1600" alt="WhatsApp Image 2025-08-21 à 20 57 33_2abb1c35" src="https://github.com/user-attachments/assets/7ebe30fb-db2a-402d-81f7-d6c9d2852614" />
-
-
 ## Licence
 
-Pas de licence.
+[`MIT`](https://choosealicense.com/licenses/mit/).
 
 Faite ce que vous voulez de cela, mais n'hésitez pas à créditer si, par le plus grand des hasards, vous utilisez ce travail. C'est toujours sympa !
 

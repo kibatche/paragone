@@ -66,7 +66,7 @@ export interface LeadSlot {
 /** Ce qui décrit la requête, quand le porteur est un appel de client HTTP. */
 export interface LeadRequest {
   /** Toujours en majuscules. Le tag `method-…` du match reste en minuscules. */
-  method: any;
+  method: string;
   options: Record<string, string>;
 }
 
