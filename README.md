@@ -132,20 +132,6 @@ Vous pouvez lancer une analyse sans juge.
 
 Vous pouvez aussi voir des images du rendu dans ce repo : [`paragone-front`](https://github.com/kibatche/paragone-front)
 
-```bash
-git clone git@github.com:kibatche/paragone-front.git
-```
-
-3. Lancez `paragone` dans le même dossier que là où se trouve la base de donnée factice
-
-```bash
-paragone --serve --public chemin/vers/paragone-front/public
-```
-
-Cela servira les données factices enregistrées dans cette base de données de test.
-
-Au contraire d'une vraie BDD, cette dernière contient un chemin **factice**. L'affichage du fichier de code n'est donc pas possible.
-
 ## Qu'est-ce que c'est ?
 
 `paragone` est un programme qui s'insère dans la phase de recon : il repère des formes syntaxiques dangereuses, l'utilisation de fonctions qu'on sait conduire à des vulnérabilités, inventorie les utilisations de fonctions tel que le localStorage, les cookies etc. Il permet de faire de nombreuses choses, que vous pouvez retrouver dans le code dans le dossier `srcs/analyze/ast_analyzers`.
@@ -210,7 +196,7 @@ paragone -a ./example.com --serve --port 8000
 paragone --serve --public /votre/vue/public --cors http://localhost:5173
 ```
 
-Le troisième exemple sert la page factice du dépôt ; remplacer `votre/vue/public` par le dossier du front.
+Le troisième exemple sert la page factice du dépôt ; remplacer `/votre/vue/public` par le dossier du front.
 
 Aucun front n'est fourni dans ce repo. Vous pouvez trouver un front d'exemple là : https://github.com/kibatche/paragone-front
 
