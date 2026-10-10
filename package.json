@@ -1,5 +1,5 @@
 {
-  "name": "tools",
+  "name": "paragone",
   "private": true,
   "bin": {
     "paragone": "./paragone.ts"
