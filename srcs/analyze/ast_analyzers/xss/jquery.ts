@@ -43,11 +43,15 @@ const JQUERY_HTML_SETTERS = [
 ];
 
 // $.parseHTML(x) interprète du HTML ; $.globalEval(x) et $.getScript(url) exécutent du code.
-const JQUERY_STATIC_SINKS: Record<string, LeadClass> = {
-  parseHTML: "XSS",
-  globalEval: "CODE_EXEC",
-  getScript: "CODE_EXEC",
-};
+//
+// Une `Map` et non un littéral d'objet : `method` vient du code analysé, et une indexation de
+// littéral traverse `Object.prototype`. `OBJ["constructor"]` rend la fonction `Object`, truthy,
+// qui passerait tout garde `cls ? …` et finirait sérialisée en `null` par `JSON.stringify`.
+const JQUERY_STATIC_SINKS = new Map<string, LeadClass>([
+  ["parseHTML", "XSS"],
+  ["globalEval", "CODE_EXEC"],
+  ["getScript", "CODE_EXEC"],
+]);
 
 // $(…).attr("href", x) : un `javascript:` s'exécute au clic ou au chargement.
 const JQUERY_URL_ATTRIBUTES = ["href", "src"];
@@ -110,7 +114,7 @@ export function getJQuerySink(
 
   //$.parseHTML(x) | jQuery.globalEval(x)
   if (isJQueryIdentifier(node.callee.object)) {
-    const cls = JQUERY_STATIC_SINKS[method];
+    const cls = JQUERY_STATIC_SINKS.get(method);
     return cls ? { cls: cls, argumentIndexes: [0] } : undefined;
   }
 
