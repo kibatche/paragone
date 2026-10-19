@@ -7,6 +7,7 @@
 import { Database, type SQLQueryBindings } from "bun:sqlite";
 import {
   DEDUP_KEY_VERSION,
+  isLeadClass,
   leadKind,
   type Lead,
 } from "../analyze/constants/lead";
@@ -90,6 +91,7 @@ function writeMatch(
  * @brief Insère un lead. Un lead dont la clé de dédup existe déjà pointe `duplicate_of` vers le
  *        premier lead canonique de cette clé.
  * @return 1 si le lead a été inséré, 0 s'il existait déjà à cette place.
+ * @throws Si le lead ne porte pas au moins une `LeadClass` valide.
  */
 function writeLead(
   database: Database,
@@ -98,6 +100,14 @@ function writeLead(
   lead: Lead,
   carrierText: string,
 ): number {
+  // Dernier point où la faute est encore imputable : `JSON.stringify` aplatit `undefined` et les
+  // fonctions en `null` dans un tableau, et plus rien en aval ne peut dire quel analyzer l'a
+  // produite. Arrêt déclaré — un lead sans classe valide est un bug d'analyzer, pas une donnée.
+  if (lead.class.length === 0 || !lead.class.every(isLeadClass))
+    throw new Error(
+      `writeLead: classes invalides pour l'analyzer ${lead.analyzerName} ` +
+        `(${JSON.stringify(lead.class)}) — attendu des LeadClass, non vides`,
+    );
   const key = dedupKey(lead, carrierText);
   const canonical = database
     .query<{ id: number }, SQLQueryBindings[]>(

@@ -126,8 +126,17 @@ export function summary(): Summary {
     if (!totals) throw new Error("aucune ligne de compteurs");
     return {
       totals,
+      // `WHERE c.value IS NOT NULL` protège la réponse des lignes héritées dont `classes` contient
+      // un null : le schéma `breakdown` type `k` en `t.String()`, et un null y fait rejeter
+      // l'agrégat entier en 422. Le garde de `writeLead` empêche d'en écrire de nouvelles, mais
+      // n'est pas rétroactif.
+      //
+      // ATTENTION : ce décompte porte sur des paires (lead, classe), pas sur des leads — un lead à
+      // deux classes compte deux fois, donc la somme dépasse `totals.total`. Ce n'est pas une
+      // répartition du total.
       byClass: readBreakdown(
         `SELECT c.value k, count(*) n FROM leads l, json_each(l.classes) c
+         WHERE c.value IS NOT NULL
          GROUP BY c.value ORDER BY n DESC`,
       ),
       byVerdict: readBreakdown(
