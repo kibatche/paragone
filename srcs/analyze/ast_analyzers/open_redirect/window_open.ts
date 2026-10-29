@@ -12,6 +12,7 @@ import {
   normalizeNode,
 } from "../../taint/taint_report";
 import { processStringConcatenation } from "../cspt/cspt_utils";
+import { navigationImpactClasses } from "./navigation_sink";
 import { SHA256 } from "bun";
 import { randomBytes } from "crypto";
 
@@ -98,7 +99,9 @@ const windowOpenAnalyzerBuilder = (
         ).toString();
         leads.push({
           schemaVersion: LEAD_SCHEMA_VERSION,
-          class: ["OPEN_REDIRECT"],
+          // `window.open` reçoit une URL ENTIÈRE en premier argument : le schéma vient donc de la
+          // valeur, exactement comme pour `location.href`.
+          class: navigationImpactClasses(taint, true),
           hash: hash,
           analyzerName: WINDOW_OPEN_ANALYZER_NAME,
           slot: { kind: "call-argument", index: index },

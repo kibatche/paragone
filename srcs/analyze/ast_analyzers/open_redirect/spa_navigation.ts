@@ -114,6 +114,10 @@ const spaNavigationAnalyzerBuilder = (
     const leads: Lead[] = [];
     leads.push({
       schemaVersion: LEAD_SCHEMA_VERSION,
+      // Pas de `XSS` ici, et c'est un choix : une navigation de routeur SPA ne traverse pas
+      // l'analyse d'URL du navigateur, donc elle n'exécute pas de schéma `javascript:` — le
+      // routeur résout un chemin interne. Voir `navigation_sink.ts` pour les sinks qui, eux,
+      // remplacent l'URL entière. Écarté par mesure de la sémantique, pas par oubli.
       class: ["CSPT", "OPEN_REDIRECT"],
       hash: hash,
       analyzerName: SPA_NAVIGATION_ANALYZER_NAME,

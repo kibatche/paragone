@@ -375,7 +375,8 @@
       {
         "schemaVersion": 2,
         "class": [
-          "OPEN_REDIRECT"
+          "OPEN_REDIRECT",
+          "XSS"
         ],
         "hash": "d43405cfed42c5ba9367a30e909b4081ade43559a195554bf34d6f792879e01e",
         "analyzerName": "location",
@@ -433,7 +434,8 @@
             "pattern": "EXPR#0",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false
@@ -460,7 +462,8 @@
       {
         "schemaVersion": 2,
         "class": [
-          "OPEN_REDIRECT"
+          "OPEN_REDIRECT",
+          "XSS"
         ],
         "hash": "e437eecd826addf92aed62abbaf1bc85f6e9025fedf1969fff0f03c3b03dfc24",
         "analyzerName": "location",
@@ -518,7 +521,8 @@
             "pattern": "EXPR#0",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false
@@ -545,7 +549,8 @@
       {
         "schemaVersion": 2,
         "class": [
-          "OPEN_REDIRECT"
+          "OPEN_REDIRECT",
+          "XSS"
         ],
         "hash": "0a5cdb1380b2d917264a0a431d305e618607436d1bad9bc97806560c7517e289",
         "analyzerName": "location",
@@ -603,7 +608,8 @@
             "pattern": "EXPR#0",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false
@@ -748,7 +754,8 @@
       {
         "schemaVersion": 2,
         "class": [
-          "OPEN_REDIRECT"
+          "OPEN_REDIRECT",
+          "XSS"
         ],
         "hash": "d43405cfed42c5ba9367a30e909b4081ade43559a195554bf34d6f792879e01e",
         "analyzerName": "location",
@@ -806,7 +813,8 @@
             "pattern": "EXPR#0",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false
@@ -833,7 +841,8 @@
       {
         "schemaVersion": 2,
         "class": [
-          "OPEN_REDIRECT"
+          "OPEN_REDIRECT",
+          "XSS"
         ],
         "hash": "e437eecd826addf92aed62abbaf1bc85f6e9025fedf1969fff0f03c3b03dfc24",
         "analyzerName": "location",
@@ -891,7 +900,8 @@
             "pattern": "EXPR#0",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false
@@ -918,7 +928,8 @@
       {
         "schemaVersion": 2,
         "class": [
-          "OPEN_REDIRECT"
+          "OPEN_REDIRECT",
+          "XSS"
         ],
         "hash": "0a5cdb1380b2d917264a0a431d305e618607436d1bad9bc97806560c7517e289",
         "analyzerName": "location",
@@ -976,7 +987,8 @@
             "pattern": "EXPR#0",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false

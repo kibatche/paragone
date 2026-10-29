@@ -105,6 +105,16 @@ export interface TaintSinkHole {
   name: string;
   /** Le trou tombe après le premier `?` de la chaîne : il alimente la query, pas le chemin. */
   inQuery?: boolean;
+  /**
+   * Le trou ouvre la chaîne : aucun littéral ne le précède, donc c'est la valeur interpolée qui
+   * fournit le SCHÉMA de l'URL.
+   *
+   * Même nature de discriminant que `inQuery`, et même raison d'exister côté sink uniquement :
+   * `location.href = v` et `location.href = "https://x/" + v` produisent le même arbre de taint,
+   * alors que seul le premier peut recevoir `javascript:`. Un littéral en tête épingle le schéma
+   * et interdit l'exécution ; un trou en tête ne l'épingle pas.
+   */
+  atStart?: boolean;
 }
 
 /**

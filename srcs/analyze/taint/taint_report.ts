@@ -42,7 +42,8 @@ export type ReconstructibleNode =
   | t.OptionalCallExpression;
 
 /**
- * @brief Numérote les trous d'une chaîne reconstruite et dit lesquels tombent dans la query.
+ * @brief Numérote les trous d'une chaîne reconstruite, et dit lesquels tombent dans la query et
+ *        lequel ouvre la chaîne.
  * @param brut Chaîne rendue par `processStringConcatenation` (trous marqués par le littéral `EXPR`).
  * @return La chaîne à trous numérotés, et la liste des trous.
  *
@@ -59,9 +60,12 @@ function annotateHole(brut: string): {
     const i = brut.indexOf("EXPR", curseur);
     if (i < 0) break;
     const name = `EXPR#${holes.length}`;
-    holes.push(
-      posQuery === -1 ? { name: name } : { name: name, inQuery: i > posQuery },
-    );
+    const hole: TaintSinkHole = { name: name };
+    if (posQuery !== -1) hole.inQuery = i > posQuery;
+    // Position 0 de la chaîne ENTIÈRE, pas du reste à parcourir : seul le premier trou peut
+    // ouvrir la chaîne, et seulement si aucun littéral ne le précède.
+    if (i === 0) hole.atStart = true;
+    holes.push(hole);
     pattern += brut.slice(curseur, i) + name;
     curseur = i + "EXPR".length;
   }

@@ -12,6 +12,7 @@ import {
   normalizeNode,
 } from "../../taint/taint_report";
 import { processStringConcatenation } from "../cspt/cspt_utils";
+import { navigationImpactClasses } from "./navigation_sink";
 import { SHA256 } from "bun";
 import { randomBytes } from "crypto";
 
@@ -29,6 +30,29 @@ const LOCATION_PROPERTIES = [
   "hash",
   "origin",
 ];
+
+/**
+ * Propriétés dont l'assignation remplace l'URL ENTIÈRE, donc exécute le schéma qu'elle porte.
+ *
+ * `href` est la seule de `LOCATION_PROPERTIES` dans ce cas. Les autres ne réécrivent qu'un
+ * composant de l'URL courante — `hash`, `search`, `pathname`, `host`, `hostname`, `port` et
+ * `protocol` ne peuvent pas porter de schéma exécutable, et `origin` est en lecture seule. Les y
+ * inclure ferait de chaque redirection ouverte une fausse XSS.
+ */
+const WHOLE_URL_PROPERTIES = ["href"];
+
+/**
+ * @brief Nom de la propriété assignée, qu'elle soit écrite en identifiant ou en littéral.
+ * @return Le nom, ou `null` si la propriété est calculée dynamiquement (donc indécidable ici).
+ */
+function assignedPropertyName(
+  node: t.MemberExpression | t.OptionalMemberExpression,
+): string | null {
+  if (t.isIdentifier(node.property) && !node.computed)
+    return node.property.name;
+  if (t.isStringLiteral(node.property)) return node.property.value;
+  return null;
+}
 
 export function isLocationAssignment(
   node: t.MemberExpression | t.OptionalMemberExpression,
@@ -89,7 +113,10 @@ const locationAnalyzerBuilder = (
       const leads: Lead[] = [];
       leads.push({
         schemaVersion: LEAD_SCHEMA_VERSION,
-        class: ["OPEN_REDIRECT"],
+        class: navigationImpactClasses(
+          taint,
+          WHOLE_URL_PROPERTIES.includes(assignedPropertyName(left) ?? ""),
+        ),
         hash: hash,
         analyzerName: LOCATION_ANALYZER_NAME,
         slot: { kind: "assignment-expression-right" },

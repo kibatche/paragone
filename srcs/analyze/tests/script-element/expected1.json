@@ -75,7 +75,8 @@
             "pattern": "EXPR#0",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false
@@ -165,7 +166,8 @@
             "pattern": "EXPR#0",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false
@@ -260,7 +262,8 @@
             "pattern": "EXPR#0/sdk.js",
             "holes": [
               {
-                "name": "EXPR#0"
+                "name": "EXPR#0",
+                "atStart": true
               }
             ],
             "holesMapped": false
